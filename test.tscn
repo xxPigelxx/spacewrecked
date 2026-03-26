@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://dc2jfbebvxgkh"]
+
+[ext_resource type="Script" uid="uid://degjmuyp0snhj" path="res://resources/pages/ManualPage.gd" id="1_6uqi0"]
+[ext_resource type="Script" uid="uid://cl4bpbly715ts" path="res://script/PageConfig.gd" id="2_ppyta"]
+[ext_resource type="Resource" uid="uid://blcex6ara4cs0" path="res://resources/pages/page_oxygen_valve.tres" id="3_ykrsh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kpije"]
+bg_color = Color(0.101960786, 0.07058824, 0.03137255, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_kpije"]
+color = Color(0.9490196, 0.91764706, 0.84705883, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qht1w"]
+bg_color = Color(0.9490196, 0.91764706, 0.84705883, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kpije"]
+
+[node name="Test" type="Node2D" unique_id=718658350]
+
+[node name="ManualRoot" type="Control" parent="." unique_id=793222256 node_paths=PackedStringArray("toc_list", "section_label", "page_num_label", "page_title_label", "body_label", "warning_box", "warning_label", "step_list", "prev_button", "next_button", "close_button")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1575.0
+offset_top = 553.0
+offset_right = 1575.0
+offset_bottom = 553.0
+script = ExtResource("1_6uqi0")
+toc_list = NodePath("BookContainer/Cover/MarginContainer/VBoxContainer/TOCList")
+section_label = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/PageHeader/SectionLabel")
+page_num_label = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/PageHeader/PageNumlabel")
+page_title_label = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/PageTitle")
+body_label = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/BodyLabel")
+warning_box = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/WarningBox")
+warning_label = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/WarningBox/WarningLabel")
+step_list = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/StepList")
+prev_button = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/Footer/PrevButton")
+next_button = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/Footer/NextButton")
+close_button = NodePath("CloseButton")
+pages = Array[ExtResource("2_ppyta")]([ExtResource("3_ykrsh")])
+
+[node name="BookContainer" type="HBoxContainer" parent="ManualRoot" unique_id=1333540443]
+custom_minimum_size = Vector2(600, 780)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Cover" type="PanelContainer" parent="ManualRoot/BookContainer" unique_id=1074147172]
+custom_minimum_size = Vector2(180, 780)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kpije")
+
+[node name="MarginContainer" type="MarginContainer" parent="ManualRoot/BookContainer/Cover" unique_id=1484187289]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ManualRoot/BookContainer/Cover/MarginContainer" unique_id=1762036069]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ManualRoot/BookContainer/Cover/MarginContainer/VBoxContainer" unique_id=1335461932]
+layout_mode = 2
+
+[node name="CoverTitle" type="Label" parent="ManualRoot/BookContainer/Cover/MarginContainer/VBoxContainer/VBoxContainer" unique_id=293977269]
+layout_mode = 2
+text = "Title"
+
+[node name="CoverSubtitle" type="Label" parent="ManualRoot/BookContainer/Cover/MarginContainer/VBoxContainer/VBoxContainer" unique_id=944131240]
+layout_mode = 2
+text = "CoverSub"
+
+[node name="HSeparator" type="HSeparator" parent="ManualRoot/BookContainer/Cover/MarginContainer/VBoxContainer" unique_id=1178886624]
+layout_mode = 2
+theme_override_constants/separation = 88
+theme_override_styles/separator = SubResource("StyleBoxLine_kpije")
+
+[node name="TOCLabel" type="Label" parent="ManualRoot/BookContainer/Cover/MarginContainer/VBoxContainer" unique_id=607176206]
+layout_mode = 2
+text = "Table of contents"
+
+[node name="TOCList" type="VBoxContainer" parent="ManualRoot/BookContainer/Cover/MarginContainer/VBoxContainer" unique_id=541939843]
+layout_mode = 2
+
+[node name="PagePanel" type="PanelContainer" parent="ManualRoot/BookContainer" unique_id=819310896]
+custom_minimum_size = Vector2(420, 780)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qht1w")
+
+[node name="MarginContainer" type="MarginContainer" parent="ManualRoot/BookContainer/PagePanel" unique_id=1468054785]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ManualRoot/BookContainer/PagePanel/MarginContainer" unique_id=174719495]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="PageHeader" type="HBoxContainer" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer" unique_id=2111461209]
+layout_mode = 2
+alignment = 1
+
+[node name="SectionLabel" type="Label" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer/PageHeader" unique_id=2073114939]
+layout_mode = 2
+text = "Section Label"
+
+[node name="PageNumlabel" type="Label" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer/PageHeader" unique_id=1256020914]
+layout_mode = 2
+text = "page Number"
+
+[node name="PageTitle" type="Label" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer" unique_id=406850211]
+layout_mode = 2
+text = "Page Title"
+
+[node name="BodyLabel" type="RichTextLabel" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer" unique_id=1827975158]
+layout_mode = 2
+bbcode_enabled = true
+text = "jbhakdfhjkalshfkljahsdfjklhasdlkjhfaskljdhfljkashfkljahsdfkljhasdkjlfhklasdhfklajsdhjkf"
+fit_content = true
+
+[node name="WarningBox" type="PanelContainer" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer" unique_id=1815711616]
+layout_mode = 2
+
+[node name="WarningLabel" type="RichTextLabel" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer/WarningBox" unique_id=1008798124]
+layout_mode = 2
+bbcode_enabled = true
+text = "adsfajnsdklfhdasklfnaslidhnfklj.asdnflöiunaslöfnaslöinfil"
+
+[node name="StepList" type="VBoxContainer" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer" unique_id=731330225]
+layout_mode = 2
+
+[node name="Footer" type="HBoxContainer" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer" unique_id=121057824]
+layout_mode = 2
+alignment = 1
+
+[node name="PrevButton" type="Button" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer/Footer" unique_id=1144726347]
+layout_mode = 2
+text = "Prev"
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer/Footer" unique_id=1200661762]
+layout_mode = 2
+theme_override_constants/separation = 250
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kpije")
+
+[node name="NextButton" type="Button" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer/Footer" unique_id=1463871726]
+layout_mode = 2
+text = "Next"
+
+[node name="CloseButton" type="Button" parent="ManualRoot" unique_id=1298555417]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 345.0
+offset_right = 298.0
+offset_bottom = 385.0
+text = "Close"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2020148230]
+position = Vector2(957, 543)

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="PageConfig" format=3 uid="uid://du4xm3lw5p7st"]
+
+[ext_resource type="Script" uid="uid://cl4bpbly715ts" path="res://script/PageConfig.gd" id="1_ybqwf"]
+
+[resource]
+script = ExtResource("1_ybqwf")
+page_id = "engin"
+section_label = "4.1"
+page_number = 2
+page_title = "Engin"
+raw_text = "Locate the red valve marked OXYGEN-A...~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+~+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+warning_text = "a,msfn,asm.nf,m.asnf,.mnasd,dm.fn your aure duem~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+~+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+enable_letter_swap = true
+enable_word_drift = true
+drift_amplitude = 20.0
+drift_frequency = 3.0
+metadata/_custom_type_script = "uid://cl4bpbly715ts"
