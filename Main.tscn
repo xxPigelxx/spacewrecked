@@ -4,6 +4,13 @@
 
 [node name="Test" type="Node2D" unique_id=718658350]
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1130609188]
+offset_left = -261.0
+offset_top = -156.0
+offset_right = 2171.0
+offset_bottom = 1270.0
+color = Color(0.13333334, 0.23921569, 0.3019608, 1)
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2020148230]
 position = Vector2(957, 543)
 

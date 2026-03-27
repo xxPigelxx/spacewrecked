@@ -79,7 +79,7 @@ bg_color = Color(0.6313726, 0.75686276, 0.5058824, 1)
 border_width_left = 4
 border_width_top = 4
 border_width_bottom = 4
-border_color = Color(0.9882353, 0.7921569, 0.27450982, 1)
+border_color = Color(0.4366366, 0.575094, 0.6234902, 1)
 corner_radius_top_left = 20
 corner_radius_bottom_left = 20
 
@@ -97,7 +97,7 @@ bg_color = Color(0.47578812, 0.63623893, 0.45301944, 1)
 border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
-border_color = Color(0.9882353, 0.7921569, 0.27450982, 1)
+border_color = Color(0.43529412, 0.5764706, 0.62352943, 1)
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 
