@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dc2jfbebvxgkh"]
 
 [ext_resource type="PackedScene" uid="uid://cnbh3ya334cou" path="res://Manual.tscn" id="1_37kl0"]
+[ext_resource type="PackedScene" uid="uid://c1winj24qyyfi" path="res://ShipPanle.tscn" id="2_uu6xs"]
 
 [node name="Test" type="Node2D" unique_id=718658350]
 
@@ -15,3 +16,9 @@ color = Color(0.13333334, 0.23921569, 0.3019608, 1)
 position = Vector2(957, 543)
 
 [node name="Manual" parent="." unique_id=633991194 instance=ExtResource("1_37kl0")]
+
+[node name="ShipPanel" parent="." unique_id=673790152 instance=ExtResource("2_uu6xs")]
+offset_left = 73.0
+offset_top = 88.0
+offset_right = 73.0
+offset_bottom = 88.0

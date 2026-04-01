@@ -5,17 +5,13 @@
 [resource]
 script = ExtResource("1_ybqwf")
 page_id = "engin"
-section_label = "4.1"
+section_label = "2.1"
 page_number = 2
 page_title = "Engin"
-raw_text = "Locate the red valve marked OXYGEN-A...~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-~+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-warning_text = "a,msfn,asm.nf,m.asnf,.mnasd,dm.fn your aure duem~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-~+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-enable_letter_swap = true
+raw_text = "Auf dieser Seite werden die Platzhalter‑Beschreibungen für die Brücken‑Systeme und die Startvorbereitung angezeigt. In der endgültigen Version erscheinen hier detaillierte Schritt‑folgen für die Systemchecks, die Triebwerksaktivierung, die Sicherheitsfreigaben und die Kommunikation mit der Bodenkontrolle. Der aktuelle Text dient nur als Layout‑Referenz und wird später durch die echten Prozeduren des Raumschiffs ersetzt."
+steps = Array[String](["Schalten Sie zuerst das Hauptstromsystem der Brücke ein und warten Sie auf das Sequenz‑Signal.", "Überprüfen Sie die Anzeigen der Lebenserhaltung und der Triebwerke auf Fehlercodes.", "Bestätigen Sie die Freigabe der Startsequenz über die Sicherheitskonsole.", "Starten Sie die Triebwerke in der vorgegebenen Reihenfolge und überwachen Sie die Beschleunigungswerte.", "Berichten Sie nach Erreichen des stabilen Flugzustands den Status an die Bodenkontrolle."])
 enable_word_drift = true
 drift_amplitude = 20.0
 drift_frequency = 3.0
+enable_river_spacing = true
 metadata/_custom_type_script = "uid://cl4bpbly715ts"

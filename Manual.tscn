@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cl4bpbly715ts" path="res://script/PageConfig.gd" id="2_qht1w"]
 [ext_resource type="Resource" uid="uid://blcex6ara4cs0" path="res://resources/pages/page_oxygen_valve.tres" id="3_w4qjf"]
 [ext_resource type="Resource" uid="uid://du4xm3lw5p7st" path="res://resources/pages/page_engin.tres" id="4_qht1w"]
+[ext_resource type="Resource" uid="uid://bm6lmwa02wp8j" path="res://resources/pages/page_einleitung.tres" id="4_y34m4"]
 [ext_resource type="FontFile" uid="uid://dld0grsdcans2" path="res://resources/fonts/Share_Tech/ShareTech-Regular.ttf" id="6_y34m4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ho87o"]
@@ -125,7 +126,7 @@ warning_label = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/
 step_list = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/StepList")
 prev_button = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/Footer/PrevButton")
 next_button = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/Footer/NextButton")
-pages = Array[ExtResource("2_qht1w")]([ExtResource("3_w4qjf"), ExtResource("4_qht1w")])
+pages = Array[ExtResource("2_qht1w")]([ExtResource("4_y34m4"), ExtResource("3_w4qjf"), ExtResource("4_qht1w")])
 
 [node name="BookContainer" type="HBoxContainer" parent="ManualRoot" unique_id=1377107930]
 custom_minimum_size = Vector2(600, 780)
@@ -237,6 +238,7 @@ text = "adsfajnsdklfhdasklfnaslidhnfklj.asdnflöiunaslöfnaslöinfil"
 
 [node name="StepList" type="VBoxContainer" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer" unique_id=617853603]
 layout_mode = 2
+theme_override_constants/separation = 8
 
 [node name="Spacer" type="Control" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer" unique_id=1502945085]
 layout_mode = 2

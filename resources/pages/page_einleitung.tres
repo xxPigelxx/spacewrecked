@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PageConfig" format=3 uid="uid://bm6lmwa02wp8j"]
+
+[ext_resource type="Script" uid="uid://cl4bpbly715ts" path="res://script/PageConfig.gd" id="1_jiwh6"]
+
+[resource]
+script = ExtResource("1_jiwh6")
+page_id = "Einleitung"
+section_label = "1.1"
+page_title = "Wilkommen an Board"
+raw_text = "Dies ist das integrierte Bordhandbuch des Raumschiffs. In diesem Manual finden Sie alle grundlegenden Informationen zur Bedienung, zu den wichtigsten Systemen und zu den Sicherheitsvorschriften während des Flugs. Der aktuelle Text dient lediglich als Platzhalter bis zur endgültigen Fertigstellung aller Anweisungen und technischen Beschreibungen. Bitte beachten Sie, dass dieser Inhalt vorläufig ist und die finalen Versionen der Handbuchseiten später die offiziellen Bedienungs‑ und Sicherheitsanweisungen enthalten werden"
+steps = Array[String](["Öffnen Sie das Bord‑Handbuch über das Hauptmenü unter „System“ → „Manual“.\",    \"Wählen Sie im Inhaltsverzeichnis den gewünschten Abschnitt aus (z.B. Navigation, Schilde, Triebwerke", "Lesen Sie die jeweilige Seite sorgfältig, bevor Sie das entsprechende System aktivieren.", "Halten Sie das Handbuch während des ersten Flugs geöffnet, um die Bedienungsschritte einzuprägen.", "Melden Sie Fehler oder unklare Anweisungen über das interne Log‑Subsystem an die Bodenstation."])
+enable_letter_swap = true
+enable_word_drift = true
+drift_amplitude = 20.0
+drift_frequency = 3.0
+metadata/_custom_type_script = "uid://cl4bpbly715ts"
