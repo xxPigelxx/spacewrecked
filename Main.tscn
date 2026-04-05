@@ -2,23 +2,80 @@
 
 [ext_resource type="PackedScene" uid="uid://cnbh3ya334cou" path="res://Manual.tscn" id="1_37kl0"]
 [ext_resource type="PackedScene" uid="uid://c1winj24qyyfi" path="res://ShipPanle.tscn" id="2_uu6xs"]
+[ext_resource type="Script" uid="uid://77osfixanqog" path="res://camera_controller.gd" id="3_cm0pq"]
+[ext_resource type="Texture2D" uid="uid://ccqem7hyt54x4" path="res://resources/arrow.png" id="4_cm0pq"]
 
 [node name="Test" type="Node2D" unique_id=718658350]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1130609188]
-offset_left = -261.0
-offset_top = -156.0
-offset_right = 2171.0
-offset_bottom = 1270.0
+[node name="MidBG" type="ColorRect" parent="." unique_id=1130609188]
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
 color = Color(0.13333334, 0.23921569, 0.3019608, 1)
 
+[node name="ShipPanel" parent="MidBG" unique_id=673790152 instance=ExtResource("2_uu6xs")]
+layout_mode = 1
+offset_left = 66.0
+offset_top = 192.0
+offset_right = 66.0
+offset_bottom = 192.0
+
+[node name="TopBG2" type="ColorRect" parent="." unique_id=97781619]
+offset_top = -1080.0
+offset_right = 1920.0
+mouse_filter = 2
+color = Color(0.21938166, 0.36828816, 0.45681942, 1)
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2020148230]
-position = Vector2(957, 543)
+anchor_mode = 0
+script = ExtResource("3_cm0pq")
+min_grid = Vector2i(-1, -1)
+max_grid = Vector2i(1, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D" unique_id=1760529943]
+visible = false
+offset_left = 935.0
+offset_top = 511.0
+offset_right = 975.0
+offset_bottom = 551.0
+color = Color(0.83, 0, 0.013833122, 1)
 
 [node name="Manual" parent="." unique_id=633991194 instance=ExtResource("1_37kl0")]
 
-[node name="ShipPanel" parent="." unique_id=673790152 instance=ExtResource("2_uu6xs")]
-offset_left = 73.0
-offset_top = 88.0
-offset_right = 73.0
-offset_bottom = 88.0
+[node name="Butons" type="CanvasLayer" parent="." unique_id=295219553]
+
+[node name="ButtonUp" type="Button" parent="Butons" unique_id=383678590]
+offset_left = 875.0
+offset_top = 21.0
+offset_right = 947.0
+offset_bottom = 93.0
+icon = ExtResource("4_cm0pq")
+
+[node name="ButtonDown" type="Button" parent="Butons" unique_id=565679399]
+offset_left = 925.0
+offset_top = 1043.0
+offset_right = 997.0
+offset_bottom = 1115.0
+rotation = 3.1415927
+icon = ExtResource("4_cm0pq")
+
+[node name="ButtonLeft" type="Button" parent="Butons" unique_id=1196184081]
+offset_left = 44.0
+offset_top = 1042.0
+offset_right = 116.0
+offset_bottom = 1114.0
+rotation = -1.5707964
+icon = ExtResource("4_cm0pq")
+
+[node name="ButtonRight" type="Button" parent="Butons" unique_id=366733002]
+offset_left = 1867.0
+offset_top = 964.0
+offset_right = 1939.0
+offset_bottom = 1036.0
+rotation = 1.5707964
+icon = ExtResource("4_cm0pq")
+
+[connection signal="pressed" from="Butons/ButtonUp" to="Camera2D" method="_on_button_up_pressed"]
+[connection signal="pressed" from="Butons/ButtonDown" to="Camera2D" method="_on_button_down_pressed"]
+[connection signal="pressed" from="Butons/ButtonLeft" to="Camera2D" method="_on_button_left_pressed"]
+[connection signal="pressed" from="Butons/ButtonRight" to="Camera2D" method="_on_button_right_pressed"]
