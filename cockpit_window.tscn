@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dhaqf5a5qa6di"]
+
+[ext_resource type="Texture2D" uid="uid://c3m4shgscfx57" path="res://resources/assets/SpaceBG.png" id="1_7awn4"]
+[ext_resource type="Script" uid="uid://cviafvvy1o67k" path="res://space_bg.gd" id="2_4hdqt"]
+[ext_resource type="Texture2D" uid="uid://1bdh5pwth0ou" path="res://resources/assets/Window.png" id="2_mlrii"]
+
+[node name="CockpitWindow" type="Control" unique_id=744643247]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="SpaceBg" type="Sprite2D" parent="." unique_id=256856467]
+z_index = -1
+z_as_relative = false
+texture = ExtResource("1_7awn4")
+script = ExtResource("2_4hdqt")
+
+[node name="Window" type="Sprite2D" parent="." unique_id=556358358]
+position = Vector2(960, 540)
+texture = ExtResource("2_mlrii")
+
+[node name="Vertical" type="VSlider" parent="." unique_id=778077290]
+layout_mode = 0
+offset_left = 845.0
+offset_top = 703.0
+offset_right = 885.0
+offset_bottom = 994.0
+
+[node name="Horisontal" type="VSlider" parent="." unique_id=744688463]
+layout_mode = 0
+offset_left = 1032.0
+offset_top = 703.0
+offset_right = 1072.0
+offset_bottom = 994.0
+
+[connection signal="value_changed" from="Vertical" to="SpaceBg" method="_on_vertical_value_changed"]
+[connection signal="value_changed" from="Horisontal" to="SpaceBg" method="_on_horisontal_value_changed"]
