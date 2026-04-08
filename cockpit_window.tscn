@@ -11,6 +11,7 @@ anchors_preset = 0
 [node name="SpaceBg" type="Sprite2D" parent="." unique_id=256856467]
 z_index = -1
 z_as_relative = false
+position = Vector2(960, 540)
 texture = ExtResource("1_7awn4")
 script = ExtResource("2_4hdqt")
 
