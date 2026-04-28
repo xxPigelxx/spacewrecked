@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cjhnngk775e2x"]
+
+[ext_resource type="Script" uid="uid://dxw0ep3581t65" path="res://resources/assets/cable.gd" id="1_cwk4e"]
+[ext_resource type="Script" uid="uid://coog0n5idgggy" path="res://resources/assets/plug.gd" id="1_nvds5"]
+[ext_resource type="Texture2D" uid="uid://b2ium7axqpvce" path="res://resources/assets/cable_segment_simple.png" id="2_0xqxy"]
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/procreate_atlas.png" id="3_0xqxy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twshv"]
+size = Vector2(253, 139)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01rfx"]
+size = Vector2(253, 139)
+
+[node name="Cable" type="Node2D" unique_id=1824421684]
+script = ExtResource("1_cwk4e")
+
+[node name="Line" type="Line2D" parent="." unique_id=57579387]
+width = 25.0
+texture = ExtResource("2_0xqxy")
+texture_mode = 1
+joint_mode = 2
+antialiased = true
+
+[node name="PlugAArea" type="Area2D" parent="." unique_id=1564130240]
+position = Vector2(483, 565)
+scale = Vector2(0.35, 0.35)
+script = ExtResource("1_nvds5")
+offset = 25
+
+[node name="PlugACollision" type="CollisionShape2D" parent="PlugAArea" unique_id=1745025757]
+position = Vector2(1.5, -0.5)
+shape = SubResource("RectangleShape2D_twshv")
+
+[node name="CablePoint" type="Marker2D" parent="PlugAArea" unique_id=1069092702]
+position = Vector2(76, 0)
+
+[node name="PlugA" type="Sprite2D" parent="PlugAArea" unique_id=1174296504]
+scale = Vector2(0.99999976, 0.99999976)
+texture = ExtResource("3_0xqxy")
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 256)
+
+[node name="PlugBArea" type="Area2D" parent="." unique_id=618858780]
+position = Vector2(1741, 754)
+scale = Vector2(0.35, 0.35)
+script = ExtResource("1_nvds5")
+offset = -25
+
+[node name="PlugBCollision" type="CollisionShape2D" parent="PlugBArea" unique_id=1911811994]
+shape = SubResource("RectangleShape2D_01rfx")
+
+[node name="CablePoint" type="Marker2D" parent="PlugBArea" unique_id=1784460107]
+position = Vector2(-86, 6)
+
+[node name="PlugB" type="Sprite2D" parent="PlugBArea" unique_id=1963702947]
+rotation = -3.1415925
+scale = Vector2(0.99999976, 0.99999976)
+texture = ExtResource("3_0xqxy")
+region_enabled = true
+region_rect = Rect2(7, 47, 231, 168)
