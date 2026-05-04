@@ -6,11 +6,12 @@
 [node name="Node2D" type="Node2D" unique_id=2025997112]
 
 [node name="Socket" parent="." unique_id=1106657845 instance=ExtResource("2_6uqi0")]
-position = Vector2(488, 416)
-socket_color = Color(0.62755454, 0.7443294, 0.59296316, 1)
+position = Vector2(245, 651)
+pair_id = "1"
 
-[node name="Socket2" parent="." unique_id=1184038556 instance=ExtResource("2_6uqi0")]
-position = Vector2(1710, 421)
-socket_color = Color(0.62755454, 0.7443294, 0.59296316, 1)
+[node name="Socket2" parent="." unique_id=1339555870 instance=ExtResource("2_6uqi0")]
+position = Vector2(1034, 661)
+pair_id = "1"
+side = 1
 
 [node name="Cable" parent="." unique_id=1824421684 instance=ExtResource("1_8uh7m")]

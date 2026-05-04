@@ -8,6 +8,10 @@
 
 [node name="Test" type="Node2D" unique_id=718658350]
 
+[node name="CockpitWindow" parent="." unique_id=744643247 instance=ExtResource("2_fos0i")]
+offset_top = -1080.0
+offset_bottom = -1080.0
+
 [node name="MidBG" type="ColorRect" parent="." unique_id=1130609188]
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -20,10 +24,6 @@ offset_left = 66.0
 offset_top = 192.0
 offset_right = 66.0
 offset_bottom = 192.0
-
-[node name="CockpitWindow" parent="." unique_id=744643247 instance=ExtResource("2_fos0i")]
-offset_top = -1080.0
-offset_bottom = -1080.0
 
 [node name="TopBG2" type="ColorRect" parent="." unique_id=97781619]
 visible = false
