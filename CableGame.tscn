@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://mx67lrqv2oom"]
+
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/procreate_atlas.png" id="1_hesem"]
+[ext_resource type="Script" uid="uid://dfvo5edp67xki" path="res://cablegame_manager.gd" id="1_tkd5u"]
+[ext_resource type="PackedScene" uid="uid://dlocelh4wsyel" path="res://resources/assets/socket.tscn" id="2_hesem"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tkd5u"]
+load_path = "res://.godot/imported/procreate_atlas.png-da84be31f39250f8df4ef08b4b01d03c.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hesem"]
+texture = SubResource("CompressedTexture2D_tkd5u")
+texture_margin_left = 8.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 17.0
+region_rect = Rect2(1537, 0, 249, 254)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t1tc3"]
+load_path = "res://.godot/imported/procreate_atlas.png-da84be31f39250f8df4ef08b4b01d03c.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qixr4"]
+texture = SubResource("CompressedTexture2D_t1tc3")
+texture_margin_left = 8.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 17.0
+region_rect = Rect2(1537, 0, 249, 254)
+modulate_color = Color(0.41215247, 0.41215247, 0.41215247, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nk8hp"]
+load_path = "res://.godot/imported/procreate_atlas.png-da84be31f39250f8df4ef08b4b01d03c.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jctcw"]
+texture = SubResource("CompressedTexture2D_nk8hp")
+texture_margin_left = 8.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 17.0
+region_rect = Rect2(1537, 0, 249, 254)
+modulate_color = Color(0.6872149, 0.68721503, 0.6872149, 1)
+
+[node name="CableGame" type="Node2D" unique_id=2025997112]
+
+[node name="CablegameManager" type="Node" parent="." unique_id=834513126]
+script = ExtResource("1_tkd5u")
+
+[node name="CableSpawnMarker" type="Marker2D" parent="CablegameManager" unique_id=6755401]
+position = Vector2(639, 931)
+
+[node name="Center" type="Sprite2D" parent="." unique_id=828050603]
+position = Vector2(960, 540)
+scale = Vector2(4.817813, 3.683284)
+texture = ExtResource("1_hesem")
+region_enabled = true
+region_rect = Rect2(1535, 0, 256, 255)
+
+[node name="Button" type="Button" parent="." unique_id=1087436518]
+offset_left = 850.0
+offset_top = 999.0
+offset_right = 1053.0
+offset_bottom = 1067.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_hesem")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qixr4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_jctcw")
+text = "Spawn Cable"
+
+[node name="Socket" parent="." unique_id=1106657845 instance=ExtResource("2_hesem")]
+position = Vector2(518, 849)
+socket_color = Color(0.8402113, 0.39410615, 0.70073926, 1)
+pair_id = "1"
+
+[node name="Socket2" parent="." unique_id=1339555870 instance=ExtResource("2_hesem")]
+position = Vector2(1385, 596)
+side = 1
+socket_color = Color(0.38039216, 0.74509805, 0.25882354, 1)
+pair_id = "5"
+
+[node name="Socket3" parent="." unique_id=2120209152 instance=ExtResource("2_hesem")]
+position = Vector2(528, 721)
+pair_id = "3"
+
+[node name="Socket4" parent="." unique_id=1663060115 instance=ExtResource("2_hesem")]
+position = Vector2(1369, 837)
+side = 1
+socket_color = Color(0.42251098, 0.6236289, 0.6670792, 1)
+pair_id = "2"
+
+[node name="Socket5" parent="." unique_id=2083023251 instance=ExtResource("2_hesem")]
+position = Vector2(1375, 405)
+side = 1
+socket_color = Color(0.8392157, 0.39215687, 0.7019608, 1)
+pair_id = "1"
+
+[node name="Socket6" parent="." unique_id=89349907 instance=ExtResource("2_hesem")]
+position = Vector2(1374, 210)
+side = 1
+pair_id = "4"
+
+[node name="Socket7" parent="." unique_id=507004883 instance=ExtResource("2_hesem")]
+position = Vector2(1380, 716)
+side = 1
+socket_color = Color(0.93422735, 0.920681, 0.6533266, 1)
+pair_id = "3"
+
+[node name="Socket8" parent="." unique_id=410540247 instance=ExtResource("2_hesem")]
+position = Vector2(527, 576)
+socket_color = Color(0.4572891, 0.9255045, 0.9418861, 1)
+pair_id = "4"
+
+[node name="Socket9" parent="." unique_id=1221650162 instance=ExtResource("2_hesem")]
+position = Vector2(528, 395)
+socket_color = Color(0.42352942, 0.62352943, 0.6666667, 1)
+pair_id = "2"
+
+[node name="Socket10" parent="." unique_id=42840864 instance=ExtResource("2_hesem")]
+position = Vector2(515, 262)
+socket_color = Color(0.37857687, 0.74423397, 0.257256, 1)
+pair_id = "5"
+
+[connection signal="pressed" from="Button" to="CablegameManager" method="_on_button_pressed"]

@@ -1,98 +1,48 @@
 extends Node2D
 
-@export var cable_color: Color
-@export var collision_width := 24.0
+@onready var plug_a: CharacterBody2D = $PlugA
+@onready var plug_b: CharacterBody2D = $PlugB
+@onready var plug_a_point: Marker2D = $PlugA/CablePoint
+@onready var plug_b_point: Marker2D = $PlugB/CablePoint
+@onready var cable: Line2D = $Line
 
-@onready var plug_a: Area2D = $PlugAArea
-@onready var plug_b: Area2D = $PlugBArea
-@onready var plug_a_point: Marker2D = $PlugAArea/CablePoint
-@onready var plug_b_point: Marker2D = $PlugBArea/CablePoint
-@onready var cable: Area2D = $Cable
-@onready var line: Line2D = $Cable/Line
-@onready var line_collision: CollisionPolygon2D = $Cable/LineCollision
+var conected_sockets := []
 
-var dragging_cable := false
-var drag_offset := Vector2.ZERO
-
-func _ready():
-	plug_a.cable = self
-	plug_b.cable = self
-	plug_a.connected.connect(_on_plug_connected)
-	plug_b.connected.connect(_on_plug_connected)
-	cable.input_event.connect(_on_grab_area_input_event)
-
-	line.default_color = cable_color
-	line.width = 10.0
-
-	await get_tree().process_frame
+func _ready() -> void:
 	update_cable()
 
-func _process(_delta):
-	if dragging_cable:
-		global_position = get_global_mouse_position() + drag_offset
-		update_cable()
-
+func _process(_delta: float) -> void:
 	if plug_a.dragging or plug_b.dragging:
 		update_cable()
-
-func update_cable():
+	
+func update_cable() -> void:
 	var start = cable.to_local(plug_a_point.global_position)
 	var end = cable.to_local(plug_b_point.global_position)
+	cable.points = PackedVector2Array([start, end])
 
-	var points: Array[Vector2] = []
-	var segment_count := 20
+func _check_conected_sockets() -> bool:
+	for socket in conected_sockets:
+		socket.aktive = false
+		
+	if conected_sockets.size() != 2:
+		return false
 
-	for i in range(segment_count + 1):
-		var t = i / float(segment_count)
-		var pos = start.lerp(end, t)
-		var sag = sin(t * PI) * start.distance_to(end) * 0.1
-		pos.y += sag
-		points.append(pos)
+	var a = conected_sockets[0]
+	var b = conected_sockets[1]
 
-	line.points = PackedVector2Array(points)
-	_update_collision_polygon(points)
+	if a.pair_id == b.pair_id:
+		a.aktive = true
+		b.aktive = true
+		return true
 
-func _update_collision_polygon(points: Array[Vector2]) -> void:
-	if points.size() < 2:
-		return
+	return false
 
-	var left_side: Array[Vector2] = []
-	var right_side: Array[Vector2] = []
-	var half_width := collision_width * 0.5
+func add_socket(socket):
+	if socket not in conected_sockets:
+		conected_sockets.append(socket)
+	_check_conected_sockets()
 
-	for i in range(points.size()):
-		var dir: Vector2
-
-		if i == 0:
-			dir = (points[i + 1] - points[i]).normalized()
-		elif i == points.size() - 1:
-			dir = (points[i] - points[i - 1]).normalized()
-		else:
-			dir = (points[i + 1] - points[i - 1]).normalized()
-
-		var normal = Vector2(-dir.y, dir.x)
-		left_side.append(points[i] + normal * half_width)
-		right_side.append(points[i] - normal * half_width)
-
-	right_side.reverse()
-
-	var polygon_points: Array[Vector2] = []
-	polygon_points.append_array(left_side)
-	polygon_points.append_array(right_side)
-
-	line_collision.polygon = PackedVector2Array(polygon_points)
-
-func _input(event):
-	if dragging_cable and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
-		dragging_cable = false
-
-func _on_grab_area_input_event(_viewport, event, _shape_idx):
-	if plug_a.dragging or plug_b.dragging:
-		return
-
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		dragging_cable = true
-		drag_offset = global_position - get_global_mouse_position()
-
-func _on_plug_connected(_socket):
-	update_cable()
+func remove_socket(socket):
+	socket.aktive = false
+	conected_sockets.erase(socket)
+	_check_conected_sockets()

@@ -8,61 +8,75 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twshv"]
 size = Vector2(253, 139)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0xqxy"]
+radius = 128.85681
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01rfx"]
-size = Vector2(253, 139)
+size = Vector2(228.57138, 168.57153)
 
 [node name="Cable" type="Node2D" unique_id=1824421684]
 position = Vector2(693, 401)
 script = ExtResource("1_cwk4e")
 
-[node name="Cable" type="Area2D" parent="." unique_id=208848762]
-
-[node name="Line" type="Line2D" parent="Cable" unique_id=57579387]
+[node name="Line" type="Line2D" parent="." unique_id=57579387]
 width = 25.0
 texture = ExtResource("2_0xqxy")
 texture_mode = 1
 joint_mode = 2
 antialiased = true
 
-[node name="LineCollision" type="CollisionPolygon2D" parent="Cable" unique_id=2060628376]
-
-[node name="PlugAArea" type="Area2D" parent="." unique_id=1564130240]
+[node name="PlugA" type="CharacterBody2D" parent="." unique_id=15604452]
 position = Vector2(-93.99999, 0)
 scale = Vector2(0.35, 0.35)
+motion_mode = 1
 script = ExtResource("1_nvds5")
+offset = 30.0
 
-[node name="PlugACollision" type="CollisionShape2D" parent="PlugAArea" unique_id=1745025757]
+[node name="PlugACollision" type="CollisionShape2D" parent="PlugA" unique_id=1745025757]
 position = Vector2(1.5, -0.5)
 shape = SubResource("RectangleShape2D_twshv")
 
-[node name="CablePoint" type="Marker2D" parent="PlugAArea" unique_id=1069092702]
+[node name="Area2D" type="Area2D" parent="PlugA" unique_id=45801854]
+scale = Vector2(0.99999976, 0.99999976)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlugA/Area2D" unique_id=45946707]
+shape = SubResource("CircleShape2D_0xqxy")
+
+[node name="CablePoint" type="Marker2D" parent="PlugA" unique_id=1069092702]
 position = Vector2(76, 0)
 
-[node name="PlugA" type="Sprite2D" parent="PlugAArea" unique_id=1174296504]
+[node name="PlugA" type="Sprite2D" parent="PlugA" unique_id=1174296504]
 scale = Vector2(0.99999976, 0.99999976)
 texture = ExtResource("3_0xqxy")
 region_enabled = true
 region_rect = Rect2(7, 47, 231, 168)
 
-[node name="PlugBArea" type="Area2D" parent="." unique_id=618858780]
+[node name="PlugB" type="CharacterBody2D" parent="." unique_id=311759082]
 position = Vector2(102.99999, 0)
 scale = Vector2(0.35, 0.35)
 script = ExtResource("1_nvds5")
+offset = -30.0
 
-[node name="PlugBCollision" type="CollisionShape2D" parent="PlugBArea" unique_id=1911811994]
+[node name="PlugBCollision" type="CollisionShape2D" parent="PlugB" unique_id=1911811994]
+position = Vector2(-0.00024414063, 1.4284668)
+scale = Vector2(0.9999996, 0.9999996)
 shape = SubResource("RectangleShape2D_01rfx")
 
-[node name="CablePoint" type="Marker2D" parent="PlugBArea" unique_id=1784460107]
+[node name="Area2D" type="Area2D" parent="PlugB" unique_id=1756628255]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlugB/Area2D" unique_id=1338921780]
+shape = SubResource("CircleShape2D_0xqxy")
+
+[node name="CablePoint" type="Marker2D" parent="PlugB" unique_id=1784460107]
 position = Vector2(-86, 6)
 
-[node name="PlugB" type="Sprite2D" parent="PlugBArea" unique_id=1963702947]
+[node name="PlugB" type="Sprite2D" parent="PlugB" unique_id=1963702947]
 rotation = -3.1415925
 scale = Vector2(0.99999976, 0.99999976)
 texture = ExtResource("3_0xqxy")
 region_enabled = true
 region_rect = Rect2(7, 47, 231, 168)
 
-[connection signal="mouse_entered" from="PlugAArea" to="PlugAArea" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="PlugAArea" to="PlugAArea" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="PlugBArea" to="PlugBArea" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="PlugBArea" to="PlugBArea" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="PlugA" to="PlugA" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="PlugB" to="PlugB" method="_on_mouse_entered"]
