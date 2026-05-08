@@ -1,0 +1,48 @@
+[gd_resource type="Theme" format=3 uid="uid://bklgnj0j64yhy"]
+
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/procreate_atlas.png" id="1_tndxr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wb0a0"]
+texture = ExtResource("1_tndxr")
+texture_margin_left = 41.206635
+texture_margin_top = 18.006735
+texture_margin_bottom = 21.34828
+region_rect = Rect2(1570, 552, 405.40234, 162)
+modulate_color = Color(0.16565639, 0.16565642, 0.16565639, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tndxr"]
+load_path = "res://.godot/imported/procreate_atlas.png-da84be31f39250f8df4ef08b4b01d03c.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ip646"]
+texture = SubResource("CompressedTexture2D_tndxr")
+texture_margin_left = 41.800056
+texture_margin_right = 44.894978
+texture_margin_bottom = 38.497166
+expand_margin_top = 14.0
+region_rect = Rect2(1569, 314, 444, 180)
+modulate_color = Color(0.63375676, 0.6337568, 0.63375676, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_loo7a"]
+texture = ExtResource("1_tndxr")
+texture_margin_left = 41.800056
+texture_margin_right = 44.894978
+texture_margin_bottom = 38.497166
+expand_margin_top = 14.0
+region_rect = Rect2(1569, 314, 444, 180)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_if7li"]
+load_path = "res://.godot/imported/procreate_atlas.png-da84be31f39250f8df4ef08b4b01d03c.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rrcx7"]
+texture = SubResource("CompressedTexture2D_if7li")
+texture_margin_left = 39.30265
+texture_margin_right = 35.01317
+texture_margin_bottom = 26.236847
+region_rect = Rect2(1570, 552, 444, 162)
+modulate_color = Color(0.41215247, 0.41215247, 0.41215247, 1)
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_wb0a0")
+Button/styles/hover = SubResource("StyleBoxTexture_ip646")
+Button/styles/normal = SubResource("StyleBoxTexture_loo7a")
+Button/styles/pressed = SubResource("StyleBoxTexture_rrcx7")

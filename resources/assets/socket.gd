@@ -10,9 +10,15 @@ enum Side{
 @export var pair_id: String = ""
 
 @onready var lamp: Sprite2D = $Sprite2D/lamp
+@onready var animated_sprite_2d: AnimatedSprite2D = $Sprite2D/lamp/AnimatedSprite2D
+@onready var path_follow_2d: PathFollow2D = $Path2D/PathFollow2D
 
 
-var occupied := false
+var occupied := false:
+	set(value):
+		occupied = value
+		_update_visual()
+
 var aktive := false:
 	set(value):
 		aktive = value
@@ -29,11 +35,22 @@ func _ready() -> void:
 	
 	_update_visual()
 
+
 func _update_visual():
 	if !visual:
 		return
 		
-	if !aktive:
-		visual.modulate = socket_color * 0.4
+	if !occupied:
+		visual.self_modulate = socket_color * 0.6
 	else:
-		visual.modulate = socket_color
+		visual.self_modulate = socket_color
+	
+	if !aktive:
+		lamp.modulate = Color.GRAY
+		animated_sprite_2d.visible = false
+		animated_sprite_2d.stop()
+		
+	else:
+		lamp.modulate = socket_color
+		animated_sprite_2d.visible = true
+		animated_sprite_2d.play("default")

@@ -2,9 +2,33 @@
 
 [ext_resource type="Script" uid="uid://db7bdl7ya75x1" path="res://resources/assets/socket.gd" id="1_n8shb"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/procreate_atlas.png" id="2_sgprf"]
+[ext_resource type="Texture2D" uid="uid://e82evqiajh7u" path="res://resources/assets/animation/light_Animation_1.png" id="3_v0fnq"]
+[ext_resource type="Texture2D" uid="uid://bnnl7mxtb7l1m" path="res://resources/assets/animation/light_Animation_2.png" id="4_hqaa4"]
+[ext_resource type="Texture2D" uid="uid://bg51vi8rbrwgy" path="res://resources/assets/animation/light_Animation_3.png" id="5_bgbsf"]
+[ext_resource type="Texture2D" uid="uid://cclgekrrablye" path="res://resources/assets/animation/light_Animation_4.png" id="6_0s5qs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgprf"]
 size = Vector2(101, 86)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v0fnq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_v0fnq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hqaa4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bgbsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0s5qs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
 
 [node name="Socket" type="Area2D" unique_id=1106657845 groups=["socket"]]
 script = ExtResource("1_n8shb")
@@ -26,5 +50,11 @@ position = Vector2(-200, 0)
 texture = ExtResource("2_sgprf")
 region_enabled = true
 region_rect = Rect2(849, 323, 81, 81)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D/lamp" unique_id=1043568371]
+position = Vector2(2.2342389, -1.7943935)
+scale = Vector2(1.315315, 1.2897196)
+sprite_frames = SubResource("SpriteFrames_v0fnq")
+frame_progress = 0.08557763
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

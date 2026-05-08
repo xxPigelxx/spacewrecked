@@ -4,40 +4,37 @@
 [ext_resource type="Script" uid="uid://dfvo5edp67xki" path="res://cablegame_manager.gd" id="1_tkd5u"]
 [ext_resource type="PackedScene" uid="uid://dlocelh4wsyel" path="res://resources/assets/socket.tscn" id="2_hesem"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tkd5u"]
-load_path = "res://.godot/imported/procreate_atlas.png-da84be31f39250f8df4ef08b4b01d03c.ctex"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hesem"]
+size = Vector2(20, 936.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1tc3"]
+size = Vector2(1249, 16.5)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hesem"]
-texture = SubResource("CompressedTexture2D_tkd5u")
-texture_margin_left = 8.0
-texture_margin_top = 15.0
-texture_margin_right = 15.0
-texture_margin_bottom = 17.0
-region_rect = Rect2(1537, 0, 249, 254)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t1tc3"]
-load_path = "res://.godot/imported/procreate_atlas.png-da84be31f39250f8df4ef08b4b01d03c.ctex"
+texture = ExtResource("1_hesem")
+texture_margin_left = 31.092117
+texture_margin_top = 26.802639
+texture_margin_right = 37.578957
+texture_margin_bottom = 51.3816
+region_rect = Rect2(1569, 314, 444, 189)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qixr4"]
-texture = SubResource("CompressedTexture2D_t1tc3")
-texture_margin_left = 8.0
-texture_margin_top = 15.0
-texture_margin_right = 15.0
-texture_margin_bottom = 17.0
-region_rect = Rect2(1537, 0, 249, 254)
+texture = ExtResource("1_hesem")
+texture_margin_left = 39.30265
+texture_margin_top = 22.697372
+texture_margin_right = 35.01317
+texture_margin_bottom = 26.236847
+region_rect = Rect2(1570, 552, 444, 162)
 modulate_color = Color(0.41215247, 0.41215247, 0.41215247, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nk8hp"]
-load_path = "res://.godot/imported/procreate_atlas.png-da84be31f39250f8df4ef08b4b01d03c.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jctcw"]
-texture = SubResource("CompressedTexture2D_nk8hp")
-texture_margin_left = 8.0
-texture_margin_top = 15.0
-texture_margin_right = 15.0
-texture_margin_bottom = 17.0
-region_rect = Rect2(1537, 0, 249, 254)
-modulate_color = Color(0.6872149, 0.68721503, 0.6872149, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t1tc3"]
+texture = ExtResource("1_hesem")
+texture_margin_left = 22.827652
+texture_margin_top = 11.601991
+texture_margin_right = 24.961174
+texture_margin_bottom = 29.89399
+region_rect = Rect2(1541, 839, 246, 123)
+modulate_color = Color(0.66656864, 0.6665687, 0.66656864, 1)
 
 [node name="CableGame" type="Node2D" unique_id=2025997112]
 
@@ -45,23 +42,50 @@ modulate_color = Color(0.6872149, 0.68721503, 0.6872149, 1)
 script = ExtResource("1_tkd5u")
 
 [node name="CableSpawnMarker" type="Marker2D" parent="CablegameManager" unique_id=6755401]
-position = Vector2(639, 931)
+position = Vector2(951, 931)
+
+[node name="Center2" type="Sprite2D" parent="." unique_id=337079721]
+modulate = Color(0.7407663, 0.8344015, 0.96854943, 1)
+position = Vector2(970, 552)
+scale = Vector2(7.6562495, 4.3686275)
+texture = ExtResource("1_hesem")
+region_enabled = true
+region_rect = Rect2(1535, 0, 256, 255)
 
 [node name="Center" type="Sprite2D" parent="." unique_id=828050603]
-position = Vector2(960, 540)
+modulate = Color(0.37036446, 0.3703645, 0.37036446, 1)
+position = Vector2(970, 548)
 scale = Vector2(4.817813, 3.683284)
 texture = ExtResource("1_hesem")
 region_enabled = true
 region_rect = Rect2(1535, 0, 256, 255)
 
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1089851824]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=73643020]
+position = Vector2(345, 542.5)
+shape = SubResource("RectangleShape2D_hesem")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=2060960320]
+position = Vector2(1574, 543.25)
+shape = SubResource("RectangleShape2D_hesem")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=1629799177]
+position = Vector2(959.5, 83.5)
+shape = SubResource("RectangleShape2D_t1tc3")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls" unique_id=764026913]
+position = Vector2(964, 1001.75)
+shape = SubResource("RectangleShape2D_t1tc3")
+
 [node name="Button" type="Button" parent="." unique_id=1087436518]
-offset_left = 850.0
-offset_top = 999.0
-offset_right = 1053.0
-offset_bottom = 1067.0
+offset_left = 855.0
+offset_top = 957.0
+offset_right = 1100.0
+offset_bottom = 1079.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_hesem")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_qixr4")
-theme_override_styles/hover = SubResource("StyleBoxTexture_jctcw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_t1tc3")
 text = "Spawn Cable"
 
 [node name="Socket" parent="." unique_id=1106657845 instance=ExtResource("2_hesem")]

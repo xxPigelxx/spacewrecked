@@ -1,41 +1,13 @@
 [gd_scene format=3 uid="uid://c78phqbegrmpg"]
 
 [ext_resource type="Script" uid="uid://bv6bmxd6utgn8" path="res://Scenes/main_menu.gd" id="1_853f1"]
-[ext_resource type="Theme" uid="uid://xm5urjrf4aua" path="res://resources/themes/main_theme.tres" id="1_tt5f1"]
+[ext_resource type="PackedScene" uid="uid://bcot68oel2ml3" path="res://Scenes/menu_background.tscn" id="2_8um5k"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/procreate_atlas.png" id="3_8saeu"]
+[ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="3_df05h"]
+[ext_resource type="PackedScene" uid="uid://c54ta61o55dvj" path="res://Scenes/star.tscn" id="4_8um5k"]
 [ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://Scenes/button.gd" id="4_ghw46"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ghw46"]
-texture = ExtResource("3_8saeu")
-texture_margin_left = 8.0
-texture_margin_top = 15.0
-texture_margin_right = 15.0
-texture_margin_bottom = 17.0
-region_rect = Rect2(1537, 0, 249, 254)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8saeu"]
-load_path = "res://.godot/imported/procreate_atlas.png-da84be31f39250f8df4ef08b4b01d03c.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_df05h"]
-texture = SubResource("CompressedTexture2D_8saeu")
-texture_margin_left = 8.0
-texture_margin_top = 15.0
-texture_margin_right = 15.0
-texture_margin_bottom = 17.0
-region_rect = Rect2(1537, 0, 249, 254)
-modulate_color = Color(0.3217278, 0.321728, 0.32172796, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8um5k"]
-load_path = "res://.godot/imported/procreate_atlas.png-da84be31f39250f8df4ef08b4b01d03c.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xim88"]
-texture = SubResource("CompressedTexture2D_8um5k")
-texture_margin_left = 8.0
-texture_margin_top = 15.0
-texture_margin_right = 15.0
-texture_margin_bottom = 17.0
-region_rect = Rect2(1537, 0, 249, 254)
-modulate_color = Color(0.48962224, 0.48962224, 0.48962218, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8um5k"]
 
 [node name="MainMenu" type="Control" unique_id=1567821724]
 layout_mode = 3
@@ -48,91 +20,108 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_853f1")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1195146768]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -56.5
-offset_top = -352.0
-offset_right = 56.5
-offset_bottom = -312.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MenuBackground" parent="." unique_id=146504196 instance=ExtResource("2_8um5k")]
 
-[node name="Label" type="Label" parent="PanelContainer" unique_id=1314066263]
-layout_mode = 2
-theme_override_font_sizes/font_size = 150
-text = "Spacewrecked"
+[node name="Logo" type="Sprite2D" parent="." unique_id=410146033]
+position = Vector2(25, -316)
+texture = ExtResource("3_8saeu")
+region_enabled = true
+region_rect = Rect2(30, 1562, 604, 387)
 
-[node name="PanelContainer2" type="PanelContainer" parent="." unique_id=665954606]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -338.0
-offset_top = -165.0
-offset_right = 310.0
-offset_bottom = 355.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Star" parent="Logo" unique_id=768714016 instance=ExtResource("4_8um5k")]
+self_modulate = Color(1, 1, 1, 1)
+position = Vector2(-352, -134)
+rotation = 0.2146755
+scale = Vector2(1, 1)
 
-[node name="PanelContainer" type="MarginContainer" parent="PanelContainer2" unique_id=1945606846]
-layout_mode = 2
-theme = ExtResource("1_tt5f1")
-theme_override_constants/margin_left = 75
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 75
-theme_override_constants/margin_bottom = 30
+[node name="Star2" parent="Logo" unique_id=507249357 instance=ExtResource("4_8um5k")]
+position = Vector2(73, -161)
+scale = Vector2(0.401, 0.401)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer2/PanelContainer" unique_id=2083465148]
-layout_mode = 2
-theme_override_constants/separation = 40
+[node name="Star3" parent="Logo" unique_id=1228035472 instance=ExtResource("4_8um5k")]
+position = Vector2(447, 28)
+scale = Vector2(1, 1)
+
+[node name="main" type="VBoxContainer" parent="." unique_id=2083465148]
+layout_mode = 0
+offset_left = -322.0
+offset_top = -65.0
+offset_right = 397.0
+offset_bottom = 495.0
+theme = ExtResource("3_df05h")
 alignment = 1
 
-[node name="StartBt" type="Button" parent="PanelContainer2/PanelContainer/VBoxContainer" unique_id=1620654601]
+[node name="StartBt" type="Button" parent="main" unique_id=1620654601]
 layout_mode = 2
 size_flags_vertical = 6
+theme = ExtResource("3_df05h")
 theme_override_font_sizes/font_size = 75
-theme_override_styles/normal = SubResource("StyleBoxTexture_ghw46")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_df05h")
-theme_override_styles/hover = SubResource("StyleBoxTexture_xim88")
 text = "Start"
 script = ExtResource("4_ghw46")
 
-[node name="OptionsBt" type="Button" parent="PanelContainer2/PanelContainer/VBoxContainer" unique_id=1218606477]
+[node name="HBoxContainer" type="HBoxContainer" parent="main" unique_id=1175908641]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="OptionsBt" type="Button" parent="main/HBoxContainer" unique_id=1218606477]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 75
-theme_override_styles/normal = SubResource("StyleBoxTexture_ghw46")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_df05h")
-theme_override_styles/hover = SubResource("StyleBoxTexture_xim88")
 text = "Options"
 script = ExtResource("4_ghw46")
 
-[node name="CreditsBt" type="Button" parent="PanelContainer2/PanelContainer/VBoxContainer" unique_id=2064194056]
+[node name="CreditsBt" type="Button" parent="main/HBoxContainer" unique_id=2064194056]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 75
-theme_override_styles/normal = SubResource("StyleBoxTexture_ghw46")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_df05h")
-theme_override_styles/hover = SubResource("StyleBoxTexture_xim88")
 text = "Credits"
 script = ExtResource("4_ghw46")
 
-[node name="ExitBt" type="Button" parent="PanelContainer2/PanelContainer/VBoxContainer" unique_id=1968774762]
+[node name="ExitBt" type="Button" parent="main" unique_id=1968774762]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 75
-theme_override_styles/normal = SubResource("StyleBoxTexture_ghw46")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_df05h")
-theme_override_styles/hover = SubResource("StyleBoxTexture_xim88")
 text = "Exit"
 script = ExtResource("4_ghw46")
 
-[connection signal="pressed" from="PanelContainer2/PanelContainer/VBoxContainer/StartBt" to="." method="_on_start_bt_pressed"]
-[connection signal="pressed" from="PanelContainer2/PanelContainer/VBoxContainer/ExitBt" to="." method="_on_exit_bt_pressed"]
+[node name="credits" type="VBoxContainer" parent="." unique_id=1975557991]
+visible = false
+layout_mode = 0
+offset_left = -322.0
+offset_top = -15.0
+offset_right = 421.0
+offset_bottom = 526.0
+theme = ExtResource("3_df05h")
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="credits" unique_id=1825849461]
+layout_mode = 2
+size_flags_vertical = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="credits/HBoxContainer" unique_id=1338627768]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Creator:"
+
+[node name="Seperator" type="VSeparator" parent="credits/HBoxContainer" unique_id=1107209945]
+layout_mode = 2
+theme_override_constants/separation = 180
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8um5k")
+
+[node name="Label" type="Label" parent="credits/HBoxContainer" unique_id=1638922837]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Nikolai Bose"
+
+[node name="BackBt" type="Button" parent="credits" unique_id=1858407186]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 75
+text = "Back"
+script = ExtResource("4_ghw46")
+
+[connection signal="pressed" from="main/StartBt" to="." method="_on_start_bt_pressed"]
+[connection signal="pressed" from="main/HBoxContainer/CreditsBt" to="." method="_on_credit_bt_pressed"]
+[connection signal="pressed" from="main/ExitBt" to="." method="_on_exit_bt_pressed"]
+[connection signal="pressed" from="credits/BackBt" to="." method="_on_credit_bt_pressed"]
