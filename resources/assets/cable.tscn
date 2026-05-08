@@ -28,6 +28,7 @@ antialiased = true
 [node name="PlugA" type="CharacterBody2D" parent="." unique_id=15604452]
 position = Vector2(-93.99999, 0)
 scale = Vector2(0.35, 0.35)
+platform_on_leave = 2
 script = ExtResource("1_nvds5")
 offset = 30.0
 
@@ -53,6 +54,9 @@ region_rect = Rect2(7, 47, 231, 168)
 [node name="PlugB" type="CharacterBody2D" parent="." unique_id=311759082]
 position = Vector2(102.99999, 0)
 scale = Vector2(0.35, 0.35)
+wall_min_slide_angle = 0.0
+floor_max_angle = 0.0
+platform_floor_layers = 4278190080
 script = ExtResource("1_nvds5")
 offset = -30.0
 
