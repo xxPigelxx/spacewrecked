@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bcot68oel2ml3"]
 
-[ext_resource type="Script" uid="uid://ctdpwbl1drvax" path="res://Scenes/menu_background.gd" id="1_1pn2r"]
+[ext_resource type="Script" uid="uid://ctdpwbl1drvax" path="res://script/menu_background.gd" id="1_1pn2r"]
 [ext_resource type="Texture2D" uid="uid://c3m4shgscfx57" path="res://resources/assets/SpaceBG.png" id="1_6e1g0"]
 
 [sub_resource type="Curve2D" id="Curve2D_8um5k"]
 bake_interval = 0.01
 _data = {
-"points": PackedVector2Array(441.49435, -52.34647, -441.49435, 52.34647, 301.34375, -552.5845, 99.85911, -721.83875, -99.85911, 721.83875, -631, -21, -436.0772, 41.765125, 436.0772, -41.765125, 357, 684, 18.099106, 710.26544, -18.099106, -710.26544, 1261, 122, 385.5837, 13.720215, -385.5837, -13.720215, 295.57355, -542.88983)
+"points": PackedVector2Array(463.2879, -73.17691, -463.2879, 73.17691, 301.34375, -552.5845, 99.85911, -721.83875, -99.85911, 721.83875, -631, -21, -436.0772, 41.765125, 436.0772, -41.765125, 357, 684, 18.099106, 710.26544, -18.099106, -710.26544, 1261, 122, 385.5837, 13.720215, -385.5837, -13.720215, 295.57355, -542.88983)
 }
 point_count = 5
 
@@ -14,17 +14,17 @@ point_count = 5
 script = ExtResource("1_1pn2r")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1286195541]
-position = Vector2(-807.5866, 127.96753)
-scale = Vector2(2.7728684, 2.5787323)
+position = Vector2(682, 474)
+scale = Vector2(0.95819014, 0.89110446)
 curve = SubResource("Curve2D_8um5k")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1625680943]
-position = Vector2(301.34375, -552.5845)
+position = Vector2(1012.7484, -422.6054)
 rotation = 3.023577
+progress = 4631.73
 rotates = false
 
 [node name="SpaceBg" type="Sprite2D" parent="Path2D/PathFollow2D" unique_id=1249180708]
-position = Vector2(62.48703, -557.6499)
+position = Vector2(-120.52377, -483.7302)
 rotation = -3.023577
-scale = Vector2(0.36063737, 0.3877874)
 texture = ExtResource("1_6e1g0")

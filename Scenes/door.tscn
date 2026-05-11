@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dktsyh6uwjspd"]
+
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="1_ba8gm"]
+[ext_resource type="Script" uid="uid://cb4me1rmklqa4" path="res://door.gd" id="1_v6xrn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6xrn"]
+size = Vector2(31.49997, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0phs7"]
+size = Vector2(176, 202)
+
+[node name="Door" type="Node2D" unique_id=421017785]
+script = ExtResource("1_v6xrn")
+
+[node name="TopWall" type="Sprite2D" parent="." unique_id=959759283]
+position = Vector2(-1, -168)
+texture = ExtResource("1_ba8gm")
+region_enabled = true
+region_rect = Rect2(598, 1025, 39, 178)
+
+[node name="BottomWall" type="Sprite2D" parent="." unique_id=1483153233]
+position = Vector2(-1, 173)
+texture = ExtResource("1_ba8gm")
+region_enabled = true
+region_rect = Rect2(598, 1025, 39, 178)
+
+[node name="Top" type="StaticBody2D" parent="." unique_id=418532235]
+position = Vector2(0, -128)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Top" unique_id=995004215]
+position = Vector2(-0.74993896, 0)
+shape = SubResource("RectangleShape2D_v6xrn")
+
+[node name="Door" type="Sprite2D" parent="Top" unique_id=1294124922]
+position = Vector2(-1, 84)
+texture = ExtResource("1_ba8gm")
+region_enabled = true
+region_rect = Rect2(685, 1118, 48, 96)
+
+[node name="Bottom" type="StaticBody2D" parent="." unique_id=877071809]
+position = Vector2(0, 128)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bottom" unique_id=1565465161]
+position = Vector2(-0.74993896, 0)
+shape = SubResource("RectangleShape2D_v6xrn")
+
+[node name="Door" type="Sprite2D" parent="Bottom" unique_id=1813377952]
+position = Vector2(-1, -82)
+texture = ExtResource("1_ba8gm")
+region_enabled = true
+region_rect = Rect2(685, 1118, 48, 96)
+
+[node name="DoorDetector" type="Area2D" parent="." unique_id=114808699]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorDetector" unique_id=1826007923]
+shape = SubResource("RectangleShape2D_0phs7")
+
+[connection signal="body_entered" from="DoorDetector" to="." method="_on_door_detector_body_entered"]
+[connection signal="body_exited" from="DoorDetector" to="." method="_on_door_detector_body_exited"]

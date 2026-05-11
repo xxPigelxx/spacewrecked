@@ -1,6 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://bklgnj0j64yhy"]
 
-[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/procreate_atlas.png" id="1_tndxr"]
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="1_tndxr"]
+[ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="1_wb0a0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wb0a0"]
 texture = ExtResource("1_tndxr")
@@ -42,6 +43,8 @@ region_rect = Rect2(1570, 552, 444, 162)
 modulate_color = Color(0.41215247, 0.41215247, 0.41215247, 1)
 
 [resource]
+Button/colors/font_color = Color(0.27387235, 0.27387294, 0.27387252, 1)
+Button/fonts/font = ExtResource("1_wb0a0")
 Button/styles/disabled = SubResource("StyleBoxTexture_wb0a0")
 Button/styles/hover = SubResource("StyleBoxTexture_ip646")
 Button/styles/normal = SubResource("StyleBoxTexture_loo7a")

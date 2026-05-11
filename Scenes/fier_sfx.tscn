@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://j4peei1eub8m"]
+
+[ext_resource type="Texture2D" uid="uid://dh5yt4xweiojj" path="res://resources/assets/animation/fier/fier1.png" id="1_m648q"]
+[ext_resource type="Texture2D" uid="uid://dg1xsssaxlfgt" path="res://resources/assets/animation/fier/fier2.png" id="2_54p62"]
+[ext_resource type="Texture2D" uid="uid://dcimjy5m61gfh" path="res://resources/assets/animation/fier/fier3.png" id="3_i51tj"]
+[ext_resource type="Texture2D" uid="uid://bev1eaegoaj0b" path="res://resources/assets/animation/fier/fier4.png" id="4_o6qld"]
+[ext_resource type="Texture2D" uid="uid://bvq2er6g2xtso" path="res://resources/assets/animation/fier/fier5.png" id="5_m3r8c"]
+[ext_resource type="Texture2D" uid="uid://22mvxsv4gtug" path="res://resources/assets/animation/fier/fier6.png" id="6_7612h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5e4ki"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("1_m648q")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_54p62")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_i51tj")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_o6qld")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_m3r8c")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_7612h")
+}],
+"loop": true,
+"name": &"Fier_ainmation",
+"speed": 5.0
+}]
+
+[node name="FierSFX" type="AnimatedSprite2D" unique_id=1174731421]
+sprite_frames = SubResource("SpriteFrames_5e4ki")
+animation = &"new_animation"
+frame_progress = 0.9482171

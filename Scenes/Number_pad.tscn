@@ -1,0 +1,182 @@
+[gd_scene format=3 uid="uid://mlic8chu6u3u"]
+
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="1_brwtl"]
+[ext_resource type="Script" uid="uid://c4jpggrn2vkk8" path="res://number_pad.gd" id="1_ispqh"]
+[ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="2_ispqh"]
+[ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="3_rbccy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_brwtl"]
+texture = ExtResource("1_brwtl")
+texture_margin_left = 26.53028
+texture_margin_top = 19.192118
+texture_margin_right = 27.659227
+texture_margin_bottom = 22.014488
+region_rect = Rect2(1535, 0, 256, 255)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rbccy"]
+load_path = "res://.godot/imported/procreate_atlas.png-da84be31f39250f8df4ef08b4b01d03c.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3udq0"]
+texture = SubResource("CompressedTexture2D_rbccy")
+region_rect = Rect2(522, 803, 214, 185)
+modulate_color = Color(0.65834004, 0.6583399, 0.6583399, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2uwnx"]
+texture = ExtResource("1_brwtl")
+region_rect = Rect2(522, 803, 214, 185)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k01yx"]
+texture = ExtResource("1_brwtl")
+region_rect = Rect2(807, 835, 184, 148)
+modulate_color = Color(0.33660772, 0.33660758, 0.3366076, 1)
+
+[sub_resource type="Theme" id="Theme_6gg6k"]
+Button/colors/font_color = Color(0.25565845, 0.25565895, 0.25565854, 1)
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("3_rbccy")
+Button/styles/hover = SubResource("StyleBoxTexture_3udq0")
+Button/styles/normal = SubResource("StyleBoxTexture_2uwnx")
+Button/styles/pressed = SubResource("StyleBoxTexture_k01yx")
+
+[node name="NumberPad" type="Node2D" unique_id=1835337826]
+script = ExtResource("1_ispqh")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1728629248]
+offset_left = 662.0
+offset_top = 380.0
+offset_right = 975.1895
+offset_bottom = 753.2066
+theme_override_styles/panel = SubResource("StyleBoxTexture_brwtl")
+
+[node name="ProcreateAtlas" type="Sprite2D" parent="PanelContainer" unique_id=1791106985]
+position = Vector2(150, -58.499996)
+scale = Vector2(0.8590022, 0.6335079)
+texture = ExtResource("1_brwtl")
+region_enabled = true
+region_rect = Rect2(1033, 815, 461, 191)
+
+[node name="NumpadText" type="RichTextLabel" parent="PanelContainer/ProcreateAtlas" unique_id=1814745856]
+offset_left = -168.8005
+offset_top = -21.30992
+offset_right = 157.15909
+offset_bottom = 51.049583
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_rbccy")
+theme_override_font_sizes/normal_font_size = 57
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=40228863]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer" unique_id=926640696]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+columns = 3
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=46898712]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme = SubResource("Theme_6gg6k")
+text = "1"
+script = ExtResource("2_ispqh")
+
+[node name="Button2" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=527012840]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme = SubResource("Theme_6gg6k")
+text = "2"
+script = ExtResource("2_ispqh")
+
+[node name="Button3" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=1064407612]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme = SubResource("Theme_6gg6k")
+text = "3"
+script = ExtResource("2_ispqh")
+
+[node name="Button4" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=849667089]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme = SubResource("Theme_6gg6k")
+text = "4"
+script = ExtResource("2_ispqh")
+
+[node name="Button5" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=1301346799]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme = SubResource("Theme_6gg6k")
+text = "5"
+script = ExtResource("2_ispqh")
+
+[node name="Button6" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=652005084]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme = SubResource("Theme_6gg6k")
+text = "6"
+script = ExtResource("2_ispqh")
+
+[node name="Button7" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=2023519584]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme = SubResource("Theme_6gg6k")
+text = "7"
+script = ExtResource("2_ispqh")
+
+[node name="Button8" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=576472772]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme = SubResource("Theme_6gg6k")
+text = "8"
+script = ExtResource("2_ispqh")
+
+[node name="Button9" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=1125849377]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme = SubResource("Theme_6gg6k")
+text = "9"
+script = ExtResource("2_ispqh")
+
+[node name="Button10" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=1230097860]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme = SubResource("Theme_6gg6k")
+theme_override_colors/font_color = Color(0.26, 0.26, 0.26, 0)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
+text = "Back"
+autowrap_trim_flags = 0
+icon_alignment = 1
+script = ExtResource("2_ispqh")
+
+[node name="ProcreateAtlas" type="Sprite2D" parent="PanelContainer/MarginContainer/GridContainer/Button10" unique_id=715698743]
+position = Vector2(36.469727, 35.807903)
+scale = Vector2(0.5138895, 0.51388943)
+texture = ExtResource("1_brwtl")
+region_enabled = true
+region_rect = Rect2(301, 1148, 80, 36)
+
+[node name="Button11" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=1873555347]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme = SubResource("Theme_6gg6k")
+text = "0"
+script = ExtResource("2_ispqh")
+
+[node name="Button12" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=1797212175]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme = SubResource("Theme_6gg6k")
+theme_override_colors/font_color = Color(0.26, 0.26, 0.26, 0)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
+text = "Enter
+"
+script = ExtResource("2_ispqh")
+
+[node name="ProcreateAtlas" type="Sprite2D" parent="PanelContainer/MarginContainer/GridContainer/Button12" unique_id=201026897]
+position = Vector2(38.157227, 31.807892)
+scale = Vector2(0.51906776, 0.6377551)
+texture = ExtResource("1_brwtl")
+region_enabled = true
+region_rect = Rect2(405, 1135, 59, 49)

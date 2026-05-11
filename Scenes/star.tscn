@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c54ta61o55dvj"]
 
-[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/procreate_atlas.png" id="1_d0spr"]
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="1_d0spr"]
 
 [sub_resource type="Animation" id="Animation_df05h"]
 length = 0.001

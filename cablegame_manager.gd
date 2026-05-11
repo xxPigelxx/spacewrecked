@@ -6,7 +6,7 @@ extends Node
 var sockets := []
 var win := false
 
-var cable := preload("res://resources/assets/cable.tscn")
+var cable := preload("res://Scenes/cable.tscn")
 var spawned_cables := []
 
 @onready var cable_spawn_marker: Marker2D = $CableSpawnMarker

@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://mx67lrqv2oom"]
+
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="1_hesem"]
+[ext_resource type="Script" uid="uid://dfvo5edp67xki" path="res://cablegame_manager.gd" id="1_tkd5u"]
+[ext_resource type="PackedScene" uid="uid://dlocelh4wsyel" path="res://Scenes/socket.tscn" id="2_hesem"]
+[ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="3_t1tc3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hesem"]
+size = Vector2(20, 936.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1tc3"]
+size = Vector2(1249, 16.5)
+
+[node name="CableGame" type="Node2D" unique_id=2025997112]
+
+[node name="CablegameManager" type="Node" parent="." unique_id=834513126]
+script = ExtResource("1_tkd5u")
+
+[node name="CableSpawnMarker" type="Marker2D" parent="CablegameManager" unique_id=6755401]
+position = Vector2(951, 931)
+
+[node name="Center2" type="Sprite2D" parent="." unique_id=337079721]
+modulate = Color(0.7407663, 0.8344015, 0.96854943, 1)
+position = Vector2(970, 552)
+scale = Vector2(7.6562495, 4.3686275)
+texture = ExtResource("1_hesem")
+region_enabled = true
+region_rect = Rect2(1535, 0, 256, 255)
+
+[node name="Center" type="Sprite2D" parent="." unique_id=828050603]
+modulate = Color(0.37036446, 0.3703645, 0.37036446, 1)
+position = Vector2(970, 548)
+scale = Vector2(4.817813, 3.683284)
+texture = ExtResource("1_hesem")
+region_enabled = true
+region_rect = Rect2(1535, 0, 256, 255)
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1089851824]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=73643020]
+position = Vector2(345, 542.5)
+shape = SubResource("RectangleShape2D_hesem")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=2060960320]
+position = Vector2(1574, 543.25)
+shape = SubResource("RectangleShape2D_hesem")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=1629799177]
+position = Vector2(959.5, 83.5)
+shape = SubResource("RectangleShape2D_t1tc3")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls" unique_id=764026913]
+position = Vector2(964, 1001.75)
+shape = SubResource("RectangleShape2D_t1tc3")
+
+[node name="Button" type="Button" parent="." unique_id=1087436518]
+offset_left = 844.0
+offset_top = 1008.0
+offset_right = 1029.6951
+offset_bottom = 1076.0
+theme = ExtResource("3_t1tc3")
+text = "Spawn Cable"
+
+[node name="Sockets" type="Node2D" parent="." unique_id=1346873290]
+
+[node name="Left" type="Node2D" parent="Sockets" unique_id=1774481423]
+
+[node name="Socket8" parent="Sockets/Left" unique_id=410540247 instance=ExtResource("2_hesem")]
+position = Vector2(527, 576)
+socket_color = Color(0.4572891, 0.9255045, 0.9418861, 1)
+pair_id = "4"
+
+[node name="Socket9" parent="Sockets/Left" unique_id=1221650162 instance=ExtResource("2_hesem")]
+position = Vector2(528, 395)
+socket_color = Color(0.42352942, 0.62352943, 0.6666667, 1)
+pair_id = "2"
+
+[node name="Socket10" parent="Sockets/Left" unique_id=42840864 instance=ExtResource("2_hesem")]
+position = Vector2(515, 262)
+socket_color = Color(0.37857687, 0.74423397, 0.257256, 1)
+pair_id = "5"
+
+[node name="Socket" parent="Sockets/Left" unique_id=1106657845 instance=ExtResource("2_hesem")]
+position = Vector2(518, 849)
+socket_color = Color(0.8402113, 0.39410615, 0.70073926, 1)
+pair_id = "1"
+
+[node name="Socket3" parent="Sockets/Left" unique_id=2120209152 instance=ExtResource("2_hesem")]
+position = Vector2(528, 721)
+pair_id = "3"
+
+[node name="Right" type="Node2D" parent="Sockets" unique_id=1609544262]
+
+[node name="Socket7" parent="Sockets/Right" unique_id=507004883 instance=ExtResource("2_hesem")]
+position = Vector2(1380, 716)
+side = 1
+socket_color = Color(0.93422735, 0.920681, 0.6533266, 1)
+pair_id = "3"
+
+[node name="Socket2" parent="Sockets/Right" unique_id=1339555870 instance=ExtResource("2_hesem")]
+position = Vector2(1385, 596)
+side = 1
+socket_color = Color(0.38039216, 0.74509805, 0.25882354, 1)
+pair_id = "5"
+
+[node name="Socket4" parent="Sockets/Right" unique_id=1663060115 instance=ExtResource("2_hesem")]
+position = Vector2(1369, 837)
+side = 1
+socket_color = Color(0.42251098, 0.6236289, 0.6670792, 1)
+pair_id = "2"
+
+[node name="Socket6" parent="Sockets/Right" unique_id=89349907 instance=ExtResource("2_hesem")]
+position = Vector2(1374, 210)
+side = 1
+pair_id = "4"
+
+[node name="Socket5" parent="Sockets/Right" unique_id=2083023251 instance=ExtResource("2_hesem")]
+position = Vector2(1375, 405)
+side = 1
+socket_color = Color(0.8392157, 0.39215687, 0.7019608, 1)
+pair_id = "1"
+
+[connection signal="pressed" from="Button" to="CablegameManager" method="_on_button_pressed"]
