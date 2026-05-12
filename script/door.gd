@@ -5,24 +5,33 @@ var is_animating := false
 
 @onready var top: StaticBody2D = $Top
 @onready var bottom: StaticBody2D = $Bottom
+@onready var lamp: Sprite2D = $Bottom/lamp
+@onready var lamp_2: Sprite2D = $Top/lamp2
 
 @export var move_by: float = 80.0
 @export var duration: float = 0.35
+@export var puzzle_id:= "keypad1"
 
 var top_closed_pos: Vector2
 var bottom_closed_pos: Vector2
 var top_open_pos: Vector2
 var bottom_open_pos: Vector2
 
-var locked:= false
+var unlocked:= false
 
 func _ready() -> void:
 	top_closed_pos = top.position
 	bottom_closed_pos = bottom.position
-
+	
 	top_open_pos = top_closed_pos + Vector2(0, -move_by)
 	bottom_open_pos = bottom_closed_pos + Vector2(0, move_by)
-
+	
+	lamp.set_active(unlocked)
+	lamp_2.set_active(unlocked)
+func _physics_process(delta: float) -> void:
+	unlocked = GameState.is_puzzle_solved(puzzle_id)	
+	lamp.set_active(unlocked)
+	lamp_2.set_active(unlocked)
 func tween_door(top_target: Vector2, bottom_target: Vector2) -> void:
 	is_animating = true
 
@@ -38,9 +47,10 @@ func tween_door(top_target: Vector2, bottom_target: Vector2) -> void:
 	is_animating = false
 
 func open_door() -> void:
-	if door_open or is_animating or locked:
+	if door_open or is_animating:
 		return
-	
+	if !GameState.is_puzzle_solved(puzzle_id):
+		return
 	await tween_door(top_open_pos, bottom_open_pos)
 	door_open = true
 

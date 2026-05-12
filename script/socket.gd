@@ -32,7 +32,7 @@ func _ready() -> void:
 	
 	if side == Side.Right:
 		lamp.position.x = 200
-	
+	lamp.active_color = socket_color
 	_update_visual()
 
 
@@ -44,13 +44,4 @@ func _update_visual():
 		visual.self_modulate = socket_color * 0.6
 	else:
 		visual.self_modulate = socket_color
-	
-	if !aktive:
-		lamp.modulate = Color.GRAY
-		animated_sprite_2d.visible = false
-		animated_sprite_2d.stop()
-		
-	else:
-		lamp.modulate = socket_color
-		animated_sprite_2d.visible = true
-		animated_sprite_2d.play("default")
+	lamp.set_active(aktive)

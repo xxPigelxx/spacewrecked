@@ -8,8 +8,7 @@ func _ready() -> void:
 	credits.visible = false
 
 func _on_start_bt_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Puzzle/Main.tscn")
-
+	SceneSwitcher.switch_scene("res://Scenes/test.tscn")
 
 func _on_options_bt_pressed() -> void:
 	pass

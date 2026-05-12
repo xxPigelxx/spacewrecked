@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bh7mvtchr84vd"]
 
-[ext_resource type="Script" uid="uid://qghfiplatwiv" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://qghfiplatwiv" path="res://script/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="2_i3pqv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqtel"]
@@ -10,6 +10,7 @@ radius = 33.01515
 script = ExtResource("1_onrkg")
 
 [node name="ProcreateAtlas" type="Sprite2D" parent="." unique_id=747736919]
+modulate = Color(0.918826, 0.38327312, 0.5450927, 1)
 texture = ExtResource("2_i3pqv")
 region_enabled = true
 region_rect = Rect2(849, 323, 81, 81)

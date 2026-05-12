@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://mlic8chu6u3u"]
 
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="1_brwtl"]
-[ext_resource type="Script" uid="uid://c4jpggrn2vkk8" path="res://number_pad.gd" id="1_ispqh"]
+[ext_resource type="Script" uid="uid://c4jpggrn2vkk8" path="res://script/number_pad.gd" id="1_ispqh"]
 [ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="2_ispqh"]
 [ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="3_rbccy"]
+[ext_resource type="PackedScene" uid="uid://b8b7l3jlaxb3c" path="res://Scenes/lamp.tscn" id="4_mfesi"]
+[ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="5_7mjqk"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_brwtl"]
 texture = ExtResource("1_brwtl")
@@ -38,18 +40,35 @@ Button/styles/hover = SubResource("StyleBoxTexture_3udq0")
 Button/styles/normal = SubResource("StyleBoxTexture_2uwnx")
 Button/styles/pressed = SubResource("StyleBoxTexture_k01yx")
 
-[node name="NumberPad" type="Node2D" unique_id=1835337826]
+[node name="NumberPad" type="CanvasLayer" unique_id=538007459]
 script = ExtResource("1_ispqh")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1389403464]
+root_node = NodePath("../Panel")
+
+[node name="Panel" type="Panel" parent="." unique_id=1552351218]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1728629248]
-offset_left = 662.0
-offset_top = 380.0
-offset_right = 975.1895
-offset_bottom = 753.2066
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.0
+offset_top = -142.0
+offset_right = 156.18945
+offset_bottom = 231.2066
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_brwtl")
 
 [node name="ProcreateAtlas" type="Sprite2D" parent="PanelContainer" unique_id=1791106985]
-position = Vector2(150, -58.499996)
+position = Vector2(152, -75.99999)
 scale = Vector2(0.8590022, 0.6335079)
 texture = ExtResource("1_brwtl")
 region_enabled = true
@@ -65,6 +84,16 @@ theme_override_fonts/normal_font = ExtResource("3_rbccy")
 theme_override_font_sizes/normal_font_size = 57
 scroll_active = false
 horizontal_alignment = 1
+
+[node name="lamp" parent="PanelContainer/ProcreateAtlas" unique_id=402077154 instance=ExtResource("4_mfesi")]
+position = Vector2(197.3295, 7.093437)
+scale = Vector2(0.302, 0.409)
+active_color = Color(0.5371481, 0.86613333, 0.51741296, 1)
+
+[node name="lamp2" parent="PanelContainer/ProcreateAtlas" unique_id=162806052 instance=ExtResource("4_mfesi")]
+position = Vector2(-208.95584, 7.093437)
+scale = Vector2(0.302, 0.409)
+active_color = Color(0.5371481, 0.86613333, 0.51741296, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=40228863]
 layout_mode = 2
@@ -170,8 +199,7 @@ theme = SubResource("Theme_6gg6k")
 theme_override_colors/font_color = Color(0.26, 0.26, 0.26, 0)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
-text = "Enter
-"
+text = "Enter"
 script = ExtResource("2_ispqh")
 
 [node name="ProcreateAtlas" type="Sprite2D" parent="PanelContainer/MarginContainer/GridContainer/Button12" unique_id=201026897]
@@ -180,3 +208,25 @@ scale = Vector2(0.51906776, 0.6377551)
 texture = ExtResource("1_brwtl")
 region_enabled = true
 region_rect = Rect2(405, 1135, 59, 49)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1626225743]
+anchors_preset = -1
+anchor_left = 0.75364584
+anchor_top = 0.82685184
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+metadata/_edit_use_anchors_ = true
+
+[node name="ReturnBT" type="Button" parent="MarginContainer" unique_id=1715385552]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme = ExtResource("5_7mjqk")
+theme_override_font_sizes/font_size = 80
+text = "Return"
+script = ExtResource("2_ispqh")
+
+[connection signal="pressed" from="MarginContainer/ReturnBT" to="." method="_on_return_bt_pressed"]

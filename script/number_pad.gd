@@ -1,14 +1,16 @@
-extends Node2D
+extends Node
 
 @onready var numpad_text: RichTextLabel = $PanelContainer/ProcreateAtlas/NumpadText
 @onready var numpad_buttons: Node = $PanelContainer/MarginContainer/GridContainer
+@onready var lamp: Sprite2D = $PanelContainer/ProcreateAtlas/lamp
+@onready var lamp_2: Sprite2D = $PanelContainer/ProcreateAtlas/lamp2
 
 @export var max_length := 6
 @export var code := "123456"
 @export var shake_amount := 25.0
 @export var shake_speed := 0.05
 
-@export var door: Node = null
+@export var puzzle_id:= "keypad1"
 
 var _text_start_position: Vector2
 
@@ -43,9 +45,8 @@ func _on_button_pressed(button: Button) -> void:
 
 func _try_submit() -> void:
 	if numpad_text.text == code:
-		if door:
-			door.locked = true
 		print("Puzzle Solved")
+		_on_win()
 	else:
 		_shake_text()
 
@@ -58,3 +59,13 @@ func _shake_text() -> void:
 	tween.tween_property(numpad_text, "position", _text_start_position + Vector2(-shake_amount * 0.7, 0), shake_speed)
 	tween.tween_property(numpad_text, "position", _text_start_position + Vector2(shake_amount * 0.7, 0), shake_speed)
 	tween.tween_property(numpad_text, "position", _text_start_position, shake_speed)
+
+
+func _on_return_bt_pressed() -> void:
+	SceneSwitcher.close_overlay_scene(true, false)
+
+func _on_win() -> void:
+	lamp.set_active(true)
+	lamp_2.set_active(true)
+	GameState.solve_puzzle(puzzle_id)
+	SceneSwitcher.close_overlay_scene(true,false)

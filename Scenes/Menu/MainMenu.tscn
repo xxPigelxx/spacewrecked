@@ -117,7 +117,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_8um5k")
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_xim88")
 theme_override_font_sizes/font_size = 40
-text = "Nikolai  Boshe"
+text = "Nikolai  Bohse"
 
 [node name="BackBt" type="Button" parent="credits" unique_id=1858407186]
 layout_mode = 2

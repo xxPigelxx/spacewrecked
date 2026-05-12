@@ -4,6 +4,9 @@ extends CharacterBody2D
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.ZERO
+	
+	if Input.is_action_pressed("pause"):
+		SceneSwitcher.open_overlay_scene("res://Scenes/Menu/PauseMenu.tscn")
 
 	# Input movement
 	if Input.is_action_pressed("move_right"):
@@ -17,7 +20,7 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_pressed("move_up"):
 		direction.y -= 1
-
+	
 	# Normalize so diagonal isn't faster
 	direction = direction.normalized()
 

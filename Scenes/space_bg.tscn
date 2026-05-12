@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://c67744no343jm"]
+
+[ext_resource type="Script" uid="uid://brn4vk6i6gh83" path="res://script/SpaceBG.gd" id="1_p8im8"]
+[ext_resource type="Texture2D" uid="uid://bmw2vc3lvw84s" path="res://resources/assets/animation/SpaceBG/IMG_0370.PNG" id="2_eunsy"]
+[ext_resource type="Texture2D" uid="uid://b0mjh12sx8ubm" path="res://resources/assets/animation/SpaceBG/IMG_0371.PNG" id="3_pt8h2"]
+[ext_resource type="Texture2D" uid="uid://dgqfnbyn5imxl" path="res://resources/assets/animation/SpaceBG/IMG_0372.PNG" id="4_hv60k"]
+[ext_resource type="Texture2D" uid="uid://yxvgpenvni0l" path="res://resources/assets/animation/SpaceBG/IMG_0373.PNG" id="5_eh7ih"]
+[ext_resource type="Texture2D" uid="uid://2wp5jyaoqh2t" path="res://resources/assets/animation/SpaceBG/IMG_0374.PNG" id="6_cwpcb"]
+[ext_resource type="Texture2D" uid="uid://elne0bdl8p4y" path="res://resources/assets/animation/SpaceBG/IMG_0375.PNG" id="7_cpeo0"]
+[ext_resource type="Texture2D" uid="uid://dmp0gti16eiip" path="res://resources/assets/animation/SpaceBG/IMG_0376.PNG" id="8_niupn"]
+[ext_resource type="Texture2D" uid="uid://bufdjln0y3gqd" path="res://resources/assets/animation/SpaceBG/IMG_0377.PNG" id="9_e803v"]
+[ext_resource type="Texture2D" uid="uid://dm5uw1hurvhvj" path="res://resources/assets/animation/SpaceBG/IMG_0378.PNG" id="10_wg84c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_erw67"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_eunsy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pt8h2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hv60k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_eh7ih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cwpcb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cpeo0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_niupn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_e803v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_wg84c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SpaceBg" type="Node2D" unique_id=1555961878]
+z_index = -1
+script = ExtResource("1_p8im8")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1520232719]
+offset_left = -2880.0
+offset_top = -1620.0
+offset_right = 2880.0
+offset_bottom = 1620.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+color = Color(0, 0, 0, 1)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=959245484]
+position = Vector2(1911, 0)
+sprite_frames = SubResource("SpriteFrames_erw67")
+frame_progress = 0.3780477
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=1018044339]
+position = Vector2(-1922, 0)
+sprite_frames = SubResource("SpriteFrames_erw67")
+frame_progress = 0.17506576
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=146331175]
+position = Vector2(-6, 0)
+sprite_frames = SubResource("SpriteFrames_erw67")
+frame_progress = 0.67835325
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="." unique_id=1240598245]
+position = Vector2(1915, 1081)
+sprite_frames = SubResource("SpriteFrames_erw67")
+frame_progress = 0.7476734
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="." unique_id=2041248491]
+position = Vector2(-1918, 1081)
+sprite_frames = SubResource("SpriteFrames_erw67")
+frame_progress = 0.17506576
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="." unique_id=1214035929]
+position = Vector2(-2, 1081)
+sprite_frames = SubResource("SpriteFrames_erw67")
+frame_progress = 0.047976874
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="." unique_id=664221768]
+position = Vector2(1915, -1074)
+sprite_frames = SubResource("SpriteFrames_erw67")
+frame_progress = 0.7476734
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="." unique_id=1123218957]
+position = Vector2(-1918, -1074)
+sprite_frames = SubResource("SpriteFrames_erw67")
+frame_progress = 0.17506576
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="." unique_id=137158521]
+position = Vector2(-2, -1074)
+sprite_frames = SubResource("SpriteFrames_erw67")
+frame_progress = 0.047976874

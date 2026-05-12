@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bx4dd6j1px5ts"]
+
+[ext_resource type="PackedScene" uid="uid://qlrldcoke1j4" path="res://Scenes/wallseecment_h.tscn" id="1_lj3ce"]
+[ext_resource type="PackedScene" uid="uid://dktsyh6uwjspd" path="res://Scenes/door.tscn" id="2_xkgpb"]
+
+[node name="center_Room" type="Node2D" unique_id=24713980]
+
+[node name="Floor" type="Polygon2D" parent="." unique_id=1074524536]
+z_index = -1
+polygon = PackedVector2Array(160, 257, 156, -268, -66, -410, -525, -148, -519, 127, -74, 391)
+
+[node name="wallseecment9" parent="." unique_id=445652353 instance=ExtResource("1_lj3ce")]
+position = Vector2(44.000008, -332)
+rotation = -1.0471976
+
+[node name="wallseecment10" parent="." unique_id=2111202168 instance=ExtResource("1_lj3ce")]
+position = Vector2(44, 332)
+rotation = 1.0471976
+
+[node name="Door" parent="." unique_id=421017785 instance=ExtResource("2_xkgpb")]
+position = Vector2(-285, -265)
+rotation = 1.0471976
+
+[node name="Door2" parent="." unique_id=972798927 instance=ExtResource("2_xkgpb")]
+position = Vector2(-300, 256)
+rotation = -1.0471976
+
+[node name="Door3" parent="." unique_id=1869837265 instance=ExtResource("2_xkgpb")]
+position = Vector2(-517, -2.0000305)
+scale = Vector2(1, 0.5)

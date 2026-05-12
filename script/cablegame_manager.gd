@@ -2,6 +2,7 @@ extends Node
 
 @export var max_cables := 5
 @export var cable_spawn_y_offset := 80.0
+@export var puzzle_id = "cable1"
 
 var sockets := []
 var win := false
@@ -23,6 +24,7 @@ func _check_all_sockets_aktive() -> void:
 			win = false
 			return
 	win = true
+	GameState.solve_puzzle(puzzle_id)
 
 func spawn_cable() -> void:
 	var new_cable = cable.instantiate()

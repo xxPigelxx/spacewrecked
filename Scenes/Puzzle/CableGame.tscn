@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://mx67lrqv2oom"]
 
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="1_hesem"]
-[ext_resource type="Script" uid="uid://dfvo5edp67xki" path="res://cablegame_manager.gd" id="1_tkd5u"]
+[ext_resource type="Script" uid="uid://dfvo5edp67xki" path="res://script/cablegame_manager.gd" id="1_tkd5u"]
 [ext_resource type="PackedScene" uid="uid://dlocelh4wsyel" path="res://Scenes/socket.tscn" id="2_hesem"]
 [ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="3_t1tc3"]
 

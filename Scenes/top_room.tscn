@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bw0bl8sb1j4it"]
+
+[ext_resource type="PackedScene" uid="uid://qlrldcoke1j4" path="res://Scenes/wallseecment_h.tscn" id="1_l1iwy"]
+[ext_resource type="PackedScene" uid="uid://cwwkr8x8b2swc" path="res://Scenes/wallseecment_v.tscn" id="2_y0vl4"]
+
+[node name="Top_Room" type="Node2D" unique_id=448175340]
+
+[node name="Floor" type="Polygon2D" parent="." unique_id=1142995995]
+z_index = -1
+polygon = PackedVector2Array(-509, -124, -64, -393, -296, -525, -860, -668, -857, -339)
+
+[node name="wallseecment11" parent="." unique_id=445652353 instance=ExtResource("1_l1iwy")]
+position = Vector2(-632, -200)
+rotation = -1.0471976
+
+[node name="wallseecment13" parent="." unique_id=2107960165 instance=ExtResource("1_l1iwy")]
+position = Vector2(-185, -461)
+rotation = 2.0943952
+
+[node name="wallseecment_v2" parent="." unique_id=1048658251 instance=ExtResource("2_y0vl4")]
+position = Vector2(-856, -497)
+scale = Vector2(1, 1.24)
+
+[node name="wallseecment14" parent="." unique_id=623993355 instance=ExtResource("1_l1iwy")]
+position = Vector2(-797, -293)
+rotation = 2.0943952
+scale = Vector2(1, 0.61)
+
+[node name="wallseecment15" parent="." unique_id=153103134 instance=ExtResource("1_l1iwy")]
+position = Vector2(-416, -557)
+rotation = 1.8325957
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="wallseecment16" parent="." unique_id=198005795 instance=ExtResource("1_l1iwy")]
+position = Vector2(-683, -627)
+rotation = 1.8151424
+scale = Vector2(1.088, 1.3)

@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var scene: PackedScene = preload("res://Scenes/Puzzle/cockpit_window.tscn")
+@export var fade_in:= true
+@export var fade_out:= true
 
 @onready var label: RichTextLabel = $Area2D/CollisionShape2D/Label
 
@@ -13,7 +15,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if player_near and event.is_action_pressed("interact"):
-		get_tree().change_scene_to_packed(scene)
+		SceneSwitcher.open_overlay_scene(scene.resource_path, fade_in, fade_out)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):

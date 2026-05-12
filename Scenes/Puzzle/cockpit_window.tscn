@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://dhaqf5a5qa6di"]
 
-[ext_resource type="Script" uid="uid://65n72rwo2xbw" path="res://space.gd" id="1_ucq61"]
+[ext_resource type="Script" uid="uid://5jn5o7nbbr06" path="res://script/cockpit_window.gd" id="1_lq4cw"]
+[ext_resource type="Script" uid="uid://65n72rwo2xbw" path="res://script/space.gd" id="1_ucq61"]
 [ext_resource type="Texture2D" uid="uid://c3m4shgscfx57" path="res://resources/assets/SpaceBG.png" id="2_bcstb"]
 [ext_resource type="Texture2D" uid="uid://cdfu1yfawobu0" path="res://resources/assets/Cockpit.png" id="3_lq4cw"]
 [ext_resource type="PackedScene" uid="uid://cur6fk02lbkm0" path="res://Scenes/joystick.tscn" id="4_cmgvn"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="5_bd08j"]
+[ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="7_cmgvn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbavm"]
 size = Vector2(4200, 3300)
@@ -18,9 +20,8 @@ size = Vector2(3630, 20)
 [sub_resource type="CircleShape2D" id="CircleShape2D_6v54c"]
 radius = 86.0
 
-[node name="CockpitWindow" type="Control" unique_id=744643247]
-layout_mode = 3
-anchors_preset = 0
+[node name="CockpitWindow" type="CanvasLayer" unique_id=1066614739]
+script = ExtResource("1_lq4cw")
 
 [node name="Space" type="CharacterBody2D" parent="." unique_id=1328670499]
 position = Vector2(960, 540)
@@ -52,8 +53,9 @@ shape = SubResource("RectangleShape2D_6v54c")
 position = Vector2(4, 2814)
 shape = SubResource("RectangleShape2D_6v54c")
 
-[node name="Window" type="Sprite2D" parent="." unique_id=556358358]
-position = Vector2(960, 540)
+[node name="Window" type="TextureRect" parent="." unique_id=1950571081]
+offset_right = 1920.0
+offset_bottom = 1080.0
 texture = ExtResource("3_lq4cw")
 
 [node name="Joystick" parent="." unique_id=555388885 instance=ExtResource("4_cmgvn")]
@@ -70,3 +72,14 @@ region_rect = Rect2(1820, 1132, 195, 128)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Crosshair" unique_id=230314862]
 shape = SubResource("CircleShape2D_6v54c")
+
+[node name="Button" type="Button" parent="." unique_id=2016330464]
+offset_left = 1398.0
+offset_top = 974.0
+offset_right = 1650.0
+offset_bottom = 1063.4972
+theme = ExtResource("7_cmgvn")
+theme_override_font_sizes/font_size = 50
+text = "Return"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

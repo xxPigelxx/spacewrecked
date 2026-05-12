@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://dq54j3xh3bbr1"]
+
+[ext_resource type="PackedScene" uid="uid://dktsyh6uwjspd" path="res://Scenes/door.tscn" id="1_8147l"]
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="2_v1qvw"]
+[ext_resource type="PackedScene" uid="uid://qlrldcoke1j4" path="res://Scenes/wallseecment_h.tscn" id="3_crhwu"]
+[ext_resource type="PackedScene" uid="uid://cwwkr8x8b2swc" path="res://Scenes/wallseecment_v.tscn" id="4_w1vw5"]
+[ext_resource type="PackedScene" uid="uid://bci5jkkqbyfuo" path="res://Scenes/interactable.tscn" id="5_oool8"]
+[ext_resource type="PackedScene" uid="uid://mlic8chu6u3u" path="res://Scenes/Number_pad.tscn" id="6_aorri"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78o8j"]
+size = Vector2(31.49997, 256)
+
+[node name="Main_Room" type="Node2D" unique_id=1671995787]
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1747361956]
+position = Vector2(-386.4515, -251.08972)
+polygon = PackedVector2Array(-0.37179327, -15, 549.45154, -9.910278, 769.45154, 103.08972, 772.45154, 395.08972, 543.45154, 519.0897, -0.029450893, 519)
+
+[node name="Door" parent="." unique_id=421017785 instance=ExtResource("1_8147l")]
+position = Vector2(-364, 1)
+
+[node name="wallseecment3" type="StaticBody2D" parent="." unique_id=412728482]
+position = Vector2(33, 262)
+rotation = -1.5707964
+
+[node name="ProcreateAtlas" type="Sprite2D" parent="wallseecment3" unique_id=1285280343]
+texture = ExtResource("2_v1qvw")
+region_enabled = true
+region_rect = Rect2(598, 1021, 39, 262)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wallseecment3" unique_id=894275297]
+position = Vector2(-0.74993896, 0)
+shape = SubResource("RectangleShape2D_78o8j")
+
+[node name="wallseecment6" type="StaticBody2D" parent="." unique_id=540685478]
+position = Vector2(268.99994, -201.00003)
+rotation = 2.094395
+
+[node name="ProcreateAtlas" type="Sprite2D" parent="wallseecment6" unique_id=85497948]
+texture = ExtResource("2_v1qvw")
+region_enabled = true
+region_rect = Rect2(598, 1021, 39, 262)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wallseecment6" unique_id=216401875]
+position = Vector2(-0.74993896, 0)
+shape = SubResource("RectangleShape2D_78o8j")
+
+[node name="wallseecment5" type="StaticBody2D" parent="." unique_id=516970645]
+position = Vector2(261, 200)
+rotation = -2.0943952
+
+[node name="ProcreateAtlas" type="Sprite2D" parent="wallseecment5" unique_id=660732065]
+texture = ExtResource("2_v1qvw")
+region_enabled = true
+region_rect = Rect2(598, 1021, 39, 262)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wallseecment5" unique_id=1764915254]
+position = Vector2(-0.74993896, 0)
+shape = SubResource("RectangleShape2D_78o8j")
+
+[node name="wallseecment7" type="StaticBody2D" parent="." unique_id=1459697257]
+position = Vector2(33, -266)
+rotation = -1.5707964
+
+[node name="ProcreateAtlas" type="Sprite2D" parent="wallseecment7" unique_id=912751079]
+texture = ExtResource("2_v1qvw")
+region_enabled = true
+region_rect = Rect2(598, 1021, 39, 262)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wallseecment7" unique_id=286455229]
+position = Vector2(-0.74993896, 0)
+shape = SubResource("RectangleShape2D_78o8j")
+
+[node name="wallseecment8" type="StaticBody2D" parent="." unique_id=64057738]
+position = Vector2(-221, -265)
+rotation = -1.5707964
+
+[node name="ProcreateAtlas" type="Sprite2D" parent="wallseecment8" unique_id=1619845669]
+texture = ExtResource("2_v1qvw")
+region_enabled = true
+region_rect = Rect2(598, 1021, 39, 262)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wallseecment8" unique_id=114073709]
+position = Vector2(-0.74993896, 0)
+shape = SubResource("RectangleShape2D_78o8j")
+
+[node name="wallseecment9" parent="." unique_id=445652353 instance=ExtResource("3_crhwu")]
+position = Vector2(-223, 262)
+
+[node name="wallseecment_v" parent="." unique_id=1048658251 instance=ExtResource("4_w1vw5")]
+position = Vector2(378, 0)
+
+[node name="Interactable" parent="." unique_id=844235675 instance=ExtResource("5_oool8")]
+position = Vector2(243.99994, -4)
+
+[node name="Interactable2" parent="." unique_id=1350626771 instance=ExtResource("5_oool8")]
+position = Vector2(-320.00006, -92)
+scene = ExtResource("6_aorri")
+fade_in = false

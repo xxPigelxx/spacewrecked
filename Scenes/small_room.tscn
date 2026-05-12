@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://by457jfe84bdi"]
+
+[ext_resource type="PackedScene" uid="uid://cwwkr8x8b2swc" path="res://Scenes/wallseecment_v.tscn" id="1_i6qhi"]
+
+[node name="Small_Room" type="Node2D" unique_id=135729386]
+
+[node name="Floor" type="Polygon2D" parent="." unique_id=411529129]
+z_index = -1
+polygon = PackedVector2Array(-476, 195, -631, 193, -821, 0, -632, -188, -468, -185)
+
+[node name="wallseecment_v3" parent="." unique_id=1048658251 instance=ExtResource("1_i6qhi")]
+position = Vector2(-721, 97)
+rotation = -0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="wallseecment_v4" parent="." unique_id=1571224235 instance=ExtResource("1_i6qhi")]
+position = Vector2(-721.00006, -94)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)

@@ -1,22 +1,19 @@
 [gd_scene format=3 uid="uid://dsjfdq71r0huh"]
 
-[ext_resource type="Texture2D" uid="uid://1tce3g477qyv" path="res://resources/assets/ship.png" id="1_l3rv8"]
 [ext_resource type="PackedScene" uid="uid://j4peei1eub8m" path="res://Scenes/fier_sfx.tscn" id="2_4cq66"]
-[ext_resource type="Script" uid="uid://bjd1klvxq36xp" path="res://ship.gd" id="2_v4325"]
-[ext_resource type="PackedScene" uid="uid://dktsyh6uwjspd" path="res://Scenes/door.tscn" id="4_78o8j"]
-[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="4_c3vuw"]
-[ext_resource type="PackedScene" uid="uid://qlrldcoke1j4" path="res://Scenes/wallseecment_h.tscn" id="6_pb2vj"]
-[ext_resource type="PackedScene" uid="uid://cwwkr8x8b2swc" path="res://Scenes/wallseecment_v.tscn" id="7_qxn0r"]
-[ext_resource type="PackedScene" uid="uid://bci5jkkqbyfuo" path="res://Scenes/interactable.tscn" id="8_qxn0r"]
-[ext_resource type="PackedScene" uid="uid://mlic8chu6u3u" path="res://Scenes/Number_pad.tscn" id="9_pmrbh"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_78o8j"]
-size = Vector2(31.49997, 256)
+[ext_resource type="Script" uid="uid://bjd1klvxq36xp" path="res://script/ship.gd" id="2_v4325"]
+[ext_resource type="Texture2D" uid="uid://dsey7pnpcari0" path="res://resources/assets/ship_gray.png" id="3_v2j2m"]
+[ext_resource type="PackedScene" uid="uid://dq54j3xh3bbr1" path="res://Scenes/main_room.tscn" id="4_fwcnm"]
+[ext_resource type="PackedScene" uid="uid://bx4dd6j1px5ts" path="res://Scenes/center_room.tscn" id="5_kxdp2"]
+[ext_resource type="PackedScene" uid="uid://by457jfe84bdi" path="res://Scenes/small_room.tscn" id="6_kxdp2"]
+[ext_resource type="PackedScene" uid="uid://f05mwa6qytr4" path="res://Scenes/bottom_room.tscn" id="7_v2j2m"]
+[ext_resource type="PackedScene" uid="uid://bw0bl8sb1j4it" path="res://Scenes/top_room.tscn" id="8_1m05r"]
 
 [node name="Ship" type="Node2D" unique_id=1210471280]
 script = ExtResource("2_v4325")
 
 [node name="FierSFX3" parent="." unique_id=1174731421 instance=ExtResource("2_4cq66")]
+z_index = -1
 position = Vector2(-1171, -478)
 rotation = -1.5707964
 scale = Vector2(3, 3)
@@ -24,6 +21,7 @@ animation = &"Fier_ainmation"
 frame_progress = 0.06740128
 
 [node name="FierSFX4" parent="." unique_id=491460308 instance=ExtResource("2_4cq66")]
+z_index = -1
 position = Vector2(-1169, 506.99997)
 rotation = -1.5707964
 scale = Vector2(3, 3)
@@ -31,170 +29,16 @@ animation = &"Fier_ainmation"
 frame_progress = 0.52742535
 
 [node name="Ship" type="Sprite2D" parent="." unique_id=45246556]
-texture = ExtResource("1_l3rv8")
+z_index = -1
+texture = ExtResource("3_v2j2m")
 
-[node name="Main_Room" type="Node2D" parent="." unique_id=1969163069]
+[node name="Main_Room" parent="." unique_id=1671995787 instance=ExtResource("4_fwcnm")]
 position = Vector2(525.00006, 0)
 
-[node name="Door" parent="Main_Room" unique_id=421017785 instance=ExtResource("4_78o8j")]
-position = Vector2(-364, 1)
+[node name="center_Room" parent="." unique_id=24713980 instance=ExtResource("5_kxdp2")]
 
-[node name="wallseecment3" type="StaticBody2D" parent="Main_Room" unique_id=1458268865]
-position = Vector2(33, 262)
-rotation = -1.5707964
+[node name="Small_Room" parent="." unique_id=135729386 instance=ExtResource("6_kxdp2")]
 
-[node name="ProcreateAtlas" type="Sprite2D" parent="Main_Room/wallseecment3" unique_id=876935626]
-texture = ExtResource("4_c3vuw")
-region_enabled = true
-region_rect = Rect2(598, 1021, 39, 262)
+[node name="Bottom_Room" parent="." unique_id=1717501456 instance=ExtResource("7_v2j2m")]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Main_Room/wallseecment3" unique_id=1647578548]
-position = Vector2(-0.74993896, 0)
-shape = SubResource("RectangleShape2D_78o8j")
-
-[node name="wallseecment6" type="StaticBody2D" parent="Main_Room" unique_id=224382567]
-position = Vector2(268.99994, -201.00003)
-rotation = 2.094395
-
-[node name="ProcreateAtlas" type="Sprite2D" parent="Main_Room/wallseecment6" unique_id=615034208]
-texture = ExtResource("4_c3vuw")
-region_enabled = true
-region_rect = Rect2(598, 1021, 39, 262)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Main_Room/wallseecment6" unique_id=1919006937]
-position = Vector2(-0.74993896, 0)
-shape = SubResource("RectangleShape2D_78o8j")
-
-[node name="wallseecment5" type="StaticBody2D" parent="Main_Room" unique_id=1149302592]
-position = Vector2(261, 200)
-rotation = -2.0943952
-
-[node name="ProcreateAtlas" type="Sprite2D" parent="Main_Room/wallseecment5" unique_id=754521366]
-texture = ExtResource("4_c3vuw")
-region_enabled = true
-region_rect = Rect2(598, 1021, 39, 262)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Main_Room/wallseecment5" unique_id=816656594]
-position = Vector2(-0.74993896, 0)
-shape = SubResource("RectangleShape2D_78o8j")
-
-[node name="wallseecment7" type="StaticBody2D" parent="Main_Room" unique_id=288280602]
-position = Vector2(33, -266)
-rotation = -1.5707964
-
-[node name="ProcreateAtlas" type="Sprite2D" parent="Main_Room/wallseecment7" unique_id=1539300728]
-texture = ExtResource("4_c3vuw")
-region_enabled = true
-region_rect = Rect2(598, 1021, 39, 262)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Main_Room/wallseecment7" unique_id=1133590325]
-position = Vector2(-0.74993896, 0)
-shape = SubResource("RectangleShape2D_78o8j")
-
-[node name="wallseecment8" type="StaticBody2D" parent="Main_Room" unique_id=765028376]
-position = Vector2(-221, -265)
-rotation = -1.5707964
-
-[node name="ProcreateAtlas" type="Sprite2D" parent="Main_Room/wallseecment8" unique_id=1314962748]
-texture = ExtResource("4_c3vuw")
-region_enabled = true
-region_rect = Rect2(598, 1021, 39, 262)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Main_Room/wallseecment8" unique_id=1351832521]
-position = Vector2(-0.74993896, 0)
-shape = SubResource("RectangleShape2D_78o8j")
-
-[node name="wallseecment9" parent="Main_Room" unique_id=445652353 instance=ExtResource("6_pb2vj")]
-position = Vector2(-223, 262)
-
-[node name="wallseecment_v" parent="Main_Room" unique_id=1048658251 instance=ExtResource("7_qxn0r")]
-position = Vector2(378, 0)
-
-[node name="Interactable" parent="Main_Room" unique_id=844235675 instance=ExtResource("8_qxn0r")]
-position = Vector2(243.99994, -4)
-
-[node name="Interactable2" parent="Main_Room" unique_id=1713237836 instance=ExtResource("8_qxn0r")]
-position = Vector2(-320.00006, -92)
-scene = ExtResource("9_pmrbh")
-
-[node name="center_Room" type="Node2D" parent="." unique_id=672757453]
-
-[node name="wallseecment9" parent="center_Room" unique_id=731304212 instance=ExtResource("6_pb2vj")]
-position = Vector2(44.000008, -332)
-rotation = -1.0471976
-
-[node name="wallseecment10" parent="center_Room" unique_id=821761554 instance=ExtResource("6_pb2vj")]
-position = Vector2(44, 332)
-rotation = 1.0471976
-
-[node name="Door" parent="center_Room" unique_id=488231879 instance=ExtResource("4_78o8j")]
-position = Vector2(-285, -265)
-rotation = 1.0471976
-
-[node name="Door2" parent="center_Room" unique_id=116974376 instance=ExtResource("4_78o8j")]
-position = Vector2(-300, 256)
-rotation = -1.0471976
-
-[node name="wallseecment11" parent="center_Room" unique_id=491752067 instance=ExtResource("6_pb2vj")]
-position = Vector2(-632, -200)
-rotation = -1.0471976
-
-[node name="wallseecment12" parent="center_Room" unique_id=1987459812 instance=ExtResource("6_pb2vj")]
-position = Vector2(-632, 200)
-rotation = 1.0471976
-
-[node name="wallseecment13" parent="center_Room" unique_id=1260282376 instance=ExtResource("6_pb2vj")]
-position = Vector2(-185.00005, 461.00003)
-rotation = -2.0943952
-
-[node name="wallseecment_v2" parent="center_Room" unique_id=579225018 instance=ExtResource("7_qxn0r")]
-position = Vector2(-856, 497)
-scale = Vector2(1, 1.24)
-
-[node name="wallseecment14" parent="center_Room" unique_id=1418912491 instance=ExtResource("6_pb2vj")]
-position = Vector2(-797, 293)
-rotation = -2.0943952
-scale = Vector2(1, 0.61)
-
-[node name="wallseecment15" parent="center_Room" unique_id=991849214 instance=ExtResource("6_pb2vj")]
-position = Vector2(-416.00003, 557)
-rotation = -1.8325958
-
-[node name="wallseecment16" parent="center_Room" unique_id=560796040 instance=ExtResource("6_pb2vj")]
-position = Vector2(-683.00006, 627.00006)
-rotation = -1.8145137
-scale = Vector2(1.088, 1.3)
-
-[node name="Door" parent="." unique_id=1555393449 instance=ExtResource("4_78o8j")]
-position = Vector2(-517, -2)
-scale = Vector2(1, 0.5)
-
-[node name="wallseecment13" parent="." unique_id=2058632210 instance=ExtResource("6_pb2vj")]
-position = Vector2(-185, -461)
-rotation = 2.0943952
-
-[node name="wallseecment_v2" parent="." unique_id=747362898 instance=ExtResource("7_qxn0r")]
-position = Vector2(-856, -497)
-scale = Vector2(1, 1.24)
-
-[node name="wallseecment14" parent="." unique_id=1918349944 instance=ExtResource("6_pb2vj")]
-position = Vector2(-797, -293)
-rotation = 2.0943952
-scale = Vector2(1, 0.61)
-
-[node name="wallseecment15" parent="." unique_id=1021085325 instance=ExtResource("6_pb2vj")]
-position = Vector2(-416, -557)
-rotation = 1.8325957
-
-[node name="wallseecment16" parent="." unique_id=1756609710 instance=ExtResource("6_pb2vj")]
-position = Vector2(-683, -627)
-rotation = 1.8151424
-scale = Vector2(1.088, 1.3)
-
-[node name="wallseecment_v3" parent="." unique_id=602915624 instance=ExtResource("7_qxn0r")]
-position = Vector2(-721, 97)
-rotation = -0.7853982
-
-[node name="wallseecment_v4" parent="." unique_id=2103937941 instance=ExtResource("7_qxn0r")]
-position = Vector2(-721.00006, -94)
-rotation = 0.7853982
+[node name="Top_Room" parent="." unique_id=448175340 instance=ExtResource("8_1m05r")]

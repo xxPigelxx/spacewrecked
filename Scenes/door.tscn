@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dktsyh6uwjspd"]
 
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="1_ba8gm"]
-[ext_resource type="Script" uid="uid://cb4me1rmklqa4" path="res://door.gd" id="1_v6xrn"]
+[ext_resource type="Script" uid="uid://cb4me1rmklqa4" path="res://script/door.gd" id="1_v6xrn"]
+[ext_resource type="PackedScene" uid="uid://b8b7l3jlaxb3c" path="res://Scenes/lamp.tscn" id="3_fahql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6xrn"]
 size = Vector2(31.49997, 256)
@@ -37,6 +38,12 @@ texture = ExtResource("1_ba8gm")
 region_enabled = true
 region_rect = Rect2(685, 1118, 48, 96)
 
+[node name="lamp2" parent="Top" unique_id=411957473 instance=ExtResource("3_fahql")]
+position = Vector2(-1.9999999, 61)
+scale = Vector2(0.29082564, 0.29082564)
+active_color = Color(0.44705883, 0.7607843, 0.30588236, 1)
+disabled_color = Color(1, 1, 1, 1)
+
 [node name="Bottom" type="StaticBody2D" parent="." unique_id=877071809]
 position = Vector2(0, 128)
 
@@ -49,6 +56,12 @@ position = Vector2(-1, -82)
 texture = ExtResource("1_ba8gm")
 region_enabled = true
 region_rect = Rect2(685, 1118, 48, 96)
+
+[node name="lamp" parent="Bottom" unique_id=402077154 instance=ExtResource("3_fahql")]
+position = Vector2(-3, -57)
+scale = Vector2(0.29082564, 0.29082564)
+active_color = Color(0.4460423, 0.7613163, 0.30623037, 1)
+disabled_color = Color(1, 1, 1, 1)
 
 [node name="DoorDetector" type="Area2D" parent="." unique_id=114808699]
 

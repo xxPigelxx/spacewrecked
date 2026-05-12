@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b8b7l3jlaxb3c"]
+
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="1_53l72"]
+[ext_resource type="Texture2D" uid="uid://e82evqiajh7u" path="res://resources/assets/animation/light/light_Animation_1.png" id="2_fisej"]
+[ext_resource type="Script" uid="uid://dfeo4oag3yfi5" path="res://script/lamp.gd" id="2_loo6k"]
+[ext_resource type="Texture2D" uid="uid://bnnl7mxtb7l1m" path="res://resources/assets/animation/light/light_Animation_2.png" id="3_loo6k"]
+[ext_resource type="Texture2D" uid="uid://bg51vi8rbrwgy" path="res://resources/assets/animation/light/light_Animation_3.png" id="4_nbhk8"]
+[ext_resource type="Texture2D" uid="uid://cclgekrrablye" path="res://resources/assets/animation/light/light_Animation_4.png" id="5_7g52q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v0fnq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fisej")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_loo6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nbhk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7g52q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="lamp" type="Sprite2D" unique_id=402077154]
+texture = ExtResource("1_53l72")
+region_enabled = true
+region_rect = Rect2(849, 323, 81, 81)
+script = ExtResource("2_loo6k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2025873815]
+position = Vector2(2.2342389, -1.7943935)
+scale = Vector2(1.315315, 1.2897196)
+sprite_frames = SubResource("SpriteFrames_v0fnq")
+frame_progress = 0.08557763
