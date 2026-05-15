@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dsjfdq71r0huh"]
 
 [ext_resource type="PackedScene" uid="uid://j4peei1eub8m" path="res://Scenes/fier_sfx.tscn" id="2_4cq66"]
+[ext_resource type="PackedScene" uid="uid://c67744no343jm" path="res://Scenes/space_bg.tscn" id="2_v2j2m"]
 [ext_resource type="Script" uid="uid://bjd1klvxq36xp" path="res://script/ship.gd" id="2_v4325"]
 [ext_resource type="Texture2D" uid="uid://dsey7pnpcari0" path="res://resources/assets/ship_gray.png" id="3_v2j2m"]
 [ext_resource type="PackedScene" uid="uid://dq54j3xh3bbr1" path="res://Scenes/main_room.tscn" id="4_fwcnm"]
@@ -11,6 +12,9 @@
 
 [node name="Ship" type="Node2D" unique_id=1210471280]
 script = ExtResource("2_v4325")
+
+[node name="SpaceBg" parent="." unique_id=1555961878 instance=ExtResource("2_v2j2m")]
+position = Vector2(531, 484)
 
 [node name="FierSFX3" parent="." unique_id=1174731421 instance=ExtResource("2_4cq66")]
 z_index = -1

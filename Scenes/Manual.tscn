@@ -7,82 +7,54 @@
 [ext_resource type="Resource" uid="uid://du4xm3lw5p7st" path="res://resources/pages/page_engin.tres" id="4_qht1w"]
 [ext_resource type="Resource" uid="uid://bm6lmwa02wp8j" path="res://resources/pages/page_einleitung.tres" id="4_y34m4"]
 [ext_resource type="FontFile" uid="uid://dld0grsdcans2" path="res://resources/fonts/Share_Tech/ShareTech-Regular.ttf" id="6_y34m4"]
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="7_ki00s"]
+[ext_resource type="Theme" uid="uid://dvs0r83gvhd2k" path="res://resources/themes/small_Bt.tres" id="8_ki00s"]
+[ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="9_l84fx"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ho87o"]
-content_margin_left = 2.0
-content_margin_right = 2.0
-bg_color = Color(0.6313726, 0.75686276, 0.5058824, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_bottom = 4
-border_color = Color(0.9882353, 0.7921569, 0.27450982, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
-expand_margin_bottom = 4.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jrnw2"]
+texture = ExtResource("7_ki00s")
+texture_margin_left = 26.296047
+texture_margin_top = 23.290785
+texture_margin_bottom = 20.285522
+axis_stretch_horizontal = 2
+region_rect = Rect2(1423, 1297, 119, 129)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y34m4"]
-content_margin_left = 2.0
-bg_color = Color(0.4745098, 0.63529414, 0.45490196, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_bottom = 4
-border_color = Color(0.9882353, 0.7921569, 0.27450982, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
-expand_margin_bottom = 4.0
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nj0vq"]
+load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wtnac"]
-content_margin_left = 2.0
-content_margin_right = 2.0
-bg_color = Color(0.46592963, 0.5814822, 0.34698045, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_bottom = 4
-border_color = Color(0.75728464, 0.5875375, 0.06722194, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
-expand_margin_bottom = 4.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_atcdx"]
+texture = SubResource("CompressedTexture2D_nj0vq")
+texture_margin_left = 26.296047
+texture_margin_top = 23.290785
+texture_margin_bottom = 20.285522
+axis_stretch_horizontal = 2
+region_rect = Rect2(1423, 1297, 120, 129)
+modulate_color = Color(0.19076231, 0.19076234, 0.19076231, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hj4sw"]
-content_margin_left = 2.0
-content_margin_right = 2.0
-bg_color = Color(0.29875278, 0.38413757, 0.20908907, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_bottom = 4
-border_color = Color(0.58448243, 0.44897932, 0.04513497, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
-expand_margin_bottom = 4.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6m11v"]
+texture = SubResource("CompressedTexture2D_nj0vq")
+texture_margin_left = 26.296047
+texture_margin_top = 23.290785
+texture_margin_bottom = 20.285522
+axis_stretch_horizontal = 2
+region_rect = Rect2(1423, 1297, 119.46106, 129)
+modulate_color = Color(0.37413925, 0.37413928, 0.37413922, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kpije"]
-bg_color = Color(0.6313726, 0.75686276, 0.5058824, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_bottom = 4
-border_color = Color(0.4366366, 0.575094, 0.6234902, 1)
-corner_radius_top_left = 20
-corner_radius_bottom_left = 20
+[sub_resource type="Theme" id="Theme_hj4sw"]
+default_font = ExtResource("6_y34m4")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jrnw2"]
+load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nj0vq"]
+texture = SubResource("CompressedTexture2D_jrnw2")
+texture_margin_left = 60.90915
+texture_margin_top = 79.02109
+texture_margin_right = 57.895527
+texture_margin_bottom = 112.50263
+region_rect = Rect2(782, 1429, 484, 594)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ki00s"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_kpije"]
 color = Color(0.9490196, 0.91764706, 0.84705883, 1)
@@ -90,17 +62,7 @@ grow_begin = 0.0
 grow_end = 0.0
 thickness = 2
 
-[sub_resource type="Theme" id="Theme_hj4sw"]
-default_font = ExtResource("6_y34m4")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qht1w"]
-bg_color = Color(0.47578812, 0.63623893, 0.45301944, 1)
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.43529412, 0.5764706, 0.62352943, 1)
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l84fx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kpije"]
 
@@ -110,156 +72,183 @@ corner_radius_bottom_right = 20
 custom_minimum_size = Vector2(650, 780)
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1880.0
-offset_top = 147.0
-offset_right = 2530.0
-offset_bottom = 927.0
+offset_left = 1884.0
+offset_top = 69.0
+offset_right = 2614.0
+offset_bottom = 1040.0
 theme = ExtResource("1_ho87o")
 script = ExtResource("1_kpije")
-toc_list = NodePath("BookContainer/Cover/MarginContainer/VBoxContainer/TOCList")
-section_label = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/PageHeader/SectionLabel")
-page_num_label = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/PageHeader/PageNumlabel")
-page_title_label = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/PageTitle")
-body_label = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/BodyLabel")
-warning_box = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/WarningBox")
-warning_label = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/WarningBox/WarningLabel")
-step_list = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/StepList")
-prev_button = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/Footer/PrevButton")
-next_button = NodePath("BookContainer/PagePanel/MarginContainer/VBoxContainer/Footer/NextButton")
+toc_list = NodePath("PagePanel/BookContainer/Cover/MarginContainer/VBoxContainer/TOCList")
+section_label = NodePath("PagePanel/BookContainer/PagePanel/MarginContainer/VBoxContainer/PageHeader/SectionLabel")
+page_num_label = NodePath("PagePanel/BookContainer/PagePanel/MarginContainer/VBoxContainer/PageHeader/PageNumlabel")
+page_title_label = NodePath("PagePanel/BookContainer/PagePanel/MarginContainer/VBoxContainer/PageTitle")
+body_label = NodePath("PagePanel/BookContainer/PagePanel/MarginContainer/VBoxContainer/BodyLabel")
+warning_box = NodePath("PagePanel/BookContainer/PagePanel/MarginContainer/VBoxContainer/WarningBox")
+warning_label = NodePath("PagePanel/BookContainer/PagePanel/MarginContainer/VBoxContainer/WarningBox/WarningLabel")
+step_list = NodePath("PagePanel/BookContainer/PagePanel/MarginContainer/VBoxContainer/StepList")
+prev_button = NodePath("Footer/PrevButton")
+next_button = NodePath("Footer/NextButton")
 pages = Array[ExtResource("2_qht1w")]([ExtResource("4_y34m4"), ExtResource("3_w4qjf"), ExtResource("4_qht1w")])
 
-[node name="BookContainer" type="HBoxContainer" parent="ManualRoot" unique_id=1377107930]
-custom_minimum_size = Vector2(600, 780)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 0
-
-[node name="SideButton" type="Button" parent="ManualRoot/BookContainer" unique_id=2085482]
+[node name="SideButton" type="Button" parent="ManualRoot" unique_id=2085482]
 custom_minimum_size = Vector2(0, 138.12)
-layout_mode = 2
+layout_mode = 0
+offset_left = -69.0
+offset_top = 405.0
+offset_right = 30.226105
+offset_bottom = 543.12
 size_flags_horizontal = 6
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("1_ho87o")
 theme_type_variation = &"sidebutton"
-theme_override_styles/normal = SubResource("StyleBoxFlat_ho87o")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_y34m4")
-theme_override_styles/hover = SubResource("StyleBoxFlat_wtnac")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_hj4sw")
-theme_override_styles/focus = SubResource("StyleBoxFlat_wtnac")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jrnw2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_atcdx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6m11v")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_6m11v")
 toggle_mode = true
 text = "Open"
+alignment = 0
 
-[node name="Cover" type="PanelContainer" parent="ManualRoot/BookContainer" unique_id=1063727869]
+[node name="PagePanel" type="PanelContainer" parent="ManualRoot" unique_id=804568140]
+custom_minimum_size = Vector2(420, 780)
+layout_mode = 0
+offset_right = 420.0
+offset_bottom = 780.0
+theme = SubResource("Theme_hj4sw")
+theme_override_styles/panel = SubResource("StyleBoxTexture_nj0vq")
+
+[node name="BookContainer" type="HBoxContainer" parent="ManualRoot/PagePanel" unique_id=1377107930]
+custom_minimum_size = Vector2(600, 780)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Cover" type="PanelContainer" parent="ManualRoot/PagePanel/BookContainer" unique_id=1063727869]
 custom_minimum_size = Vector2(150, 780)
 layout_mode = 2
 theme = ExtResource("1_ho87o")
-theme_override_styles/panel = SubResource("StyleBoxFlat_kpije")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ki00s")
 
-[node name="MarginContainer" type="MarginContainer" parent="ManualRoot/BookContainer/Cover" unique_id=95669864]
+[node name="MarginContainer" type="MarginContainer" parent="ManualRoot/PagePanel/BookContainer/Cover" unique_id=95669864]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ManualRoot/BookContainer/Cover/MarginContainer" unique_id=1270465247]
+[node name="VBoxContainer" type="VBoxContainer" parent="ManualRoot/PagePanel/BookContainer/Cover/MarginContainer" unique_id=1270465247]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ManualRoot/BookContainer/Cover/MarginContainer/VBoxContainer" unique_id=1736710544]
+[node name="VBoxContainer" type="VBoxContainer" parent="ManualRoot/PagePanel/BookContainer/Cover/MarginContainer/VBoxContainer" unique_id=1736710544]
 layout_mode = 2
 
-[node name="CoverTitle" type="Label" parent="ManualRoot/BookContainer/Cover/MarginContainer/VBoxContainer/VBoxContainer" unique_id=2007782180]
+[node name="CoverTitle" type="Label" parent="ManualRoot/PagePanel/BookContainer/Cover/MarginContainer/VBoxContainer/VBoxContainer" unique_id=2007782180]
 layout_mode = 2
 text = "Title"
 
-[node name="CoverSubtitle" type="Label" parent="ManualRoot/BookContainer/Cover/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1246728659]
+[node name="CoverSubtitle" type="Label" parent="ManualRoot/PagePanel/BookContainer/Cover/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1246728659]
 layout_mode = 2
 text = "CoverSub"
 
-[node name="HSeparator" type="HSeparator" parent="ManualRoot/BookContainer/Cover/MarginContainer/VBoxContainer" unique_id=230551503]
+[node name="HSeparator" type="HSeparator" parent="ManualRoot/PagePanel/BookContainer/Cover/MarginContainer/VBoxContainer" unique_id=230551503]
 layout_mode = 2
 theme_override_constants/separation = 87
 theme_override_styles/separator = SubResource("StyleBoxLine_kpije")
 
-[node name="TOCLabel" type="Label" parent="ManualRoot/BookContainer/Cover/MarginContainer/VBoxContainer" unique_id=415518749]
+[node name="TOCLabel" type="Label" parent="ManualRoot/PagePanel/BookContainer/Cover/MarginContainer/VBoxContainer" unique_id=415518749]
 layout_mode = 2
 text = "Table of contents"
 
-[node name="TOCList" type="VBoxContainer" parent="ManualRoot/BookContainer/Cover/MarginContainer/VBoxContainer" unique_id=714923287]
+[node name="TOCList" type="VBoxContainer" parent="ManualRoot/PagePanel/BookContainer/Cover/MarginContainer/VBoxContainer" unique_id=714923287]
 layout_mode = 2
 
-[node name="PagePanel" type="PanelContainer" parent="ManualRoot/BookContainer" unique_id=892961354]
+[node name="PagePanel" type="PanelContainer" parent="ManualRoot/PagePanel/BookContainer" unique_id=892961354]
 custom_minimum_size = Vector2(420, 780)
 layout_mode = 2
-theme = SubResource("Theme_hj4sw")
-theme_override_styles/panel = SubResource("StyleBoxFlat_qht1w")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_l84fx")
 
-[node name="MarginContainer" type="MarginContainer" parent="ManualRoot/BookContainer/PagePanel" unique_id=1812953046]
+[node name="MarginContainer" type="MarginContainer" parent="ManualRoot/PagePanel/BookContainer/PagePanel" unique_id=1812953046]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ManualRoot/BookContainer/PagePanel/MarginContainer" unique_id=1999977700]
+[node name="VBoxContainer" type="VBoxContainer" parent="ManualRoot/PagePanel/BookContainer/PagePanel/MarginContainer" unique_id=1999977700]
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="PageHeader" type="HBoxContainer" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer" unique_id=1875326578]
+[node name="PageHeader" type="HBoxContainer" parent="ManualRoot/PagePanel/BookContainer/PagePanel/MarginContainer/VBoxContainer" unique_id=1875326578]
 layout_mode = 2
 
-[node name="SectionLabel" type="Label" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer/PageHeader" unique_id=755753013]
+[node name="SectionLabel" type="Label" parent="ManualRoot/PagePanel/BookContainer/PagePanel/MarginContainer/VBoxContainer/PageHeader" unique_id=755753013]
 layout_mode = 2
 text = "Section Label"
 
-[node name="Spacer" type="Control" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer/PageHeader" unique_id=1122483155]
+[node name="Spacer" type="Control" parent="ManualRoot/PagePanel/BookContainer/PagePanel/MarginContainer/VBoxContainer/PageHeader" unique_id=1122483155]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PageNumlabel" type="Label" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer/PageHeader" unique_id=2072490468]
+[node name="PageNumlabel" type="Label" parent="ManualRoot/PagePanel/BookContainer/PagePanel/MarginContainer/VBoxContainer/PageHeader" unique_id=2072490468]
 layout_mode = 2
 text = "page Number"
 horizontal_alignment = 2
 
-[node name="PageTitle" type="Label" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer" unique_id=1958106127]
+[node name="PageTitle" type="Label" parent="ManualRoot/PagePanel/BookContainer/PagePanel/MarginContainer/VBoxContainer" unique_id=1958106127]
 layout_mode = 2
 text = "Page Title"
 
-[node name="BodyLabel" type="RichTextLabel" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer" unique_id=496091260]
+[node name="BodyLabel" type="RichTextLabel" parent="ManualRoot/PagePanel/BookContainer/PagePanel/MarginContainer/VBoxContainer" unique_id=496091260]
 layout_mode = 2
 bbcode_enabled = true
 text = "jbhakdfhjkalshfkljahsdfjklhasdlkjhfaskljdhfljkashfkljahsdfkljhasdkjlfhklasdhfklajsdhjkf"
 fit_content = true
 
-[node name="WarningBox" type="PanelContainer" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer" unique_id=95009319]
+[node name="WarningBox" type="PanelContainer" parent="ManualRoot/PagePanel/BookContainer/PagePanel/MarginContainer/VBoxContainer" unique_id=95009319]
 layout_mode = 2
 
-[node name="WarningLabel" type="RichTextLabel" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer/WarningBox" unique_id=202034529]
+[node name="WarningLabel" type="RichTextLabel" parent="ManualRoot/PagePanel/BookContainer/PagePanel/MarginContainer/VBoxContainer/WarningBox" unique_id=202034529]
 layout_mode = 2
 bbcode_enabled = true
 text = "adsfajnsdklfhdasklfnaslidhnfklj.asdnflöiunaslöfnaslöinfil"
 
-[node name="StepList" type="VBoxContainer" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer" unique_id=617853603]
+[node name="StepList" type="VBoxContainer" parent="ManualRoot/PagePanel/BookContainer/PagePanel/MarginContainer/VBoxContainer" unique_id=617853603]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Spacer" type="Control" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer" unique_id=1502945085]
+[node name="Spacer" type="Control" parent="ManualRoot/PagePanel/BookContainer/PagePanel/MarginContainer/VBoxContainer" unique_id=1502945085]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Footer" type="HBoxContainer" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer" unique_id=781251161]
-layout_mode = 2
+[node name="Footer" type="HBoxContainer" parent="ManualRoot" unique_id=781251161]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 903.0
+offset_right = 662.0
+offset_bottom = 953.0
 alignment = 1
 
-[node name="PrevButton" type="Button" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer/Footer" unique_id=798561711]
+[node name="PrevButton" type="Button" parent="ManualRoot/Footer" unique_id=798561711]
+custom_minimum_size = Vector2(120, 50)
 layout_mode = 2
-theme = ExtResource("1_ho87o")
+theme = ExtResource("8_ki00s")
 text = "Prev"
+script = ExtResource("9_l84fx")
 
-[node name="VSeparator" type="VSeparator" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer/Footer" unique_id=151871872]
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/Footer" unique_id=1577518736]
 layout_mode = 2
-theme_override_constants/separation = 250
+size_flags_horizontal = 3
 theme_override_styles/separator = SubResource("StyleBoxEmpty_kpije")
 
-[node name="NextButton" type="Button" parent="ManualRoot/BookContainer/PagePanel/MarginContainer/VBoxContainer/Footer" unique_id=1847131348]
+[node name="Button" type="Button" parent="ManualRoot/Footer" unique_id=1484676336]
+custom_minimum_size = Vector2(120, 50)
 layout_mode = 2
-text = "Next"
+theme = ExtResource("8_ki00s")
+text = "Home"
+script = ExtResource("9_l84fx")
 
-[connection signal="toggled" from="ManualRoot/BookContainer/SideButton" to="ManualRoot" method="_on_side_button_toggled"]
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/Footer" unique_id=151871872]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kpije")
+
+[node name="NextButton" type="Button" parent="ManualRoot/Footer" unique_id=1847131348]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+theme = ExtResource("8_ki00s")
+text = "Next"
+script = ExtResource("9_l84fx")
+
+[connection signal="toggled" from="ManualRoot/SideButton" to="ManualRoot" method="_on_side_button_toggled"]

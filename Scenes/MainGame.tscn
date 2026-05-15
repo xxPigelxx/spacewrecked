@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b5dbqqu5xo2t0"]
+
+[ext_resource type="PackedScene" uid="uid://dsjfdq71r0huh" path="res://Scenes/ship.tscn" id="2_ybmw1"]
+[ext_resource type="PackedScene" uid="uid://bh7mvtchr84vd" path="res://Scenes/player.tscn" id="3_321ql"]
+[ext_resource type="PackedScene" uid="uid://bci5jkkqbyfuo" path="res://Scenes/CockPitConsol.tscn" id="4_ybmw1"]
+
+[node name="MainGame" type="Node2D" unique_id=819575177]
+
+[node name="Ship" parent="." unique_id=1210471280 instance=ExtResource("2_ybmw1")]
+position = Vector2(662.99994, 548)
+
+[node name="Interactable" parent="." unique_id=844235675 instance=ExtResource("4_ybmw1")]
+position = Vector2(1408, 550)
+
+[node name="player" parent="." unique_id=1759760143 instance=ExtResource("3_321ql")]
+position = Vector2(1187, 530)

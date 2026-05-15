@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="3_rbccy"]
 [ext_resource type="PackedScene" uid="uid://b8b7l3jlaxb3c" path="res://Scenes/lamp.tscn" id="4_mfesi"]
 [ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="5_7mjqk"]
+[ext_resource type="Theme" uid="uid://dvs0r83gvhd2k" path="res://resources/themes/small_Bt.tres" id="5_etsxo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_brwtl"]
 texture = ExtResource("1_brwtl")
@@ -14,31 +15,6 @@ texture_margin_top = 19.192118
 texture_margin_right = 27.659227
 texture_margin_bottom = 22.014488
 region_rect = Rect2(1535, 0, 256, 255)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rbccy"]
-load_path = "res://.godot/imported/procreate_atlas.png-da84be31f39250f8df4ef08b4b01d03c.ctex"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3udq0"]
-texture = SubResource("CompressedTexture2D_rbccy")
-region_rect = Rect2(522, 803, 214, 185)
-modulate_color = Color(0.65834004, 0.6583399, 0.6583399, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2uwnx"]
-texture = ExtResource("1_brwtl")
-region_rect = Rect2(522, 803, 214, 185)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k01yx"]
-texture = ExtResource("1_brwtl")
-region_rect = Rect2(807, 835, 184, 148)
-modulate_color = Color(0.33660772, 0.33660758, 0.3366076, 1)
-
-[sub_resource type="Theme" id="Theme_6gg6k"]
-Button/colors/font_color = Color(0.25565845, 0.25565895, 0.25565854, 1)
-Button/font_sizes/font_size = 40
-Button/fonts/font = ExtResource("3_rbccy")
-Button/styles/hover = SubResource("StyleBoxTexture_3udq0")
-Button/styles/normal = SubResource("StyleBoxTexture_2uwnx")
-Button/styles/pressed = SubResource("StyleBoxTexture_k01yx")
 
 [node name="NumberPad" type="CanvasLayer" unique_id=538007459]
 script = ExtResource("1_ispqh")
@@ -106,70 +82,70 @@ columns = 3
 [node name="Button" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=46898712]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-theme = SubResource("Theme_6gg6k")
+theme = ExtResource("5_etsxo")
 text = "1"
 script = ExtResource("2_ispqh")
 
 [node name="Button2" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=527012840]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-theme = SubResource("Theme_6gg6k")
+theme = ExtResource("5_etsxo")
 text = "2"
 script = ExtResource("2_ispqh")
 
 [node name="Button3" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=1064407612]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-theme = SubResource("Theme_6gg6k")
+theme = ExtResource("5_etsxo")
 text = "3"
 script = ExtResource("2_ispqh")
 
 [node name="Button4" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=849667089]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-theme = SubResource("Theme_6gg6k")
+theme = ExtResource("5_etsxo")
 text = "4"
 script = ExtResource("2_ispqh")
 
 [node name="Button5" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=1301346799]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-theme = SubResource("Theme_6gg6k")
+theme = ExtResource("5_etsxo")
 text = "5"
 script = ExtResource("2_ispqh")
 
 [node name="Button6" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=652005084]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-theme = SubResource("Theme_6gg6k")
+theme = ExtResource("5_etsxo")
 text = "6"
 script = ExtResource("2_ispqh")
 
 [node name="Button7" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=2023519584]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-theme = SubResource("Theme_6gg6k")
+theme = ExtResource("5_etsxo")
 text = "7"
 script = ExtResource("2_ispqh")
 
 [node name="Button8" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=576472772]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-theme = SubResource("Theme_6gg6k")
+theme = ExtResource("5_etsxo")
 text = "8"
 script = ExtResource("2_ispqh")
 
 [node name="Button9" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=1125849377]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-theme = SubResource("Theme_6gg6k")
+theme = ExtResource("5_etsxo")
 text = "9"
 script = ExtResource("2_ispqh")
 
 [node name="Button10" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=1230097860]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-theme = SubResource("Theme_6gg6k")
+theme = ExtResource("5_etsxo")
 theme_override_colors/font_color = Color(0.26, 0.26, 0.26, 0)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
@@ -188,14 +164,14 @@ region_rect = Rect2(301, 1148, 80, 36)
 [node name="Button11" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=1873555347]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-theme = SubResource("Theme_6gg6k")
+theme = ExtResource("5_etsxo")
 text = "0"
 script = ExtResource("2_ispqh")
 
 [node name="Button12" type="Button" parent="PanelContainer/MarginContainer/GridContainer" unique_id=1797212175]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-theme = SubResource("Theme_6gg6k")
+theme = ExtResource("5_etsxo")
 theme_override_colors/font_color = Color(0.26, 0.26, 0.26, 0)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 0)

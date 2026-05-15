@@ -8,7 +8,7 @@ func _ready() -> void:
 	credits.visible = false
 
 func _on_start_bt_pressed() -> void:
-	SceneSwitcher.switch_scene("res://Scenes/test.tscn")
+	SceneSwitcher.switch_scene("res://Scenes/MainGame.tscn")
 
 func _on_options_bt_pressed() -> void:
 	pass

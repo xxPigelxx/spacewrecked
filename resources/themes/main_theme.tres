@@ -2,108 +2,19 @@
 
 [ext_resource type="FontFile" uid="uid://dld0grsdcans2" path="res://resources/fonts/Share_Tech/ShareTech-Regular.ttf" id="1_x2ak3"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4ejt"]
-bg_color = Color(0.40898603, 0.5144955, 0.29947013, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.74339294, 0.57536656, 0.0648276, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
-expand_margin_bottom = 4.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjg5f"]
-bg_color = Color(0.46592963, 0.5814822, 0.34698045, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.75728464, 0.5875375, 0.06722194, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
-expand_margin_bottom = 4.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wthw"]
-bg_color = Color(0.29875278, 0.38413757, 0.20908907, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.58448243, 0.44897932, 0.04513497, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
-expand_margin_bottom = 4.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dagba"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
-bg_color = Color(0.6313726, 0.75686276, 0.5058824, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.9882353, 0.7921569, 0.27450982, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
-expand_margin_bottom = 4.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xtbu8"]
-bg_color = Color(0.4745098, 0.63529414, 0.45490196, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.9882353, 0.7921569, 0.27450982, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-expand_margin_right = 4.0
-expand_margin_bottom = 4.0
-
 [resource]
 default_font = ExtResource("1_x2ak3")
-Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
-Button/styles/focus = SubResource("StyleBoxFlat_i4ejt")
-Button/styles/hover = SubResource("StyleBoxFlat_yjg5f")
-Button/styles/hover_pressed = SubResource("StyleBoxFlat_0wthw")
-Button/styles/normal = SubResource("StyleBoxFlat_dagba")
-Button/styles/pressed = SubResource("StyleBoxFlat_xtbu8")
-Label/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_color = Color(0, 0, 0, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0)
-Label/font_sizes/font_size = 16
+Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_x2ak3")
 MarginContainer/constants/margin_bottom = 25
 MarginContainer/constants/margin_left = 15
 MarginContainer/constants/margin_right = 15
 MarginContainer/constants/margin_top = 15
-RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
-RichTextLabel/font_sizes/bold_font_size = 16
+RichTextLabel/font_sizes/bold_font_size = 24
 RichTextLabel/fonts/normal_font = ExtResource("1_x2ak3")

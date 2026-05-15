@@ -4,8 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="2_v1qvw"]
 [ext_resource type="PackedScene" uid="uid://qlrldcoke1j4" path="res://Scenes/wallseecment_h.tscn" id="3_crhwu"]
 [ext_resource type="PackedScene" uid="uid://cwwkr8x8b2swc" path="res://Scenes/wallseecment_v.tscn" id="4_w1vw5"]
-[ext_resource type="PackedScene" uid="uid://bci5jkkqbyfuo" path="res://Scenes/interactable.tscn" id="5_oool8"]
-[ext_resource type="PackedScene" uid="uid://mlic8chu6u3u" path="res://Scenes/Number_pad.tscn" id="6_aorri"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78o8j"]
 size = Vector2(31.49997, 256)
@@ -89,11 +87,3 @@ position = Vector2(-223, 262)
 
 [node name="wallseecment_v" parent="." unique_id=1048658251 instance=ExtResource("4_w1vw5")]
 position = Vector2(378, 0)
-
-[node name="Interactable" parent="." unique_id=844235675 instance=ExtResource("5_oool8")]
-position = Vector2(243.99994, -4)
-
-[node name="Interactable2" parent="." unique_id=1350626771 instance=ExtResource("5_oool8")]
-position = Vector2(-320.00006, -92)
-scene = ExtResource("6_aorri")
-fade_in = false

@@ -45,7 +45,7 @@ extends Control
 ## Drag all your PageConfig .tres files in here in order.
 @export var pages: Array[PageConfig] = []
 
-@onready var side_button: Button = $BookContainer/SideButton
+@onready var side_button: Button = $SideButton
 
 
 # ─────────────────────────────────────────────
@@ -55,7 +55,7 @@ extends Control
 var _current_index: int = 0
 var _toc_buttons: Array[Button] = []
 
-@onready var open_x := position.x -650
+@onready var open_x 
 @onready var closed_x := position.x
 # ─────────────────────────────────────────────
 #  LIFECYCLE
@@ -66,8 +66,7 @@ func _ready() -> void:
 	_load_page(_current_index)
 	prev_button.pressed.connect(_on_prev)
 	next_button.pressed.connect(_on_next)
-
-
+	open_x = position.x - size.x 
 
 # ─────────────────────────────────────────────
 #  PUBLIC API
