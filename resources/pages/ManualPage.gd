@@ -67,7 +67,7 @@ func _ready() -> void:
 	prev_button.pressed.connect(_on_prev)
 	next_button.pressed.connect(_on_next)
 	open_x = position.x - size.x 
-
+	
 # ─────────────────────────────────────────────
 #  PUBLIC API
 # ─────────────────────────────────────────────
@@ -176,6 +176,10 @@ func _on_prev() -> void:
 func _on_next() -> void:
 	_load_page(_current_index + 1)
 
+func activate():
+	visible = true
+	slide_to(open_x)
+	side_button.text = "Close"
 
 func _on_side_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:

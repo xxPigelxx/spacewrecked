@@ -15,7 +15,6 @@ radius = 122.85718
 size = Vector2(228.57138, 168.57153)
 
 [node name="Cable" type="Node2D" unique_id=1824421684]
-position = Vector2(693, 401)
 script = ExtResource("1_jk2p3")
 
 [node name="Line" type="Line2D" parent="." unique_id=57579387]

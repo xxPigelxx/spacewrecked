@@ -1,16 +1,127 @@
 [gd_scene format=3 uid="uid://b5dbqqu5xo2t0"]
 
+[ext_resource type="PackedScene" uid="uid://cnbh3ya334cou" path="res://Scenes/Manual.tscn" id="1_73a8k"]
+[ext_resource type="PackedScene" uid="uid://dq54j3xh3bbr1" path="res://Scenes/main_room.tscn" id="2_48eim"]
+[ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="2_321ql"]
+[ext_resource type="Script" uid="uid://c743pafa127rw" path="res://Scenes/keypad_1.gd" id="2_d4f28"]
 [ext_resource type="PackedScene" uid="uid://dsjfdq71r0huh" path="res://Scenes/ship.tscn" id="2_ybmw1"]
+[ext_resource type="PackedScene" uid="uid://bx4dd6j1px5ts" path="res://Scenes/center_room.tscn" id="3_73a8k"]
 [ext_resource type="PackedScene" uid="uid://bh7mvtchr84vd" path="res://Scenes/player.tscn" id="3_321ql"]
+[ext_resource type="PackedScene" uid="uid://by457jfe84bdi" path="res://Scenes/small_room.tscn" id="4_q8sds"]
 [ext_resource type="PackedScene" uid="uid://bci5jkkqbyfuo" path="res://Scenes/CockPitConsol.tscn" id="4_ybmw1"]
+[ext_resource type="PackedScene" uid="uid://f05mwa6qytr4" path="res://Scenes/bottom_room.tscn" id="5_yr2pg"]
+[ext_resource type="PackedScene" uid="uid://bw0bl8sb1j4it" path="res://Scenes/top_room.tscn" id="6_ylpyt"]
+[ext_resource type="Script" uid="uid://kudxrduhqrqa" path="res://Scenes/manual_item_pickup.gd" id="11_q8sds"]
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="12_yr2pg"]
+[ext_resource type="Script" uid="uid://tmhad1hhtvuj" path="res://Scenes/wiers_1.gd" id="13_ylpyt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yprpe"]
+size = Vector2(76, 84)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yr2pg"]
+radius = 71.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wyocf"]
+radius = 73.0
 
 [node name="MainGame" type="Node2D" unique_id=819575177]
+
+[node name="Manual" parent="." unique_id=633991194 instance=ExtResource("1_73a8k")]
+
+[node name="ManualRoot" parent="Manual" index="0" unique_id=2094122676]
+visible = false
 
 [node name="Ship" parent="." unique_id=1210471280 instance=ExtResource("2_ybmw1")]
 position = Vector2(662.99994, 548)
 
-[node name="Interactable" parent="." unique_id=844235675 instance=ExtResource("4_ybmw1")]
+[node name="Main_Room" parent="Ship" unique_id=1671995787 instance=ExtResource("2_48eim")]
+position = Vector2(525.00006, 0)
+
+[node name="center_Room" parent="Ship" unique_id=24713980 instance=ExtResource("3_73a8k")]
+
+[node name="Small_Room" parent="Ship" unique_id=135729386 instance=ExtResource("4_q8sds")]
+
+[node name="Bottom_Room" parent="Ship" unique_id=1717501456 instance=ExtResource("5_yr2pg")]
+
+[node name="Top_Room" parent="Ship" unique_id=448175340 instance=ExtResource("6_ylpyt")]
+
+[node name="Interactabels" type="Node" parent="." unique_id=967127591]
+
+[node name="Keypad1" type="Area2D" parent="Interactabels" unique_id=1862312454]
+position = Vector2(847, 413)
+script = ExtResource("2_d4f28")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/Keypad1" unique_id=508670165]
+position = Vector2(28, 0)
+shape = SubResource("RectangleShape2D_yprpe")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/Keypad1" unique_id=1567007953]
+offset_left = -6.0
+offset_top = -105.0
+offset_right = 118.0
+offset_bottom = -42.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_321ql")
+theme_override_font_sizes/normal_font_size = 28
+text = "Press E to interact"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Interactable" parent="Interactabels" unique_id=844235675 instance=ExtResource("4_ybmw1")]
 position = Vector2(1408, 550)
+
+[node name="ManualItemPickup" type="Area2D" parent="Interactabels" unique_id=612487883]
+position = Vector2(1113, 365)
+script = ExtResource("11_q8sds")
+prompt_text = "Press E to Pickup"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/ManualItemPickup" unique_id=691600370]
+shape = SubResource("CircleShape2D_yr2pg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactabels/ManualItemPickup" unique_id=415291239]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_yr2pg")
+region_enabled = true
+region_rect = Rect2(1346, 1049, 102, 129)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/ManualItemPickup" unique_id=1189917796]
+offset_left = -61.0
+offset_top = -97.0
+offset_right = 63.0
+offset_bottom = -34.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_321ql")
+theme_override_font_sizes/normal_font_size = 28
+text = "Press E to Pickup"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Wiers1" type="Area2D" parent="Interactabels" unique_id=1236526605]
+position = Vector2(-113, 186)
+script = ExtResource("13_ylpyt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/Wiers1" unique_id=1479118903]
+shape = SubResource("CircleShape2D_wyocf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactabels/Wiers1" unique_id=1796741518]
+scale = Vector2(0.4331117, 0.4331117)
+texture = ExtResource("12_yr2pg")
+region_enabled = true
+region_rect = Rect2(34, 1307, 175, 166)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/Wiers1" unique_id=1597470499]
+offset_left = -61.0
+offset_top = -97.0
+offset_right = 63.0
+offset_bottom = -34.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_321ql")
+theme_override_font_sizes/normal_font_size = 28
+text = "Press E to Interact"
+scroll_active = false
+horizontal_alignment = 1
 
 [node name="player" parent="." unique_id=1759760143 instance=ExtResource("3_321ql")]
 position = Vector2(1187, 530)
+
+[editable path="Manual"]

@@ -4,11 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://c67744no343jm" path="res://Scenes/space_bg.tscn" id="2_v2j2m"]
 [ext_resource type="Script" uid="uid://bjd1klvxq36xp" path="res://script/ship.gd" id="2_v4325"]
 [ext_resource type="Texture2D" uid="uid://dsey7pnpcari0" path="res://resources/assets/ship_gray.png" id="3_v2j2m"]
-[ext_resource type="PackedScene" uid="uid://dq54j3xh3bbr1" path="res://Scenes/main_room.tscn" id="4_fwcnm"]
-[ext_resource type="PackedScene" uid="uid://bx4dd6j1px5ts" path="res://Scenes/center_room.tscn" id="5_kxdp2"]
-[ext_resource type="PackedScene" uid="uid://by457jfe84bdi" path="res://Scenes/small_room.tscn" id="6_kxdp2"]
-[ext_resource type="PackedScene" uid="uid://f05mwa6qytr4" path="res://Scenes/bottom_room.tscn" id="7_v2j2m"]
-[ext_resource type="PackedScene" uid="uid://bw0bl8sb1j4it" path="res://Scenes/top_room.tscn" id="8_1m05r"]
 
 [node name="Ship" type="Node2D" unique_id=1210471280]
 script = ExtResource("2_v4325")
@@ -35,14 +30,3 @@ frame_progress = 0.52742535
 [node name="Ship" type="Sprite2D" parent="." unique_id=45246556]
 z_index = -1
 texture = ExtResource("3_v2j2m")
-
-[node name="Main_Room" parent="." unique_id=1671995787 instance=ExtResource("4_fwcnm")]
-position = Vector2(525.00006, 0)
-
-[node name="center_Room" parent="." unique_id=24713980 instance=ExtResource("5_kxdp2")]
-
-[node name="Small_Room" parent="." unique_id=135729386 instance=ExtResource("6_kxdp2")]
-
-[node name="Bottom_Room" parent="." unique_id=1717501456 instance=ExtResource("7_v2j2m")]
-
-[node name="Top_Room" parent="." unique_id=448175340 instance=ExtResource("8_1m05r")]
