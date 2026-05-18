@@ -11,8 +11,6 @@ texture_margin_left = 64.30769
 texture_margin_top = 91.589745
 texture_margin_right = 70.15385
 texture_margin_bottom = 105.33694
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
 region_rect = Rect2(807, 835, 184, 148)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1d3s5"]
@@ -21,8 +19,6 @@ texture_margin_left = 42.82495
 texture_margin_top = 36.063118
 texture_margin_right = 31.555227
 texture_margin_bottom = 42.82495
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
 region_rect = Rect2(807, 835, 184, 148)
 modulate_color = Color(0.2592937, 0.2592937, 0.2592937, 1)
 

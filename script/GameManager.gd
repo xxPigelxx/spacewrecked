@@ -5,6 +5,12 @@ var puzzles: Dictionary = {
 	"cable1" = false
 }
 
+var ship_health
+var ship_shilds
+var ship_engin
+var ship_signal
+var ship_system
+
 func solve_puzzle(puzzle_id: String) -> void:
 	puzzles[puzzle_id] = true
 

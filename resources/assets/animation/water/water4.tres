@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://dsndqo81xreba"]
+
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="1_vn1ft"]
+
+[resource]
+atlas = ExtResource("1_vn1ft")
+region = Rect2(1856, 1730, 164, 22)

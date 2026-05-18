@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="7_ki00s"]
 [ext_resource type="Theme" uid="uid://dvs0r83gvhd2k" path="res://resources/themes/small_Bt.tres" id="8_ki00s"]
 [ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="9_l84fx"]
+[ext_resource type="Texture2D" uid="uid://wof4yw2g8cy4" path="res://resources/assets/Items/Bottles/RoundBottle.tres" id="9_nj0vq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jrnw2"]
 texture = ExtResource("7_ki00s")
@@ -63,6 +64,10 @@ grow_end = 0.0
 thickness = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l84fx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_atcdx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nj0vq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kpije"]
 
@@ -121,12 +126,13 @@ alignment = 0
 [node name="PagePanel" type="PanelContainer" parent="ManualRoot" unique_id=804568140]
 custom_minimum_size = Vector2(420, 780)
 layout_mode = 0
-offset_right = 420.0
-offset_bottom = 780.0
+offset_right = 729.8047
+offset_bottom = 971.5237
 theme = SubResource("Theme_hj4sw")
 theme_override_styles/panel = SubResource("StyleBoxTexture_nj0vq")
 
 [node name="BookContainer" type="HBoxContainer" parent="ManualRoot/PagePanel" unique_id=1377107930]
+visible = false
 custom_minimum_size = Vector2(600, 780)
 layout_mode = 2
 theme_override_constants/separation = 0
@@ -220,6 +226,201 @@ theme_override_constants/separation = 8
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="VBoxContainer" type="VBoxContainer" parent="ManualRoot/PagePanel" unique_id=570937720]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ManualRoot/PagePanel/VBoxContainer" unique_id=1659522528]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Home"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="ManualRoot/PagePanel/VBoxContainer" unique_id=851782245]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "Ship Status:"
+
+[node name="HSeparator" type="HSeparator" parent="ManualRoot/PagePanel/VBoxContainer" unique_id=1639373519]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_atcdx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PagePanel/VBoxContainer" unique_id=160868228]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer" unique_id=1381403123]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nj0vq")
+
+[node name="TextureRect" type="TextureRect" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer" unique_id=1472203121]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("9_nj0vq")
+expand_mode = 4
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer" unique_id=556995287]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nj0vq")
+
+[node name="ProgressBar" type="ProgressBar" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer" unique_id=187478461]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer" unique_id=1895060583]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nj0vq")
+
+[node name="CheckBox" type="CheckBox" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer" unique_id=1045286526]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="VSeparator4" type="VSeparator" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer" unique_id=542395398]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nj0vq")
+
+[node name="HSeparator2" type="HSeparator" parent="ManualRoot/PagePanel/VBoxContainer" unique_id=1122717429]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_atcdx")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ManualRoot/PagePanel/VBoxContainer" unique_id=39148184]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer2" unique_id=2123474295]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nj0vq")
+
+[node name="TextureRect" type="TextureRect" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer2" unique_id=678781298]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("9_nj0vq")
+expand_mode = 4
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer2" unique_id=1110481844]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nj0vq")
+
+[node name="ProgressBar" type="ProgressBar" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer2" unique_id=1648960145]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer2" unique_id=1905287768]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nj0vq")
+
+[node name="CheckBox" type="CheckBox" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer2" unique_id=986492827]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="VSeparator4" type="VSeparator" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer2" unique_id=947347083]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nj0vq")
+
+[node name="HSeparator3" type="HSeparator" parent="ManualRoot/PagePanel/VBoxContainer" unique_id=1700619730]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_atcdx")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PagePanel/VBoxContainer" unique_id=1598295533]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer3" unique_id=539949719]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nj0vq")
+
+[node name="TextureRect" type="TextureRect" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer3" unique_id=901040904]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("9_nj0vq")
+expand_mode = 4
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer3" unique_id=1895036959]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nj0vq")
+
+[node name="ProgressBar" type="ProgressBar" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer3" unique_id=2018111141]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer3" unique_id=1903582372]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nj0vq")
+
+[node name="CheckBox" type="CheckBox" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer3" unique_id=1754664480]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="VSeparator4" type="VSeparator" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer3" unique_id=1752407613]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nj0vq")
+
+[node name="HSeparator4" type="HSeparator" parent="ManualRoot/PagePanel/VBoxContainer" unique_id=1966436425]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_atcdx")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ManualRoot/PagePanel/VBoxContainer" unique_id=583258345]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer4" unique_id=2062242496]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nj0vq")
+
+[node name="TextureRect" type="TextureRect" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer4" unique_id=240825775]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("9_nj0vq")
+expand_mode = 4
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer4" unique_id=409927113]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nj0vq")
+
+[node name="ProgressBar" type="ProgressBar" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer4" unique_id=924466883]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer4" unique_id=1407815750]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nj0vq")
+
+[node name="CheckBox" type="CheckBox" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer4" unique_id=1275114660]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="VSeparator4" type="VSeparator" parent="ManualRoot/PagePanel/VBoxContainer/HBoxContainer4" unique_id=1902999994]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nj0vq")
+
+[node name="HSeparator5" type="HSeparator" parent="ManualRoot/PagePanel/VBoxContainer" unique_id=1933772580]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_atcdx")
+
 [node name="Footer" type="HBoxContainer" parent="ManualRoot" unique_id=781251161]
 layout_mode = 0
 offset_left = 65.0
@@ -258,5 +459,10 @@ layout_mode = 2
 theme = ExtResource("8_ki00s")
 text = "Next"
 script = ExtResource("9_l84fx")
+
+[node name="Control" type="Control" parent="ManualRoot" unique_id=503267611]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="toggled" from="ManualRoot/SideButton" to="ManualRoot" method="_on_side_button_toggled"]

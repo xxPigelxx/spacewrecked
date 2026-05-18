@@ -122,6 +122,7 @@ scroll_active = false
 horizontal_alignment = 1
 
 [node name="player" parent="." unique_id=1759760143 instance=ExtResource("3_321ql")]
+z_index = 1
 position = Vector2(1187, 530)
 
 [editable path="Manual"]

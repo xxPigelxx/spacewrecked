@@ -1,4 +1,3 @@
-# Draggable.gd
 class_name Draggable
 extends CharacterBody2D
 
@@ -22,6 +21,8 @@ func _ready() -> void:
 	area.input_event.connect(_on_area_input_event)
 	area.mouse_entered.connect(_on_area_mouse_entered)
 	area.mouse_exited.connect(_on_area_mouse_exited)
+	_set_up()
+
 
 func _on_area_input_event(_viewport, event, _shape_idx) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -55,6 +56,8 @@ func _physics_process(delta: float) -> void:
 
 			if desired_velocity.dot(normal) < 0.0:
 				velocity = velocity.slide(normal)
+
+		_while_dragging(delta)
 	else:
 		velocity = Vector2.ZERO
 		move_and_slide()
@@ -70,13 +73,25 @@ func tween_to_scale(target_scale: Vector2) -> void:
 
 func _on_area_mouse_entered() -> void:
 	tween_to_scale(hover_scale)
+	_on_mouse_enterd()
 
 func _on_area_mouse_exited() -> void:
 	if not dragging:
 		tween_to_scale(normal_scale)
+	_on_mouse_exited()
 
 func _on_drag_started() -> void:
 	pass
 
 func _on_drag_ended() -> void:
+	pass
+
+func _while_dragging(_delta: float) -> void:
+	pass
+
+func _set_up():
+	pass
+func _on_mouse_enterd():
+	pass
+func _on_mouse_exited():
 	pass
