@@ -30,6 +30,10 @@ func _on_next() -> void:
 
 func _on_tab_changed(_idx: int) -> void:
 	_update_buttons()
+	# Pause wave animation on hidden tabs to prevent frame drops
+	for i in tab_container.get_tab_count():
+		var page := tab_container.get_child(i)
+		page.process_mode = Node.PROCESS_MODE_DISABLED if i != _idx else Node.PROCESS_MODE_INHERIT
 
 func _update_buttons() -> void:
 	prev_btn.disabled = (tab_container.current_tab == 0)

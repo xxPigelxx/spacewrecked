@@ -24,6 +24,7 @@ var accessibility: bool = false:
 		stress_changed.emit(stress)
 
 var _labels: Array = []
+var _rng := RandomNumberGenerator.new()  # reuse — no GC pressure
 
 const SWAP_PAIRS: Dictionary = {
 	"b": "d", "d": "b",
@@ -68,7 +69,7 @@ func process_text(
 	# stress boost: 0% stress = 1.0x, 100% stress = 2.0x
 	var boost: float = 1.0 + (stress / 100.0)
 
-	var rng := RandomNumberGenerator.new()
+	var rng := _rng
 	rng.seed = rng_seed
 
 	var words := raw.split(" ", false)

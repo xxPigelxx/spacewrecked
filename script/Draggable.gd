@@ -60,7 +60,6 @@ func _physics_process(delta: float) -> void:
 		_while_dragging(delta)
 	else:
 		velocity = Vector2.ZERO
-		move_and_slide()
 
 func tween_to_scale(target_scale: Vector2) -> void:
 	if scale_tween:

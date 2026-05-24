@@ -16,12 +16,12 @@ func _ready() -> void:
 	sockets = get_tree().get_nodes_in_group("socket")
 
 func _physics_process(_delta: float) -> void:
-	_check_all_sockets_aktive()
+	if not win:
+		_check_all_sockets_aktive()
 
 func _check_all_sockets_aktive() -> void:
 	for socket in sockets:
 		if socket.aktive == false:
-			win = false
 			return
 	win = true
 	GameState.solve_puzzle(puzzle_id)
