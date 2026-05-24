@@ -132,8 +132,8 @@ horizontal_alignment = 1
 z_index = 1
 position = Vector2(1187, 530)
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=270877021]
-color = Color(0, 0, 0, 1)
+[node name="Darkness" type="CanvasModulate" parent="." unique_id=270877021]
+color = Color(0.06053035, 0.06053035, 0.060530342, 0.827451)
 script = ExtResource("16_ktwve")
 
 [editable path="Manual"]
