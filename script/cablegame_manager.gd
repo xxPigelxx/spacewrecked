@@ -25,6 +25,8 @@ func _check_all_sockets_aktive() -> void:
 			return
 	win = true
 	GameState.solve_puzzle(puzzle_id)
+	GameState.ship_lights = true
+	SceneSwitcher.close_overlay_scene()
 
 func spawn_cable() -> void:
 	var new_cable = cable.instantiate()

@@ -15,7 +15,10 @@ func _ready() -> void:
 		body_entered.connect(_on_body_entered)
 	if not body_exited.is_connected(_on_body_exited):
 		body_exited.connect(_on_body_exited)
+	_setup()
 	
+func _setup():
+	pass
 func _input(event: InputEvent) -> void:
 	if player_near and event.is_action_pressed("interact"):
 		_action()
