@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cnbh3ya334cou" path="res://Scenes/Manual.tscn" id="1_73a8k"]
 [ext_resource type="PackedScene" uid="uid://dq54j3xh3bbr1" path="res://Scenes/main_room.tscn" id="2_48eim"]
 [ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="2_321ql"]
-[ext_resource type="Script" uid="uid://c743pafa127rw" path="res://Scenes/keypad_1.gd" id="2_d4f28"]
+[ext_resource type="Script" uid="uid://c743pafa127rw" path="res://script/keypad_1.gd" id="2_d4f28"]
 [ext_resource type="PackedScene" uid="uid://dsjfdq71r0huh" path="res://Scenes/ship.tscn" id="2_ybmw1"]
 [ext_resource type="PackedScene" uid="uid://bx4dd6j1px5ts" path="res://Scenes/center_room.tscn" id="3_73a8k"]
 [ext_resource type="PackedScene" uid="uid://bh7mvtchr84vd" path="res://Scenes/player.tscn" id="3_321ql"]
@@ -11,11 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://bci5jkkqbyfuo" path="res://Scenes/CockPitConsol.tscn" id="4_ybmw1"]
 [ext_resource type="PackedScene" uid="uid://f05mwa6qytr4" path="res://Scenes/bottom_room.tscn" id="5_yr2pg"]
 [ext_resource type="PackedScene" uid="uid://bw0bl8sb1j4it" path="res://Scenes/top_room.tscn" id="6_ylpyt"]
-[ext_resource type="Script" uid="uid://kudxrduhqrqa" path="res://Scenes/manual_item_pickup.gd" id="11_q8sds"]
+[ext_resource type="Script" uid="uid://kudxrduhqrqa" path="res://script/manual_item_pickup.gd" id="11_q8sds"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="12_yr2pg"]
 [ext_resource type="Texture2D" uid="uid://evb6q7n135rx" path="res://resources/assets/Items/lights/player_light.png" id="13_wyocf"]
-[ext_resource type="Script" uid="uid://tmhad1hhtvuj" path="res://Scenes/wiers_1.gd" id="13_ylpyt"]
-[ext_resource type="Script" uid="uid://7yhscdoqwdut" path="res://Scenes/ship_lights.gd" id="16_ktwve"]
+[ext_resource type="Script" uid="uid://tmhad1hhtvuj" path="res://script/wiers_1.gd" id="13_ylpyt"]
+[ext_resource type="Script" uid="uid://7yhscdoqwdut" path="res://script/ship_lights.gd" id="16_ktwve"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yprpe"]
 size = Vector2(76, 84)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bci5jkkqbyfuo"]
 
-[ext_resource type="Script" uid="uid://bo4lssyoybyfa" path="res://Scenes/cockpit_consol.gd" id="1_10hio"]
+[ext_resource type="Script" uid="uid://bo4lssyoybyfa" path="res://script/cockpit_consol.gd" id="1_10hio"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="2_ixm1i"]
 [ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="3_4umfn"]
 
