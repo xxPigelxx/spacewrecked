@@ -3,18 +3,10 @@ extends Node
 
 signal stress_changed(val: float)
 
-## Stress 0–100: verstärkt alle per-Label eingestellten Effekte.
-## Beeinflusst NICHT das Verschwinden — das ist global_vanish.
+## Globaler Stress 0–100. Verstärkt alle Effekte in allen DyslexiaLabels.
 var stress: float = 0.0:
 	set(v):
 		stress = clampf(v, 0.0, 100.0)
-		stress_changed.emit(stress)
-
-## Globales Verschwinden 0–100: lässt Wörter bei ALLEN Labels verschwinden.
-## Unabhängig von stress und den per-Label Einstellungen.
-var global_vanish: float = 0.0:
-	set(v):
-		global_vanish = clampf(v, 0.0, 100.0)
 		stress_changed.emit(stress)
 
 ## true = alle Effekte aus, reiner Text.
@@ -44,13 +36,8 @@ func unregister(lbl: RichTextLabel) -> void:
 func refresh_all() -> void:
 	stress_changed.emit(stress)
 
-## Verarbeitet Text mit den gegebenen Effekten.
-##
-## stress    → multipliziert swap, drift, size, river, mirror
-## global_vanish → wird ZUSÄTZLICH zu vanish_pct angewendet
-##
-## vanish_pct: per-Label Einstellung (0–100)
-## swap_pct, drift_amp, etc.: per-Label Einstellungen, werden durch stress verstärkt
+## Verarbeitet einen Text mit den angegebenen Effekten.
+## Alle Prozentwerte 0–100, stress (global) verstärkt alles.
 func process_text(
 	raw: String,
 	rng_seed: int,
@@ -65,9 +52,7 @@ func process_text(
 	if accessibility or raw.is_empty():
 		return raw
 
-	# stress boost: 0% stress = 1.0x, 100% stress = 2.0x
-	var boost: float = 1.0 + (stress / 100.0)
-
+	var boost: float = 1.0 + (stress / 100.0) * 0.5
 	var rng := RandomNumberGenerator.new()
 	rng.seed = rng_seed
 
@@ -77,30 +62,30 @@ func process_text(
 	for i in words.size():
 		var w: String = words[i]
 
-		# Verschwinden = max(per-Label, global_vanish) — stress beeinflusst das NICHT
-		var v: float = clampf(maxf(vanish_pct, global_vanish) / 100.0, 0.0, 1.0)
+		# Verschwinden
+		var v: float = clampf((vanish_pct / 100.0) * boost, 0.0, 1.0)
 		if rng.randf() < v:
 			out.append("[color=#00000000]%s[/color]" % " ".repeat(w.length()))
 			continue
 
-		# Spiegeln — durch stress verstärkt
+		# Spiegeln
 		var mp: float = clampf((mirror_pct / 100.0) * boost, 0.0, 1.0)
 		if rng.randf() < mp:
 			w = w.reverse()
 
-		# Buchstaben tauschen — durch stress verstärkt
+		# Buchstaben tauschen
 		var sp: float = clampf((swap_pct / 100.0) * boost, 0.0, 1.0)
 		if sp > 0.0:
 			w = _swap_letters(w, sp, rng)
 
-		# Größen-Variation — durch stress verstärkt
+		# Größen-Variation
 		var sv: float = size_var * boost
 		if sv > 0.5:
 			var delta: int = int(rng.randf_range(-sv, sv))
 			var sz: int = clampi(15 + delta, 8, 40)
 			w = "[font_size=%d]%s[/font_size]" % [sz, w]
 
-		# Drift / Welle — durch stress verstärkt
+		# Drift / Welle
 		var da: float = drift_amp * boost
 		if da > 0.5:
 			var phase: float = fmod(float(i) * 0.41, 1.0)
@@ -108,7 +93,7 @@ func process_text(
 
 		out.append(w)
 
-	# River Spacing — durch stress verstärkt
+	# River Spacing
 	var rs: float = river_gap * boost
 	if rs > 0.5:
 		var parts: PackedStringArray = []

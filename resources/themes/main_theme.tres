@@ -2,6 +2,54 @@
 
 [ext_resource type="FontFile" uid="uid://dld0grsdcans2" path="res://resources/fonts/Share_Tech/ShareTech-Regular.ttf" id="1_x2ak3"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yjg5f"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x2ak3"]
+load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i4ejt"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+texture = SubResource("CompressedTexture2D_x2ak3")
+region_rect = Rect2(807, 835, 184, 148)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0wthw"]
+load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dagba"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+texture = SubResource("CompressedTexture2D_0wthw")
+region_rect = Rect2(807, 835, 184, 148)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yjg5f"]
+load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0wthw"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+texture = SubResource("CompressedTexture2D_yjg5f")
+region_rect = Rect2(807, 835, 184, 148)
+modulate_color = Color(0.6255971, 0.6255971, 0.6255971, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hf3i3"]
+load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1nr78"]
+content_margin_left = 8.0
+content_margin_top = 12.0
+content_margin_right = 8.0
+content_margin_bottom = 12.0
+texture = SubResource("CompressedTexture2D_hf3i3")
+region_rect = Rect2(1570, 552, 444, 162)
+modulate_color = Color(0.3553137, 0.3553135, 0.35531366, 1)
+
 [resource]
 default_font = ExtResource("1_x2ak3")
 Button/colors/font_color = Color(0, 0, 0, 1)
@@ -14,7 +62,16 @@ MarginContainer/constants/margin_bottom = 25
 MarginContainer/constants/margin_left = 15
 MarginContainer/constants/margin_right = 15
 MarginContainer/constants/margin_top = 15
+PanelContainer/styles/panel = null
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 RichTextLabel/font_sizes/bold_font_size = 24
 RichTextLabel/fonts/normal_font = ExtResource("1_x2ak3")
+TabContainer/colors/font_hovered_color = Color(0, 0, 0, 1)
+TabContainer/colors/font_selected_color = Color(0, 0, 0, 1)
+TabContainer/colors/font_unselected_color = Color(0, 0, 0, 1)
+TabContainer/styles/panel = SubResource("StyleBoxEmpty_yjg5f")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_i4ejt")
+TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_dagba")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_0wthw")
+TabContainer/styles/tabbar_background = SubResource("StyleBoxTexture_1nr78")

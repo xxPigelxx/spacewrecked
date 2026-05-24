@@ -1,0 +1,103 @@
+## DyslexiaLabel
+## Eigener Node-Typ — erscheint in "Add Node" als "DyslexiaLabel".
+## Einfach hinzufügen, Raw Text eingeben, Effekte im Inspector einstellen.
+## Der DyslexiaManager steuert alle Labels automatisch wenn stress sich ändert.
+##
+## BEISPIEL:
+##   Füge DyslexiaLabel zur Scene hinzu
+##   → Inspector: raw_text = "Kabel verbinden"
+##   → Inspector: vanish_percent = 40, swap_percent = 30
+##   → DyslexiaManager.stress = 80  (von überall im Spiel aufrufbar)
+
+class_name DyslexiaLabel
+extends RichTextLabel
+
+# ─────────────────────────────────────
+#  INHALT
+# ─────────────────────────────────────
+
+@export_group("Inhalt")
+
+## Der Originaltext. Wird automatisch neu gerendert wenn du ihn änderst.
+@export_multiline var raw_text: String = "":
+	set(v):
+		raw_text = v
+		if is_inside_tree():
+			_refresh()
+
+## Zufalls-Seed. Gleicher Seed = immer gleiche Fehler.
+## Verschiedene Labels → verschiedene Seeds damit sie nicht identisch aussehen.
+@export var seed: int = 1000
+
+# ─────────────────────────────────────
+#  EFFEKTE
+# ─────────────────────────────────────
+
+@export_group("Effekte")
+
+## Wörter verschwinden komplett (unsichtbar aber Platz bleibt).
+## 0 = keins verschwindet, 100 = alle verschwinden.
+@export_range(0, 100, 1, "suffix:%") var vanish_percent: float = 0.0
+
+## Buchstaben tauschen: b↔d, p↔q, n↔u, m↔w.
+## 0 = nie, 100 = immer.
+@export_range(0, 100, 1, "suffix:%") var swap_percent: float = 0.0
+
+## Wörter schwingen auf und ab (Wave-Effekt). 0 = aus.
+@export_range(0.0, 20.0, 0.5) var drift_amplitude: float = 0.0
+
+## Geschwindigkeit der Wellen.
+@export_range(0.1, 5.0, 0.1) var drift_frequency: float = 1.0
+
+## Wortgröße variiert leicht. 0 = aus, 10 = stark.
+@export_range(0.0, 10.0, 0.5) var size_variation: float = 0.0
+
+## Extra Lücken zwischen Wörtern (River-Effekt). 0 = aus.
+@export_range(0.0, 20.0, 1.0) var river_spacing: float = 0.0
+
+## Wörter werden gespiegelt (rückwärts). 0 = nie, 100 = immer.
+@export_range(0, 100, 1, "suffix:%") var mirror_percent: float = 0.0
+
+# ─────────────────────────────────────
+#  LIFECYCLE
+# ─────────────────────────────────────
+
+func _ready() -> void:
+	bbcode_enabled = true
+	fit_content = true
+	scroll_active = false
+	autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	DyslexiaManager.register(self)
+	DyslexiaManager.stress_changed.connect(_on_stress_changed)
+	_refresh()
+
+func _exit_tree() -> void:
+	DyslexiaManager.unregister(self)
+	if DyslexiaManager.stress_changed.is_connected(_on_stress_changed):
+		DyslexiaManager.stress_changed.disconnect(_on_stress_changed)
+
+# ─────────────────────────────────────
+#  PUBLIC
+# ─────────────────────────────────────
+
+## Text manuell neu rendern — normalerweise nicht nötig.
+func refresh() -> void:
+	_refresh()
+
+# ─────────────────────────────────────
+#  INTERN
+# ─────────────────────────────────────
+
+func _refresh() -> void:
+	if not is_inside_tree():
+		return
+	text = DyslexiaManager.process(
+		raw_text, seed,
+		vanish_percent, swap_percent,
+		drift_amplitude, drift_frequency,
+		size_variation, river_spacing,
+		mirror_percent
+	)
+
+func _on_stress_changed(_val: float) -> void:
+	_refresh()

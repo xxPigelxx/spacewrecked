@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://vs526fyd62fp"]
+
+[ext_resource type="Script" uid="uid://7quhiuvopmqq" path="res://script/DyslexiaDebugPanel.gd" id="1_8p1i7"]
+
+[node name="DyslexiaDebugPanel" type="CanvasLayer" unique_id=341496359]
+script = ExtResource("1_8p1i7")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=202579651]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="VBox" type="VBoxContainer" parent="Panel" unique_id=1352841960]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/VBox" unique_id=1032787637]
+layout_mode = 2
+text = "DyslexiaManager [F2]"
+
+[node name="Sep" type="HSeparator" parent="Panel/VBox" unique_id=314336086]
+layout_mode = 2
+
+[node name="StressRow" type="HBoxContainer" parent="Panel/VBox" unique_id=2139677733]
+layout_mode = 2
+
+[node name="Lbl" type="Label" parent="Panel/VBox/StressRow" unique_id=1249860743]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Stress:"
+
+[node name="StressSlider" type="HSlider" parent="Panel/VBox/StressRow" unique_id=1572808306]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+
+[node name="StressLabel" type="Label" parent="Panel/VBox/StressRow" unique_id=886357307]
+custom_minimum_size = Vector2(36, 0)
+layout_mode = 2
+text = "0%"
+
+[node name="VanishRow" type="HBoxContainer" parent="Panel/VBox" unique_id=1489498466]
+layout_mode = 2
+
+[node name="Lbl" type="Label" parent="Panel/VBox/VanishRow" unique_id=505452806]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Vanish (global):"
+
+[node name="VanishSlider" type="HSlider" parent="Panel/VBox/VanishRow" unique_id=325313112]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+
+[node name="VanishLabel" type="Label" parent="Panel/VBox/VanishRow" unique_id=663538740]
+custom_minimum_size = Vector2(36, 0)
+layout_mode = 2
+text = "0%"
+
+[node name="AccessRow" type="HBoxContainer" parent="Panel/VBox" unique_id=1995408433]
+layout_mode = 2
+
+[node name="Lbl" type="Label" parent="Panel/VBox/AccessRow" unique_id=746580319]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Accessibility:"
+
+[node name="AccessCheck" type="CheckButton" parent="Panel/VBox/AccessRow" unique_id=545935607]
+layout_mode = 2
+text = "Effekte aus"
+
+[node name="Sep2" type="HSeparator" parent="Panel/VBox" unique_id=183810827]
+layout_mode = 2
+
+[node name="PreviewLbl" type="Label" parent="Panel/VBox" unique_id=1277687331]
+layout_mode = 2
+text = "Preview:"
+
+[node name="Preview" type="RichTextLabel" parent="Panel/VBox" unique_id=1822809834]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+bbcode_enabled = true
+text = "Der Zugangscode lautet neun sechs zwei vier."
+fit_content = true
+
+[connection signal="value_changed" from="Panel/VBox/StressRow/StressSlider" to="." method="_on_stress_changed"]
+[connection signal="value_changed" from="Panel/VBox/VanishRow/VanishSlider" to="." method="_on_vanish_changed"]
+[connection signal="toggled" from="Panel/VBox/AccessRow/AccessCheck" to="." method="_on_access_toggled"]

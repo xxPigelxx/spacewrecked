@@ -1,0 +1,43 @@
+# DyslexiaDebugPanel.gd
+# Kleines Debug-Panel das im Spiel eingeblendet werden kann.
+# Mit Taste D toggeln (aenderbar unten).
+# Zeigt Stress-Slider, Accessibility Toggle, und live Preview.
+
+extends CanvasLayer
+
+const TOGGLE_KEY := KEY_F2
+
+@onready var panel       : PanelContainer = $Panel
+@onready var stress_slider : HSlider      = $Panel/VBox/StressRow/StressSlider
+@onready var stress_label  : Label        = $Panel/VBox/StressRow/StressLabel
+@onready var access_check  : CheckButton  = $Panel/VBox/AccessRow/AccessCheck
+@onready var preview_label : RichTextLabel= $Panel/VBox/Preview
+
+func _ready() -> void:
+	panel.visible = false
+	stress_slider.value = DyslexiaManager.stress
+	access_check.button_pressed = DyslexiaManager.accessibility
+	_update_label()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and event.keycode == TOGGLE_KEY:
+		panel.visible = not panel.visible
+
+func _on_slider_changed(value: float) -> void:
+	DyslexiaManager.stress = value
+	_update_label()
+	_update_preview()
+
+func _on_access_toggled(on: bool) -> void:
+	DyslexiaManager.accessibility = on
+	_update_preview()
+
+func _update_label() -> void:
+	stress_label.text = "%d%%" % int(DyslexiaManager.stress)
+
+func _update_preview() -> void:
+	preview_label.bbcode_enabled = true
+	preview_label.text = DyslexiaManager.process_text(
+		"Der Zugangscode lautet neun sechs zwei vier.",
+		9999, 30.0, 40.0, 8.0, 1.5, 2.0, 3.0, 5.0
+	)

@@ -1,0 +1,171 @@
+# DyslexiaManager.gd
+# Autoload Singleton — Name: DyslexiaManager
+#
+# Koordiniert alle DyslexiaLabel Nodes im Spiel.
+# Globaler stress (0–100) skaliert alle Effekte zusätzlich zu den
+# per-Label Inspector-Einstellungen.
+#
+# Verwendung:
+#   DyslexiaManager.stress = 80        # Stress erhöhen (z.B. Asteroid)
+#   DyslexiaManager.refresh_all()      # Alle Labels neu rendern
+#   DyslexiaManager.accessibility = true  # Alle Effekte deaktivieren
+
+extends Node
+
+# ─────────────────────────────────────────────
+#  SIGNALS
+# ─────────────────────────────────────────────
+
+## Wird emittiert wenn sich der Stress-Level ändert.
+## Alle DyslexiaLabel hören darauf und rendern sich neu.
+signal stress_changed(new_stress: float)
+
+# ─────────────────────────────────────────────
+#  GLOBALER STATE
+# ─────────────────────────────────────────────
+
+## Globaler Stress-Level 0–100.
+## 0   = nur die per-Label eingestellten Effekte
+## 100 = maximale Verstärkung aller Effekte
+var stress: float = 0.0:
+	set(val):
+		stress = clampf(val, 0.0, 100.0)
+		stress_changed.emit(stress)
+
+## Wenn true: alle DyslexiaLabel zeigen reinen Text, keine Effekte.
+var accessibility: bool = false:
+	set(val):
+		accessibility = val
+		stress_changed.emit(stress)  # löst refresh aus
+
+# Interne Liste aller registrierten Labels
+var _labels: Array = []
+
+# Shared RNG — seed pro Label gesetzt
+var rng := RandomNumberGenerator.new()
+
+# Letter-Swap Tabelle
+const SWAP_PAIRS: Dictionary = {
+	"b": "d", "d": "b",
+	"p": "q", "q": "p",
+	"n": "u", "u": "n",
+	"m": "w", "w": "m",
+	"6": "9", "9": "6",
+	"2": "5", "5": "2",
+}
+
+# ─────────────────────────────────────────────
+#  REGISTRIERUNG
+# ─────────────────────────────────────────────
+
+## Wird von jedem DyslexiaLabel in _ready() aufgerufen.
+func register(label: RichTextLabel) -> void:
+	if label not in _labels:
+		_labels.append(label)
+
+## Wird von jedem DyslexiaLabel in _exit_tree() aufgerufen.
+func unregister(label: RichTextLabel) -> void:
+	_labels.erase(label)
+
+## Alle Labels neu rendern (z.B. nach Stress-Änderung von außen).
+func refresh_all() -> void:
+	stress_changed.emit(stress)
+
+# ─────────────────────────────────────────────
+#  TEXT VERARBEITUNG
+# ─────────────────────────────────────────────
+
+## Verarbeitet einen Text mit den gegebenen Effekt-Parametern.
+## Wird von DyslexiaLabel.refresh() aufgerufen.
+##
+## Alle Prozentwerte 0–100. Der globale stress multipliziert die Effekte.
+func process(
+	raw: String,
+	seed: int,
+	vanish_pct: float,        # 0–100: Wörter verschwinden
+	swap_pct: float,          # 0–100: Buchstaben tauschen (b↔d etc.)
+	drift_amp: float,         # 0–20:  Wellen-Amplitude
+	drift_freq: float,        # 0–5:   Wellen-Frequenz
+	size_variation: float,    # 0–10:  Größen-Variation pro Wort
+	river_spacing: float,     # 0–20:  Extra Leerzeichen zwischen Wörtern
+	mirror_pct: float         # 0–100: Wörter spiegeln
+) -> String:
+
+	if accessibility:
+		return raw
+
+	# Stress (0–100) skaliert alle Effekte um bis zu +50%
+	var s := stress / 100.0  # 0.0–1.0
+	var boost := 1.0 + s * 0.5
+
+	rng.seed = seed
+	var words := raw.split(" ", false)
+	var out: PackedStringArray = []
+
+	for i in words.size():
+		var w := words[i]
+
+		# 1. Wort verschwinden lassen
+		var v := clampf((vanish_pct / 100.0) * boost, 0.0, 1.0)
+		if rng.randf() < v:
+			# Wort durch gleich lange Lücke ersetzen — Lesefluss bleibt gestört
+			var gap := " ".repeat(w.length())
+			out.append("[color=#00000000]%s[/color]" % gap)
+			continue
+
+		# 2. Wort spiegeln
+		var mp := clampf((mirror_pct / 100.0) * boost, 0.0, 1.0)
+		if rng.randf() < mp:
+			w = w.reverse()
+
+		# 3. Buchstaben tauschen
+		var sp := clampf((swap_pct / 100.0) * boost, 0.0, 1.0)
+		w = _swap(w, sp)
+
+		# 4. Größen-Variation
+		var sv := size_variation * boost
+		if sv > 0.5:
+			var base_size := 15
+			var delta := int(rng.randf_range(-sv, sv))
+			var sz := clampi(base_size + delta, 8, 40)
+			w = "[font_size=%d]%s[/font_size]" % [sz, w]
+
+		# 5. Drift / Welle
+		var da := drift_amp * boost
+		if da > 0.5:
+			var phase := fmod(i * 0.41, 1.0)
+			var freq := drift_freq + phase
+			w = "[wave amp=%.1f freq=%.2f]%s[/wave]" % [da, freq, w]
+
+		out.append(w)
+
+	# 6. River Spacing
+	var rs := river_spacing * boost
+	if rs > 0.5:
+		var final_parts: PackedStringArray = []
+		for i in out.size():
+			final_parts.append(out[i])
+			if i < out.size() - 1:
+				var extra := int(rng.randf() * rs)
+				if extra > 0:
+					final_parts.append(" ".repeat(extra))
+		return "".join(final_parts)
+
+	return " ".join(out)
+
+
+func _swap(word: String, chance: float) -> String:
+	if chance <= 0.0:
+		return word
+	var result := ""
+	for i in word.length():
+		var ch := word[i]
+		var lo := ch.to_lower()
+		if lo in SWAP_PAIRS and rng.randf() < chance:
+			var swapped: String = SWAP_PAIRS[lo]
+			if ch == ch.to_upper() and ch != ch.to_lower():
+				swapped = swapped.to_upper()
+			result += "[color=#8b2000]%s[/color]" % swapped
+		else:
+			result += ch
+	return result

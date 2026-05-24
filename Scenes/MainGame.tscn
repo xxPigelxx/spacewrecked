@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://evb6q7n135rx" path="res://resources/assets/Items/lights/player_light.png" id="13_wyocf"]
 [ext_resource type="Script" uid="uid://tmhad1hhtvuj" path="res://script/wiers_1.gd" id="13_ylpyt"]
 [ext_resource type="Script" uid="uid://7yhscdoqwdut" path="res://script/ship_lights.gd" id="16_ktwve"]
+[ext_resource type="Script" uid="uid://bh3bvjtm47ana" path="res://Scenes/testdsaasda.gd" id="17_r5sjn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yprpe"]
 size = Vector2(76, 84)
@@ -32,6 +33,14 @@ radius = 73.0
 
 [node name="ManualRoot" parent="Manual" index="0" unique_id=2094122676]
 visible = false
+
+[node name="Label" type="Label" parent="Manual" unique_id=2080536977]
+modulate = Color(0, 0, 0, 1)
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "FPS"
+script = ExtResource("17_r5sjn")
 
 [node name="Ship" parent="." unique_id=1210471280 instance=ExtResource("2_ybmw1")]
 position = Vector2(662.99994, 548)

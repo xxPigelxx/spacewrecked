@@ -1,0 +1,583 @@
+[gd_scene format=3 uid="uid://dob8m8k1h72mn"]
+
+[ext_resource type="Theme" uid="uid://xm5urjrf4aua" path="res://resources/themes/main_theme.tres" id="1_0ivmx"]
+[ext_resource type="Script" uid="uid://degjmuyp0snhj" path="res://script/ManualPage.gd" id="1_mk6eo"]
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="2_byvqj"]
+[ext_resource type="Script" uid="uid://clg63em8vrbc0" path="res://script/DyslexiaLabel.gd" id="2_puywe"]
+[ext_resource type="Script" uid="uid://bwghcm1b6r66y" path="res://script/HomePanel.gd" id="2_q6b25"]
+[ext_resource type="Script" uid="uid://do6128cyartyo" path="res://script/PageEffects.gd" id="3_q6b25"]
+[ext_resource type="Theme" uid="uid://dvs0r83gvhd2k" path="res://resources/themes/small_Bt.tres" id="6_7jiqe"]
+[ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="7_n500u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7jiqe"]
+texture = ExtResource("2_byvqj")
+texture_margin_left = 26.296047
+texture_margin_top = 23.290785
+texture_margin_bottom = 20.285522
+axis_stretch_horizontal = 2
+region_rect = Rect2(1423, 1297, 119, 129)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nj0vq"]
+load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n500u"]
+texture = SubResource("CompressedTexture2D_nj0vq")
+texture_margin_left = 26.296047
+texture_margin_top = 23.290785
+texture_margin_bottom = 20.285522
+axis_stretch_horizontal = 2
+region_rect = Rect2(1423, 1297, 120, 129)
+modulate_color = Color(0.19076231, 0.19076234, 0.19076231, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ivmx"]
+texture = SubResource("CompressedTexture2D_nj0vq")
+texture_margin_left = 26.296047
+texture_margin_top = 23.290785
+texture_margin_bottom = 20.285522
+axis_stretch_horizontal = 2
+region_rect = Rect2(1423, 1297, 119.46106, 129)
+modulate_color = Color(0.37413925, 0.37413928, 0.37413922, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_me2tk"]
+texture = SubResource("CompressedTexture2D_nj0vq")
+texture_margin_left = 26.296047
+texture_margin_top = 23.290785
+texture_margin_bottom = 20.285522
+axis_stretch_horizontal = 2
+region_rect = Rect2(1423, 1297, 119.46106, 129)
+modulate_color = Color(0.37413925, 0.37413928, 0.37413922, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jrnw2"]
+load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q6b25"]
+texture = SubResource("CompressedTexture2D_jrnw2")
+texture_margin_left = 60.90915
+texture_margin_top = 79.02109
+texture_margin_right = 57.895527
+texture_margin_bottom = 112.50263
+region_rect = Rect2(782, 1429, 484, 594)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n500u"]
+
+[node name="Manual" type="CanvasLayer" unique_id=1520689515]
+
+[node name="ManualRoot" type="Control" parent="." unique_id=817769895]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1895.0
+offset_top = 50.0
+offset_right = 2625.0
+offset_bottom = 1030.0
+theme = ExtResource("1_0ivmx")
+script = ExtResource("1_mk6eo")
+
+[node name="SideButton" type="Button" parent="ManualRoot" unique_id=175532427]
+layout_mode = 0
+offset_left = -99.0
+offset_top = 460.0
+offset_right = 11.0
+offset_bottom = 600.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_7jiqe")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_n500u")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0ivmx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_me2tk")
+toggle_mode = true
+text = "Handbuch"
+
+[node name="PanelContainer" type="PanelContainer" parent="ManualRoot" unique_id=183646762]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_q6b25")
+
+[node name="TabContainer" type="TabContainer" parent="ManualRoot/PanelContainer" unique_id=1076820476]
+layout_mode = 2
+theme_override_constants/tab_separation = 4
+tab_alignment = 1
+current_tab = 0
+clip_tabs = false
+
+[node name="Home" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=504548785]
+layout_mode = 2
+script = ExtResource("2_q6b25")
+metadata/_tab_index = 0
+
+[node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Home" unique_id=256361464]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Home/VBox" unique_id=547909519]
+layout_mode = 2
+text = "ASTRO — Schiffsstatus"
+
+[node name="Sep" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Home/VBox" unique_id=514351265]
+layout_mode = 2
+
+[node name="StatusGrid" type="GridContainer" parent="ManualRoot/PanelContainer/TabContainer/Home/VBox" unique_id=1664303958]
+layout_mode = 2
+columns = 2
+
+[node name="L1" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Home/VBox/StatusGrid" unique_id=1103842663]
+layout_mode = 2
+text = "Strom:"
+
+[node name="ValStrom" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Home/VBox/StatusGrid" unique_id=84248687]
+modulate = Color(1, 0.2, 0.2, 1)
+layout_mode = 2
+text = "OFFLINE"
+
+[node name="L2" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Home/VBox/StatusGrid" unique_id=267450191]
+layout_mode = 2
+text = "Treibstoff:"
+
+[node name="ValTreib" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Home/VBox/StatusGrid" unique_id=1979113485]
+modulate = Color(1, 0.2, 0.2, 1)
+layout_mode = 2
+text = "LEER"
+
+[node name="L3" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Home/VBox/StatusGrid" unique_id=235581876]
+layout_mode = 2
+text = "Schild:"
+
+[node name="ValSchild" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Home/VBox/StatusGrid" unique_id=578135311]
+modulate = Color(1, 0.2, 0.2, 1)
+layout_mode = 2
+text = "OFFLINE"
+
+[node name="L4" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Home/VBox/StatusGrid" unique_id=123321732]
+layout_mode = 2
+text = "Navigation:"
+
+[node name="ValNavi" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Home/VBox/StatusGrid" unique_id=1455126962]
+modulate = Color(1, 0.2, 0.2, 1)
+layout_mode = 2
+text = "OFFLINE"
+
+[node name="Sep2" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Home/VBox" unique_id=1637853948]
+layout_mode = 2
+
+[node name="Mission" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Home/VBox" unique_id=223853330]
+layout_mode = 2
+text = "Auftrag: Repariere das Schiff und lande sicher."
+autowrap_mode = 3
+
+[node name="Uebersicht" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=2002067416]
+visible = false
+layout_mode = 2
+script = ExtResource("3_q6b25")
+metadata/_tab_index = 1
+
+[node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Uebersicht" unique_id=210605355]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PageTitle" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Uebersicht/VBox" unique_id=979388773]
+layout_mode = 2
+text = "Notfall-Handbuch — Bord-KI ASTRO"
+
+[node name="Sep" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Uebersicht/VBox" unique_id=532627714]
+layout_mode = 2
+
+[node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Uebersicht/VBox" unique_id=1197854936]
+layout_mode = 2
+text = "Notfall-Protokoll Alpha-7 wurde aktiviert. Das Schiff hat beim Durchflug durch den Asteroidenguertel schwere Schaeden erlitten. Vier Systeme sind ausgefallen. Du musst sie in der richtigen Reihenfolge reparieren. Lies jeden Tab sorgfaeltig."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="WarningBox" type="PanelContainer" parent="ManualRoot/PanelContainer/TabContainer/Uebersicht/VBox" unique_id=168178569]
+layout_mode = 2
+
+[node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Uebersicht/VBox/WarningBox" unique_id=696378757]
+layout_mode = 2
+text = "WARNUNG: Systeme kritisch. Strom zuerst reparieren."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="StepsTitle" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Uebersicht/VBox" unique_id=2146960442]
+layout_mode = 2
+text = "Schritte:"
+
+[node name="StepList" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Uebersicht/VBox" unique_id=402020497]
+layout_mode = 2
+
+[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Uebersicht/VBox/StepList" unique_id=174370588]
+layout_mode = 2
+text = "1.  Tab STROM oeffnen."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Uebersicht/VBox/StepList" unique_id=1503970671]
+layout_mode = 2
+text = "2.  Sicherungskasten im unteren Deck finden."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Uebersicht/VBox/StepList" unique_id=1226147403]
+layout_mode = 2
+text = "3.  Kabel verbinden, Tab TREIBSTOFF, dann SCHILD."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Uebersicht/VBox/StepList" unique_id=1170985231]
+layout_mode = 2
+text = "4.  Zugangscode im Tab ZUGANG ablesen."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Uebersicht/VBox/StepList" unique_id=817168854]
+layout_mode = 2
+text = "5.  Schild aktivieren und starten."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="Strom" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=880822609]
+visible = false
+layout_mode = 2
+script = ExtResource("3_q6b25")
+metadata/_tab_index = 2
+
+[node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Strom" unique_id=1877905917]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PageTitle" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Strom/VBox" unique_id=1941617404]
+layout_mode = 2
+text = "Sicherungskasten — Kabelverbindung"
+
+[node name="Sep" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Strom/VBox" unique_id=1090842675]
+layout_mode = 2
+
+[node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Strom/VBox" unique_id=2039417495]
+layout_mode = 2
+text = "Der Kurzschluss hat alle Sicherungen ausgeloest. Im unteren Deck hinter der roten Tuer findest du den Hauptsicherungskasten. Verbinde nur gleiche Farben miteinander. Falsche Verbindungen koennen einen Folgebrand ausloesen. Benutze die Taschenlampe."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="WarningBox" type="PanelContainer" parent="ManualRoot/PanelContainer/TabContainer/Strom/VBox" unique_id=1374490981]
+layout_mode = 2
+
+[node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Strom/VBox/WarningBox" unique_id=1438361782]
+layout_mode = 2
+text = "ACHTUNG: Niemals zwei verschiedene Farben verbinden!"
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="StepsTitle" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Strom/VBox" unique_id=1728408869]
+layout_mode = 2
+text = "Schritte:"
+
+[node name="StepList" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Strom/VBox" unique_id=1813678494]
+layout_mode = 2
+
+[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Strom/VBox/StepList" unique_id=569539212]
+layout_mode = 2
+text = "1.  Taschenlampe aufheben - Hauptraum neben der Luke."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Strom/VBox/StepList" unique_id=538155865]
+layout_mode = 2
+text = "2.  Roten Gang - Luke am Ende mit E oeffnen."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Strom/VBox/StepList" unique_id=81365175]
+layout_mode = 2
+text = "3.  Konsole mit E oeffnen."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Strom/VBox/StepList" unique_id=954431327]
+layout_mode = 2
+text = "4.  ROT-ROT, BLAU-BLAU, GELB-GELB, GRUEN-GRUEN verbinden."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Strom/VBox/StepList" unique_id=699017450]
+layout_mode = 2
+text = "5.  Alle Paare korrekt - Strom kehrt zurueck."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="Treibstoff" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=457657676]
+visible = false
+layout_mode = 2
+script = ExtResource("3_q6b25")
+metadata/_tab_index = 3
+
+[node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff" unique_id=1620121749]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PageTitle" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=2063749577]
+layout_mode = 2
+text = "Treibstoff-Mischung Typ-B Notverfahren"
+
+[node name="Sep" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=672362311]
+layout_mode = 2
+
+[node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=939337749]
+layout_mode = 2
+text = "Das Triebwerk benoetigt fuer den Notstart einen Drei-Komponenten-Mix. Die Reihenfolge ist entscheidend. Lies die Mengen genau ab und bestatige jeden Schritt wenn die Kontrolllampe gruen leuchtet. Niemals Xenon vor Hydrazin einfuellen."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="WarningBox" type="PanelContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=166867886]
+layout_mode = 2
+
+[node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/WarningBox" unique_id=1339958454]
+layout_mode = 2
+text = "KRITISCH: 3x HYDRAZIN - 2x XENON - 1x STABILISATOR TYP-7"
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="StepsTitle" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=7947833]
+layout_mode = 2
+text = "Schritte:"
+
+[node name="StepList" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=976477214]
+layout_mode = 2
+
+[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/StepList" unique_id=923111052]
+layout_mode = 2
+text = "1.  Cockpit - linkes Panel - Treibstoffkonsole."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/StepList" unique_id=1777775936]
+layout_mode = 2
+text = "2.  3 Einheiten HYDRAZIN - bestaetigen."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/StepList" unique_id=1193335408]
+layout_mode = 2
+text = "3.  Lampe gruen - 2 Einheiten XENON."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/StepList" unique_id=9377663]
+layout_mode = 2
+text = "4.  Lampe gruen - 1 Einheit STABILISATOR TYP-7."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/StepList" unique_id=584024462]
+layout_mode = 2
+text = "5.  Alle gruen - roter Startschalter druecken."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="Zugang" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=235923854]
+visible = false
+layout_mode = 2
+script = ExtResource("3_q6b25")
+metadata/_tab_index = 4
+
+[node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Zugang" unique_id=924259794]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PageTitle" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Zugang/VBox" unique_id=976832450]
+layout_mode = 2
+text = "Zugangscodes — Gesperrte Bereiche"
+
+[node name="Sep" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Zugang/VBox" unique_id=1970629491]
+layout_mode = 2
+
+[node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Zugang/VBox" unique_id=147938185]
+layout_mode = 2
+text = "Nach dem Notfall wurden alle Sicherheitstueren verriegelt. Der vierstellige Entsperrcode fuer den Maschinenraum wurde geaendert. Der neue Zugangscode lautet: neun-sechs-zwei-vier. Bei drei Fehleingaben sperrt das System fuer sechzig Sekunden."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="WarningBox" type="PanelContainer" parent="ManualRoot/PanelContainer/TabContainer/Zugang/VBox" unique_id=344769409]
+layout_mode = 2
+
+[node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Zugang/VBox/WarningBox" unique_id=1411595704]
+layout_mode = 2
+text = "HINWEIS: Code steht im Text oben. Ziffern koennen vertauscht erscheinen."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="StepsTitle" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Zugang/VBox" unique_id=258376734]
+layout_mode = 2
+text = "Schritte:"
+
+[node name="StepList" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Zugang/VBox" unique_id=1541580317]
+layout_mode = 2
+
+[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Zugang/VBox/StepList" unique_id=1130094388]
+layout_mode = 2
+text = "1.  Zum Numpad an der Maschinenraum-Tuer gehen."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Zugang/VBox/StepList" unique_id=1318511846]
+layout_mode = 2
+text = "2.  Code aus diesem Tab ablesen."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Zugang/VBox/StepList" unique_id=948618870]
+layout_mode = 2
+text = "3.  Code eingeben: 9 - 6 - 2 - 4"
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Zugang/VBox/StepList" unique_id=919492235]
+layout_mode = 2
+text = "4.  Tuer oeffnet sich automatisch."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="Schild" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=1133952086]
+visible = false
+layout_mode = 2
+script = ExtResource("3_q6b25")
+metadata/_tab_index = 5
+
+[node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Schild" unique_id=2042387216]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PageTitle" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox" unique_id=1351416326]
+layout_mode = 2
+text = "Schild-System — Notaktivierung"
+
+[node name="Sep" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox" unique_id=1320294761]
+layout_mode = 2
+
+[node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox" unique_id=777706702]
+layout_mode = 2
+text = "Das Schild-System schuetzt vor weiteren Asteroidentreffern. Es kann erst aktiviert werden wenn Strom und Treibstoff repariert sind. Der Kalibrierungscomputer prueft alle vier Sensoren automatisch."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="WarningBox" type="PanelContainer" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox" unique_id=1536315411]
+layout_mode = 2
+
+[node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/WarningBox" unique_id=486265831]
+layout_mode = 2
+text = "Schild erst aktivieren wenn Strom UND Treibstoff gruen sind."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="StepsTitle" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox" unique_id=1351086971]
+layout_mode = 2
+text = "Schritte:"
+
+[node name="StepList" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox" unique_id=854526177]
+layout_mode = 2
+
+[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/StepList" unique_id=427143907]
+layout_mode = 2
+text = "1.  Strom aktiv? Treibstoff gefuellt? Weiter."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/StepList" unique_id=1556671819]
+layout_mode = 2
+text = "2.  Cockpit - rechtes Panel - Schild-Konsole."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/StepList" unique_id=41088390]
+layout_mode = 2
+text = "3.  Kalibrierungscomputer starten - Taste K."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/StepList" unique_id=1468283089]
+layout_mode = 2
+text = "4.  Alle 4 Sensoren gruen abwarten."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/StepList" unique_id=1094497487]
+layout_mode = 2
+text = "5.  Blauer Schalter - Schild aktiv!"
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="Footer" type="HBoxContainer" parent="ManualRoot" unique_id=132583014]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -68.0
+offset_right = 255.19531
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+alignment = 1
+
+[node name="PrevButton" type="Button" parent="ManualRoot/Footer" unique_id=507224186]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+theme = ExtResource("6_7jiqe")
+text = "Prev"
+script = ExtResource("7_n500u")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/Footer" unique_id=1467544893]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_n500u")
+
+[node name="NextButton" type="Button" parent="ManualRoot/Footer" unique_id=352047162]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+theme = ExtResource("6_7jiqe")
+text = "Next"
+script = ExtResource("7_n500u")
