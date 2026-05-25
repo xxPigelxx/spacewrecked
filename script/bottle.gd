@@ -1,7 +1,6 @@
 extends Draggable
 
 @export var bottle_color: Color = Color.WHITE
-@export var amount: float = 100.0
 @export var pour_rate: float = 20.0
 @export var bottle_name: = "Bottle"
 @export var bottle_texture: Texture2D = preload("uid://chm0cx66fx8kh")
@@ -31,12 +30,11 @@ func _while_dragging(delta: float) -> void:
 			current_container = a.get_parent()
 			break
 
-	if current_container and amount > 0.0 and not current_container.is_full():
+	if current_container and not current_container.is_full():
 		if not is_pouring:
 			start_pouring()
 
-		var poured = min(pour_rate * delta, amount)
-		amount -= poured
+		var poured = pour_rate * delta
 		current_container.add_to_container(self, poured)
 	else:
 		if is_pouring:

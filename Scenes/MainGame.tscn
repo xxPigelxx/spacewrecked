@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://b5dbqqu5xo2t0"]
 
-[ext_resource type="PackedScene" uid="uid://cnbh3ya334cou" path="res://Scenes/Manual.tscn" id="1_73a8k"]
 [ext_resource type="PackedScene" uid="uid://dq54j3xh3bbr1" path="res://Scenes/main_room.tscn" id="2_48eim"]
 [ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="2_321ql"]
-[ext_resource type="Script" uid="uid://c743pafa127rw" path="res://script/keypad_1.gd" id="2_d4f28"]
 [ext_resource type="PackedScene" uid="uid://dsjfdq71r0huh" path="res://Scenes/ship.tscn" id="2_ybmw1"]
 [ext_resource type="PackedScene" uid="uid://bx4dd6j1px5ts" path="res://Scenes/center_room.tscn" id="3_73a8k"]
 [ext_resource type="PackedScene" uid="uid://bh7mvtchr84vd" path="res://Scenes/player.tscn" id="3_321ql"]
@@ -11,15 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://bci5jkkqbyfuo" path="res://Scenes/CockPitConsol.tscn" id="4_ybmw1"]
 [ext_resource type="PackedScene" uid="uid://f05mwa6qytr4" path="res://Scenes/bottom_room.tscn" id="5_yr2pg"]
 [ext_resource type="PackedScene" uid="uid://bw0bl8sb1j4it" path="res://Scenes/top_room.tscn" id="6_ylpyt"]
+[ext_resource type="PackedScene" uid="uid://dob8m8k1h72mn" path="res://Scenes/Manual_NEU.tscn" id="7_ktwve"]
 [ext_resource type="Script" uid="uid://kudxrduhqrqa" path="res://script/manual_item_pickup.gd" id="11_q8sds"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="12_yr2pg"]
+[ext_resource type="Script" uid="uid://be7ool6v0vads" path="res://Scenes/wiers_1.gd" id="13_r5sjn"]
 [ext_resource type="Texture2D" uid="uid://evb6q7n135rx" path="res://resources/assets/Items/lights/player_light.png" id="13_wyocf"]
-[ext_resource type="Script" uid="uid://tmhad1hhtvuj" path="res://script/wiers_1.gd" id="13_ylpyt"]
+[ext_resource type="Script" uid="uid://tmhad1hhtvuj" path="res://script/mix_iteract.gd" id="13_ylpyt"]
 [ext_resource type="Script" uid="uid://7yhscdoqwdut" path="res://script/ship_lights.gd" id="16_ktwve"]
-[ext_resource type="Script" uid="uid://bh3bvjtm47ana" path="res://Scenes/testdsaasda.gd" id="17_r5sjn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yprpe"]
-size = Vector2(76, 84)
+[ext_resource type="PackedScene" uid="uid://vs526fyd62fp" path="res://Scenes/DyslexiaDebugPanel.tscn" id="16_r5sjn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yr2pg"]
 radius = 71.0
@@ -28,19 +25,6 @@ radius = 71.0
 radius = 73.0
 
 [node name="MainGame" type="Node2D" unique_id=819575177]
-
-[node name="Manual" parent="." unique_id=633991194 instance=ExtResource("1_73a8k")]
-
-[node name="ManualRoot" parent="Manual" index="0" unique_id=2094122676]
-visible = false
-
-[node name="Label" type="Label" parent="Manual" unique_id=2080536977]
-modulate = Color(0, 0, 0, 1)
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "FPS"
-script = ExtResource("17_r5sjn")
 
 [node name="Ship" parent="." unique_id=1210471280 instance=ExtResource("2_ybmw1")]
 position = Vector2(662.99994, 548)
@@ -56,27 +40,10 @@ position = Vector2(525.00006, 0)
 
 [node name="Top_Room" parent="Ship" unique_id=448175340 instance=ExtResource("6_ylpyt")]
 
+[node name="Manual" parent="." unique_id=1520689515 instance=ExtResource("7_ktwve")]
+visible = false
+
 [node name="Interactabels" type="Node" parent="." unique_id=967127591]
-
-[node name="Keypad1" type="Area2D" parent="Interactabels" unique_id=1862312454]
-position = Vector2(847, 413)
-script = ExtResource("2_d4f28")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/Keypad1" unique_id=508670165]
-position = Vector2(28, 0)
-shape = SubResource("RectangleShape2D_yprpe")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/Keypad1" unique_id=1567007953]
-offset_left = -6.0
-offset_top = -105.0
-offset_right = 118.0
-offset_bottom = -42.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_321ql")
-theme_override_font_sizes/normal_font_size = 28
-text = "Press E to interact"
-scroll_active = false
-horizontal_alignment = 1
 
 [node name="Interactable" parent="Interactabels" unique_id=844235675 instance=ExtResource("4_ybmw1")]
 position = Vector2(1408, 550)
@@ -114,7 +81,7 @@ offset = Vector2(6, 3)
 
 [node name="Wiers1" type="Area2D" parent="Interactabels" unique_id=1236526605]
 position = Vector2(-113, 186)
-script = ExtResource("13_ylpyt")
+script = ExtResource("13_r5sjn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/Wiers1" unique_id=1479118903]
 shape = SubResource("CircleShape2D_wyocf")
@@ -137,6 +104,31 @@ text = "Press E to Interact"
 scroll_active = false
 horizontal_alignment = 1
 
+[node name="Mix" type="Area2D" parent="Interactabels" unique_id=440245220]
+position = Vector2(-101, 1105)
+script = ExtResource("13_ylpyt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/Mix" unique_id=76625290]
+shape = SubResource("CircleShape2D_wyocf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactabels/Mix" unique_id=1840672648]
+scale = Vector2(0.4331117, 0.4331117)
+texture = ExtResource("12_yr2pg")
+region_enabled = true
+region_rect = Rect2(34, 1307, 175, 166)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/Mix" unique_id=303594322]
+offset_left = -61.0
+offset_top = -97.0
+offset_right = 63.0
+offset_bottom = -34.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_321ql")
+theme_override_font_sizes/normal_font_size = 28
+text = "Press E to Interact"
+scroll_active = false
+horizontal_alignment = 1
+
 [node name="player" parent="." unique_id=1759760143 instance=ExtResource("3_321ql")]
 z_index = 1
 position = Vector2(1187, 530)
@@ -146,4 +138,4 @@ visible = false
 color = Color(0.06053035, 0.06053035, 0.060530342, 0.827451)
 script = ExtResource("16_ktwve")
 
-[editable path="Manual"]
+[node name="DyslexiaDebugPanel" parent="." unique_id=341496359 instance=ExtResource("16_r5sjn")]

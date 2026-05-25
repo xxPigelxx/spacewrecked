@@ -11,6 +11,13 @@ extends RichTextLabel
 @export_range(0.0, 10.0, 0.5) var size_variation: float = 0.0
 @export_range(0.0, 20.0, 1.0) var river_spacing: float = 0.0
 @export_range(0, 100, 1, "suffix:%") var mirror_percent: float = 0.0
+@export_range(0, 100, 1, "suffix:%") var scramble_percent: float = 0.0
+@export_range(0, 100, 1, "suffix:%") var crowd_percent: float = 0.0
+@export_range(0, 100, 1, "suffix:%") var transpose_percent: float = 0.0
+@export_range(0.0, 20.0, 0.5) var shake_amplitude: float = 0.0
+@export_range(0.0, 20.0, 0.5) var tornado_radius: float = 0.0
+@export_range(0.1, 5.0, 0.1) var tornado_frequency: float = 1.0
+@export_range(0.0, 5.0, 0.1) var pulse_frequency: float = 0.0
 @export var rng_seed: int = 1000
 
 var _source_text: String = ""
@@ -24,6 +31,13 @@ var _df: float = 1.0
 var _sv: float = 0.0
 var _rs: float = 0.0
 var _mp: float = 0.0
+var _sc: float = 0.0
+var _cp: float = 0.0
+var _tp: float = 0.0
+var _sa: float = 0.0
+var _tr: float = 0.0
+var _tf: float = 1.0
+var _pf: float = 0.0
 var _s: int = 1000
 
 func _ready() -> void:
@@ -45,12 +59,13 @@ func _exit_tree() -> void:
 		DyslexiaManager.stress_changed.disconnect(_on_stress_changed)
 
 ## Von PageEffects aufgerufen — speichert Werte und rendert.
-func apply_effects(v: float, sw: float, da: float, df: float, sv: float, rs: float, mp: float, s: int) -> void:
+func apply_effects(v: float, sw: float, da: float, df: float, sv: float, rs: float, mp: float, s: int, sc: float = 0.0, cp: float = 0.0, tp: float = 0.0, sa: float = 0.0, tr: float = 0.0, tf: float = 1.0, pf: float = 0.0) -> void:
 	if override_page or not _ready_done:
 		return
 	if _source_text.is_empty():
 		_source_text = text
 	_v = v; _sw = sw; _da = da; _df = df; _sv = sv; _rs = rs; _mp = mp; _s = s
+	_sc = sc; _cp = cp; _tp = tp; _sa = sa; _tr = tr; _tf = tf; _pf = pf
 	_render()
 
 func refresh() -> void:
@@ -62,14 +77,16 @@ func refresh() -> void:
 func _render() -> void:
 	if _source_text.is_empty():
 		return
-	text = DyslexiaManager.process_text(_source_text, _s, _v, _sw, _da, _df, _sv, _rs, _mp)
+	text = DyslexiaManager.process_text(_source_text, _s, _v, _sw, _da, _df, _sv, _rs, _mp, _sc, _cp, _tp, _sa, _tr, _tf, _pf)
 
 func _render_own() -> void:
 	if _source_text.is_empty():
 		_source_text = text
 	text = DyslexiaManager.process_text(_source_text, rng_seed,
 		vanish_percent, swap_percent, drift_amplitude, drift_frequency,
-		size_variation, river_spacing, mirror_percent)
+		size_variation, river_spacing, mirror_percent,
+		scramble_percent, crowd_percent, transpose_percent,
+		shake_amplitude, tornado_radius, tornado_frequency, pulse_frequency)
 
 func _on_stress_changed(_val: float) -> void:
 	# Immer neu rendern — stress wird in process_text automatisch einbezogen

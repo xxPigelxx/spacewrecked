@@ -186,16 +186,14 @@ region_enabled = true
 region_rect = Rect2(405, 1135, 59, 49)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1626225743]
-anchors_preset = -1
-anchor_left = 0.75364584
-anchor_top = 0.82685184
-anchor_right = 1.0
+anchors_preset = 2
+anchor_top = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 0
+offset_top = -168.49716
+offset_right = 350.69504
 grow_vertical = 0
-theme_override_constants/margin_right = 50
+theme_override_constants/margin_left = 50
 theme_override_constants/margin_bottom = 50
-metadata/_edit_use_anchors_ = true
 
 [node name="ReturnBT" type="Button" parent="MarginContainer" unique_id=1715385552]
 custom_minimum_size = Vector2(80, 80)

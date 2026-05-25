@@ -16,6 +16,8 @@ polygon = PackedVector2Array(-0.37179327, -15, 549.45154, -9.910278, 769.45154, 
 
 [node name="Door" parent="." unique_id=421017785 instance=ExtResource("1_8147l")]
 position = Vector2(-364, 1)
+puzzle_id = "main_door"
+code = "385197"
 
 [node name="wallseecment3" type="StaticBody2D" parent="." unique_id=412728482]
 position = Vector2(33, 262)

@@ -10,7 +10,10 @@ var is_animating := false
 
 @export var move_by: float = 80.0
 @export var duration: float = 0.35
-@export var puzzle_id:= "keypad1"
+@export var puzzle_id := "keypad1"
+@export var code := "1234"
+
+@onready var keypad = $Keypad
 
 var top_closed_pos: Vector2
 var bottom_closed_pos: Vector2
@@ -26,12 +29,19 @@ func _ready() -> void:
 	top_open_pos = top_closed_pos + Vector2(0, -move_by)
 	bottom_open_pos = bottom_closed_pos + Vector2(0, move_by)
 	
+	# puzzle_id und code an den Keypad weitergeben
+	keypad.puzzle_id = puzzle_id
+	keypad.code = code
+	
 	lamp.set_active(unlocked)
 	lamp_2.set_active(unlocked)
+	
 func _physics_process(delta: float) -> void:
 	unlocked = GameState.is_puzzle_solved(puzzle_id)	
+	keypad.visible = !unlocked
 	lamp.set_active(unlocked)
 	lamp_2.set_active(unlocked)
+	
 func tween_door(top_target: Vector2, bottom_target: Vector2) -> void:
 	is_animating = true
 

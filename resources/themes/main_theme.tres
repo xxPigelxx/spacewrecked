@@ -2,6 +2,8 @@
 
 [ext_resource type="FontFile" uid="uid://dld0grsdcans2" path="res://resources/fonts/Share_Tech/ShareTech-Regular.ttf" id="1_x2ak3"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x2ak3"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yjg5f"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x2ak3"]
@@ -50,9 +52,12 @@ texture = SubResource("CompressedTexture2D_hf3i3")
 region_rect = Rect2(1570, 552, 444, 162)
 modulate_color = Color(0.3553137, 0.3553135, 0.35531366, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i4ejt"]
+
 [resource]
 default_font = ExtResource("1_x2ak3")
 Button/colors/font_color = Color(0, 0, 0, 1)
+HSeparator/styles/separator = SubResource("StyleBoxEmpty_x2ak3")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0)
@@ -65,7 +70,9 @@ MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = null
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
-RichTextLabel/font_sizes/bold_font_size = 24
+RichTextLabel/constants/line_separation = 2
+RichTextLabel/constants/paragraph_separation = 4
+RichTextLabel/font_sizes/normal_font_size = 19
 RichTextLabel/fonts/normal_font = ExtResource("1_x2ak3")
 TabContainer/colors/font_hovered_color = Color(0, 0, 0, 1)
 TabContainer/colors/font_selected_color = Color(0, 0, 0, 1)
@@ -75,3 +82,4 @@ TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_i4ejt")
 TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_dagba")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_0wthw")
 TabContainer/styles/tabbar_background = SubResource("StyleBoxTexture_1nr78")
+VSeparator/styles/separator = SubResource("StyleBoxEmpty_i4ejt")

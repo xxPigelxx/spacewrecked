@@ -3,12 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="1_ba8gm"]
 [ext_resource type="Script" uid="uid://cb4me1rmklqa4" path="res://script/door.gd" id="1_v6xrn"]
 [ext_resource type="PackedScene" uid="uid://b8b7l3jlaxb3c" path="res://Scenes/lamp.tscn" id="3_fahql"]
+[ext_resource type="Script" uid="uid://c743pafa127rw" path="res://script/keypad.gd" id="4_a43ba"]
+[ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="5_burcv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6xrn"]
 size = Vector2(31.49997, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0phs7"]
 size = Vector2(176, 202)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kj2pw"]
+size = Vector2(175, 202)
 
 [node name="Door" type="Node2D" unique_id=421017785]
 script = ExtResource("1_v6xrn")
@@ -67,6 +72,25 @@ disabled_color = Color(1, 1, 1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorDetector" unique_id=1826007923]
 shape = SubResource("RectangleShape2D_0phs7")
+
+[node name="Keypad" type="Area2D" parent="." unique_id=1088123634]
+script = ExtResource("4_a43ba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Keypad" unique_id=2046251796]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_kj2pw")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Keypad" unique_id=2059799109]
+offset_left = -64.0
+offset_top = -83.0
+offset_right = 60.0
+offset_bottom = -20.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_burcv")
+theme_override_font_sizes/normal_font_size = 28
+text = "Press E to interact"
+scroll_active = false
+horizontal_alignment = 1
 
 [connection signal="body_entered" from="DoorDetector" to="." method="_on_door_detector_body_entered"]
 [connection signal="body_exited" from="DoorDetector" to="." method="_on_door_detector_body_exited"]

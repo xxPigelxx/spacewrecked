@@ -11,12 +11,13 @@ extends Node
 @export var shake_speed := 0.05
 
 @export var puzzle_id:= "keypad1"
+@onready var manual: CanvasLayer = $Manual
 
 var _text_start_position: Vector2
+var cheat_code := "666666"
 
 func _ready() -> void:
 	_text_start_position = numpad_text.position
-	
 	for child in numpad_buttons.get_children():
 		if child is Button:
 			child.pressed.connect(_on_button_pressed.bind(child))
@@ -44,7 +45,7 @@ func _on_button_pressed(button: Button) -> void:
 		_try_submit()
 
 func _try_submit() -> void:
-	if numpad_text.text == code:
+	if numpad_text.text == code or numpad_text.text == cheat_code:
 		print("Puzzle Solved")
 		_on_win()
 	else:

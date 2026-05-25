@@ -26,6 +26,12 @@ var accessibility: bool = false:
 var _labels: Array = []
 var _rng := RandomNumberGenerator.new()  # reuse — no GC pressure
 
+## Farben der Effekte — frei einstellbar
+var color_swap       := Color("#8b0000")
+var color_scramble   := Color("#4a0e8f")
+var color_transpose  := Color("#005f5f")
+var color_pulse      := Color("#ffffff88")
+
 const SWAP_PAIRS: Dictionary = {
 	"b": "d", "d": "b",
 	"p": "q", "q": "p",
@@ -61,7 +67,14 @@ func process_text(
 	drift_freq: float,
 	size_var: float,
 	river_gap: float,
-	mirror_pct: float
+	mirror_pct: float,
+	scramble_pct: float = 0.0,
+	crowd_pct: float = 0.0,
+	transpose_pct: float = 0.0,
+	shake_amp: float = 0.0,
+	tornado_radius: float = 0.0,
+	tornado_freq: float = 1.0,
+	pulse_freq: float = 0.0
 ) -> String:
 	if accessibility or raw.is_empty():
 		return raw
@@ -72,7 +85,9 @@ func process_text(
 	var rng := _rng
 	rng.seed = rng_seed
 
-	var words := raw.split(" ", false)
+	# BBCode aus dem Rohtext entfernen damit generierte Tags nicht verschachteln
+	var clean_raw := _strip_bbcode(raw)
+	var words := clean_raw.split(" ", false)
 	var out: PackedStringArray = []
 
 	for i in words.size():
@@ -84,10 +99,10 @@ func process_text(
 			out.append("[color=#00000000]%s[/color]" % " ".repeat(w.length()))
 			continue
 
-		# Spiegeln — durch stress verstärkt
+		# Spiegeln — Satzzeichen am Ende bleiben stehen
 		var mp: float = clampf((mirror_pct / 100.0) * boost, 0.0, 1.0)
 		if rng.randf() < mp:
-			w = w.reverse()
+			w = _mirror_word(w)
 
 		# Buchstaben tauschen — durch stress verstärkt
 		var sp: float = clampf((swap_pct / 100.0) * boost, 0.0, 1.0)
@@ -101,11 +116,41 @@ func process_text(
 			var sz: int = clampi(15 + delta, 8, 40)
 			w = "[font_size=%d]%s[/font_size]" % [sz, w]
 
+		# Buchstaben-Scramble (Wortmitte mischen) — durch stress verstärkt
+		var sc: float = clampf((scramble_pct / 100.0) * boost, 0.0, 1.0)
+		if sc > 0.0:
+			w = _scramble_middle(w, sc, rng)
+
+		# Silben-Transposition — durch stress verstärkt
+		var tp: float = clampf((transpose_pct / 100.0) * boost, 0.0, 1.0)
+		if rng.randf() < tp and w.length() >= 4:
+			w = _transpose_syllable(w, rng)
+
+		# Visuelles Crowding (Buchstaben zusammenrücken) — durch stress verstärkt
+		var cp: float = clampf((crowd_pct / 100.0) * boost, 0.0, 1.0)
+		if cp > 0.0:
+			w = _apply_crowding(w, cp, rng)
+
 		# Drift / Welle — durch stress verstärkt
 		var da: float = drift_amp * boost
 		if da > 0.5:
 			var phase: float = fmod(float(i) * 0.41, 1.0)
 			w = "[wave amp=%.1f freq=%.2f]%s[/wave]" % [da, drift_freq + phase, w]
+
+		# Shake — durch stress verstärkt
+		var sa: float = shake_amp * boost
+		if sa > 0.5:
+			w = "[shake rate=20 level=%.1f]%s[/shake]" % [sa, w]
+
+		# Tornado — durch stress verstärkt
+		var torn_r: float = tornado_radius * boost
+		if torn_r > 0.5:
+			w = "[tornado radius=%.1f freq=%.2f]%s[/tornado]" % [torn_r, tornado_freq, w]
+
+		# Pulse — durch stress verstärkt
+		var pf: float = pulse_freq * boost
+		if pf > 0.1:
+			w = "[pulse freq=%.2f color=%s]%s[/pulse]" % [pf, color_pulse.to_html(), w]
 
 		out.append(w)
 
@@ -133,7 +178,75 @@ func _swap_letters(word: String, chance: float, rng: RandomNumberGenerator) -> S
 			var swapped: String = SWAP_PAIRS[lo]
 			if ch == ch.to_upper() and ch != ch.to_lower():
 				swapped = swapped.to_upper()
-			result += "[color=#8b0000]%s[/color]" % swapped
+			result += "[color=%s]%s[/color]" % [color_swap.to_html(), swapped]
 		else:
 			result += ch
+	return result
+
+
+## Spiegelt ein Wort, lässt Satzzeichen (.,!?-:;) am Anfang/Ende in Ruhe.
+func _mirror_word(word: String) -> String:
+	const PUNCT := ".,-!?:;…„“"
+	var start := 0
+	var end := word.length() - 1
+	while start < word.length() and PUNCT.contains(word[start]):
+		start += 1
+	while end >= 0 and PUNCT.contains(word[end]):
+		end -= 1
+	if end <= start:
+		return word
+	var prefix := word.substr(0, start)
+	var suffix := word.substr(end + 1)
+	var middle := word.substr(start, end - start + 1)
+	return prefix + middle.reverse() + suffix
+
+
+## Mitte des Wortes zufällig durchmischen, Anfang+Ende bleiben.
+func _scramble_middle(word: String, chance: float, rng: RandomNumberGenerator) -> String:
+	if word.length() < 4 or rng.randf() >= chance:
+		return word
+	var first := word[0]
+	var last  := word[word.length() - 1]
+	var middle_chars: Array = []
+	for i in range(1, word.length() - 1):
+		middle_chars.append(word[i])
+	for i in range(middle_chars.size() - 1, 0, -1):
+		var j: int = rng.randi_range(0, i)
+		var tmp = middle_chars[i]
+		middle_chars[i] = middle_chars[j]
+		middle_chars[j] = tmp
+	var scrambled := first + "".join(middle_chars) + last
+	return "[color=%s]%s[/color]" % [color_scramble.to_html(), scrambled]
+
+
+## Verschiebt zwei Zeichenblöcke (Pseudo-Silben) im Wort.
+func _transpose_syllable(word: String, rng: RandomNumberGenerator) -> String:
+	var n := word.length()
+	var cut: int = rng.randi_range(1, n - 2)
+	var part_a := word.substr(0, cut)
+	var part_b := word.substr(cut)
+	return "[color=%s]%s%s[/color]" % [color_transpose.to_html(), part_b, part_a]
+
+
+## Visuelles Crowding: negativer Buchstabenabstand via font_spacing.
+func _apply_crowding(word: String, chance: float, rng: RandomNumberGenerator) -> String:
+	if rng.randf() >= chance * 0.6:
+		return word
+	var spacing: int = rng.randi_range(-4, -1)
+	return "[font_size=15][outline_size=0]%s[/outline_size][/font_size]" % word if spacing == 0 else \
+		"[p spacing_character=%d]%s[/p]" % [spacing, word]
+
+
+## Entfernt BBCode-Tags aus einem String.
+func _strip_bbcode(text: String) -> String:
+	var result := ""
+	var inside := false
+	for i in text.length():
+		var c := text[i]
+		if c == "[":
+			inside = true
+		elif c == "]":
+			inside = false
+		elif not inside:
+			result += c
 	return result

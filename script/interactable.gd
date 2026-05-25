@@ -2,6 +2,16 @@ extends Area2D
 class_name Interactable
 
 @export var prompt_text := "Press E to interact"
+
+## Optional: scene to open as overlay when interacted with.
+@export_file("*.tscn") var overlay_scene: String = ""
+
+## Optional: data to pass to the overlay scene via open_overlay_with_data.
+## Set key/value pairs here matching the @export property names of the target scene.
+## Example for mix game: { "leeway": 10.0, "require_full": true }
+## Example for keypad:   { "puzzle_id": "door2", "code": "9876" }
+@export var overlay_data: Dictionary = {}
+
 @onready var label: RichTextLabel = get_node_or_null("RichTextLabel")
 
 var player_near := false
@@ -24,7 +34,8 @@ func _input(event: InputEvent) -> void:
 		_action()
 
 func _action() -> void:
-	pass
+	if overlay_scene != "":
+		SceneSwitcher.open_overlay_with_data(overlay_scene, overlay_data, true, false)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):

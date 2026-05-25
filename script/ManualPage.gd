@@ -18,6 +18,12 @@ func _ready() -> void:
 func open(tab_name := "") -> void:
 	if not _open:
 		_slide_in()
+	if tab_name != "":
+		var tab = $PanelContainer/TabContainer
+		for i in tab.get_tab_count():
+			if tab.get_tab_title(i) == tab_name:
+				tab.current_tab = i
+				break
 
 func set_stress(level: float) -> void:
 	DyslexiaManager.stress = level

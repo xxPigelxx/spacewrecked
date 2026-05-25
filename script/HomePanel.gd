@@ -10,6 +10,8 @@ extends Control
 
 func _ready() -> void:
 	GameState.ship_lights_changed.connect(func(_v): refresh())
+	GameState.puzzle_solved.connect(func(_id): refresh())
+	GameState.puzzle_unsolved.connect(func(_id): refresh())
 	refresh()
 
 func refresh() -> void:
@@ -20,4 +22,5 @@ func refresh() -> void:
 
 func _set_status(lbl: Label, ok: bool, yes: String, no: String) -> void:
 	lbl.text = yes if ok else no
-	lbl.modulate = Color.GREEN if ok else Color.RED
+	lbl.modulate = Color.WHITE
+	lbl.add_theme_color_override("font_color", Color.GREEN if ok else Color.RED)

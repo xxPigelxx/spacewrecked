@@ -4,6 +4,8 @@ extends Node
 
 var fade_node: Node = null
 var fade_animation: AnimationPlayer = null
+var _manual_was_visible := false
+var _last_freeze_manual := false
 
 var current_scene: Node = null
 var overlay_scene: Node = null
@@ -52,18 +54,19 @@ func _deferred_switch_scene(res_path: String, fade_in := true, fade_out := true)
 # OVERLAY SCENES
 # ----------------------------
 
-func open_overlay_scene(res_path: String, fade_in := true, fade_out := true) -> void:
+func open_overlay_scene(res_path: String, fade_in := true, fade_out := true, freeze_manual := false) -> void:
 	if is_switching or is_overlay_open:
 		return
-	call_deferred("_deferred_open_overlay_scene", res_path, fade_in, fade_out)
+	call_deferred("_deferred_open_overlay_scene", res_path, fade_in, fade_out, freeze_manual)
 
-func _deferred_open_overlay_scene(res_path: String, fade_in := true, fade_out := true) -> void:
+func _deferred_open_overlay_scene(res_path: String, fade_in := true, fade_out := true, freeze_manual := false) -> void:
 	is_switching = true
 
 	if fade_out:
 		await _fade_out_node(current_scene)
 
-	_set_scene_frozen(current_scene, true)
+	_set_scene_frozen(current_scene, true, freeze_manual)
+	_last_freeze_manual = freeze_manual
 
 	var packed: PackedScene = load(res_path)
 	if packed == null:
@@ -86,6 +89,58 @@ func close_overlay_scene(fade_in := true, fade_out := true) -> void:
 		return
 	call_deferred("_deferred_close_overlay_scene", fade_in, fade_out)
 
+# ----------------------------
+# OVERLAY WITH DATA
+# ----------------------------
+## Opens an overlay and calls setup(data) on its root node before showing it.
+## Use this to pass recipes, configs, etc. to a freshly loaded scene.
+## Example:
+##   SceneSwitcher.open_overlay_with_data(
+##     "res://Scenes/Puzzle/mix_Game.tscn",
+##     {
+##       "recipe": [{"bottle_name":"Wasser","target_pct":50.0}],
+##       "leeway": 10.0,
+##       "require_full": true
+##     }
+##   )
+func open_overlay_with_data(res_path: String, data: Dictionary, fade_in := true, fade_out := true, freeze_manual := false) -> void:
+	if is_switching or is_overlay_open:
+		return
+	call_deferred("_deferred_open_overlay_with_data", res_path, data, fade_in, fade_out, freeze_manual)
+
+func _deferred_open_overlay_with_data(res_path: String, data: Dictionary, fade_in := true, fade_out := true, freeze_manual := false) -> void:
+	is_switching = true
+
+	if fade_out:
+		await _fade_out_node(current_scene)
+
+	_set_scene_frozen(current_scene, true, freeze_manual)
+	_last_freeze_manual = freeze_manual
+
+	var packed: PackedScene = load(res_path)
+	if packed == null:
+		push_error("Failed to load overlay scene: " + res_path)
+		_set_scene_frozen(current_scene, false)
+		is_switching = false
+		return
+
+	overlay_scene = packed.instantiate()
+
+	# Apply every key in data directly as a property on the root node
+	for key in data.keys():
+		if key in overlay_scene:
+			overlay_scene.set(key, data[key])
+		else:
+			push_warning("SceneSwitcher.open_overlay_with_data: property '" + key + "' not found on " + res_path)
+
+	get_tree().root.add_child(overlay_scene)
+	is_overlay_open = true
+
+	if fade_in:
+		await _fade_in_node(overlay_scene)
+
+	is_switching = false
+
 func _deferred_close_overlay_scene(fade_in := true, fade_out := true) -> void:
 	is_switching = true
 
@@ -96,7 +151,7 @@ func _deferred_close_overlay_scene(fade_in := true, fade_out := true) -> void:
 		overlay_scene.queue_free()
 		overlay_scene = null
 
-	_set_scene_frozen(current_scene, false)
+	_set_scene_frozen(current_scene, false, _last_freeze_manual)
 	is_overlay_open = false
 
 	if fade_in:
@@ -151,12 +206,21 @@ func _create_fade_for_node(target_node: Node) -> void:
 # FREEZE / UNFREEZE CURRENT SCENE
 # ----------------------------
 
-func _set_scene_frozen(scene_root: Node, frozen: bool) -> void:
+func _set_scene_frozen(scene_root: Node, frozen: bool, freeze_manual := true) -> void:
 	if scene_root == null:
 		return
 
 	for child in scene_root.get_children():
 		if child == fade_node:
+			continue
+		if freeze_manual and child.is_in_group("no_freeze"):
+			if frozen:
+				_manual_was_visible = child.visible
+				child.visible = false
+			else:
+				child.visible = _manual_was_visible
+			continue
+		if not freeze_manual and child.is_in_group("no_freeze"):
 			continue
 
 		if frozen:
@@ -179,7 +243,7 @@ func _deferred_close_overlay_and_switch_scene(res_path: String, fade_in := true,
 		overlay_scene.queue_free()
 		overlay_scene = null
 
-	_set_scene_frozen(current_scene, false)
+	_set_scene_frozen(current_scene, false, _last_freeze_manual)
 	is_overlay_open = false
 
 	if current_scene:

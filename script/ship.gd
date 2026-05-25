@@ -4,10 +4,12 @@ extends Node2D
 @onready var space_bg: Node2D = $SpaceBg
 
 func _ready() -> void:
-	start_flight()
-
+	fier_sfx_1.visible = false
+	fier_sfx_2.visible = false
 
 func _play_fier_animation():
+	fier_sfx_1.visible = true
+	fier_sfx_2.visible = true
 	fier_sfx_1.play("Fier_ainmation")
 	fier_sfx_2.play("Fier_ainmation")
 
