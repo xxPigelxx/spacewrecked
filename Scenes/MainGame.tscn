@@ -134,7 +134,6 @@ z_index = 1
 position = Vector2(1187, 530)
 
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=270877021]
-visible = false
 color = Color(0.06053035, 0.06053035, 0.060530342, 0.827451)
 script = ExtResource("16_ktwve")
 

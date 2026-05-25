@@ -13,6 +13,7 @@ var puzzles: Dictionary = {
 	"storage_door" = false,
 	"right_engin_door" = false,
 	"left_engin_door" = false,
+	"treibstoff" = false,
 	
 }
 

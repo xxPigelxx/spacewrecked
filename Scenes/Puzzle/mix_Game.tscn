@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b43u3pmotcfn7" path="res://resources/assets/Items/Bottles/Cup.tres" id="12_gnykm"]
 [ext_resource type="Texture2D" uid="uid://dxt4ee8t4jved" path="res://resources/assets/Items/Bottles/PetrolBottle.tres" id="13_p5xu6"]
 [ext_resource type="Texture2D" uid="uid://7u720v4croox" path="res://resources/assets/Items/Bottles/WatterinngCan.tres" id="14_it0an"]
+[ext_resource type="Script" uid="uid://clg63em8vrbc0" path="res://script/DyslexiaLabel.gd" id="14_nrd5h"]
 [ext_resource type="Texture2D" uid="uid://wof4yw2g8cy4" path="res://resources/assets/Items/Bottles/RoundBottle.tres" id="15_nrd5h"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p5xu6"]
@@ -59,6 +60,7 @@ size = Vector2(171, 124)
 
 [node name="Mixing_Game" type="CanvasLayer" unique_id=1650878428]
 script = ExtResource("1_txayf")
+require_full = false
 
 [node name="Panel" type="Panel" parent="." unique_id=1025445036]
 anchors_preset = 15
@@ -163,7 +165,7 @@ bottle_texture = ExtResource("14_it0an")
 [node name="Bottle6" parent="." unique_id=1422683580 instance=ExtResource("7_5bels")]
 position = Vector2(823, 251)
 bottle_color = Color(0.77718204, 0.097748615, 0.29230917, 1)
-bottle_name = "Water"
+bottle_name = "Wasser"
 bottle_texture = ExtResource("15_nrd5h")
 
 [node name="returnBt" type="Button" parent="." unique_id=590159499]
@@ -183,6 +185,29 @@ offset_bottom = 996.4972
 theme = ExtResource("10_f2yc3")
 theme_override_font_sizes/font_size = 50
 text = "Empty"
+
+[node name="RecipePanel" type="VBoxContainer" parent="." unique_id=1966141697]
+visible = false
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 320.0
+offset_bottom = 400.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="RecipePanel" unique_id=1148366719]
+layout_mode = 2
+bbcode_enabled = true
+text = "Rezept:"
+fit_content = true
+
+[node name="Fulestand" type="RichTextLabel" parent="." unique_id=340789079]
+offset_left = 880.0
+offset_top = 851.0
+offset_right = 1018.0
+offset_bottom = 891.0
+text = "Füllstand: "
+fit_content = true
+script = ExtResource("14_nrd5h")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [connection signal="pressed" from="returnBt" to="." method="_on_return_bt_pressed"]
 [connection signal="pressed" from="resetBt" to="." method="_on_reset_bt_pressed"]

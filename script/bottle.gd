@@ -45,7 +45,7 @@ func _on_drag_ended() -> void:
 
 func start_pouring() -> void:
 	is_pouring = true
-	if position.x >= get_window().size.x /2:
+	if position.x >= get_window().size.x / 2.0:
 		rotate_to(deg_to_rad(-120))
 	else:
 		rotate_to(deg_to_rad(120))
