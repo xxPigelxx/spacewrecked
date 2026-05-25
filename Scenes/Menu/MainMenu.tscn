@@ -26,10 +26,10 @@ position = Vector2(-1303, -978)
 path_speed = 50
 
 [node name="Logo" type="Sprite2D" parent="." unique_id=410146033]
-position = Vector2(25, -316)
+position = Vector2(25, -294)
 texture = ExtResource("3_8saeu")
 region_enabled = true
-region_rect = Rect2(30, 1562, 604, 387)
+region_rect = Rect2(0, 1625, 608, 425)
 
 [node name="Star" parent="Logo" unique_id=768714016 instance=ExtResource("4_8um5k")]
 self_modulate = Color(1, 1, 1, 1)

@@ -39,6 +39,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	unlocked = GameState.is_puzzle_solved(puzzle_id)	
 	keypad.visible = !unlocked
+	keypad.monitoring = !unlocked
 	lamp.set_active(unlocked)
 	lamp_2.set_active(unlocked)
 	

@@ -3,10 +3,10 @@
 
 extends Control
 
-@onready var val_strom  : Label = $VBox/StatusGrid/ValStrom
-@onready var val_treib  : Label = $VBox/StatusGrid/ValTreib
-@onready var val_schild : Label = $VBox/StatusGrid/ValSchild
-@onready var val_navi   : Label = $VBox/StatusGrid/ValNavi
+@onready var val_strom  :  = $VBoxContainer/HBoxContainer/ValStrom
+@onready var val_treib  :  = $VBoxContainer/HBoxContainer2/ValTreib
+@onready var val_schild :  = $VBoxContainer/HBoxContainer3/ValSchild
+@onready var val_navi   :  = $VBoxContainer/HBoxContainer4/ValNavi
 
 func _ready() -> void:
 	GameState.ship_lights_changed.connect(func(_v): refresh())
@@ -20,7 +20,7 @@ func refresh() -> void:
 	_set_status(val_schild, GameState.is_puzzle_solved("schild"),     "AKTIV",  "OFFLINE")
 	_set_status(val_navi,   GameState.ship_lights,                    "AKTIV",  "OFFLINE")
 
-func _set_status(lbl: Label, ok: bool, yes: String, no: String) -> void:
+func _set_status(lbl: DyslexiaLabel, ok: bool, yes: String, no: String) -> void:
 	lbl.text = yes if ok else no
 	lbl.modulate = Color.WHITE
 	lbl.add_theme_color_override("font_color", Color.GREEN if ok else Color.RED)
