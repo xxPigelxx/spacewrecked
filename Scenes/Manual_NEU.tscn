@@ -103,7 +103,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_q6b25")
 layout_mode = 2
 theme_override_constants/tab_separation = 4
 tab_alignment = 1
-current_tab = 2
+current_tab = 3
 clip_tabs = false
 
 [node name="Home" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=504548785]
@@ -398,6 +398,7 @@ scroll_active = false
 script = ExtResource("2_puywe")
 
 [node name="Treibstoff" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=457657676]
+visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
 size_variation = 4.0
@@ -409,16 +410,20 @@ layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="PageTitle" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=2063749577]
+[node name="PageTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=1240226048]
 layout_mode = 2
-text = "Treibstoff-Mischung Typ-B Notverfahren"
+bbcode_enabled = true
+text = "[b]Treibstoff[/b]"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="Sep" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=672362311]
 layout_mode = 2
 
 [node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=939337749]
 layout_mode = 2
-text = "Das Triebwerk benoetigt fuer den Notstart einen Drei-Komponenten-Mix. Die Reihenfolge ist entscheidend. Lies die Mengen genau ab und bestatige jeden Schritt wenn die Kontrolllampe gruen leuchtet. Niemals Xenon vor Hydrazin einfuellen."
+text = "Der Treibstoff des Schiffes ist sehr bestimmt und muss aus sicherheitsgründen nicht gemischt gelagert werden. Deshalb muss der Treibstoff wen er niederig wird manuel gemischt werden.  Dafür muss das Rezept genutze werden. Der Treibstoff besteht aus Hyperion zu 23%,   12% Xytherium, 25% Vortex, und 20% wasser. Der Treibstoff wird in dem Rechten Torbienenraum Gemischt. "
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -428,55 +433,12 @@ layout_mode = 2
 
 [node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/WarningBox" unique_id=1339958454]
 layout_mode = 2
-text = "KRITISCH: 3x HYDRAZIN - 2x XENON - 1x STABILISATOR TYP-7"
-fit_content = true
-scroll_active = false
-script = ExtResource("2_puywe")
-
-[node name="StepsTitle" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=7947833]
-layout_mode = 2
-text = "Schritte:"
-
-[node name="StepList" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=976477214]
-layout_mode = 2
-
-[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/StepList" unique_id=923111052]
-layout_mode = 2
-text = "1.  Cockpit - linkes Panel - Treibstoffkonsole."
-fit_content = true
-scroll_active = false
-script = ExtResource("2_puywe")
-
-[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/StepList" unique_id=1777775936]
-layout_mode = 2
-text = "2.  3 Einheiten HYDRAZIN - bestaetigen."
-fit_content = true
-scroll_active = false
-script = ExtResource("2_puywe")
-
-[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/StepList" unique_id=1193335408]
-layout_mode = 2
-text = "3.  Lampe gruen - 2 Einheiten XENON."
-fit_content = true
-scroll_active = false
-script = ExtResource("2_puywe")
-
-[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/StepList" unique_id=9377663]
-layout_mode = 2
-text = "4.  Lampe gruen - 1 Einheit STABILISATOR TYP-7."
-fit_content = true
-scroll_active = false
-script = ExtResource("2_puywe")
-
-[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/StepList" unique_id=584024462]
-layout_mode = 2
-text = "5.  Alle gruen - roter Startschalter druecken."
+text = "KRITISCH: !!!! Die Verhältnisse dürfen nicht zu weit auseinander raten !!!!!"
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
 
 [node name="Navigation" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=529697749]
-visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
 drift_amplitude = 11.0
@@ -489,16 +451,20 @@ layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="PageTitle" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox" unique_id=1507777274]
+[node name="PageTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox" unique_id=1106442680]
 layout_mode = 2
-text = "Schild-System — Notaktivierung"
+bbcode_enabled = true
+text = "[b] Navigation[/b]"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="Sep" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox" unique_id=538694399]
 layout_mode = 2
 
 [node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox" unique_id=804382157]
 layout_mode = 2
-text = "Das Schild-System schuetzt vor weiteren Asteroidentreffern. Es kann erst aktiviert werden wenn Strom und Treibstoff repariert sind. Der Kalibrierungscomputer prueft alle vier Sensoren automatisch."
+text = "Das Navigations System ist shjer fragiel falll je war dem Schiff passier muss es Neu kalibriet werdenn Dafür musss eine bestimmte sequenz von Planeten angestert werden. Dies ist erst möglich wen das Schiff in einem Zustand ist das  es sich auch bewegen kann sprich es muss Energie haben und auch den passenden triebstoff. Zuerst muss der Planet \"Thsien\" angesteuert werden."
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -508,49 +474,7 @@ layout_mode = 2
 
 [node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/WarningBox" unique_id=570961848]
 layout_mode = 2
-text = "Schild erst aktivieren wenn Strom UND Treibstoff gruen sind."
-fit_content = true
-scroll_active = false
-script = ExtResource("2_puywe")
-
-[node name="StepsTitle" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox" unique_id=1772348302]
-layout_mode = 2
-text = "Schritte:"
-
-[node name="StepList" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox" unique_id=724188336]
-layout_mode = 2
-
-[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/StepList" unique_id=1203191951]
-layout_mode = 2
-text = "1.  Strom aktiv? Treibstoff gefuellt? Weiter."
-fit_content = true
-scroll_active = false
-script = ExtResource("2_puywe")
-
-[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/StepList" unique_id=1468338537]
-layout_mode = 2
-text = "2.  Cockpit - rechtes Panel - Schild-Konsole."
-fit_content = true
-scroll_active = false
-script = ExtResource("2_puywe")
-
-[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/StepList" unique_id=1966022735]
-layout_mode = 2
-text = "3.  Kalibrierungscomputer starten - Taste K."
-fit_content = true
-scroll_active = false
-script = ExtResource("2_puywe")
-
-[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/StepList" unique_id=124064250]
-layout_mode = 2
-text = "4.  Alle 4 Sensoren gruen abwarten."
-fit_content = true
-scroll_active = false
-script = ExtResource("2_puywe")
-
-[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/StepList" unique_id=527506901]
-layout_mode = 2
-text = "5.  Blauer Schalter - Schild aktiv!"
+text = "Navigation erst aktivieren wenn Strom UND Treibstoff gruen sind."
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
