@@ -137,35 +137,37 @@ shape = SubResource("RectangleShape2D_gatl4")
 
 [node name="Bottle" parent="." unique_id=2017601924 instance=ExtResource("7_5bels")]
 position = Vector2(1380, 257)
+bottle_color = Color(0.26039997, 0.74028003, 0.93, 1)
+bottle_name = "Hyperion"
 
 [node name="Bottle2" parent="." unique_id=906856601 instance=ExtResource("7_5bels")]
 position = Vector2(996, 249)
-bottle_color = Color(0.7411765, 0.5764706, 0.29411766, 1)
-bottle_name = "LongBottle"
+bottle_color = Color(0.56, 0.3378667, 0.16800001, 1)
+bottle_name = "Xytherium"
 bottle_texture = ExtResource("11_38vln")
 
 [node name="Bottle3" parent="." unique_id=1125590377 instance=ExtResource("7_5bels")]
 position = Vector2(1193, 250)
-bottle_color = Color(0.70199054, 0.81868887, 0.9097788, 1)
-bottle_name = "Cup"
+bottle_color = Color(0.8772146, 0.54144984, 0.7787397, 1)
+bottle_name = "Zeraphine"
 bottle_texture = ExtResource("12_gnykm")
 
 [node name="Bottle4" parent="." unique_id=512509899 instance=ExtResource("7_5bels")]
 position = Vector2(655, 243)
-bottle_color = Color(0.71224004, 0.87, 0.31320003, 1)
+bottle_color = Color(0.066758975, 0.0923285, 0.010655793, 1)
 bottle_name = "Oel"
 bottle_texture = ExtResource("13_p5xu6")
 
 [node name="Bottle5" parent="." unique_id=1111120526 instance=ExtResource("7_5bels")]
 position = Vector2(480, 245)
 bottle_color = Color(0.19195771, 0.39252624, 0.8397936, 1)
-bottle_name = "Watteringcan"
+bottle_name = "Wasser"
 bottle_texture = ExtResource("14_it0an")
 
 [node name="Bottle6" parent="." unique_id=1422683580 instance=ExtResource("7_5bels")]
 position = Vector2(823, 251)
-bottle_color = Color(0.77718204, 0.097748615, 0.29230917, 1)
-bottle_name = "Wasser"
+bottle_color = Color(0.59, 0, 0.46216664, 1)
+bottle_name = "Vortex"
 bottle_texture = ExtResource("15_nrd5h")
 
 [node name="returnBt" type="Button" parent="." unique_id=590159499]

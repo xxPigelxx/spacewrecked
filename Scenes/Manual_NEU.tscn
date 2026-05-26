@@ -103,7 +103,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_q6b25")
 layout_mode = 2
 theme_override_constants/tab_separation = 4
 tab_alignment = 1
-current_tab = 3
+current_tab = 1
 clip_tabs = false
 
 [node name="Home" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=504548785]
@@ -314,7 +314,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Energie" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=880822609]
-visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
 swap_percent = 50.0
@@ -355,46 +354,56 @@ fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
 
-[node name="StepsTitle" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox" unique_id=1728408869]
+[node name="StepsTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox" unique_id=1290121924]
 layout_mode = 2
-text = "Schritte:"
+bbcode_enabled = true
+text = "[b]Cable:"
+fit_content = true
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="StepList" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox" unique_id=1813678494]
 layout_mode = 2
 
 [node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/StepList" unique_id=569539212]
 layout_mode = 2
-text = "1.  Taschenlampe aufheben - Hauptraum neben der Luke."
+text = "Blau <-> lila"
 fit_content = true
 scroll_active = false
+horizontal_alignment = 1
 script = ExtResource("2_puywe")
 
 [node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/StepList" unique_id=538155865]
 layout_mode = 2
-text = "2.  Roten Gang - Luke am Ende mit E oeffnen."
+text = "Magenta <-> Grau"
 fit_content = true
 scroll_active = false
+horizontal_alignment = 1
 script = ExtResource("2_puywe")
 
 [node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/StepList" unique_id=81365175]
 layout_mode = 2
-text = "3.  Konsole mit E oeffnen."
+text = "Rot <-> Grün"
 fit_content = true
 scroll_active = false
+horizontal_alignment = 1
 script = ExtResource("2_puywe")
 
 [node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/StepList" unique_id=954431327]
 layout_mode = 2
-text = "4.  ROT-ROT, BLAU-BLAU, GELB-GELB, GRUEN-GRUEN verbinden."
+text = "Gelb <-> Orange"
 fit_content = true
 scroll_active = false
+horizontal_alignment = 1
 script = ExtResource("2_puywe")
 
 [node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/StepList" unique_id=699017450]
 layout_mode = 2
-text = "5.  Alle Paare korrekt - Strom kehrt zurueck."
+text = "Limette <-> Cyanw"
 fit_content = true
 scroll_active = false
+horizontal_alignment = 1
 script = ExtResource("2_puywe")
 
 [node name="Treibstoff" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=457657676]
@@ -439,6 +448,7 @@ scroll_active = false
 script = ExtResource("2_puywe")
 
 [node name="Navigation" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=529697749]
+visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
 drift_amplitude = 11.0

@@ -38,19 +38,19 @@ texture = ExtResource("2_bcstb")
 position = Vector2(960, 540)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1669508669]
-position = Vector2(3411, 40)
+position = Vector2(3249, 46)
 shape = SubResource("RectangleShape2D_4hdqt")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1764626955]
-position = Vector2(-3437, 53)
+position = Vector2(-3270, 53)
 shape = SubResource("RectangleShape2D_4hdqt")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=1839653865]
-position = Vector2(0, -3043)
+position = Vector2(0, -2800)
 shape = SubResource("RectangleShape2D_6v54c")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls" unique_id=365649629]
-position = Vector2(4, 2814)
+position = Vector2(4, 2742)
 shape = SubResource("RectangleShape2D_6v54c")
 
 [node name="Window" type="TextureRect" parent="." unique_id=1950571081]

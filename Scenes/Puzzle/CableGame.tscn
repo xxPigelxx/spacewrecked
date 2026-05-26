@@ -85,7 +85,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("3_t1tc3")
 theme_override_font_sizes/font_size = 50
-text = "Spawn Cable"
+text = "Kabel"
 
 [node name="ReturnBt" type="Button" parent="Panel" unique_id=1521703684]
 layout_mode = 0
@@ -95,7 +95,7 @@ offset_right = 1312.0
 offset_bottom = 953.4972
 theme = ExtResource("3_t1tc3")
 theme_override_font_sizes/font_size = 50
-text = "Return"
+text = "Zuruck"
 
 [node name="CablegameManager" type="Node" parent="." unique_id=834513126]
 script = ExtResource("1_tkd5u")
@@ -125,60 +125,62 @@ shape = SubResource("RectangleShape2D_t1tc3")
 
 [node name="Left" type="Node2D" parent="Sockets" unique_id=1774481423]
 
-[node name="Socket8" parent="Sockets/Left" unique_id=410540247 instance=ExtResource("2_hesem")]
+[node name="Rot" parent="Sockets/Left" unique_id=410540247 instance=ExtResource("2_hesem")]
 position = Vector2(520, 501)
-socket_color = Color(0.4572891, 0.9255045, 0.9418861, 1)
+socket_color = Color(0.9019608, 0.09803922, 0.29411766, 1)
 pair_id = "4"
 
-[node name="Socket9" parent="Sockets/Left" unique_id=1221650162 instance=ExtResource("2_hesem")]
+[node name="Lime" parent="Sockets/Left" unique_id=1221650162 instance=ExtResource("2_hesem")]
 position = Vector2(518, 356)
-socket_color = Color(0.42352942, 0.62352943, 0.6666667, 1)
+socket_color = Color(0.7490196, 0.9372549, 0.27058825, 1)
 pair_id = "2"
 
-[node name="Socket10" parent="Sockets/Left" unique_id=42840864 instance=ExtResource("2_hesem")]
+[node name="Gelb" parent="Sockets/Left" unique_id=42840864 instance=ExtResource("2_hesem")]
 position = Vector2(511, 200)
-socket_color = Color(0.37857687, 0.74423397, 0.257256, 1)
+socket_color = Color(1, 0.88235295, 0.09803922, 1)
 pair_id = "5"
 
-[node name="Socket" parent="Sockets/Left" unique_id=1106657845 instance=ExtResource("2_hesem")]
+[node name="magenta" parent="Sockets/Left" unique_id=1106657845 instance=ExtResource("2_hesem")]
 position = Vector2(524, 810)
-socket_color = Color(0.8402113, 0.39410615, 0.70073926, 1)
+socket_color = Color(0.9411765, 0.19607843, 0.9019608, 1)
 pair_id = "1"
 
-[node name="Socket3" parent="Sockets/Left" unique_id=2120209152 instance=ExtResource("2_hesem")]
+[node name="Blau" parent="Sockets/Left" unique_id=2120209152 instance=ExtResource("2_hesem")]
 position = Vector2(520, 648)
+socket_color = Color(0.2627451, 0.3882353, 0.84705883, 1)
 pair_id = "3"
 
 [node name="Right" type="Node2D" parent="Sockets" unique_id=1609544262]
 
-[node name="Socket7" parent="Sockets/Right" unique_id=507004883 instance=ExtResource("2_hesem")]
+[node name="Cyan" parent="Sockets/Right" unique_id=507004883 instance=ExtResource("2_hesem")]
 position = Vector2(1357, 669)
 side = 1
-socket_color = Color(0.93422735, 0.920681, 0.6533266, 1)
-pair_id = "3"
-
-[node name="Socket2" parent="Sockets/Right" unique_id=1339555870 instance=ExtResource("2_hesem")]
-position = Vector2(1347, 533)
-side = 1
-socket_color = Color(0.38039216, 0.74509805, 0.25882354, 1)
-pair_id = "5"
-
-[node name="Socket4" parent="Sockets/Right" unique_id=1663060115 instance=ExtResource("2_hesem")]
-position = Vector2(1362, 813)
-side = 1
-socket_color = Color(0.42251098, 0.6236289, 0.6670792, 1)
+socket_color = Color(0.25882354, 0.83137256, 0.95686275, 1)
 pair_id = "2"
 
-[node name="Socket6" parent="Sockets/Right" unique_id=89349907 instance=ExtResource("2_hesem")]
-position = Vector2(1353, 220)
+[node name="Grau" parent="Sockets/Right" unique_id=1339555870 instance=ExtResource("2_hesem")]
+position = Vector2(1347, 533)
 side = 1
+socket_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+pair_id = "1"
+
+[node name="Gruen" parent="Sockets/Right" unique_id=1663060115 instance=ExtResource("2_hesem")]
+position = Vector2(1362, 813)
+side = 1
+socket_color = Color(0.23529412, 0.7058824, 0.29411766, 1)
 pair_id = "4"
 
-[node name="Socket5" parent="Sockets/Right" unique_id=2083023251 instance=ExtResource("2_hesem")]
+[node name="Orange" parent="Sockets/Right" unique_id=89349907 instance=ExtResource("2_hesem")]
+position = Vector2(1353, 220)
+side = 1
+socket_color = Color(0.9607843, 0.50980395, 0.19215687, 1)
+pair_id = "5"
+
+[node name="Lila" parent="Sockets/Right" unique_id=2083023251 instance=ExtResource("2_hesem")]
 position = Vector2(1342, 386)
 side = 1
-socket_color = Color(0.8392157, 0.39215687, 0.7019608, 1)
-pair_id = "1"
+socket_color = Color(0.5686275, 0.11764706, 0.7058824, 1)
+pair_id = "3"
 
 [node name="Cabels" type="Node2D" parent="." unique_id=1846986884]
 
