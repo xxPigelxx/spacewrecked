@@ -60,6 +60,13 @@ size = Vector2(171, 124)
 
 [node name="Mixing_Game" type="CanvasLayer" unique_id=1650878428]
 script = ExtResource("1_txayf")
+recipe = Array[Dictionary]([{
+"bottle_name": "Wasser",
+"target_pct": 25.0
+}, {
+"bottle_name": "Xytherium",
+"target_pct": 12.0
+}, {}])
 require_full = false
 
 [node name="Panel" type="Panel" parent="." unique_id=1025445036]
@@ -206,6 +213,7 @@ offset_left = 880.0
 offset_top = 851.0
 offset_right = 1018.0
 offset_bottom = 891.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 text = "Füllstand: "
 fit_content = true
 script = ExtResource("14_nrd5h")

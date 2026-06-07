@@ -14,7 +14,7 @@ var puzzles: Dictionary = {
 	"right_engin_door" = false,
 	"left_engin_door" = false,
 	"treibstoff" = false,
-	
+	"navigation" = false,
 }
 
 var ship_health

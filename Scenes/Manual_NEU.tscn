@@ -400,7 +400,8 @@ script = ExtResource("2_puywe")
 
 [node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/StepList" unique_id=699017450]
 layout_mode = 2
-text = "Limette <-> Cyanw"
+bbcode_enabled = true
+text = "Limette <-> Cyan"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -410,8 +411,9 @@ script = ExtResource("2_puywe")
 visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
+vanish_percent = 6.0
 size_variation = 4.0
-crowd_percent = 60.0
+mirror_percent = 44.0
 metadata/_tab_index = 2
 
 [node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff" unique_id=1620121749]
