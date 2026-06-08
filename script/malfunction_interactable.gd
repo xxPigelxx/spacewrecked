@@ -15,11 +15,14 @@ var _counted := false        ## ob diese Stoerung aktuell im Kategorie-Zaehler s
 var _spawner: Node = null
 
 func _setup() -> void:
-	deactivate()
-	if start_active:
-		activate()
+	_active = false
+	visible = false
+	if label:
+		label.visible = false
 	if !ignor_spawner:
 		_spawner = get_parent()
+	if start_active:
+		activate()
 	
 
 ## Kategorie als String fuer GameState (muss zu HomePanel passen).
@@ -42,9 +45,14 @@ func activate() -> void:
 	set_deferred("monitorable", true)
 	if not _counted:
 		_counted = true
-		GameState.set_system_broken(_category_name())
+		var cat := _category_name()
+		if cat == "":
+			push_warning("MalfunctionInteractable '%s': category ist NICHT_GESETZT — System wird nicht ins Buch gezählt." % name)
+		GameState.set_system_broken(cat)
 
-## Stoerung ausblenden + deaktivieren. (Zaehlt NICHT ab - das macht nur mark_solved.)
+## Stoerung ausblenden + deaktivieren.
+## Falls die Stoerung noch gezaehlt war (aber nicht geloest), Zaehler bereinigen,
+## damit _counted konsistent bleibt (z.B. bei Reset/begin oder clear_all).
 func deactivate() -> void:
 	_active = false
 	visible = false
@@ -53,6 +61,9 @@ func deactivate() -> void:
 	set_deferred("monitorable", false)
 	if label:
 		label.visible = false
+	if _counted and not _solved:
+		_counted = false
+		GameState.set_system_repaired(_category_name())
 
 ## Wird vom Spawner fuer die Lebens-/Kurven-Logik abgefragt.
 func is_active_unsolved() -> bool:

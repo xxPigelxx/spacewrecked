@@ -159,6 +159,7 @@ active_curve = SubResource("Curve_r5sjn")
 [node name="CableMalfunction1" type="Area2D" parent="Interactabels/MalfunctionSpawner" unique_id=691038018]
 position = Vector2(505, 537)
 script = ExtResource("19_k6vqf")
+category = 1
 prompt_text = "E: Kabel reparieren"
 overlay_scene = "res://Scenes/Puzzle/CableGame.tscn"
 

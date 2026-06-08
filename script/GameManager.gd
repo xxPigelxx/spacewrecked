@@ -56,7 +56,7 @@ func remove_door(door_id: String) -> void:
 
 # ---- Einstellbare Werte (alles an einem Ort) ----
 @export_group("Journey")
-@export var run_duration := 300.0              ## Messfenster in Sekunden
+@export var run_duration := 60.0              ## Messfenster in Sekunden
 @export var max_health := 100.0                ## Maximales + Start-Leben
 @export var health_per_fix := 20.0             ## Reparatur stellt so viel wieder her (flach)
 @export var health_drain_per_sec := 1.0        ## passiver Verlust pro Sekunde
@@ -159,6 +159,8 @@ func _process(delta: float) -> void:
 		_finish_run()
 	elif time_left <= 0.0:
 		_finish_run()
+	ship_lights = is_system_broken("strom")
+		
 
 func _report_malfunction_solved(puzzle_id: String) -> void:
 	if phase != Phase.JOURNEY:

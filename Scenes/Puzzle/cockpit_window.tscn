@@ -171,7 +171,7 @@ script = ExtResource("4_0q44l")
 shape = SubResource("CircleShape2D_wngar")
 
 [node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Tri" unique_id=802688608]
-position = Vector2(-140, 227)
+position = Vector2(2, 3.0000153)
 scale = Vector2(1.8731154, 1.8731152)
 texture = ExtResource("6_0q44l")
 
@@ -201,6 +201,7 @@ position = Vector2(2850, -358)
 script = ExtResource("4_0q44l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Commet" unique_id=570133225]
+position = Vector2(-163, 257)
 shape = SubResource("CircleShape2D_wngar")
 
 [node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Commet" unique_id=1696614773]
@@ -296,7 +297,18 @@ disabled = true
 text = "Start
 "
 
+[node name="winBt" type="Button" parent="." unique_id=1456065049]
+offset_left = 37.0
+offset_top = 56.0
+offset_right = 289.0
+offset_bottom = 145.4972
+theme = ExtResource("7_cmgvn")
+theme_override_font_sizes/font_size = 50
+text = "win
+"
+
 [connection signal="area_entered" from="Detector" to="Detector" method="_on_area_entered"]
 [connection signal="area_exited" from="Detector" to="Detector" method="_on_area_exited"]
 [connection signal="pressed" from="ReturnBt" to="." method="_on_return_pressed"]
 [connection signal="pressed" from="StartShipBt" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="winBt" to="." method="_win"]

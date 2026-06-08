@@ -15,12 +15,6 @@ script = ExtResource("1_onrkg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=317780492]
 shape = SubResource("CircleShape2D_hqtel")
 
-[node name="ProcreateAtlas" type="Sprite2D" parent="." unique_id=747736919]
-modulate = Color(0.918826, 0.38327312, 0.5450927, 1)
-texture = ExtResource("2_i3pqv")
-region_enabled = true
-region_rect = Rect2(849, 323, 81, 81)
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1063792495]
 position_smoothing_enabled = true
 position_smoothing_speed = 1.5
@@ -44,3 +38,9 @@ position = Vector2(7.710845, 7.710844)
 rotation = -1.5707964
 scale = Vector2(0.09638555, 0.09638555)
 texture = ExtResource("5_fkybt")
+
+[node name="ProcreateAtlas" type="Sprite2D" parent="." unique_id=747736919]
+modulate = Color(0.918826, 0.38327312, 0.5450927, 1)
+texture = ExtResource("2_i3pqv")
+region_enabled = true
+region_rect = Rect2(849, 323, 81, 81)

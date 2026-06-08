@@ -1,9 +1,11 @@
 extends CanvasModulate
 
-func _ready() -> void:
-	GameState.ship_lights_changed.connect(switch_lights)
-	visible = GameState.is_system_broken("strom")
-	
+## Verdunkelt den Bildschirm, wenn das Stromsystem ausgefallen ist.
+## sichtbar (= dunkel) wenn Strom kaputt, unsichtbar (= hell) wenn Strom OK.
 
-func switch_lights(val):
-	visible = !val
+func _ready() -> void:
+	GameState.broken_systems_changed.connect(_update)
+	_update()
+
+func _update() -> void:
+	visible = GameState.is_system_broken("strom")

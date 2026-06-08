@@ -30,7 +30,6 @@ func _check_all_sockets_aktive() -> void:
 
 func _on_win():
 	win = true
-	GameState.ship_lights = true
 	if malfunction:
 		malfunction.mark_solved()
 	SceneSwitcher.close_overlay_scene()

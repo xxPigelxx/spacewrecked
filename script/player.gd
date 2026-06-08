@@ -9,13 +9,16 @@ var ship_lights_on := false
 var has_manual := false
 
 func _ready() -> void:
-	ship_lights_on = GameState.ship_lights
+	ship_lights_on = not GameState.is_system_broken("strom")
 	has_manual = GameState.manule_aquiered
 
 	switch_lights(ship_lights_on)
 
 	GameState.manual_acquired_changed.connect(_on_manual_changed)
-	GameState.ship_lights_changed.connect(switch_lights)
+	GameState.broken_systems_changed.connect(_on_strom_changed)
+
+func _on_strom_changed() -> void:
+	switch_lights(not GameState.is_system_broken("strom"))
 
 func _physics_process(delta: float) -> void:
 	var direction := Vector2.ZERO
