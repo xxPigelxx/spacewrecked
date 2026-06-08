@@ -29,6 +29,7 @@ size = Vector2(28, 790.5)
 size = Vector2(1166, 21)
 
 [node name="CableGame" type="CanvasLayer" unique_id=39079525]
+script = ExtResource("1_tkd5u")
 
 [node name="Panel2" type="Panel" parent="." unique_id=608305952]
 anchors_preset = 15
@@ -115,10 +116,7 @@ theme_override_font_sizes/font_size = 50
 text = "Win
 "
 
-[node name="CablegameManager" type="Node" parent="." unique_id=834513126]
-script = ExtResource("1_tkd5u")
-
-[node name="CableSpawnMarker" type="Marker2D" parent="CablegameManager" unique_id=6755401]
+[node name="CableSpawnMarker" type="Marker2D" parent="." unique_id=6755401]
 position = Vector2(913, 807)
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=1089851824]
@@ -202,6 +200,6 @@ pair_id = "3"
 
 [node name="Cabels" type="Node2D" parent="." unique_id=1846986884]
 
-[connection signal="pressed" from="Panel/SpawnCableBt" to="CablegameManager" method="_on_button_pressed"]
-[connection signal="pressed" from="Panel/ReturnBt" to="CablegameManager" method="_on_return_bt_pressed"]
-[connection signal="pressed" from="Panel/SpawnCableBt2" to="CablegameManager" method="_on_win"]
+[connection signal="pressed" from="Panel/SpawnCableBt" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/ReturnBt" to="." method="_on_return_bt_pressed"]
+[connection signal="pressed" from="Panel/SpawnCableBt2" to="." method="_on_win"]

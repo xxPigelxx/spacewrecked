@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://dhaqf5a5qa6di"]
 
-[ext_resource type="Script" uid="uid://5jn5o7nbbr06" path="res://script/cockpit_window.gd" id="1_lq4cw"]
 [ext_resource type="Script" uid="uid://65n72rwo2xbw" path="res://script/space.gd" id="1_ucq61"]
 [ext_resource type="Texture2D" uid="uid://ce0ll6nwkp2ti" path="res://resources/assets/SpaceBGwithStars.png" id="3_es3id"]
 [ext_resource type="Texture2D" uid="uid://cdfu1yfawobu0" path="res://resources/assets/Cockpit.png" id="3_lq4cw"]
@@ -30,7 +29,7 @@ size = Vector2(3630, 20)
 radius = 86.0
 
 [node name="CockpitWindow" type="CanvasLayer" unique_id=1066614739]
-script = ExtResource("1_lq4cw")
+script = ExtResource("12_c6vri")
 
 [node name="Space" type="CharacterBody2D" parent="." unique_id=1328670499]
 position = Vector2(960, 540)
@@ -277,7 +276,7 @@ texture_progress = ExtResource("7_bd08j")
 texture_progress_offset = Vector2(-2.005, 14.26)
 tint_progress = Color(0.63632363, 0.89193815, 0.5438833, 1)
 
-[node name="Button" type="Button" parent="." unique_id=2016330464]
+[node name="ReturnBt" type="Button" parent="." unique_id=2016330464]
 offset_left = 1398.0
 offset_top = 974.0
 offset_right = 1650.0
@@ -303,5 +302,5 @@ draw_speed = 2400.0
 
 [connection signal="area_entered" from="Detector" to="Detector" method="_on_area_entered"]
 [connection signal="area_exited" from="Detector" to="Detector" method="_on_area_exited"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="StartShipBt" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="ReturnBt" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="StartShipBt" to="." method="_on_start_pressed"]

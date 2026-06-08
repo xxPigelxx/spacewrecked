@@ -165,8 +165,6 @@ func _report_malfunction_solved(puzzle_id: String) -> void:
 		return
 	malfunctions_solved += 1
 	_set_health(health + health_per_fix)
-	if spawner and spawner.has_method("resolve_in_progress"):
-		spawner.resolve_in_progress()
 	_run_log.append({
 		"puzzle_id": puzzle_id,
 		"time_left": time_left,

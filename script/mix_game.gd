@@ -19,6 +19,7 @@ extends CanvasLayer
 
 @export var category: String = "treibstoff"
 
+var malfunction = null
 var current_fill: float = 0.0
 var bottles: Array = []
 var mixed_color: Color = Color(0, 0, 0, 1)
@@ -115,8 +116,8 @@ func _check_win() -> bool:
 
 func _on_win() -> void:
 	print("WIN! Rezept stimmt!")
-	if category != "":
-		GameState.set_system_repaired(category)
+	if malfunction:
+		malfunction.mark_solved()
 	SceneSwitcher.close_overlay_scene()
 
 ## Zeigt Rezept-Ziele und aktuelle Prozentwerte live an.

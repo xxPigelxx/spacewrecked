@@ -27,6 +27,8 @@ extends Node
 @onready var planets_root: Node2D = $"../Space/planets"
 @onready var start_button: Button = $"../StartShipBt"
 
+var malfunction = null
+
 var _step := 0                       ## wie viele Planeten korrekt bestätigt sind
 var _confirmed_points: PackedVector2Array = []
 var _confirmed_planets: Array[Node2D] = []  ## bestätigte Planeten-Nodes (parallel zu _confirmed_points)
@@ -185,7 +187,8 @@ func _win() -> void:
 	if _solved:
 		return
 	_solved = true
-	GameState.set_system_repaired(category)
+	if malfunction:
+		malfunction.mark_solved()
 	_on_win()
 
 ## Hier eigenen Code eintragen: Button aktivieren, Sound, Schiff starten ...
@@ -210,3 +213,11 @@ func _play_win_animation() -> void:
 func _enable_start_button() -> void:
 	start_button.visible = true
 	start_button.disabled = false
+
+func _on_return_pressed() -> void:
+	SceneSwitcher.close_overlay_scene()
+
+func _on_start_pressed() -> void:
+	# Start-Schiff Button: Journey-Phase + Messfenster starten.
+	GameState.start_journey()
+	SceneSwitcher.close_overlay_scene()

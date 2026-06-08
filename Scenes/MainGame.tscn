@@ -52,7 +52,9 @@ visible = false
 
 [node name="Interactabels" type="Node" parent="." unique_id=967127591]
 
-[node name="Interactable" parent="Interactabels" unique_id=844235675 instance=ExtResource("4_ybmw1")]
+[node name="SetupMalfunctions" type="Node" parent="Interactabels" unique_id=1447381201]
+
+[node name="Interactable" parent="Interactabels/SetupMalfunctions" unique_id=844235675 instance=ExtResource("4_ybmw1")]
 position = Vector2(1408, 550)
 script = ExtResource("19_k6vqf")
 category = 4
@@ -60,21 +62,21 @@ start_active = true
 ignor_spawner = true
 overlay_scene = "uid://dhaqf5a5qa6di"
 
-[node name="ManualItemPickup" type="Area2D" parent="Interactabels" unique_id=612487883]
+[node name="ManualItemPickup" type="Area2D" parent="Interactabels/SetupMalfunctions" unique_id=612487883]
 position = Vector2(1113, 365)
 script = ExtResource("11_q8sds")
 prompt_text = "Press E to Pickup"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/ManualItemPickup" unique_id=691600370]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/SetupMalfunctions/ManualItemPickup" unique_id=691600370]
 shape = SubResource("CircleShape2D_yr2pg")
 
-[node name="Sprite2D" type="Sprite2D" parent="Interactabels/ManualItemPickup" unique_id=415291239]
+[node name="Sprite2D" type="Sprite2D" parent="Interactabels/SetupMalfunctions/ManualItemPickup" unique_id=415291239]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("12_yr2pg")
 region_enabled = true
 region_rect = Rect2(1346, 1049, 102, 129)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/ManualItemPickup" unique_id=1189917796]
+[node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/SetupMalfunctions/ManualItemPickup" unique_id=1189917796]
 offset_left = -61.0
 offset_top = -97.0
 offset_right = 63.0
@@ -86,12 +88,12 @@ text = "Press E to Pickup"
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="PointLight2D" type="PointLight2D" parent="Interactabels/ManualItemPickup" unique_id=2047586178]
+[node name="PointLight2D" type="PointLight2D" parent="Interactabels/SetupMalfunctions/ManualItemPickup" unique_id=2047586178]
 color = Color(0.9998614, 0.23779336, 0.24820319, 0.9137255)
 texture = ExtResource("13_wyocf")
 offset = Vector2(6, 3)
 
-[node name="Wiers1" type="Area2D" parent="Interactabels" unique_id=1236526605]
+[node name="Wiers1" type="Area2D" parent="Interactabels/SetupMalfunctions" unique_id=1236526605]
 position = Vector2(-113, 186)
 script = ExtResource("19_k6vqf")
 category = 1
@@ -99,16 +101,16 @@ start_active = true
 ignor_spawner = true
 overlay_scene = "uid://mx67lrqv2oom"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/Wiers1" unique_id=1479118903]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/SetupMalfunctions/Wiers1" unique_id=1479118903]
 shape = SubResource("CircleShape2D_wyocf")
 
-[node name="Sprite2D" type="Sprite2D" parent="Interactabels/Wiers1" unique_id=1796741518]
+[node name="Sprite2D" type="Sprite2D" parent="Interactabels/SetupMalfunctions/Wiers1" unique_id=1796741518]
 scale = Vector2(0.4331117, 0.4331117)
 texture = ExtResource("12_yr2pg")
 region_enabled = true
 region_rect = Rect2(34, 1307, 175, 166)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/Wiers1" unique_id=1597470499]
+[node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/SetupMalfunctions/Wiers1" unique_id=1597470499]
 offset_left = -61.0
 offset_top = -97.0
 offset_right = 63.0
@@ -120,7 +122,7 @@ text = "Press E to Interact"
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="Mix" type="Area2D" parent="Interactabels" unique_id=440245220]
+[node name="Mix" type="Area2D" parent="Interactabels/SetupMalfunctions" unique_id=440245220]
 position = Vector2(-101, 1105)
 script = ExtResource("19_k6vqf")
 category = 2
@@ -128,16 +130,16 @@ start_active = true
 ignor_spawner = true
 overlay_scene = "uid://cipbu25o2n6ae"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/Mix" unique_id=76625290]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/SetupMalfunctions/Mix" unique_id=76625290]
 shape = SubResource("CircleShape2D_wyocf")
 
-[node name="Sprite2D" type="Sprite2D" parent="Interactabels/Mix" unique_id=1840672648]
+[node name="Sprite2D" type="Sprite2D" parent="Interactabels/SetupMalfunctions/Mix" unique_id=1840672648]
 scale = Vector2(0.4331117, 0.4331117)
 texture = ExtResource("12_yr2pg")
 region_enabled = true
 region_rect = Rect2(34, 1307, 175, 166)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/Mix" unique_id=303594322]
+[node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/SetupMalfunctions/Mix" unique_id=303594322]
 offset_left = -61.0
 offset_top = -97.0
 offset_right = 63.0
@@ -149,36 +151,36 @@ text = "Press E to Interact"
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="player" parent="." unique_id=1759760143 instance=ExtResource("3_321ql")]
-z_index = 1
-position = Vector2(1187, 530)
-
-[node name="Darkness" type="CanvasModulate" parent="." unique_id=270877021]
-visible = false
-color = Color(0.06053035, 0.06053035, 0.060530342, 0.827451)
-script = ExtResource("16_ktwve")
-
-[node name="DyslexiaDebugPanel" parent="." unique_id=341496359 instance=ExtResource("16_r5sjn")]
-
-[node name="MalfunctionSpawner" type="Node2D" parent="." unique_id=1994295542]
+[node name="MalfunctionSpawner" type="Node2D" parent="Interactabels" unique_id=1994295542]
 script = ExtResource("18_yc6xl")
 active_curve = SubResource("Curve_r5sjn")
 
-[node name="CableMalfunction1" type="Area2D" parent="MalfunctionSpawner" unique_id=691038018]
+[node name="CableMalfunction1" type="Area2D" parent="Interactabels/MalfunctionSpawner" unique_id=691038018]
 position = Vector2(505, 537)
 script = ExtResource("19_k6vqf")
 prompt_text = "E: Kabel reparieren"
 overlay_scene = "res://Scenes/Puzzle/CableGame.tscn"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MalfunctionSpawner/CableMalfunction1" unique_id=1113010476]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/MalfunctionSpawner/CableMalfunction1" unique_id=1113010476]
 shape = SubResource("CircleShape2D_k6vqf")
 
-[node name="Sprite2D" type="Sprite2D" parent="MalfunctionSpawner/CableMalfunction1" unique_id=2090369213]
+[node name="Sprite2D" type="Sprite2D" parent="Interactabels/MalfunctionSpawner/CableMalfunction1" unique_id=2090369213]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("12_yr2pg")
 region_enabled = true
 region_rect = Rect2(34, 1307, 175, 166)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MalfunctionSpawner/CableMalfunction1" unique_id=5774446]
+[node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/MalfunctionSpawner/CableMalfunction1" unique_id=5774446]
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Press E"
+
+[node name="player" parent="." unique_id=1759760143 instance=ExtResource("3_321ql")]
+z_index = 1
+position = Vector2(1187, 530)
+
+[node name="DyslexiaDebugPanel" parent="." unique_id=341496359 instance=ExtResource("16_r5sjn")]
+
+[node name="Darkness" type="CanvasModulate" parent="." unique_id=270877021]
+visible = false
+color = Color(0.06053035, 0.06053035, 0.060530342, 0.827451)
+script = ExtResource("16_ktwve")

@@ -65,12 +65,13 @@ func mark_solved() -> void:
 	if _counted:
 		_counted = false
 		GameState.set_system_repaired(_category_name())
+	# Journey-Score/Health/Log nur für Spawner-Störungen, nicht für Tutorial.
+	if not ignor_spawner:
+		GameState._report_malfunction_solved(_category_name())
 
 ## Nur reagieren, wenn aktiv. Meldet sich als "in Bearbeitung" beim Spawner.
 func _action() -> void:
 	if not _active or _solved:
 		return
-	if _spawner and _spawner.has_method("set_in_progress"):
-		_spawner.set_in_progress(self)
 	if overlay_scene != "":
-		SceneSwitcher.open_overlay_with_data(overlay_scene, overlay_data, true, false)
+		SceneSwitcher.open_overlay_with_data(overlay_scene, {"malfunction": self}, true, false)

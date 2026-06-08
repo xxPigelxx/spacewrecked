@@ -4,6 +4,9 @@ extends Node
 @export var cable_spawn_y_offset := 80.0
 @export var category:  = "strom"
 
+## Wird von der Malfunction über open_overlay_with_data gesetzt (kann null sein bei Tutorial).
+var malfunction = null
+
 var sockets := []
 var win := false
 
@@ -27,8 +30,9 @@ func _check_all_sockets_aktive() -> void:
 
 func _on_win():
 	win = true
-	GameState.set_system_repaired(category)
 	GameState.ship_lights = true
+	if malfunction:
+		malfunction.mark_solved()
 	SceneSwitcher.close_overlay_scene()
 		
 func spawn_cable() -> void:
