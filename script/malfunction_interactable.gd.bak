@@ -1,0 +1,75 @@
+extends Interactable
+class_name MalfunctionInteractable
+
+## Eine Störung in der Journey-Phase. Kind eines MalfunctionSpawner.
+## Versteckt, bis der Spawner activate() aufruft; öffnet dann bei Interaktion
+## das zugehörige Puzzle (overlay_scene/overlay_data aus dem Inspector).
+## Gilt als gelöst, sobald GameState das passende puzzle_id meldet.
+##
+## WICHTIG: puzzle_id muss zum puzzle_id passen, das das Puzzle beim Lösen
+## an GameState.solve_puzzle() übergibt.
+
+@export var puzzle_id := "cable1"
+## Welches Schiffssystem diese Störung betrifft (strom/treibstoff/schild/navigation).
+## Leer lassen = wird aus der puzzle_id abgeleitet.
+@export var system := ""
+
+var _active := false
+var _solved := false
+var _spawner: Node = null
+
+func _setup() -> void:
+	deactivate()
+	_spawner = get_parent()
+	if system == "":
+		system = _system_from_puzzle_id(puzzle_id)
+
+## Ableitung System aus puzzle_id, falls kein system gesetzt ist.
+func _system_from_puzzle_id(id: String) -> String:
+	if id.begins_with("cable"):
+		return "strom"
+	if id.begins_with("treibstoff"):
+		return "treibstoff"
+	if id.begins_with("schild"):
+		return "schild"
+	if id.begins_with("navigation"):
+		return "navigation"
+	return ""
+
+## Störung sichtbar + interagierbar machen. System fällt aus.
+func activate() -> void:
+	_active = true
+	_solved = false
+	visible = true
+	set_deferred("monitoring", true)
+	set_deferred("monitorable", true)
+	GameState.set_system_broken(system)
+
+## Störung ausblenden + deaktivieren.
+func deactivate() -> void:
+	_active = false
+	visible = false
+	player_near = false
+	set_deferred("monitoring", false)
+	set_deferred("monitorable", false)
+	if label:
+		label.visible = false
+
+## Wird vom Spawner für die Lebens-/Kurven-Logik abgefragt.
+func is_active_unsolved() -> bool:
+	return _active and not _solved
+
+## Vom Spawner aufgerufen, wenn dieses Puzzle gelöst wurde. System wieder aktiv.
+func mark_solved() -> void:
+	_solved = true
+	deactivate()
+	GameState.set_system_repaired(system)
+
+## Nur reagieren, wenn aktiv. Meldet sich als "in Bearbeitung" beim Spawner.
+func _action() -> void:
+	if not _active or _solved:
+		return
+	if _spawner and _spawner.has_method("set_in_progress"):
+		_spawner.set_in_progress(self)
+	if overlay_scene != "":
+		SceneSwitcher.open_overlay_with_data(overlay_scene, overlay_data, true, false)

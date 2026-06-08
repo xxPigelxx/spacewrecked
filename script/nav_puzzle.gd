@@ -8,7 +8,7 @@ extends Node
 ## Wird einmal ausgelöst, wenn das Puzzle gelöst ist (Schleife geschlossen).
 ## Im Editor verbindbar — z.B. mit einem Button, Sound, Schiffsstart usw.
 
-@export var puzzle_id := "navigation"
+@export var category := "navigation"
 ## Soll-Reihenfolge der planet_id-Werte. An die Manual-Seite anpassen.
 @export var correct_order: Array[String] = ["Earth", "BlueMoon", "Saturn", "Station"]
 @export var draw_speed := 1200.0  ## Pixel pro Sekunde, mit der die Linie wächst
@@ -185,7 +185,7 @@ func _win() -> void:
 	if _solved:
 		return
 	_solved = true
-	GameState.solve_puzzle(puzzle_id)
+	GameState.set_system_repaired(category)
 	_on_win()
 
 ## Hier eigenen Code eintragen: Button aktivieren, Sound, Schiff starten ...

@@ -17,7 +17,7 @@ extends CanvasLayer
 ## Muss der Behälter komplett voll sein oder reicht die richtige Mischung?
 @export var require_full: bool = true
 
-@export var puzzle_id: String = "treibstoff"
+@export var category: String = "treibstoff"
 
 var current_fill: float = 0.0
 var bottles: Array = []
@@ -115,8 +115,8 @@ func _check_win() -> bool:
 
 func _on_win() -> void:
 	print("WIN! Rezept stimmt!")
-	if puzzle_id != "":
-		GameState.solve_puzzle(puzzle_id)
+	if category != "":
+		GameState.set_system_repaired(category)
 	SceneSwitcher.close_overlay_scene()
 
 ## Zeigt Rezept-Ziele und aktuelle Prozentwerte live an.

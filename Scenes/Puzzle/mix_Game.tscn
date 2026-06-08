@@ -186,6 +186,15 @@ theme = ExtResource("10_f2yc3")
 theme_override_font_sizes/font_size = 50
 text = "Return"
 
+[node name="resetBt2" type="Button" parent="." unique_id=1708794599]
+offset_left = 821.0
+offset_top = 914.0
+offset_right = 1073.0
+offset_bottom = 1003.4972
+theme = ExtResource("10_f2yc3")
+theme_override_font_sizes/font_size = 50
+text = "win"
+
 [node name="resetBt" type="Button" parent="." unique_id=1744834196]
 offset_left = 348.0
 offset_top = 907.0
@@ -220,4 +229,5 @@ script = ExtResource("14_nrd5h")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [connection signal="pressed" from="returnBt" to="." method="_on_return_bt_pressed"]
+[connection signal="pressed" from="resetBt2" to="." method="_on_win"]
 [connection signal="pressed" from="resetBt" to="." method="_on_reset_bt_pressed"]

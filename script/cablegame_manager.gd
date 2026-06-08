@@ -2,7 +2,7 @@ extends Node
 
 @export var max_cables := 5
 @export var cable_spawn_y_offset := 80.0
-@export var puzzle_id = "cable1"
+@export var category:  = "strom"
 
 var sockets := []
 var win := false
@@ -23,11 +23,14 @@ func _check_all_sockets_aktive() -> void:
 	for socket in sockets:
 		if socket.aktive == false:
 			return
+	_on_win()
+
+func _on_win():
 	win = true
-	GameState.solve_puzzle(puzzle_id)
+	GameState.set_system_repaired(category)
 	GameState.ship_lights = true
 	SceneSwitcher.close_overlay_scene()
-
+		
 func spawn_cable() -> void:
 	var new_cable = cable.instantiate()
 	$"../Cabels".add_child(new_cable)

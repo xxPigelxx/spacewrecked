@@ -31,8 +31,7 @@ func select() -> void:
 	selection.scale = Vector2.ZERO
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tween.tween_property(selection, "scale", Vector2.ONE * selection_scale, pop_time) \
-		.from(Vector2.ZERO)
+	tween.tween_property(selection, "scale", Vector2.ONE * selection_scale, pop_time).from(Vector2.ZERO)
 
 ## Auswahl entfernen: schrumpft wieder weg.
 func deselect() -> void:

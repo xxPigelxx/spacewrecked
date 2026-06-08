@@ -10,7 +10,7 @@ extends Node
 @export var shake_amount := 25.0
 @export var shake_speed := 0.05
 
-@export var puzzle_id:= "keypad1"
+@export var door_id:= "keypad1"
 @onready var manual: CanvasLayer = $Manual
 
 var _text_start_position: Vector2
@@ -68,5 +68,5 @@ func _on_return_bt_pressed() -> void:
 func _on_win() -> void:
 	lamp.set_active(true)
 	lamp_2.set_active(true)
-	GameState.solve_puzzle(puzzle_id)
+	GameState.unlock_door(door_id)
 	SceneSwitcher.close_overlay_scene(true,false)

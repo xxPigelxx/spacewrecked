@@ -7,6 +7,11 @@ func _ready() -> void:
 	fier_sfx_1.visible = false
 	fier_sfx_2.visible = false
 
+func _physics_process(delta: float) -> void:
+	if _is_journey():
+		start_flight()
+
+
 func _play_fier_animation():
 	fier_sfx_1.visible = true
 	fier_sfx_2.visible = true
@@ -19,3 +24,6 @@ func _play_space_animation():
 func start_flight():
 	_play_fier_animation()
 	_play_space_animation()
+
+func _is_journey() -> bool:
+	return ("phase" in GameState) and GameState.phase == GameState.Phase.JOURNEY

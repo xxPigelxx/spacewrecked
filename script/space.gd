@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 func _physics_process(_delta: float) -> void:
 	if only_move_on_solved:
-		if !GameState.is_puzzle_solved("treibstoff") or !GameState.is_puzzle_solved("cable1"):
+		if GameState.is_system_broken("treibstoff") or GameState.is_system_broken("strom"):
 			return
 	var direction = -joystick.posVector.normalized()
 	if direction:

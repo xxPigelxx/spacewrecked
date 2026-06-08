@@ -97,6 +97,24 @@ theme = ExtResource("3_t1tc3")
 theme_override_font_sizes/font_size = 50
 text = "Zuruck"
 
+[node name="SpawnCableBt2" type="Button" parent="Panel" unique_id=196559703]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -528.0
+offset_top = -120.0
+offset_right = -197.30493
+offset_bottom = -30.502808
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_t1tc3")
+theme_override_font_sizes/font_size = 50
+text = "Win
+"
+
 [node name="CablegameManager" type="Node" parent="." unique_id=834513126]
 script = ExtResource("1_tkd5u")
 
@@ -186,3 +204,4 @@ pair_id = "3"
 
 [connection signal="pressed" from="Panel/SpawnCableBt" to="CablegameManager" method="_on_button_pressed"]
 [connection signal="pressed" from="Panel/ReturnBt" to="CablegameManager" method="_on_return_bt_pressed"]
+[connection signal="pressed" from="Panel/SpawnCableBt2" to="CablegameManager" method="_on_win"]
