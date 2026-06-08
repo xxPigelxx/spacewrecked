@@ -74,6 +74,15 @@ func refresh() -> void:
 	else:
 		_render()
 
+## Neuen Quelltext setzen (per Skript). Aktualisiert die gespeicherte Kopie
+## und rendert neu — sonst würde der alte Text beim nächsten Render zurückkommen.
+func set_source_text(new_text: String) -> void:
+	_source_text = new_text
+	if not _ready_done:
+		text = new_text
+		return
+	refresh()
+
 func _render() -> void:
 	if _source_text.is_empty():
 		return

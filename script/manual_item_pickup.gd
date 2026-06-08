@@ -1,6 +1,6 @@
 extends Interactable
 
-@onready var manual: CanvasLayer = $"../../Manual"
+@onready var manual: CanvasLayer = %Manual
 @onready var point_light_2d: PointLight2D = $PointLight2D
 var lights_size
 var light_tween_ratio = Vector2(0.2,0.2)

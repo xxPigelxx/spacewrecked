@@ -48,6 +48,7 @@ position = Vector2(525.00006, 0)
 [node name="Top_Room" parent="Ship" unique_id=448175340 instance=ExtResource("6_ylpyt")]
 
 [node name="Manual" parent="." unique_id=1520689515 instance=ExtResource("7_ktwve")]
+unique_name_in_owner = true
 visible = false
 
 [node name="Interactabels" type="Node" parent="." unique_id=967127591]

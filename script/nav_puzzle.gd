@@ -22,10 +22,10 @@ extends Node
 @export_group("Fehler-Animation")
 @export var reject_color := Color(1.0, 0.2, 0.2, 1.0)  ## Linienfarbe bei falschem Planeten (rot)
 
-@onready var detector: Area2D = $"../Detector"
-@onready var line: Line2D = $"../Space/planets/NavLine"
-@onready var planets_root: Node2D = $"../Space/planets"
-@onready var start_button: Button = $"../StartShipBt"
+@onready var detector: Area2D = $Detector
+@onready var line: Line2D = $Space/planets/NavLine
+@onready var planets_root: Node2D = $Space/planets
+@onready var start_button: Button = $StartShipBt
 
 var malfunction = null
 

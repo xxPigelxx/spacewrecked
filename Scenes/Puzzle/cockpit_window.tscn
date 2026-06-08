@@ -296,10 +296,6 @@ disabled = true
 text = "Start
 "
 
-[node name="NavPuzzle" type="Node" parent="." unique_id=772674021]
-script = ExtResource("12_c6vri")
-draw_speed = 2400.0
-
 [connection signal="area_entered" from="Detector" to="Detector" method="_on_area_entered"]
 [connection signal="area_exited" from="Detector" to="Detector" method="_on_area_exited"]
 [connection signal="pressed" from="ReturnBt" to="." method="_on_return_pressed"]

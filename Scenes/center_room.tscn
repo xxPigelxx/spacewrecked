@@ -26,7 +26,7 @@ code = "468217"
 [node name="Door2" parent="." unique_id=972798927 instance=ExtResource("2_xkgpb")]
 position = Vector2(-300, 256)
 rotation = -1.0471976
-door_id = "left_engin_door"
+door_id = "right_engin_door"
 code = "562823"
 
 [node name="Door3" parent="." unique_id=1869837265 instance=ExtResource("2_xkgpb")]
