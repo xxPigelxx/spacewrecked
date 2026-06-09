@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://dma03msese7hg"]
+
+[ext_resource type="Texture2D" uid="uid://b3y88oqitsvxn" path="res://resources/assets/animation/smoke/cloude_animationsprites.png" id="1_dfojg"]
+
+[resource]
+atlas = ExtResource("1_dfojg")
+region = Rect2(303, 41, 41, 41)

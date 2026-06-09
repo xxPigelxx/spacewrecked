@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://cp1xf440pul8v"]
+
+[ext_resource type="Texture2D" uid="uid://b3y88oqitsvxn" path="res://resources/assets/animation/smoke/cloude_animationsprites.png" id="1_d3hgp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vg27h"]
+atlas = ExtResource("1_d3hgp")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dqqa"]
+atlas = ExtResource("1_d3hgp")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmlk8"]
+atlas = ExtResource("1_d3hgp")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1cq3"]
+atlas = ExtResource("1_d3hgp")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4wst"]
+atlas = ExtResource("1_d3hgp")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jdkd"]
+atlas = ExtResource("1_d3hgp")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eq1ma"]
+atlas = ExtResource("1_d3hgp")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo5xp"]
+atlas = ExtResource("1_d3hgp")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_smj8h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vg27h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dqqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmlk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1cq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4wst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jdkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eq1ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jo5xp")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="SmokeAni" type="AnimatedSprite2D" unique_id=726230904]
+self_modulate = Color(0.49354547, 0.49354553, 0.49354535, 0.7529412)
+sprite_frames = SubResource("SpriteFrames_smj8h")
+frame = 8
+frame_progress = 1.0

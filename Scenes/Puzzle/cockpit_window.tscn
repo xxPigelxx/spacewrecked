@@ -197,7 +197,7 @@ region_enabled = true
 region_rect = Rect2(728, 1149, 208, 200)
 
 [node name="Commet" type="Area2D" parent="Space/planets" unique_id=845838974 groups=["Planet"]]
-position = Vector2(2850, -358)
+position = Vector2(-55, 986)
 script = ExtResource("4_0q44l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Commet" unique_id=570133225]

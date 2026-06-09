@@ -9,10 +9,13 @@ enum Category { NICHT_GESETZT, STROM, TREIBSTOFF, SCHILD, NAVIGATION }
 @export var category: Category = Category.NICHT_GESETZT
 @export var start_active: = false
 @export var ignor_spawner: = false
+@export var start_up_animation: AnimatedSprite2D = null
+@export var partical: CPUParticles2D = null
 var _active := false
 var _solved := false
 var _counted := false        ## ob diese Stoerung aktuell im Kategorie-Zaehler steckt
 var _spawner: Node = null
+
 
 func _setup() -> void:
 	_active = false
@@ -49,7 +52,10 @@ func activate() -> void:
 		if cat == "":
 			push_warning("MalfunctionInteractable '%s': category ist NICHT_GESETZT — System wird nicht ins Buch gezählt." % name)
 		GameState.set_system_broken(cat)
-
+	if start_up_animation:
+		start_up_animation.play()
+	if partical:
+		partical.emitting = true
 ## Stoerung ausblenden + deaktivieren.
 ## Falls die Stoerung noch gezaehlt war (aber nicht geloest), Zaehler bereinigen,
 ## damit _counted konsistent bleibt (z.B. bei Reset/begin oder clear_all).
@@ -64,7 +70,8 @@ func deactivate() -> void:
 	if _counted and not _solved:
 		_counted = false
 		GameState.set_system_repaired(_category_name())
-
+	if partical:
+		partical.emitting = false
 ## Wird vom Spawner fuer die Lebens-/Kurven-Logik abgefragt.
 func is_active_unsolved() -> bool:
 	return _active and not _solved

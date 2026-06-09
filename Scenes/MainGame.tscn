@@ -13,10 +13,15 @@
 [ext_resource type="Script" uid="uid://kudxrduhqrqa" path="res://script/manual_item_pickup.gd" id="11_q8sds"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="12_yr2pg"]
 [ext_resource type="Texture2D" uid="uid://evb6q7n135rx" path="res://resources/assets/Items/lights/player_light.png" id="13_wyocf"]
+[ext_resource type="PackedScene" uid="uid://gokpjx4gjg6h" path="res://resources/assets/animation/smoke/smoke.tscn" id="15_k6vqf"]
+[ext_resource type="PackedScene" uid="uid://cp1xf440pul8v" path="res://resources/assets/animation/smoke/smoke_ani.tscn" id="15_yc6xl"]
 [ext_resource type="Script" uid="uid://7yhscdoqwdut" path="res://script/ship_lights.gd" id="16_ktwve"]
 [ext_resource type="PackedScene" uid="uid://vs526fyd62fp" path="res://Scenes/DyslexiaDebugPanel.tscn" id="16_r5sjn"]
 [ext_resource type="Script" uid="uid://con03tbiogedq" path="res://script/malfunction_spawner.gd" id="18_yc6xl"]
 [ext_resource type="Script" uid="uid://6nusq4blrso6" path="res://script/malfunction_interactable.gd" id="19_k6vqf"]
+[ext_resource type="Texture2D" uid="uid://lfjd27jlm270" path="res://resources/assets/underHealthbar.tres" id="20_jn25s"]
+[ext_resource type="Texture2D" uid="uid://6q5gw8ommti" path="res://resources/assets/progressHealthbar.tres" id="21_glaac"]
+[ext_resource type="Script" uid="uid://bja6tafov3g2l" path="res://script/ship_health_bar.gd" id="22_glaac"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yr2pg"]
 radius = 71.0
@@ -25,7 +30,7 @@ radius = 71.0
 radius = 73.0
 
 [sub_resource type="Curve" id="Curve_r5sjn"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.52763057), 0.0, 0.0, 0, 0, Vector2(1, 0.8130204), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k6vqf"]
@@ -38,6 +43,18 @@ position = Vector2(662.99994, 548)
 
 [node name="Main_Room" parent="Ship" unique_id=1671995787 instance=ExtResource("2_48eim")]
 position = Vector2(525.00006, 0)
+
+[node name="ProcreateSprites" type="Sprite2D" parent="Ship/Main_Room" unique_id=1143628475]
+position = Vector2(307, 2)
+texture = ExtResource("12_yr2pg")
+region_enabled = true
+region_rect = Rect2(1080, 1047, 115, 220)
+
+[node name="ProcreateSprites2" type="Sprite2D" parent="Ship/Main_Room" unique_id=418964436]
+position = Vector2(206, -4)
+texture = ExtResource("12_yr2pg")
+region_enabled = true
+region_rect = Rect2(837, 1084, 90, 122)
 
 [node name="center_Room" parent="Ship" unique_id=24713980 instance=ExtResource("3_73a8k")]
 
@@ -55,13 +72,19 @@ visible = false
 
 [node name="SetupMalfunctions" type="Node" parent="Interactabels" unique_id=1447381201]
 
-[node name="Interactable" parent="Interactabels/SetupMalfunctions" unique_id=844235675 instance=ExtResource("4_ybmw1")]
+[node name="Interactable" parent="Interactabels/SetupMalfunctions" unique_id=844235675 node_paths=PackedStringArray("start_up_animation", "partical") instance=ExtResource("4_ybmw1")]
 position = Vector2(1408, 550)
 script = ExtResource("19_k6vqf")
 category = 4
 start_active = true
 ignor_spawner = true
+start_up_animation = NodePath("SmokeAni")
+partical = NodePath("SmokeParticle")
 overlay_scene = "uid://dhaqf5a5qa6di"
+
+[node name="SmokeParticle" parent="Interactabels/SetupMalfunctions/Interactable" unique_id=46986883 instance=ExtResource("15_k6vqf")]
+
+[node name="SmokeAni" parent="Interactabels/SetupMalfunctions/Interactable" unique_id=726230904 instance=ExtResource("15_yc6xl")]
 
 [node name="ManualItemPickup" type="Area2D" parent="Interactabels/SetupMalfunctions" unique_id=612487883]
 position = Vector2(1113, 365)
@@ -94,12 +117,14 @@ color = Color(0.9998614, 0.23779336, 0.24820319, 0.9137255)
 texture = ExtResource("13_wyocf")
 offset = Vector2(6, 3)
 
-[node name="Wiers1" type="Area2D" parent="Interactabels/SetupMalfunctions" unique_id=1236526605]
+[node name="Wiers1" type="Area2D" parent="Interactabels/SetupMalfunctions" unique_id=1236526605 node_paths=PackedStringArray("start_up_animation", "partical")]
 position = Vector2(-113, 186)
 script = ExtResource("19_k6vqf")
 category = 1
 start_active = true
 ignor_spawner = true
+start_up_animation = NodePath("SmokeAni")
+partical = NodePath("SmokeParticle")
 overlay_scene = "uid://mx67lrqv2oom"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/SetupMalfunctions/Wiers1" unique_id=1479118903]
@@ -123,12 +148,18 @@ text = "Press E to Interact"
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="Mix" type="Area2D" parent="Interactabels/SetupMalfunctions" unique_id=440245220]
+[node name="SmokeParticle" parent="Interactabels/SetupMalfunctions/Wiers1" unique_id=1951573385 instance=ExtResource("15_k6vqf")]
+
+[node name="SmokeAni" parent="Interactabels/SetupMalfunctions/Wiers1" unique_id=1623758218 instance=ExtResource("15_yc6xl")]
+
+[node name="Mix" type="Area2D" parent="Interactabels/SetupMalfunctions" unique_id=440245220 node_paths=PackedStringArray("start_up_animation", "partical")]
 position = Vector2(-101, 1105)
 script = ExtResource("19_k6vqf")
 category = 2
 start_active = true
 ignor_spawner = true
+start_up_animation = NodePath("SmokeAni")
+partical = NodePath("SmokeParticle")
 overlay_scene = "uid://cipbu25o2n6ae"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/SetupMalfunctions/Mix" unique_id=76625290]
@@ -152,37 +183,121 @@ text = "Press E to Interact"
 scroll_active = false
 horizontal_alignment = 1
 
+[node name="SmokeParticle" parent="Interactabels/SetupMalfunctions/Mix" unique_id=1124103850 instance=ExtResource("15_k6vqf")]
+
+[node name="SmokeAni" parent="Interactabels/SetupMalfunctions/Mix" unique_id=1872304470 instance=ExtResource("15_yc6xl")]
+
 [node name="MalfunctionSpawner" type="Node2D" parent="Interactabels" unique_id=1994295542]
 script = ExtResource("18_yc6xl")
 active_curve = SubResource("Curve_r5sjn")
 
-[node name="CableMalfunction1" type="Area2D" parent="Interactabels/MalfunctionSpawner" unique_id=691038018]
+[node name="CableMalfunction1" type="Area2D" parent="Interactabels/MalfunctionSpawner" unique_id=691038018 node_paths=PackedStringArray("start_up_animation")]
 position = Vector2(505, 537)
 script = ExtResource("19_k6vqf")
 category = 1
+start_up_animation = NodePath("SmokeAni")
 prompt_text = "E: Kabel reparieren"
 overlay_scene = "res://Scenes/Puzzle/CableGame.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/MalfunctionSpawner/CableMalfunction1" unique_id=1113010476]
 shape = SubResource("CircleShape2D_k6vqf")
 
-[node name="Sprite2D" type="Sprite2D" parent="Interactabels/MalfunctionSpawner/CableMalfunction1" unique_id=2090369213]
+[node name="Sprite2D" type="Sprite2D" parent="Interactabels/MalfunctionSpawner/CableMalfunction1" unique_id=242542600]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("12_yr2pg")
 region_enabled = true
 region_rect = Rect2(34, 1307, 175, 166)
 
+[node name="SmokeParticle" parent="Interactabels/MalfunctionSpawner/CableMalfunction1" unique_id=952844784 instance=ExtResource("15_k6vqf")]
+
+[node name="SmokeAni" parent="Interactabels/MalfunctionSpawner/CableMalfunction1" unique_id=82181897 instance=ExtResource("15_yc6xl")]
+
 [node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/MalfunctionSpawner/CableMalfunction1" unique_id=5774446]
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Press E"
+
+[node name="CableMalfunction2" type="Area2D" parent="Interactabels/MalfunctionSpawner" unique_id=1806773932 node_paths=PackedStringArray("start_up_animation", "partical")]
+position = Vector2(48, 445)
+script = ExtResource("19_k6vqf")
+category = 1
+start_up_animation = NodePath("SmokeAni")
+partical = NodePath("SmokeParticle")
+prompt_text = "E: Kabel reparieren"
+overlay_scene = "uid://cvx8uf3sul6n8"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/MalfunctionSpawner/CableMalfunction2" unique_id=10193641]
+shape = SubResource("CircleShape2D_k6vqf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactabels/MalfunctionSpawner/CableMalfunction2" unique_id=7229350]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_yr2pg")
+region_enabled = true
+region_rect = Rect2(34, 1307, 175, 166)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/MalfunctionSpawner/CableMalfunction2" unique_id=2104527556]
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Press E"
+
+[node name="SmokeParticle" parent="Interactabels/MalfunctionSpawner/CableMalfunction2" unique_id=10355101 instance=ExtResource("15_k6vqf")]
+
+[node name="SmokeAni" parent="Interactabels/MalfunctionSpawner/CableMalfunction2" unique_id=1360406114 instance=ExtResource("15_yc6xl")]
+
+[node name="CableMalfunction3" type="Area2D" parent="Interactabels/MalfunctionSpawner" unique_id=1953715534 node_paths=PackedStringArray("start_up_animation", "partical")]
+position = Vector2(448, 937)
+script = ExtResource("19_k6vqf")
+category = 1
+start_up_animation = NodePath("SmokeAni")
+partical = NodePath("SmokeParticle")
+prompt_text = "E: Kabel reparieren"
+overlay_scene = "uid://dauvboslmqgvj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/MalfunctionSpawner/CableMalfunction3" unique_id=1811687902]
+shape = SubResource("CircleShape2D_k6vqf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactabels/MalfunctionSpawner/CableMalfunction3" unique_id=2009078761]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_yr2pg")
+region_enabled = true
+region_rect = Rect2(34, 1307, 175, 166)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/MalfunctionSpawner/CableMalfunction3" unique_id=486482852]
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Press E"
+
+[node name="SmokeParticle" parent="Interactabels/MalfunctionSpawner/CableMalfunction3" unique_id=1903357758 instance=ExtResource("15_k6vqf")]
+
+[node name="SmokeAni" parent="Interactabels/MalfunctionSpawner/CableMalfunction3" unique_id=395596105 instance=ExtResource("15_yc6xl")]
 
 [node name="player" parent="." unique_id=1759760143 instance=ExtResource("3_321ql")]
 z_index = 1
 position = Vector2(1187, 530)
 
 [node name="DyslexiaDebugPanel" parent="." unique_id=341496359 instance=ExtResource("16_r5sjn")]
+visible = false
 
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=270877021]
 visible = false
 color = Color(0.06053035, 0.06053035, 0.060530342, 0.827451)
 script = ExtResource("16_ktwve")
+
+[node name="hud" type="CanvasLayer" parent="." unique_id=749700066]
+
+[node name="ShipHealthBar" type="TextureProgressBar" parent="hud" unique_id=273330731]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -429.0
+offset_top = -130.255
+offset_right = 429.00012
+offset_bottom = 53.746216
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1, 0.5)
+value = 100.0
+texture_under = ExtResource("20_jn25s")
+texture_progress = ExtResource("21_glaac")
+tint_under = Color(0.2520276, 0.25202766, 0.25202763, 1)
+tint_progress = Color(0.7019608, 0.20392157, 0.26666668, 1)
+script = ExtResource("22_glaac")

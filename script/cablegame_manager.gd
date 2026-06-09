@@ -36,7 +36,7 @@ func _on_win():
 		
 func spawn_cable() -> void:
 	var new_cable = cable.instantiate()
-	$"../Cabels".add_child(new_cable)
+	$"Cabels".add_child(new_cable)
 	new_cable.global_position = cable_spawn_marker.global_position + Vector2(0, -spawned_cables.size() * cable_spawn_y_offset)
 	spawned_cables.append(new_cable)
 
