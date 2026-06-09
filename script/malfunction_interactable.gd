@@ -1,20 +1,23 @@
 extends Interactable
 class_name MalfunctionInteractable
 
-## Eine Stoerung in der Journey-Phase. Kind eines MalfunctionSpawner.
+## Eine Stoerung in der Journey- oder Tutorial-Phase.
 ## Versteckt, bis der Spawner activate() aufruft; oeffnet dann bei Interaktion
 ## das zugehoerige Puzzle (overlay_scene/overlay_data aus dem Inspector).
 ## Schiffssystem-Kategorie dieser Stoerung (festes Dropdown). Muss gesetzt werden.
 enum Category { NICHT_GESETZT, STROM, TREIBSTOFF, SCHILD, NAVIGATION }
 @export var category: Category = Category.NICHT_GESETZT
-@export var start_active: = false
-@export var ignor_spawner: = false
+## TUTORIAL: taucht sofort auf, verwaltet sich selbst (kein Score/Health-Report).
+## JOURNEY: taucht nach spawn_time Sekunden ab Journey-Start auf, wird gezaehlt.
+enum Phase { TUTORIAL, JOURNEY }
+@export var phase: Phase = Phase.JOURNEY
+@export var spawn_time: float = 0.0     ## Sekunden ab Journey-Start (nur JOURNEY)
 @export var start_up_animation: AnimatedSprite2D = null
 @export var partical: CPUParticles2D = null
 var _active := false
 var _solved := false
 var _counted := false        ## ob diese Stoerung aktuell im Kategorie-Zaehler steckt
-var _spawner: Node = null
+var _spawned := false        ## ob try_spawn sie in dieser Journey schon aktiviert hat
 
 
 func _setup() -> void:
@@ -22,10 +25,24 @@ func _setup() -> void:
 	visible = false
 	if label:
 		label.visible = false
-	if !ignor_spawner:
-		_spawner = get_parent()
-	if start_active:
+	if phase == Phase.TUTORIAL:
+		activate()              # Tutorial: sofort sichtbar, self-managed
+	else:
+		GameState.register_malfunction(self)  # Journey: wartet auf spawn_time
+
+## Vom GameState pro Frame aufgerufen. Aktiviert sich, sobald elapsed >= spawn_time.
+func try_spawn(elapsed: float) -> void:
+	if _spawned or _active or _solved:
+		return
+	if elapsed >= spawn_time:
+		_spawned = true
 		activate()
+
+## Vor Journey-Start zuruecksetzen, damit erneute Laeufe sauber starten.
+func reset_for_journey() -> void:
+	_spawned = false
+	_solved = false
+	deactivate()
 	
 
 ## Kategorie als String fuer GameState (muss zu HomePanel passen).
@@ -83,8 +100,8 @@ func mark_solved() -> void:
 	if _counted:
 		_counted = false
 		GameState.set_system_repaired(_category_name())
-	# Journey-Score/Health/Log nur für Spawner-Störungen, nicht für Tutorial.
-	if not ignor_spawner:
+	# Journey-Score/Health/Log nur für Journey-Störungen, nicht für Tutorial.
+	if phase == Phase.JOURNEY:
 		GameState._report_malfunction_solved(_category_name())
 
 ## Nur reagieren, wenn aktiv. Meldet sich als "in Bearbeitung" beim Spawner.

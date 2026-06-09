@@ -20,16 +20,26 @@ size = Vector2(4200, 3300)
 radius = 152.11838
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hdqt"]
-size = Vector2(82, 2760)
+size = Vector2(4258.25, 7528)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6v54c"]
-size = Vector2(3630, 20)
+size = Vector2(18617, 60)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6v54c"]
 radius = 86.0
 
 [node name="CockpitWindow" type="CanvasLayer" unique_id=1066614739]
 script = ExtResource("12_c6vri")
+
+[node name="SpaceBGwithStars" type="Sprite2D" parent="." unique_id=1103247378]
+position = Vector2(-3943.6362, 813.4997)
+scale = Vector2(2.3330305, 2.3330302)
+texture = ExtResource("3_es3id")
+
+[node name="SpaceBGwithStars2" type="Sprite2D" parent="." unique_id=1212131692]
+position = Vector2(5636, 808.00006)
+scale = Vector2(2.3330305, 2.3330302)
+texture = ExtResource("3_es3id")
 
 [node name="Space" type="CharacterBody2D" parent="." unique_id=1328670499]
 position = Vector2(960, 540)
@@ -235,19 +245,19 @@ region_rect = Rect2(2438, 928, 381, 385)
 position = Vector2(960, 540)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1669508669]
-position = Vector2(3249, 46)
+position = Vector2(8280, 265)
 shape = SubResource("RectangleShape2D_4hdqt")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1764626955]
-position = Vector2(-3270, 53)
+position = Vector2(-7517.125, 307)
 shape = SubResource("RectangleShape2D_4hdqt")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=1839653865]
-position = Vector2(0, -2800)
+position = Vector2(-262, -3416)
 shape = SubResource("RectangleShape2D_6v54c")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls" unique_id=365649629]
-position = Vector2(4, 2742)
+position = Vector2(-336.5, 4089)
 shape = SubResource("RectangleShape2D_6v54c")
 
 [node name="Window" type="TextureRect" parent="." unique_id=1950571081]

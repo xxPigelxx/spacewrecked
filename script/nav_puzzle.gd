@@ -26,6 +26,7 @@ extends Node
 @onready var line: Line2D = $Space/planets/NavLine
 @onready var planets_root: Node2D = $Space/planets
 @onready var start_button: Button = $StartShipBt
+@onready var return_bt: Button = $ReturnBt
 
 var malfunction = null
 
@@ -189,12 +190,9 @@ func _win() -> void:
 	_solved = true
 	if malfunction:
 		malfunction.mark_solved()
-	_on_win()
-
-## Hier eigenen Code eintragen: Button aktivieren, Sound, Schiff starten ...
-func _on_win() -> void:
-	print("Navigation gelöst! Schiff bereit.")
 	_play_win_animation()
+	return_bt.disabled = true
+	
 
 ## Linie pulsiert x Sekunden, wird dann grün, Start-Button erscheint.
 func _play_win_animation() -> void:

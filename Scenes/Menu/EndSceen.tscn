@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://c6ybacdfrxvu0"]
+
+[ext_resource type="PackedScene" uid="uid://bcot68oel2ml3" path="res://Scenes/menu_background.tscn" id="2_m1sp3"]
+[ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="4_02pe6"]
+[ext_resource type="PackedScene" uid="uid://c54ta61o55dvj" path="res://Scenes/star.tscn" id="5_iapu6"]
+[ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="6_sc664"]
+[ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="7_jvhs5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8um5k"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1189384809]
+
+[node name="MenuBackground" parent="." unique_id=146504196 instance=ExtResource("2_m1sp3")]
+position = Vector2(-686, -108)
+path_speed = 50
+
+[node name="Label" type="Label" parent="." unique_id=206836702]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -507.0
+offset_top = -962.0
+offset_right = 600.0
+offset_bottom = -712.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_02pe6")
+theme_override_font_sizes/font_size = 250
+text = "Thanks!"
+horizontal_alignment = 1
+
+[node name="Star" parent="Label" unique_id=768714016 instance=ExtResource("5_iapu6")]
+self_modulate = Color(1, 1, 1, 1)
+position = Vector2(47, 272)
+rotation = 0.21467549
+scale = Vector2(1, 1)
+
+[node name="Star2" parent="Label" unique_id=507249357 instance=ExtResource("5_iapu6")]
+position = Vector2(360, -95)
+rotation = -2.6032145
+scale = Vector2(0.401, 0.401)
+
+[node name="Star3" parent="Label" unique_id=1228035472 instance=ExtResource("5_iapu6")]
+position = Vector2(1077, -9.000015)
+rotation = -2.6032145
+scale = Vector2(1, 1)
+
+[node name="main" type="VBoxContainer" parent="." unique_id=2083465148]
+offset_left = 675.0
+offset_top = 390.0
+offset_right = 1335.0
+offset_bottom = 1021.0
+size_flags_horizontal = 4
+theme = ExtResource("6_sc664")
+alignment = 1
+
+[node name="Results" type="RichTextLabel" parent="main" unique_id=1453697618]
+layout_mode = 2
+bbcode_enabled = true
+text = "[u]Results"
+fit_content = true
+
+[node name="Tasks" type="Label" parent="main" unique_id=1074262482]
+layout_mode = 2
+text = "Tasks:"
+
+[node name="Time" type="Label" parent="main" unique_id=2061761585]
+layout_mode = 2
+text = "Time: "
+
+[node name="Compleated" type="Label" parent="main" unique_id=1571289832]
+layout_mode = 2
+text = "Compleated: "
+
+[node name="VSeparator" type="HSeparator" parent="main" unique_id=1546499059]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="main" unique_id=1175908641]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="CreditsBt" type="Button" parent="main/HBoxContainer" unique_id=2064194056]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 75
+text = "Credits"
+script = ExtResource("7_jvhs5")
+
+[node name="QuitBt" type="Button" parent="main/HBoxContainer" unique_id=1968774762]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 75
+text = "   Quit   "
+script = ExtResource("7_jvhs5")
+
+[node name="MainMenuBt" type="Button" parent="main" unique_id=1620654601]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("6_sc664")
+theme_override_font_sizes/font_size = 75
+text = "Main  Menu"
+script = ExtResource("7_jvhs5")
+
+[node name="credits" type="VBoxContainer" parent="." unique_id=1975557991]
+visible = false
+offset_left = 672.0
+offset_top = 416.0
+offset_right = 1314.0
+offset_bottom = 968.0
+theme = ExtResource("6_sc664")
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="credits" unique_id=1825849461]
+layout_mode = 2
+size_flags_vertical = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="credits/HBoxContainer" unique_id=1338627768]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_02pe6")
+theme_override_font_sizes/font_size = 40
+text = "Creator:"
+
+[node name="Seperator" type="VSeparator" parent="credits/HBoxContainer" unique_id=1107209945]
+layout_mode = 2
+theme_override_constants/separation = 98
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8um5k")
+
+[node name="Label" type="Label" parent="credits/HBoxContainer" unique_id=1638922837]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_02pe6")
+theme_override_font_sizes/font_size = 40
+text = "Nikolai  Boshe"
+
+[node name="BackBt" type="Button" parent="credits" unique_id=1858407186]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 75
+text = "Back"
+script = ExtResource("7_jvhs5")
+
+[connection signal="pressed" from="main/HBoxContainer/CreditsBt" to="." method="_on_credit_bt_pressed"]
+[connection signal="pressed" from="main/HBoxContainer/QuitBt" to="." method="_on_return_bt_pressed"]
+[connection signal="pressed" from="main/MainMenuBt" to="." method="_on_main_menu_bt_pressed"]
+[connection signal="pressed" from="credits/BackBt" to="." method="_on_credit_bt_pressed"]

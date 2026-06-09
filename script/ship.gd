@@ -6,6 +6,7 @@ extends Node2D
 func _ready() -> void:
 	fier_sfx_1.visible = false
 	fier_sfx_2.visible = false
+	space_bg.visible = false
 
 func _physics_process(delta: float) -> void:
 	if _is_journey():
@@ -19,6 +20,7 @@ func _play_fier_animation():
 	fier_sfx_2.play("Fier_ainmation")
 
 func _play_space_animation():
+	space_bg.visible = true
 	space_bg.play_space_bg()
 
 func start_flight():

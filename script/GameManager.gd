@@ -62,7 +62,7 @@ func remove_door(door_id: String) -> void:
 @export var health_drain_per_sec := 1.0        ## passiver Verlust pro Sekunde
 @export var drain_per_active_malfunction := 0.0 ## extra Verlust pro offener Störung (0 = aus)
 
-# Hinweis: Die Spawn-Kurve liegt am MalfunctionSpawner-Node (im Editor einstellbar).
+# Hinweis: Jede Stoerung hat ihren eigenen spawn_time (Sekunden ab Journey-Start).
 
 # ---- Versuchsvariablen (Settings) ----
 var dyslexia_enabled := true                   ## Dyslexie-Effekt an/aus
@@ -74,7 +74,7 @@ var health: float = 0.0
 var time_left: float = 0.0
 var malfunctions_solved: int = 0
 var died_early := false
-var spawner: Node = null                       ## wird vom MalfunctionSpawner registriert
+var _malfunctions: Array[Node] = []            ## alle Journey-Stoerungen, registrieren sich selbst
 var _run_log: Array[Dictionary] = []
 
 # ---- Feste Kategorie-Zähler (Journey): hochzählen bei activate, runter bei win ----
@@ -83,8 +83,18 @@ var broken_treibstoff: int = 0
 var broken_schild: int = 0
 var broken_navigation: int = 0
 
-func register_spawner(s: Node) -> void:
-	spawner = s
+## Journey-Stoerungen registrieren sich hier (statt beim alten Spawner).
+func register_malfunction(m: Node) -> void:
+	if m not in _malfunctions:
+		_malfunctions.append(m)
+
+## Anzahl aktuell offener Journey-Stoerungen (fuer Drain).
+func active_unsolved_count() -> int:
+	var n := 0
+	for m in _malfunctions:
+		if m.has_method("is_active_unsolved") and m.is_active_unsolved():
+			n += 1
+	return n
 
 ## Von einer Malfunction aufgerufen, wenn sie aktiv wird (System fällt aus). Zähler +1.
 func set_system_broken(system: String) -> void:
@@ -128,8 +138,10 @@ func start_journey() -> void:
 	# Counter werden NICHT zurückgesetzt — nur activate/mark_solved ändern sie.
 	# Nach dem Setup sind ohnehin alle Systeme OK (alle Counter 0).
 	_apply_stress_from_health()
-	if spawner and spawner.has_method("begin"):
-		spawner.begin()
+	# Alle Journey-Stoerungen zuruecksetzen (Tutorial-Stoerungen verwalten sich selbst).
+	for m in _malfunctions:
+		if m.has_method("reset_for_journey"):
+			m.reset_for_journey()
 	phase_changed.emit(phase)
 	health_changed.emit(health)
 	time_changed.emit(time_left)
@@ -143,16 +155,15 @@ func _process(delta: float) -> void:
 	time_changed.emit(time_left)
 
 	# Leben: passiver Verlust + extra pro offener Störung
-	var active_count := 0
-	if spawner and spawner.has_method("active_unsolved_count"):
-		active_count = spawner.active_unsolved_count()
+	var active_count := active_unsolved_count()
 	var drain := health_drain_per_sec + drain_per_active_malfunction * active_count
 	_set_health(health - drain * delta)
 
-	# Spawner nach Fortschritt steuern (Kurve liegt am Spawner)
-	if spawner and spawner.has_method("update_for_progress"):
-		var progress := 1.0 - (time_left / run_duration)
-		spawner.update_for_progress(clampf(progress, 0.0, 1.0))
+	# Stoerungen nach eigenem spawn_time aktivieren (kein Spawner mehr).
+	var elapsed := run_duration - time_left
+	for m in _malfunctions:
+		if m.has_method("try_spawn"):
+			m.try_spawn(elapsed)
 
 	if health <= 0.0:
 		died_early = true
@@ -186,8 +197,9 @@ func _apply_stress_from_health() -> void:
 func _finish_run() -> void:
 	set_process(false)
 	phase = Phase.RESULTS
-	if spawner and spawner.has_method("clear_all"):
-		spawner.clear_all()
+	for m in _malfunctions:
+		if m.has_method("deactivate"):
+			m.deactivate()
 	phase_changed.emit(phase)
 	var results := {
 		"malfunctions_solved": malfunctions_solved,
@@ -199,6 +211,8 @@ func _finish_run() -> void:
 	}
 	run_finished.emit(results)
 	deliver_results(results)
+	# Zum Endscreen wechseln (liest Werte selbst aus GameState).
+	SceneSwitcher.switch_scene("res://Scenes/Menu/EndSceen.tscn")
 
 ## Flexible Daten-Lieferung — später: CSV-Download, Code, oder POST an Sheet.
 func deliver_results(results: Dictionary) -> void:

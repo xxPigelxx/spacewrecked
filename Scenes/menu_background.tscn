@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ctdpwbl1drvax" path="res://script/menu_background.gd" id="1_1pn2r"]
 [ext_resource type="Texture2D" uid="uid://c3m4shgscfx57" path="res://resources/assets/SpaceBG.png" id="1_6e1g0"]
+[ext_resource type="Texture2D" uid="uid://ce0ll6nwkp2ti" path="res://resources/assets/SpaceBGwithStars.png" id="2_ls5x7"]
 
 [sub_resource type="Curve2D" id="Curve2D_8um5k"]
 bake_interval = 0.01
@@ -12,6 +13,23 @@ point_count = 5
 
 [node name="MenuBackground" type="Node2D" unique_id=146504196]
 script = ExtResource("1_1pn2r")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=316157502]
+offset_left = -7585.0
+offset_top = -3093.0
+offset_right = 9803.0
+offset_bottom = 4693.0
+color = Color(0, 0, 0, 1)
+
+[node name="SpaceBGwithStars" type="Sprite2D" parent="." unique_id=560748178]
+position = Vector2(-2610.8179, 813.49994)
+scale = Vector2(2.3330305, 2.3330302)
+texture = ExtResource("2_ls5x7")
+
+[node name="SpaceBGwithStars2" type="Sprite2D" parent="." unique_id=1198978619]
+position = Vector2(6820.9995, 842.00006)
+scale = Vector2(2.3330305, 2.3330302)
+texture = ExtResource("2_ls5x7")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1286195541]
 position = Vector2(682, 474)

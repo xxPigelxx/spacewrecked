@@ -50,3 +50,7 @@ Button/styles/disabled = SubResource("StyleBoxTexture_wb0a0")
 Button/styles/hover = SubResource("StyleBoxTexture_ip646")
 Button/styles/normal = SubResource("StyleBoxTexture_loo7a")
 Button/styles/pressed = SubResource("StyleBoxTexture_rrcx7")
+Label/font_sizes/font_size = 45
+Label/fonts/font = ExtResource("1_wb0a0")
+RichTextLabel/font_sizes/normal_font_size = 76
+RichTextLabel/fonts/normal_font = ExtResource("1_wb0a0")

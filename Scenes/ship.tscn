@@ -1,14 +1,29 @@
 [gd_scene format=3 uid="uid://dsjfdq71r0huh"]
 
 [ext_resource type="PackedScene" uid="uid://j4peei1eub8m" path="res://Scenes/fier_sfx.tscn" id="2_4cq66"]
+[ext_resource type="Texture2D" uid="uid://ce0ll6nwkp2ti" path="res://resources/assets/SpaceBGwithStars.png" id="2_8aq7e"]
 [ext_resource type="PackedScene" uid="uid://c67744no343jm" path="res://Scenes/space_bg.tscn" id="2_v2j2m"]
 [ext_resource type="Script" uid="uid://bjd1klvxq36xp" path="res://script/ship.gd" id="2_v4325"]
 [ext_resource type="Texture2D" uid="uid://dsey7pnpcari0" path="res://resources/assets/ship_gray.png" id="3_v2j2m"]
 
 [node name="Ship" type="Node2D" unique_id=1210471280]
+z_index = -1
 script = ExtResource("2_v4325")
 
+[node name="SpaceBGwithStars" type="Sprite2D" parent="." unique_id=715624399]
+z_index = -1
+position = Vector2(-2610.8179, 813.49994)
+scale = Vector2(2.3330305, 2.3330302)
+texture = ExtResource("2_8aq7e")
+
+[node name="SpaceBGwithStars2" type="Sprite2D" parent="." unique_id=212645440]
+z_index = -1
+position = Vector2(6820.9995, 842.00006)
+scale = Vector2(2.3330305, 2.3330302)
+texture = ExtResource("2_8aq7e")
+
 [node name="SpaceBg" parent="." unique_id=1555961878 instance=ExtResource("2_v2j2m")]
+visible = false
 
 [node name="FierSFX3" parent="." unique_id=1174731421 instance=ExtResource("2_4cq66")]
 z_index = -1
@@ -24,7 +39,8 @@ position = Vector2(-1169, 506.99997)
 rotation = -1.5707964
 scale = Vector2(3, 3)
 animation = &"Fier_ainmation"
-frame_progress = 0.52742535
+frame = 4
+frame_progress = 0.0
 
 [node name="Ship" type="Sprite2D" parent="." unique_id=45246556]
 z_index = -1
