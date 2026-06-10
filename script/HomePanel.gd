@@ -62,7 +62,7 @@ func _refresh_journey() -> void:
 	_set_label_text(_time_lbl, "Zeit: %d:%02d" % [mins, secs])
 	# Gesamt-Gesundheit
 	var pct := int((GameState.health / GameState.max_health) * 100.0)
-	_set_label_text(_health_lbl, "Schiffshülle: %d" % pct)
+	_set_label_text(_health_lbl, "Schiffshülle: %dw" % pct)
 	# Gelöste Störungen
 	_set_label_text(_solved_lbl, "Repariert: %d" % GameState.malfunctions_solved)
 

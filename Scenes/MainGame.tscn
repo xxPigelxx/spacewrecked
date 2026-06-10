@@ -31,6 +31,9 @@ radius = 73.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_k6vqf"]
 radius = 48.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jn25s"]
+radius = 48.0
+
 [node name="MainGame" type="Node2D" unique_id=819575177]
 
 [node name="Ship" parent="." unique_id=1210471280 instance=ExtResource("2_ybmw1")]
@@ -72,12 +75,9 @@ position = Vector2(1408, 550)
 script = ExtResource("19_k6vqf")
 category = 4
 phase = 0
-spawn_time = 0.0
 start_up_animation = NodePath("SmokeAni")
 partical = NodePath("SmokeParticle")
-prompt_text = "Press E to interact"
 overlay_scene = "uid://dhaqf5a5qa6di"
-overlay_data = {}
 
 [node name="SmokeParticle" parent="Interactabels/SetupMalfunctions/Interactable" unique_id=46986883 instance=ExtResource("15_k6vqf")]
 
@@ -261,6 +261,27 @@ text = "Press E"
 [node name="SmokeParticle" parent="Interactabels/MalfunctionSpawner/CableMalfunction3" unique_id=1903357758 instance=ExtResource("15_k6vqf")]
 
 [node name="SmokeAni" parent="Interactabels/MalfunctionSpawner/CableMalfunction3" unique_id=395596105 instance=ExtResource("15_yc6xl")]
+
+[node name="ShieldMalfunction" type="Area2D" parent="Interactabels/MalfunctionSpawner" unique_id=1143459471]
+position = Vector2(700, 537)
+script = ExtResource("19_k6vqf")
+category = 3.0
+spawn_time = 6.0
+prompt_text = "E: Schild kalibrieren"
+overlay_scene = "res://Scenes/Puzzle/ShieldGame.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/MalfunctionSpawner/ShieldMalfunction" unique_id=1852398653]
+shape = SubResource("CircleShape2D_jn25s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactabels/MalfunctionSpawner/ShieldMalfunction" unique_id=1685147886]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_yr2pg")
+region_enabled = true
+region_rect = Rect2(34, 1307, 175, 166)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/MalfunctionSpawner/ShieldMalfunction" unique_id=861432966]
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Press E"
 
 [node name="player" parent="." unique_id=1759760143 instance=ExtResource("3_321ql")]
 z_index = 1

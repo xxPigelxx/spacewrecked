@@ -107,6 +107,7 @@ current_tab = 0
 clip_tabs = false
 
 [node name="Home" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=504548785]
+visible = false
 layout_mode = 2
 script = ExtResource("2_q6b25")
 metadata/_tab_index = 0
@@ -584,8 +585,9 @@ script = ExtResource("2_puywe")
 visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
+swap_percent = 25.0
 river_spacing = 12.0
-mirror_percent = 45.0
+mirror_percent = 25.0
 metadata/_tab_index = 4
 
 [node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Schild" unique_id=2042387216]
@@ -595,14 +597,14 @@ anchor_bottom = 1.0
 
 [node name="PageTitle" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox" unique_id=1351416326]
 layout_mode = 2
-text = "Schild-System — Notaktivierung"
+text = "Schild — Frequenz-Kalibrierung"
 
 [node name="Sep" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox" unique_id=1320294761]
 layout_mode = 2
 
 [node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox" unique_id=777706702]
 layout_mode = 2
-text = "Das Schild-System schuetzt vor weiteren Asteroidentreffern. Es kann erst aktiviert werden wenn Strom und Treibstoff repariert sind. Der Kalibrierungscomputer prueft alle vier Sensoren automatisch."
+text = "Das Schild-System muss nach einem Treffer neu kalibriert werden. Am Schild-Pult stellst du drei Frequenzkanaele per Drehregler auf ihre Sollwerte ein. Stimmen alle drei, ist das Schild wieder stabil."
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -612,49 +614,49 @@ layout_mode = 2
 
 [node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/WarningBox" unique_id=486265831]
 layout_mode = 2
-text = "Schild erst aktivieren wenn Strom UND Treibstoff gruen sind."
+text = "Schon eine falsch eingestellte Frequenz haelt das Schild offline."
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
 
 [node name="StepsTitle" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox" unique_id=1351086971]
 layout_mode = 2
-text = "Schritte:"
+text = "Sollwerte (Frequenz):"
 
 [node name="StepList" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox" unique_id=854526177]
 layout_mode = 2
 
 [node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/StepList" unique_id=427143907]
 layout_mode = 2
-text = "1.  Strom aktiv? Treibstoff gefuellt? Weiter."
+text = "1.  Schild-Pult oeffnen (Taste E)."
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
 
 [node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/StepList" unique_id=1556671819]
 layout_mode = 2
-text = "2.  Cockpit - rechtes Panel - Schild-Konsole."
+text = "2.  Jeden Kanal per Regler einstellen:"
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
 
 [node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/StepList" unique_id=41088390]
 layout_mode = 2
-text = "3.  Kalibrierungscomputer starten - Taste K."
+text = "Kanal A:  43"
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
 
 [node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/StepList" unique_id=1468283089]
 layout_mode = 2
-text = "4.  Alle 4 Sensoren gruen abwarten."
+text = "Kanal B:  68"
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
 
 [node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/StepList" unique_id=1094497487]
 layout_mode = 2
-text = "5.  Blauer Schalter - Schild aktiv!"
+text = "Kanal C:  25"
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")

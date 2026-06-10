@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c2pjmhdar3m1e"]
+
+[ext_resource type="Script" uid="uid://c6ejbhom87vka" path="res://script/shield_game.gd" id="1_cpqet"]
+
+[node name="ShieldGame" type="CanvasLayer" unique_id=325781525]
+script = ExtResource("1_cpqet")
