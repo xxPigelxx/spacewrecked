@@ -16,16 +16,11 @@ extends Control
 func _ready() -> void:
 	_show_journey_display(false)
 	GameState.ship_lights_changed.connect(func(_v): refresh())
-	if GameState.has_signal("health_changed"):
-		GameState.health_changed.connect(func(_v): refresh())
-	if GameState.has_signal("malfunctions_solved_changed"):
-		GameState.malfunctions_solved_changed.connect(func(_c): refresh())
-	if GameState.has_signal("broken_systems_changed"):
-		GameState.broken_systems_changed.connect(func(): refresh())
-	if GameState.has_signal("time_changed"):
-		GameState.time_changed.connect(func(_t): refresh())
-	if GameState.has_signal("phase_changed"):
-		GameState.phase_changed.connect(func(_p): refresh())
+	GameState.health_changed.connect(func(_v): refresh())
+	GameState.malfunctions_solved_changed.connect(func(_c): refresh())
+	GameState.broken_systems_changed.connect(func(): refresh())
+	GameState.time_changed.connect(func(_t): refresh())
+	GameState.phase_changed.connect(func(_p): refresh())
 	refresh()
 
 func refresh() -> void:
