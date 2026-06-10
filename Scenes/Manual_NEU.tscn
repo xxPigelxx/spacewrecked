@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://bwghcm1b6r66y" path="res://script/HomePanel.gd" id="2_q6b25"]
 [ext_resource type="Script" uid="uid://do6128cyartyo" path="res://script/PageEffects.gd" id="3_q6b25"]
 [ext_resource type="Theme" uid="uid://dvs0r83gvhd2k" path="res://resources/themes/small_Bt.tres" id="6_7jiqe"]
+[ext_resource type="Texture2D" uid="uid://bjd5y58apnmu" path="res://resources/assets/Selection_ring.tres" id="6_me2tk"]
+[ext_resource type="Script" uid="uid://h52vsw4aeb4u" path="res://Scenes/mal_notification.gd" id="7_164it"]
 [ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="7_n500u"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7jiqe"]
@@ -90,6 +92,17 @@ toggle_mode = true
 text = "Handbuch"
 alignment = 0
 script = ExtResource("7_n500u")
+
+[node name="MalNotification" type="TextureRect" parent="ManualRoot/SideButton" unique_id=445140231]
+modulate = Color(1, 0.089999974, 0.089999974, 1)
+layout_mode = 0
+offset_left = -3.0000076
+offset_top = -5.0000076
+offset_right = 206.0
+offset_bottom = 194.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_me2tk")
+script = ExtResource("7_164it")
 
 [node name="PanelContainer" type="PanelContainer" parent="ManualRoot" unique_id=183646762]
 layout_mode = 1

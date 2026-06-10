@@ -46,6 +46,9 @@ func is_door_locked(door_id: String) -> bool:
 
 func remove_door(door_id: String) -> void:
 	doors.erase(door_id)
+	
+func is_manual_aquiered() -> bool:
+	return manule_aquiered
 
 # =====================================================================
 # JOURNEY-PHASE
@@ -123,6 +126,11 @@ func is_system_broken(system: String) -> bool:
 		"treibstoff": return broken_treibstoff > 0
 		"schild": return broken_schild > 0
 		"navigation": return broken_navigation > 0
+	return false
+
+func is_any_system_broken() -> bool:
+	if broken_strom > 0 or broken_treibstoff > 0 or broken_schild > 0 or broken_navigation > 0 :
+		return true
 	return false
 
 func _ready() -> void:
