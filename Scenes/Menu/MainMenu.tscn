@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c54ta61o55dvj" path="res://Scenes/star.tscn" id="4_8um5k"]
 [ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="4_ghw46"]
 [ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="7_xim88"]
+[ext_resource type="PackedScene" uid="uid://bbv8il7ntgvnv" path="res://Scenes/Menu/OptionsPanel.tscn" id="8_ykvod"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8um5k"]
 
@@ -47,9 +48,9 @@ scale = Vector2(1, 1)
 
 [node name="main" type="VBoxContainer" parent="." unique_id=2083465148]
 layout_mode = 0
-offset_left = -267.0
+offset_left = -320.0
 offset_top = -69.0
-offset_right = 373.0
+offset_right = 320.0
 offset_bottom = 491.0
 theme = ExtResource("3_df05h")
 alignment = 1
@@ -90,9 +91,9 @@ script = ExtResource("4_ghw46")
 [node name="credits" type="VBoxContainer" parent="." unique_id=1975557991]
 visible = false
 layout_mode = 0
-offset_left = -267.0
+offset_left = -321.0
 offset_top = -36.0
-offset_right = 375.0
+offset_right = 321.0
 offset_bottom = 516.0
 theme = ExtResource("3_df05h")
 alignment = 1
@@ -126,7 +127,30 @@ theme_override_font_sizes/font_size = 75
 text = "Back"
 script = ExtResource("4_ghw46")
 
+[node name="Options" type="VBoxContainer" parent="." unique_id=475429602]
+visible = false
+layout_mode = 0
+offset_left = -360.0
+offset_top = -36.0
+offset_right = 360.0
+offset_bottom = 516.0
+theme = ExtResource("3_df05h")
+alignment = 1
+
+[node name="OptionsPanel" parent="Options" unique_id=369735057 instance=ExtResource("8_ykvod")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BackBt" type="Button" parent="Options" unique_id=879385059]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 75
+text = "Back"
+script = ExtResource("4_ghw46")
+
 [connection signal="pressed" from="main/StartBt" to="." method="_on_start_bt_pressed"]
+[connection signal="pressed" from="main/HBoxContainer/OptionsBt" to="." method="_on_options_bt_pressed"]
 [connection signal="pressed" from="main/HBoxContainer/CreditsBt" to="." method="_on_credit_bt_pressed"]
 [connection signal="pressed" from="main/ExitBt" to="." method="_on_exit_bt_pressed"]
 [connection signal="pressed" from="credits/BackBt" to="." method="_on_credit_bt_pressed"]
+[connection signal="pressed" from="Options/BackBt" to="." method="_on_options_bt_pressed"]

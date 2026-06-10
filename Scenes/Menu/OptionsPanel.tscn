@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://bbv8il7ntgvnv"]
+
+[ext_resource type="Script" uid="uid://bbdxcp21cl5yt" path="res://script/options_panel.gd" id="1_0o44g"]
+
+[node name="OptionsPanel" type="VBoxContainer" unique_id=369735057]
+custom_minimum_size = Vector2(560, 0)
+theme_override_constants/separation = 12
+script = ExtResource("1_0o44g")
+
+[node name="Master" type="HBoxContainer" parent="." unique_id=1118329718]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Master" unique_id=736292578]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Master"
+vertical_alignment = 1
+
+[node name="Slider" type="HSlider" parent="Master" unique_id=419643961]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Music" type="HBoxContainer" parent="." unique_id=2040726034]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Music" unique_id=1020436551]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Musik"
+vertical_alignment = 1
+
+[node name="Slider" type="HSlider" parent="Music" unique_id=386264039]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SFX" type="HBoxContainer" parent="." unique_id=2123775770]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="SFX" unique_id=1234843129]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "SFX"
+vertical_alignment = 1
+
+[node name="Slider" type="HSlider" parent="SFX" unique_id=1389788685]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Dyslexie" type="HBoxContainer" parent="." unique_id=1057104469]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Dyslexie" unique_id=1801378660]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Dyslexie"
+vertical_alignment = 1
+
+[node name="Check" type="CheckButton" parent="Dyslexie" unique_id=844811002]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+
+[node name="Stress" type="HBoxContainer" parent="." unique_id=1775086565]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Stress" unique_id=65251314]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Stress"
+vertical_alignment = 1
+
+[node name="Check" type="CheckButton" parent="Stress" unique_id=546908117]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30

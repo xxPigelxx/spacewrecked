@@ -30,6 +30,11 @@ func _setup() -> void:
 	else:
 		GameState.register_malfunction(self)  # Journey: wartet auf spawn_time
 
+## Beim Verlassen der Szene austragen, damit GameState keine toten Referenzen behaelt.
+func _exit_tree() -> void:
+	if is_instance_valid(GameState):
+		GameState.unregister_malfunction(self)
+
 ## Vom GameState pro Frame aufgerufen. Aktiviert sich, sobald elapsed >= spawn_time.
 func try_spawn(elapsed: float) -> void:
 	if _spawned or _active or _solved:

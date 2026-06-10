@@ -105,7 +105,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 75
-text = "   Quit   "
+text = "   Exit   "
 script = ExtResource("7_jvhs5")
 
 [node name="MainMenuBt" type="Button" parent="main" unique_id=1620654601]

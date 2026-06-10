@@ -91,6 +91,11 @@ func register_malfunction(m: Node) -> void:
 	if m not in _malfunctions:
 		_malfunctions.append(m)
 
+## Malfunction wieder austragen, wenn sie die Szene verlaesst — sonst behaelt
+## GameState tote Referenzen (Crash beim naechsten Durchlauf).
+func unregister_malfunction(m: Node) -> void:
+	_malfunctions.erase(m)
+
 ## Anzahl aktuell offener Journey-Stoerungen (fuer Drain).
 func active_unsolved_count() -> int:
 	var n := 0
@@ -136,6 +141,42 @@ func is_any_system_broken() -> bool:
 func _ready() -> void:
 	set_process(false)  # Journey-Loop läuft erst ab start_journey()
 
+## Setzt den GESAMTEN Spielzustand auf Anfang zurueck.
+## Beim Start eines neuen Spiels ueber das Hauptmenue aufrufen — NICHT in
+## start_journey() (das ist nur das zeitlich begrenzte Messfenster).
+## Versuchs-Einstellungen (dyslexia_enabled, stress_from_health) bleiben absichtlich erhalten.
+func reset_game() -> void:
+	set_process(false)
+	phase = Phase.SETUP
+
+	# Kategorie-Zaehler
+	broken_strom = 0
+	broken_treibstoff = 0
+	broken_schild = 0
+	broken_navigation = 0
+
+	# Tueren in den Ausgangszustand
+	for key in doors:
+		doors[key] = false
+
+	# Schiffszustand (Setter feuern die jeweiligen Signale)
+	manule_aquiered = false
+	ship_lights = false
+
+	# Journey-Laufzeitwerte
+	health = 0.0
+	time_left = 0.0
+	malfunctions_solved = 0
+	died_early = false
+	_malfunctions.clear()
+	_run_log.clear()
+
+	# Dyslexie: kein Stress, Effekte je nach Einstellung
+	DyslexiaManager.stress = 0.0
+	DyslexiaManager.accessibility = not dyslexia_enabled
+
+	broken_systems_changed.emit()
+
 func start_journey() -> void:
 	phase = Phase.JOURNEY
 	health = max_health
@@ -143,9 +184,14 @@ func start_journey() -> void:
 	malfunctions_solved = 0
 	died_early = false
 	_run_log.clear()
-	# Counter werden NICHT zurückgesetzt — nur activate/mark_solved ändern sie.
-	# Nach dem Setup sind ohnehin alle Systeme OK (alle Counter 0).
+	# Zaehler/Tueren/Manual werden in reset_game() beim Spielstart geleert (ueber das
+	# Hauptmenue), NICHT hier — start_journey() startet nur das Messfenster.
 	_apply_stress_from_health()
+	# Tote Eintraege entfernen (Stoerungen aus einem frueheren Durchlauf, die mit
+	# der alten Szene freigegeben wurden) — sonst Crash auf "freed instance".
+	for i in range(_malfunctions.size() - 1, -1, -1):
+		if not is_instance_valid(_malfunctions[i]):
+			_malfunctions.remove_at(i)
 	# Alle Journey-Stoerungen zuruecksetzen (Tutorial-Stoerungen verwalten sich selbst).
 	for m in _malfunctions:
 		if m.has_method("reset_for_journey"):
