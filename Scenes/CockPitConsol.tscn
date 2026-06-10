@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://bci5jkkqbyfuo"]
 
-[ext_resource type="Script" uid="uid://bo4lssyoybyfa" path="res://script/cockpit_consol.gd" id="1_10hio"]
 [ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="3_4umfn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pmsje"]
@@ -10,7 +9,6 @@ radius = 127.06297
 size = Vector2(87, 216)
 
 [node name="CockPitConsloal" type="Area2D" unique_id=1737657245]
-script = ExtResource("1_10hio")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=543894144]
 shape = SubResource("CircleShape2D_pmsje")

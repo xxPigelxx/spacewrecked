@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @onready var player_light: PointLight2D = $playerLight
 @onready var flashlights: PointLight2D = $Flashlights
+@onready var puuftrail: CPUParticles2D = $ProcreateAtlas/puuftrail
 
 var ship_lights_on := false
 var has_manual := false
@@ -44,7 +45,12 @@ func _physics_process(delta: float) -> void:
 
 	if flashlights.visible:
 		flashlights.look_at(get_global_mouse_position())
-
+	
+	if direction != Vector2.ZERO:
+		puuftrail.emitting = true
+	else:
+		puuftrail.emitting = false
+	
 func switch_lights(val: bool) -> void:
 	ship_lights_on = val
 	player_light.visible = not ship_lights_on

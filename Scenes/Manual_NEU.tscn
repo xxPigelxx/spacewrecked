@@ -89,6 +89,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_me2tk")
 toggle_mode = true
 text = "Handbuch"
 alignment = 0
+script = ExtResource("7_n500u")
 
 [node name="PanelContainer" type="PanelContainer" parent="ManualRoot" unique_id=183646762]
 layout_mode = 1
@@ -107,7 +108,6 @@ current_tab = 0
 clip_tabs = false
 
 [node name="Home" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=504548785]
-visible = false
 layout_mode = 2
 script = ExtResource("2_q6b25")
 metadata/_tab_index = 0
@@ -133,7 +133,7 @@ Dieses Handbuch ist dein Begeliter Astor. Es wird dein wichtigster freund auf de
 
 Dieses Handbuch führt dich durch alle Systeme des Schiffs. Wähle oben den passenden Tab dort findest du Erklärungen, Warnhinweise und Schritt-für-Schritt-Anleitungen.
 
-Wichitg!!! Im fall eines Energieverlust Drücke [F], um die Taschenlampe ein- oder auszuschalten und versuche die Energie wiederherzustellen."
+Wichitg!!! Im fall eines Energieverlust Drücke (F), um die Taschenlampe ein- oder auszuschalten und versuche die Energie wiederherzustellen."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -392,7 +392,6 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
-text = "Task :"
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")

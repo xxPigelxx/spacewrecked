@@ -5,9 +5,18 @@
 [ext_resource type="Texture2D" uid="uid://evb6q7n135rx" path="res://resources/assets/Items/lights/player_light.png" id="3_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://dwu66hggqlytj" path="res://resources/assets/Items/lights/flashlight.png" id="4_vgqql"]
 [ext_resource type="Texture2D" uid="uid://d4m2agfyueg8m" path="res://resources/assets/Items/Bottles/LongBottle.tres" id="5_fkybt"]
+[ext_resource type="Texture2D" uid="uid://b0jebd8kksd74" path="res://resources/assets/animation/smoke/smallsmokee.tres" id="6_x3wgy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqtel"]
 radius = 33.01515
+
+[sub_resource type="Curve" id="Curve_3smsa"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8190477, 0.61555964), 0.0, 0.0, 0, 0, Vector2(1, 0.0063694715), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_8erm5"]
+offsets = PackedFloat32Array(0.46446702, 1)
+colors = PackedColorArray(0.27387273, 0.27387273, 0.27387273, 1, 1, 1, 1, 0)
 
 [node name="player" type="CharacterBody2D" unique_id=1759760143 groups=["player"]]
 script = ExtResource("1_onrkg")
@@ -44,3 +53,17 @@ modulate = Color(0.918826, 0.38327312, 0.5450927, 1)
 texture = ExtResource("2_i3pqv")
 region_enabled = true
 region_rect = Rect2(849, 323, 81, 81)
+
+[node name="puuftrail" type="CPUParticles2D" parent="ProcreateAtlas" unique_id=1509782765]
+show_behind_parent = true
+amount = 3
+texture = ExtResource("6_x3wgy")
+randomness = 0.33
+emission_shape = 1
+emission_sphere_radius = 27.2
+gravity = Vector2(0, 0)
+angle_min = -80.5
+angle_max = 252.2
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_3smsa")
+color_ramp = SubResource("Gradient_8erm5")

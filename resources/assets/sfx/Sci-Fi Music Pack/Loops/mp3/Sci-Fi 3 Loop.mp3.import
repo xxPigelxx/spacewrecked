@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bmoe5jfynjvev"
+path="res://.godot/imported/Sci-Fi 3 Loop.mp3-51756cfc45c77f0648dfb7a2a1cfccc5.mp3str"
+
+[deps]
+
+source_file="res://resources/assets/sfx/Sci-Fi Music Pack/Loops/mp3/Sci-Fi 3 Loop.mp3"
+dest_files=["res://.godot/imported/Sci-Fi 3 Loop.mp3-51756cfc45c77f0648dfb7a2a1cfccc5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

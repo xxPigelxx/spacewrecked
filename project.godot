@@ -21,6 +21,7 @@ GameState="*uid://dlqp6yw3mthjk"
 DyslexiaManager="*uid://cwv6hwhjvpdwo"
 SceneSwitcher="*uid://cbnudytiivx0k"
 MCPRuntime="*uid://bvlrb5gkw5k27"
+AudioManager="*uid://dho7vfq575a1o"
 
 [display]
 

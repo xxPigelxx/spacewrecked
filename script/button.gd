@@ -15,10 +15,12 @@ func _init_pivot() -> void:
 func _button_enter() -> void:
 	if !disabled:
 		create_tween().tween_property(self, "scale", hover_scale, 0.1).set_trans(Tween.TRANS_SINE)
+		AudioManager.play_sfx("res://resources/assets/sfx/Interface_Bleeps_Wav/Bleep_07.wav")
 func _button_exit() -> void:
 	create_tween().tween_property(self, "scale", Vector2.ONE, 0.1).set_trans(Tween.TRANS_SINE)
 func _button_pressed() -> void:
 	var button_press_tween: Tween = create_tween()
 	button_press_tween.tween_property(self, "scale", pressed_scale, 0.06).set_trans(Tween.TRANS_SINE)
 	button_press_tween.tween_property(self, "scale", hover_scale, 0.12).set_trans(Tween.TRANS_SINE)
+	AudioManager.play_sfx("res://resources/assets/sfx/Interface_Bleeps_Wav/Data_Point_02.wav")
 	

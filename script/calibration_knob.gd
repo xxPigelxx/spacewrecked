@@ -1,62 +1,37 @@
 class_name CalibrationKnob
 extends Node2D
 
-## Dreh-Regler, der seinen Wert HÄLT (anders als der Joystick im Cockpit, der
-## beim Loslassen zur Mitte zurueckspringt). Optik = Ring + Knopf aus den
-## Cockpit-Sprites. Ziehen nach rechts (im Uhrzeigersinn) erhoeht den Wert.
-## Sendet value_changed(value) bei jeder Aenderung.
+## Dreh-Regler, der seinen Wert HÄLT (anders als der Joystick im Cockpit).
+## Die Knoten (Ring / Dial / Knob / Tick / Hit) liegen in CalibrationKnob.tscn
+## und sind dort frei editierbar. Ziehen nach rechts/im Uhrzeigersinn erhoeht
+## den Wert. Sendet value_changed(value) bei jeder Aenderung.
 
 signal value_changed(value: int)
 
-const TEX: Texture2D = preload("res://resources/assets/Procreate_Sprites.png")
-const RING_REGION := Rect2(273, 286, 209, 199)
-const KNOB_REGION := Rect2(849, 323, 81, 81)
-
 @export var value_min: int = 10
 @export var value_max: int = 90
+@export var start_value: int = 10
 ## Halber Drehbereich in Grad (ab "oben"). 140 => 280° Gesamtweg.
 @export var sweep_deg: float = 140.0
 
-var value: int = 50
+@onready var _dial: Node2D = $Dial
+@onready var _tick: Line2D = $Dial/Tick
+@onready var _hit: Button = $Hit
+
+var value: int = 10
 var _dragging := false
-var _dial: Node2D
 
 func _ready() -> void:
-	var ring := Sprite2D.new()
-	ring.texture = TEX
-	ring.region_enabled = true
-	ring.region_rect = RING_REGION
-	ring.modulate = Color(0.62, 0.68, 0.74)
-	add_child(ring)
-
-	_dial = Node2D.new()
-	add_child(_dial)
-
-	var knob := Sprite2D.new()
-	knob.texture = TEX
-	knob.region_enabled = true
-	knob.region_rect = KNOB_REGION
-	_dial.add_child(knob)
-
-	# Zeiger nach oben, damit die Drehung sichtbar ist.
-	var tick := Line2D.new()
-	tick.points = PackedVector2Array([Vector2(0, -10), Vector2(0, -46)])
-	tick.width = 7.0
-	tick.default_color = Color(1.0, 0.85, 0.25)
-	tick.begin_cap_mode = Line2D.LINE_CAP_ROUND
-	tick.end_cap_mode = Line2D.LINE_CAP_ROUND
-	_dial.add_child(tick)
-
-	# Unsichtbarer Klickbereich zum Greifen.
-	var hit := Button.new()
-	hit.flat = true
-	hit.modulate = Color(1, 1, 1, 0)
-	hit.size = Vector2(150, 150)
-	hit.position = Vector2(-75, -75)
-	hit.button_down.connect(func() -> void: _dragging = true)
-	add_child(hit)
-
+	value = clampi(start_value, value_min, value_max)
+	# Zeiger nur setzen, falls in der Szene keiner gezeichnet wurde.
+	if _tick and _tick.points.is_empty():
+		_tick.points = PackedVector2Array([Vector2(0, -10), Vector2(0, -46)])
+	if _hit and not _hit.button_down.is_connected(_on_grab):
+		_hit.button_down.connect(_on_grab)
 	_update_dial()
+
+func _on_grab() -> void:
+	_dragging = true
 
 func set_value(v: int) -> void:
 	value = clampi(v, value_min, value_max)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bi6gwik62ml47"
+path="res://.godot/imported/Sci-Fi 8.ogg-d5d8ed699ac2acff9f9515d6b0b4b5df.oggvorbisstr"
+
+[deps]
+
+source_file="res://resources/assets/sfx/Sci-Fi Music Pack/Tracks/ogg/Sci-Fi 8.ogg"
+dest_files=["res://.godot/imported/Sci-Fi 8.ogg-d5d8ed699ac2acff9f9515d6b0b4b5df.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

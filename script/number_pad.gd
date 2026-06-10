@@ -45,11 +45,14 @@ func _on_button_pressed(button: Button) -> void:
 		_try_submit()
 
 func _try_submit() -> void:
+	var audio = "res://resources/assets/sfx/Interface_Bleeps_Wav/Denied_03.wav"
 	if numpad_text.text == code or numpad_text.text == cheat_code:
 		print("Puzzle Solved")
 		_on_win()
+		audio = "res://resources/assets/sfx/Interface_Bleeps_Wav/Confirm_01.wav"
 	else:
 		_shake_text()
+	AudioManager.play_sfx(audio)
 
 func _shake_text() -> void:
 	numpad_text.position = _text_start_position

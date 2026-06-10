@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://rw4c3fh4stum"
+path="res://.godot/imported/Lukrembo - Spaceship (freetouse.com).mp3-6a688709e6db510c11ecb5fdd46c7fab.mp3str"
+
+[deps]
+
+source_file="res://resources/assets/music/Lukrembo - Spaceship (freetouse.com).mp3"
+dest_files=["res://.godot/imported/Lukrembo - Spaceship (freetouse.com).mp3-6a688709e6db510c11ecb5fdd46c7fab.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
