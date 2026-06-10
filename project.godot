@@ -22,6 +22,7 @@ DyslexiaManager="*uid://cwv6hwhjvpdwo"
 SceneSwitcher="*uid://cbnudytiivx0k"
 MCPRuntime="*uid://bvlrb5gkw5k27"
 AudioManager="*uid://dho7vfq575a1o"
+ResultsExporter="*res://script/results_exporter.gd"
 
 [display]
 

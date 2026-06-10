@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://iqf6kfhsygp6" path="res://script/nav_puzzle.gd" id="12_c6vri"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbavm"]
-size = Vector2(4200, 3300)
+size = Vector2(1934, 1065)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wngar"]
 radius = 152.11838
@@ -31,26 +31,30 @@ radius = 86.0
 [node name="CockpitWindow" type="CanvasLayer" unique_id=1066614739]
 script = ExtResource("12_c6vri")
 
-[node name="SpaceBGwithStars" type="Sprite2D" parent="." unique_id=1103247378]
-position = Vector2(-3943.6362, 813.4997)
-scale = Vector2(2.3330305, 2.3330302)
-texture = ExtResource("3_es3id")
-
-[node name="SpaceBGwithStars2" type="Sprite2D" parent="." unique_id=1212131692]
-position = Vector2(5636, 808.00006)
-scale = Vector2(2.3330305, 2.3330302)
-texture = ExtResource("3_es3id")
-
 [node name="Space" type="CharacterBody2D" parent="." unique_id=1328670499]
 position = Vector2(960, 540)
 motion_mode = 1
 script = ExtResource("1_ucq61")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Space" unique_id=19769075]
-shape = SubResource("RectangleShape2D_lbavm")
-
-[node name="Sprite2D" type="Sprite2D" parent="Space" unique_id=937362443]
+[node name="SpaceBGwithStars3" type="TextureRect" parent="Space" unique_id=902658288]
+offset_left = -9724.0
+offset_top = -3448.0002
+offset_right = -5524.0
+offset_bottom = -148.00024
+scale = Vector2(2.3330305, 2.3330302)
 texture = ExtResource("3_es3id")
+
+[node name="SpaceBGwithStars2" type="TextureRect" parent="Space" unique_id=753630633]
+offset_left = 31.0
+offset_top = -3518.0
+offset_right = 4231.0
+offset_bottom = -218.0
+scale = Vector2(2.3330305, 2.3330302)
+texture = ExtResource("3_es3id")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space" unique_id=19769075]
+position = Vector2(-8, 10.5)
+shape = SubResource("RectangleShape2D_lbavm")
 
 [node name="planets" type="Node2D" parent="Space" unique_id=1355274266 groups=["Planet"]]
 

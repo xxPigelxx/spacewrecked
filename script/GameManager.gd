@@ -41,7 +41,7 @@ func lock_door(door_id: String) -> void:
 	doors[door_id] = false
 	door_locked.emit(door_id)
 
-func is_door_locked(door_id: String) -> bool:
+func is_door_unlocked(door_id: String) -> bool:
 	return doors.get(door_id, false)
 
 func remove_door(door_id: String) -> void:
@@ -79,6 +79,14 @@ var malfunctions_solved: int = 0
 var died_early := false
 var _malfunctions: Array[Node] = []            ## alle Journey-Stoerungen, registrieren sich selbst
 var _run_log: Array[Dictionary] = []
+
+# ---- Lauf-Identitaet (Export selbst macht der ResultsExporter-Autoload) ----
+## Teilnehmer-Kennung. Wird einmal pro App-Start generiert (Konvention: fuer
+## jeden Teilnehmer wird das Spiel neu gestartet). Kann vor dem Lauf manuell
+## ueberschrieben werden (z. B. spaeter ueber ein Eingabefeld).
+var participant_id := ""
+var _run_index := 0                            ## Laufnummer innerhalb dieser Sitzung
+var _run_id := ""                              ## eindeutig pro Lauf, verknuepft runs.csv & tasks.csv
 
 # ---- Feste Kategorie-Zähler (Journey): hochzählen bei activate, runter bei win ----
 var broken_strom: int = 0
@@ -140,6 +148,9 @@ func is_any_system_broken() -> bool:
 
 func _ready() -> void:
 	set_process(false)  # Journey-Loop läuft erst ab start_journey()
+	if participant_id.is_empty():
+		# "2026-06-10T14:33:02" -> "P20260610-143302"
+		participant_id = "P" + Time.get_datetime_string_from_system().replace("-", "").replace(":", "").replace("T", "-")
 
 ## Setzt den GESAMTEN Spielzustand auf Anfang zurueck.
 ## Beim Start eines neuen Spiels ueber das Hauptmenue aufrufen — NICHT in
@@ -184,6 +195,8 @@ func start_journey() -> void:
 	malfunctions_solved = 0
 	died_early = false
 	_run_log.clear()
+	_run_index += 1
+	_run_id = "%s-run%02d" % [participant_id, _run_index]
 	# Zaehler/Tueren/Manual werden in reset_game() beim Spielstart geleert (ueber das
 	# Hauptmenue), NICHT hier — start_journey() startet nur das Messfenster.
 	_apply_stress_from_health()
@@ -235,6 +248,7 @@ func _report_malfunction_solved(puzzle_id: String) -> void:
 	_run_log.append({
 		"puzzle_id": puzzle_id,
 		"time_left": time_left,
+		"elapsed": run_duration - time_left,   # Sekunden seit Journey-Start
 	})
 	malfunctions_solved_changed.emit(malfunctions_solved)
 
@@ -256,35 +270,18 @@ func _finish_run() -> void:
 			m.deactivate()
 	phase_changed.emit(phase)
 	var results := {
+		"run_id": _run_id,
+		"participant_id": participant_id,
+		"timestamp": Time.get_datetime_string_from_system(),
 		"malfunctions_solved": malfunctions_solved,
 		"died_early": died_early,
 		"run_duration": run_duration,
+		"time_used": run_duration - time_left,
 		"dyslexia_enabled": dyslexia_enabled,
 		"stress_from_health": stress_from_health,
-		"log": _run_log,
+		"log": _run_log.duplicate(),
 	}
+	# ResultsExporter (Autoload) lauscht auf run_finished und schreibt die CSVs.
 	run_finished.emit(results)
-	deliver_results(results)
 	# Zum Endscreen wechseln (liest Werte selbst aus GameState).
 	SceneSwitcher.switch_scene("res://Scenes/Menu/EndSceen.tscn")
-
-## Flexible Daten-Lieferung — später: CSV-Download, Code, oder POST an Sheet.
-func deliver_results(results: Dictionary) -> void:
-	var csv := build_csv(results)
-	print("=== RUN RESULTS (CSV) ===")
-	print(csv)
-	var f := FileAccess.open("user://results.csv", FileAccess.WRITE)
-	if f:
-		f.store_string(csv)
-		f.close()
-
-func build_csv(results: Dictionary) -> String:
-	var header := "malfunctions_solved,died_early,run_duration,dyslexia_enabled,stress_from_health"
-	var row := "%d,%s,%.0f,%s,%s" % [
-		results.get("malfunctions_solved", 0),
-		str(results.get("died_early", false)),
-		results.get("run_duration", 0.0),
-		str(results.get("dyslexia_enabled", false)),
-		str(results.get("stress_from_health", false)),
-	]
-	return header + "\n" + row

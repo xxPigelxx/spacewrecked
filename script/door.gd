@@ -37,7 +37,7 @@ func _ready() -> void:
 	lamp_2.set_active(unlocked)
 	
 func _physics_process(delta: float) -> void:
-	unlocked = GameState.is_door_locked(door_id)	
+	unlocked = GameState.is_door_unlocked(door_id)	
 	keypad.visible = !unlocked
 	keypad.monitoring = !unlocked
 	lamp.set_active(unlocked)
@@ -60,7 +60,7 @@ func tween_door(top_target: Vector2, bottom_target: Vector2) -> void:
 func open_door() -> void:
 	if door_open or is_animating:
 		return
-	if !GameState.is_door_locked(door_id):
+	if !GameState.is_door_unlocked(door_id):
 		return
 	await tween_door(top_open_pos, bottom_open_pos)
 	door_open = true
