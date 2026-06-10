@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cp1hj6hqm4nj"
+path="res://.godot/imported/Rubber_04.wav-7e62ed5c6f85254cdbfb6aa9a9493f9b.sample"
+
+[deps]
+
+source_file="res://resources/assets/sfx/Footsteps Mini Sound Pack/Rubber_04.wav"
+dest_files=["res://.godot/imported/Rubber_04.wav-7e62ed5c6f85254cdbfb6aa9a9493f9b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

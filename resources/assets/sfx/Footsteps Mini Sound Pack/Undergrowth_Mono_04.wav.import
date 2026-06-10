@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cd8dre3satg25"
+path="res://.godot/imported/Undergrowth_Mono_04.wav-f68b92b1a661abd805d7cda249986675.sample"
+
+[deps]
+
+source_file="res://resources/assets/sfx/Footsteps Mini Sound Pack/Undergrowth_Mono_04.wav"
+dest_files=["res://.godot/imported/Undergrowth_Mono_04.wav-f68b92b1a661abd805d7cda249986675.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

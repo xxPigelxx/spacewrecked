@@ -6,6 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dwu66hggqlytj" path="res://resources/assets/Items/lights/flashlight.png" id="4_vgqql"]
 [ext_resource type="Texture2D" uid="uid://d4m2agfyueg8m" path="res://resources/assets/Items/Bottles/LongBottle.tres" id="5_fkybt"]
 [ext_resource type="Texture2D" uid="uid://b0jebd8kksd74" path="res://resources/assets/animation/smoke/smallsmokee.tres" id="6_x3wgy"]
+[ext_resource type="AudioStream" uid="uid://b5fb02yko7ha0" path="res://resources/assets/sfx/Footsteps Mini Sound Pack/BootsLinoleum_01.wav" id="7_gymyn"]
+[ext_resource type="AudioStream" uid="uid://bl4mj4mqij1h0" path="res://resources/assets/sfx/Footsteps Mini Sound Pack/BootsLinoleum_02.wav" id="8_pu2lt"]
+[ext_resource type="AudioStream" uid="uid://bt3q5ek67aljd" path="res://resources/assets/sfx/Footsteps Mini Sound Pack/BootsLinoleum_03.wav" id="9_ukyrk"]
+[ext_resource type="AudioStream" uid="uid://gdy74f1hfgf6" path="res://resources/assets/sfx/Footsteps Mini Sound Pack/BootsLinoleum_04.wav" id="10_7dp3o"]
+[ext_resource type="AudioStream" uid="uid://cjra3vtj3qfe5" path="res://resources/assets/sfx/Footsteps Mini Sound Pack/BootsLinoleum_05.wav" id="11_h4iuc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqtel"]
 radius = 33.01515
@@ -17,6 +22,14 @@ point_count = 3
 [sub_resource type="Gradient" id="Gradient_8erm5"]
 offsets = PackedFloat32Array(0.46446702, 1)
 colors = PackedColorArray(0.27387273, 0.27387273, 0.27387273, 1, 1, 1, 1, 0)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fd4e3"]
+streams_count = 5
+stream_0/stream = ExtResource("7_gymyn")
+stream_1/stream = ExtResource("8_pu2lt")
+stream_2/stream = ExtResource("9_ukyrk")
+stream_3/stream = ExtResource("10_7dp3o")
+stream_4/stream = ExtResource("11_h4iuc")
 
 [node name="player" type="CharacterBody2D" unique_id=1759760143 groups=["player"]]
 script = ExtResource("1_onrkg")
@@ -67,3 +80,7 @@ angle_max = 252.2
 scale_amount_min = 0.5
 scale_amount_curve = SubResource("Curve_3smsa")
 color_ramp = SubResource("Gradient_8erm5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1613899274]
+stream = SubResource("AudioStreamRandomizer_fd4e3")
+bus = &"sfx"

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ch7s5so6fhupd"
+path="res://.godot/imported/Mud_Mono_02.wav-0af75cd9ba4a3a4f6a3fe1e4528a6491.sample"
+
+[deps]
+
+source_file="res://resources/assets/sfx/Footsteps Mini Sound Pack/Mud_Mono_02.wav"
+dest_files=["res://.godot/imported/Mud_Mono_02.wav-0af75cd9ba4a3a4f6a3fe1e4528a6491.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

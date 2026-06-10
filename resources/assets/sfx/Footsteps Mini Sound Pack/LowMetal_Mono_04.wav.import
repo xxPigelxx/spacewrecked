@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cs537bqy0bn8n"
+path="res://.godot/imported/LowMetal_Mono_04.wav-3ea236026a95a902b1e8c32d21042b9f.sample"
+
+[deps]
+
+source_file="res://resources/assets/sfx/Footsteps Mini Sound Pack/LowMetal_Mono_04.wav"
+dest_files=["res://.godot/imported/LowMetal_Mono_04.wav-3ea236026a95a902b1e8c32d21042b9f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

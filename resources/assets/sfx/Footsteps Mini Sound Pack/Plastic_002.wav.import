@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://1s52xtiwv78"
+path="res://.godot/imported/Plastic_002.wav-d85ac8774c10c79fd92d3eee8150e8ee.sample"
+
+[deps]
+
+source_file="res://resources/assets/sfx/Footsteps Mini Sound Pack/Plastic_002.wav"
+dest_files=["res://.godot/imported/Plastic_002.wav-d85ac8774c10c79fd92d3eee8150e8ee.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
