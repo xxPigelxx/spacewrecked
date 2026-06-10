@@ -28,7 +28,7 @@ func _on_strom_changed() -> void:
 func _physics_process(delta: float) -> void:
 	var direction := Vector2.ZERO
 
-	if Input.is_action_pressed("pause"):
+	if Input.is_action_just_pressed("pause"):
 		SceneSwitcher.open_overlay_scene("res://Scenes/Menu/PauseMenu.tscn", true, true, true)
 
 	if Input.is_action_pressed("move_right"):
