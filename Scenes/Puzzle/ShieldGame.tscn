@@ -242,3 +242,22 @@ text = "Zurueck"
 [node name="VSeparator2" type="VSeparator" parent="Center/Panel/Margin/VBox/Buttons" unique_id=1657117743]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Win" type="Button" parent="." unique_id=1800034081]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -159.0
+offset_top = -101.0
+offset_right = 171.69507
+offset_bottom = -11.502808
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_qv22v")
+theme_override_font_sizes/font_size = 50
+text = "Win
+"
+
+[connection signal="pressed" from="Win" to="." method="_win"]

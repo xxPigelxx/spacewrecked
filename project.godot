@@ -31,10 +31,6 @@ window/size/viewport_height=1080
 window/vsync/vsync_mode=0
 mouse_cursor/custom_image="uid://gctau36faoia"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/godot_mcp/plugin.cfg")
-
 [input]
 
 move_up={

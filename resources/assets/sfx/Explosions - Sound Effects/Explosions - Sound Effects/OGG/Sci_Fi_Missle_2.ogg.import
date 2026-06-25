@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bps31rwbbngri"
+path="res://.godot/imported/Sci_Fi_Missle_2.ogg-5b245887dc0760a8745ef67077ba252b.oggvorbisstr"
+
+[deps]
+
+source_file="res://resources/assets/sfx/Explosions - Sound Effects/Explosions - Sound Effects/OGG/Sci_Fi_Missle_2.ogg"
+dest_files=["res://.godot/imported/Sci_Fi_Missle_2.ogg-5b245887dc0760a8745ef67077ba252b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://blchh13qdq07d"
+path="res://.godot/imported/Sci_Fi_Low_Explosion.ogg-50977e548fcbcc1752238933d74554d9.oggvorbisstr"
+
+[deps]
+
+source_file="res://resources/assets/sfx/Explosions - Sound Effects/Explosions - Sound Effects/OGG/Sci_Fi_Low_Explosion.ogg"
+dest_files=["res://.godot/imported/Sci_Fi_Low_Explosion.ogg-50977e548fcbcc1752238933d74554d9.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

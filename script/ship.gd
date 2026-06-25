@@ -2,6 +2,7 @@ extends Node2D
 @onready var fier_sfx_1: AnimatedSprite2D = $FierSFX3
 @onready var fier_sfx_2: AnimatedSprite2D = $FierSFX4
 @onready var space_bg: Node2D = $SpaceBg
+@onready var shilds: Sprite2D = $shilds
 
 func _ready() -> void:
 	fier_sfx_1.visible = false
@@ -11,6 +12,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if _is_journey():
 		start_flight()
+	#_are_shilds_active()
 
 
 func _play_fier_animation():
@@ -29,3 +31,9 @@ func start_flight():
 
 func _is_journey() -> bool:
 	return ("phase" in GameState) and GameState.phase == GameState.Phase.JOURNEY
+
+func _are_shilds_active():
+	if GameState.is_system_broken("schild"):
+		shilds.visible = false
+	else:
+		shilds.visible = true

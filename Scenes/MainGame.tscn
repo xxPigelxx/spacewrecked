@@ -191,6 +191,7 @@ category = 1
 spawn_time = 5.0
 start_up_animation = NodePath("SmokeAni")
 partical = NodePath("SmokeParticle")
+astoroid = true
 prompt_text = "E: Kabel reparieren"
 overlay_scene = "res://Scenes/Puzzle/CableGame.tscn"
 
@@ -218,6 +219,7 @@ category = 1
 spawn_time = 45.0
 start_up_animation = NodePath("SmokeAni")
 partical = NodePath("SmokeParticle")
+astoroid = true
 prompt_text = "E: Kabel reparieren"
 overlay_scene = "uid://cvx8uf3sul6n8"
 
@@ -245,6 +247,7 @@ category = 1
 spawn_time = 35.0
 start_up_animation = NodePath("SmokeAni")
 partical = NodePath("SmokeParticle")
+astoroid = true
 prompt_text = "E: Kabel reparieren"
 overlay_scene = "uid://dauvboslmqgvj"
 
@@ -268,8 +271,8 @@ text = "Press E"
 [node name="ShieldMalfunction" type="Area2D" parent="Interactabels/MalfunctionSpawner" unique_id=1143459471]
 position = Vector2(700, 537)
 script = ExtResource("19_k6vqf")
-category = 3.0
 spawn_time = 12.0
+astoroid = true
 prompt_text = "E: Schild kalibrieren"
 overlay_scene = "res://Scenes/Puzzle/ShieldGame.tscn"
 
@@ -295,7 +298,7 @@ visible = false
 
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=270877021]
 visible = false
-color = Color(0.06053035, 0.06053035, 0.060530342, 0.827451)
+color = Color(0.06, 0.06, 0.06, 1)
 script = ExtResource("16_ktwve")
 
 [node name="hud" type="CanvasLayer" parent="." unique_id=749700066]

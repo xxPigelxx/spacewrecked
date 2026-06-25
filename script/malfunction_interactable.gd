@@ -14,6 +14,10 @@ enum Phase { TUTORIAL, JOURNEY }
 @export var spawn_time: float = 0.0     ## Sekunden ab Journey-Start (nur JOURNEY)
 @export var start_up_animation: AnimatedSprite2D = null
 @export var partical: CPUParticles2D = null
+@export var astoroid: = false
+
+const ASTROID = preload("uid://bdb3yq2bckj6b")
+
 var _active := false
 var _solved := false
 var _counted := false        ## ob diese Stoerung aktuell im Kategorie-Zaehler steckt
@@ -65,6 +69,15 @@ func activate() -> void:
 		return
 	_active = true
 	_solved = false
+	if astoroid:
+		var new_asteroid = ASTROID.instantiate()
+		get_tree().current_scene.add_child(new_asteroid)
+
+		new_asteroid.global_position = Vector2(2000, global_position.y + randf_range(-500,500))
+
+		# Auf Ankunft warten
+		await new_asteroid.move_to_point(global_position)
+		
 	visible = true
 	set_deferred("monitoring", true)
 	set_deferred("monitorable", true)

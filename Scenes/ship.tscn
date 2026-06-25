@@ -42,6 +42,14 @@ animation = &"Fier_ainmation"
 frame = 4
 frame_progress = 0.0
 
+[node name="shilds" type="Sprite2D" parent="." unique_id=2113865656]
+visible = false
+self_modulate = Color(1.2205658, 2.3957987, 3.7389216, 0.49019608)
+z_index = -1
+position = Vector2(0, -4.999964)
+scale = Vector2(1.135, 1.097)
+texture = ExtResource("3_v2j2m")
+
 [node name="Ship" type="Sprite2D" parent="." unique_id=45246556]
 z_index = -1
 texture = ExtResource("3_v2j2m")

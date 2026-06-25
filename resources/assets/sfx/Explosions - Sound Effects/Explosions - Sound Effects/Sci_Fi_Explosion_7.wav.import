@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bcj40k3ya6mdr"
+path="res://.godot/imported/Sci_Fi_Explosion_7.wav-8ae744d65ee552b8167607735fb89ad3.sample"
+
+[deps]
+
+source_file="res://resources/assets/sfx/Explosions - Sound Effects/Explosions - Sound Effects/Sci_Fi_Explosion_7.wav"
+dest_files=["res://.godot/imported/Sci_Fi_Explosion_7.wav-8ae744d65ee552b8167607735fb89ad3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -98,7 +98,7 @@ theme = ExtResource("3_t1tc3")
 theme_override_font_sizes/font_size = 50
 text = "Zuruck"
 
-[node name="SpawnCableBt2" type="Button" parent="Panel" unique_id=196559703]
+[node name="Win" type="Button" parent="Panel" unique_id=196559703]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -202,4 +202,4 @@ pair_id = "3"
 
 [connection signal="pressed" from="Panel/SpawnCableBt" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Panel/ReturnBt" to="." method="_on_return_bt_pressed"]
-[connection signal="pressed" from="Panel/SpawnCableBt2" to="." method="_on_win"]
+[connection signal="pressed" from="Panel/Win" to="." method="_on_win"]

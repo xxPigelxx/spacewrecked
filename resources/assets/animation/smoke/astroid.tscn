@@ -4,33 +4,41 @@
 [ext_resource type="Script" uid="uid://bq8i1eeps13wf" path="res://script/astroid.gd" id="2_wju68"]
 [ext_resource type="PackedScene" uid="uid://j4peei1eub8m" path="res://Scenes/fier_sfx.tscn" id="3_ijs3o"]
 
-[node name="Astroid" type="Sprite2D" unique_id=1896664773]
+[node name="Astroid" type="Node2D" unique_id=1375720128]
 self_modulate = Color(0.350267, 0.22132164, 0.06482952, 1)
+script = ExtResource("2_wju68")
+rotation_speed = -4
+
+[node name="AstriodSprite" type="Sprite2D" parent="." unique_id=199252120]
+self_modulate = Color(0.4392157, 0.24313726, 0.12941177, 1)
+position = Vector2(11, 9)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_v1vmo")
 region_enabled = true
 region_rect = Rect2(1054, 550, 245, 192)
-script = ExtResource("2_wju68")
 
 [node name="FierSFX" parent="." unique_id=1174731421 instance=ExtResource("3_ijs3o")]
 show_behind_parent = true
-position = Vector2(117.99999, -67)
-rotation = 1.07513
+position = Vector2(49.861824, -14.107357)
+rotation = 1.0751299
+scale = Vector2(0.3460262, 0.39522246)
 animation = &"Fier_ainmation"
 frame_progress = 0.0
 
 [node name="FierSFX2" parent="." unique_id=1852422795 instance=ExtResource("3_ijs3o")]
 show_behind_parent = true
-position = Vector2(142, 30.999998)
+position = Vector2(59.019352, 20.369137)
 rotation = 1.8754541
+scale = Vector2(0.27360687, 0.40197802)
 animation = &"Fier_ainmation"
 frame = 5
 frame_progress = 0.0
 
 [node name="FierSFX3" parent="." unique_id=802076513 instance=ExtResource("3_ijs3o")]
 show_behind_parent = true
-position = Vector2(167.00002, -9.999992)
+position = Vector2(71.694565, 5.7656703)
 rotation = 1.5707964
-scale = Vector2(0.7710839, 1.3463092)
+scale = Vector2(0.325773, 0.60092556)
 animation = &"Fier_ainmation"
 frame = 2
 frame_progress = 0.0

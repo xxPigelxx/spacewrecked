@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ds276m6ksy1uf"
+path="res://.godot/imported/Far_Explosion.ogg-6ff7645032fafc0c86f9c7b73b8feb4f.oggvorbisstr"
+
+[deps]
+
+source_file="res://resources/assets/sfx/Explosions - Sound Effects/Explosions - Sound Effects/OGG/Far_Explosion.ogg"
+dest_files=["res://.godot/imported/Far_Explosion.ogg-6ff7645032fafc0c86f9c7b73b8feb4f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

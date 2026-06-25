@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cs0th3i8lpuel"
+path="res://.godot/imported/Small_Explosion.ogg-f888e7d5681fd20035330a4c4f4a1f07.oggvorbisstr"
+
+[deps]
+
+source_file="res://resources/assets/sfx/Explosions - Sound Effects/Explosions - Sound Effects/OGG/Small_Explosion.ogg"
+dest_files=["res://.godot/imported/Small_Explosion.ogg-f888e7d5681fd20035330a4c4f4a1f07.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

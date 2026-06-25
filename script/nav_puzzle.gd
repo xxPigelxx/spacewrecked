@@ -21,6 +21,7 @@ extends Node
 
 @export_group("Fehler-Animation")
 @export var reject_color := Color(1.0, 0.2, 0.2, 1.0)  ## Linienfarbe bei falschem Planeten (rot)
+@export var reject_hold := 0.35  ## Sekunden, die der falsche Planet ausgewählt bleibt, bevor er rot wird
 
 @onready var detector: Area2D = $Detector
 @onready var line: Line2D = $Space/planets/NavLine
@@ -41,6 +42,7 @@ var _rejecting := false              ## true während der Fehler-Sequenz
 var _reject_retracting := false      ## true wenn die rote Linie zurückschrumpft
 var _wrong_planet: Node2D = null     ## der gerade abgelehnte Planet
 var _retract_target: Vector2         ## Punkt, zu dem die rote Linie zurückkehrt
+var _reject_hold_timer := 0.0        ## zählt die Haltezeit, bevor der falsche Planet rot wird
 var _base_line_color: Color          ## ursprüngliche Linienfarbe zum Wiederherstellen
 var _solved := false
 
@@ -84,7 +86,12 @@ func _process_reject(delta: float) -> void:
 	if not next.is_equal_approx(goal):
 		return
 	if not _reject_retracting:
-		# Ziel erreicht: rot färben, Planet abwählen, dann zurückziehen
+		# Ziel erreicht: kurz halten, damit der Auswahl-Pop sichtbar ist
+		# (wichtig beim ersten Planeten, wo die Linie keine Strecke hat)
+		_reject_hold_timer += delta
+		if _reject_hold_timer < reject_hold:
+			return
+		# rot färben, Planet abwählen, dann zurückziehen
 		line.default_color = reject_color
 		if _wrong_planet and _wrong_planet.has_method("deselect"):
 			_wrong_planet.deselect()
@@ -96,6 +103,7 @@ func _process_reject(delta: float) -> void:
 		_rejecting = false
 		_reject_retracting = false
 		_wrong_planet = null
+		_reject_hold_timer = 0.0
 
 func _on_planet_scanned(planet_id: String) -> void:
 	if _solved or _animating or _rejecting:
@@ -168,6 +176,7 @@ func _reject(planet_id: String) -> void:
 	_target_point = dest
 	_rejecting = true
 	_reject_retracting = false
+	_reject_hold_timer = 0.0
 
 func _reset_to_last_correct() -> void:
 	# Optional: Stress erhöhen, wenn der Spieler sich verliest

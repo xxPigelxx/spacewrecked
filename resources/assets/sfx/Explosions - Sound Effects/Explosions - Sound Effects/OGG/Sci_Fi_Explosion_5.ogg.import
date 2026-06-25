@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cq85qqi8o7vp1"
+path="res://.godot/imported/Sci_Fi_Explosion_5.ogg-11107ded0828103f873107d47ddd6dfd.oggvorbisstr"
+
+[deps]
+
+source_file="res://resources/assets/sfx/Explosions - Sound Effects/Explosions - Sound Effects/OGG/Sci_Fi_Explosion_5.ogg"
+dest_files=["res://.godot/imported/Sci_Fi_Explosion_5.ogg-11107ded0828103f873107d47ddd6dfd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

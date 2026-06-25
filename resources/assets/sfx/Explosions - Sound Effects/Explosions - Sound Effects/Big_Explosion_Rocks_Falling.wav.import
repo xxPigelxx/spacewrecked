@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c6lc36k1c4rnc"
+path="res://.godot/imported/Big_Explosion_Rocks_Falling.wav-fcbaaf0ee4a7f7e5674a805789afd37d.sample"
+
+[deps]
+
+source_file="res://resources/assets/sfx/Explosions - Sound Effects/Explosions - Sound Effects/Big_Explosion_Rocks_Falling.wav"
+dest_files=["res://.godot/imported/Big_Explosion_Rocks_Falling.wav-fcbaaf0ee4a7f7e5674a805789afd37d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

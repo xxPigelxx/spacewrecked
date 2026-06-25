@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://bh7mvtchr84vd"]
 
 [ext_resource type="Script" uid="uid://qghfiplatwiv" path="res://script/player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://evb6q7n135rx" path="res://resources/assets/Items/lights/player_light.png" id="3_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://tfygiah5jkwd" path="res://resources/assets/animation/player_walk/player_walk.png" id="3_gymyn"]
 [ext_resource type="Texture2D" uid="uid://dwu66hggqlytj" path="res://resources/assets/Items/lights/flashlight.png" id="4_vgqql"]
-[ext_resource type="Texture2D" uid="uid://d4m2agfyueg8m" path="res://resources/assets/Items/Bottles/LongBottle.tres" id="5_fkybt"]
 [ext_resource type="Texture2D" uid="uid://b0jebd8kksd74" path="res://resources/assets/animation/smoke/smallsmokee.tres" id="6_x3wgy"]
 [ext_resource type="AudioStream" uid="uid://b5fb02yko7ha0" path="res://resources/assets/sfx/Footsteps Mini Sound Pack/BootsLinoleum_01.wav" id="7_gymyn"]
 [ext_resource type="AudioStream" uid="uid://bl4mj4mqij1h0" path="res://resources/assets/sfx/Footsteps Mini Sound Pack/BootsLinoleum_02.wav" id="8_pu2lt"]
@@ -14,6 +13,82 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqtel"]
 radius = 33.01515
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu2lt"]
+atlas = ExtResource("3_gymyn")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx1dd"]
+atlas = ExtResource("3_gymyn")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gymyn"]
+atlas = ExtResource("3_gymyn")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
+atlas = ExtResource("3_gymyn")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dp3o"]
+atlas = ExtResource("3_gymyn")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4iuc"]
+atlas = ExtResource("3_gymyn")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd4e3"]
+atlas = ExtResource("3_gymyn")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqcod"]
+atlas = ExtResource("3_gymyn")
+region = Rect2(1536, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igrcy"]
+atlas = ExtResource("3_gymyn")
+region = Rect2(1792, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_olqyp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu2lt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx1dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gymyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukyrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dp3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4iuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd4e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqcod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igrcy")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
 
 [sub_resource type="Curve" id="Curve_3smsa"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8190477, 0.61555964), 0.0, 0.0, 0, 0, Vector2(1, 0.0063694715), 0.0, 0.0, 0, 0]
@@ -47,27 +122,15 @@ color = Color(0.8602191, 0.8636719, 0.8372779, 1)
 texture = ExtResource("3_6t5aa")
 offset = Vector2(6, 3)
 
-[node name="Flashlights" type="PointLight2D" parent="." unique_id=985149395]
-visible = false
-position = Vector2(0, 2.3841858e-07)
-scale = Vector2(2.5937498, 2.5937498)
-color = Color(0.85882354, 0.8627451, 0.8392157, 1)
-texture = ExtResource("4_vgqql")
-offset = Vector2(95, 0)
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=68990338]
+modulate = Color(0.86, 0.4472, 0.5985601, 1)
+position = Vector2(1, 5)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_olqyp")
+frame_progress = 0.032736223
+flip_h = true
 
-[node name="LongBottle" type="Sprite2D" parent="Flashlights" unique_id=615011266]
-position = Vector2(7.710845, 7.710844)
-rotation = -1.5707964
-scale = Vector2(0.09638555, 0.09638555)
-texture = ExtResource("5_fkybt")
-
-[node name="ProcreateAtlas" type="Sprite2D" parent="." unique_id=747736919]
-modulate = Color(0.918826, 0.38327312, 0.5450927, 1)
-texture = ExtResource("2_i3pqv")
-region_enabled = true
-region_rect = Rect2(849, 323, 81, 81)
-
-[node name="puuftrail" type="CPUParticles2D" parent="ProcreateAtlas" unique_id=1509782765]
+[node name="puuftrail" type="CPUParticles2D" parent="PlayerSprite" unique_id=1509782765]
 show_behind_parent = true
 amount = 3
 texture = ExtResource("6_x3wgy")
@@ -80,6 +143,13 @@ angle_max = 252.2
 scale_amount_min = 0.5
 scale_amount_curve = SubResource("Curve_3smsa")
 color_ramp = SubResource("Gradient_8erm5")
+
+[node name="Flashlights" type="PointLight2D" parent="." unique_id=985149395]
+position = Vector2(1, 5)
+scale = Vector2(2.6964464, 2.6964464)
+color = Color(0.85882354, 0.8627451, 0.8392157, 1)
+texture = ExtResource("4_vgqql")
+offset = Vector2(88.18, 0)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1613899274]
 stream = SubResource("AudioStreamRandomizer_fd4e3")

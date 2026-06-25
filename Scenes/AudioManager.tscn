@@ -5,9 +5,6 @@
 [node name="AudioManager" type="Node" unique_id=1717690277]
 script = ExtResource("1_dygvs")
 
-[node name="SFXAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1358038678]
-bus = &"sfx"
-
 [node name="MusicAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1669445050]
 bus = &"music"
 

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dc2jfbebvxgkh"]
+[gd_scene format=3 uid="uid://c5pr55rqn7q6y"]
 
 [ext_resource type="PackedScene" uid="uid://cnbh3ya334cou" path="res://Scenes/Manual.tscn" id="1_37kl0"]
 [ext_resource type="PackedScene" uid="uid://dhaqf5a5qa6di" path="res://Scenes/Puzzle/cockpit_window.tscn" id="2_fos0i"]
@@ -32,9 +32,6 @@ mouse_filter = 2
 color = Color(0.21938166, 0.36828816, 0.45681942, 1)
 
 [node name="CableGame" parent="." unique_id=2025997112 instance=ExtResource("3_3dxm6")]
-
-[node name="CableSpawnMarker" parent="CableGame/CablegameManager" parent_id_path=PackedInt32Array(2025997112, 834513126) index="0" unique_id=6755401]
-position = Vector2(932, 1987)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2020148230]
 anchor_mode = 0

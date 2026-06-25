@@ -7,28 +7,41 @@
 [sub_resource type="Curve2D" id="Curve2D_8um5k"]
 bake_interval = 0.01
 _data = {
-"points": PackedVector2Array(463.2879, -73.17691, -463.2879, 73.17691, 301.34375, -552.5845, 99.85911, -721.83875, -99.85911, 721.83875, -631, -21, -436.0772, 41.765125, 436.0772, -41.765125, 357, 684, 18.099106, 710.26544, -18.099106, -710.26544, 1261, 122, 385.5837, 13.720215, -385.5837, -13.720215, 295.57355, -542.88983)
+"points": PackedVector2Array(473.114, -69.65495, -473.114, 69.65495, 301.34375, -552.5845, 99.85911, -721.83875, -99.85911, 721.83875, -631, -21, -436.0772, 41.765125, 436.0772, -41.765125, 357, 684, 18.099106, 710.26544, -18.099106, -710.26544, 1261, 122, 385.5837, 13.720215, -385.5837, -13.720215, 295.57355, -542.88983)
 }
 point_count = 5
 
 [node name="MenuBackground" type="Node2D" unique_id=146504196]
 script = ExtResource("1_1pn2r")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=316157502]
-offset_left = -7585.0
-offset_top = -3093.0
-offset_right = 9803.0
-offset_bottom = 4693.0
-color = Color(0, 0, 0, 1)
+[node name="Background" type="Node2D" parent="." unique_id=1201662314]
+scale = Vector2(3, 3)
 
-[node name="SpaceBGwithStars" type="Sprite2D" parent="." unique_id=560748178]
-position = Vector2(-2610.8179, 813.49994)
-scale = Vector2(2.3330305, 2.3330302)
+[node name="SpaceBGwithStars3" type="TextureRect" parent="Background" unique_id=219324423]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -4200.0
+offset_top = -1650.0
+offset_bottom = 1650.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("2_ls5x7")
 
-[node name="SpaceBGwithStars2" type="Sprite2D" parent="." unique_id=1198978619]
-position = Vector2(6820.9995, 842.00006)
-scale = Vector2(2.3330305, 2.3330302)
+[node name="SpaceBGwithStars2" type="TextureRect" parent="Background" unique_id=1197499866]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -1650.0
+offset_right = 4200.0
+offset_bottom = 1650.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("2_ls5x7")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1286195541]
@@ -37,7 +50,7 @@ scale = Vector2(0.95819014, 0.89110446)
 curve = SubResource("Curve2D_8um5k")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1625680943]
-position = Vector2(1012.7484, -422.6054)
+position = Vector2(1014.5042, -421.47723)
 rotation = 3.023577
 progress = 4631.73
 rotates = false

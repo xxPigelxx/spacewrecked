@@ -1,2 +1,4 @@
 run_id,timestamp,participant_id,dyslexia_enabled,stress_from_health,run_duration_s,time_used_s,malfunctions_solved,died_early
 P20260610-235550-run01,2026-06-10T23:57:21,P20260610-235550,true,true,60,60.0,0,false
+P20260625-160056-run01,2026-06-25T16:02:43,P20260625-160056,true,true,60,60.0,2,false
+P20260625-205402-run01,2026-06-25T20:55:46,P20260625-205402,true,true,60,60.0,3,false

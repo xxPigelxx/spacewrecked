@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d0ni61bru34ca"
+path="res://.godot/imported/Big_Explosion_Glass_Breaking.wav-e3d457c517a62ee83ffa4ffe17e240f0.sample"
+
+[deps]
+
+source_file="res://resources/assets/sfx/Explosions - Sound Effects/Explosions - Sound Effects/Big_Explosion_Glass_Breaking.wav"
+dest_files=["res://.godot/imported/Big_Explosion_Glass_Breaking.wav-e3d457c517a62ee83ffa4ffe17e240f0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

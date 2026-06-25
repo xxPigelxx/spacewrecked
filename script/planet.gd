@@ -12,6 +12,7 @@ var selection_scale := 1.0
 
 var select_color = Color(0.3, 0.9, 1.0, 1.0)
 var deselect_color =  Color(1.0, 0.2, 0.2, 1.0)
+var _tween: Tween  ## laufender Pop, damit select/deselect sich nicht überlagern
 
 func _ready() -> void:
 	if planet_id.is_empty():
@@ -24,21 +25,25 @@ func _ready() -> void:
 
 ## Auswahl anzeigen: skaliert mit befriedigendem Überschwingen hoch.
 func select() -> void:
-	selection.modulate = select_color
 	if selection == null:
 		return
+	selection.modulate = select_color
 	selection.visible = true
 	selection.scale = Vector2.ZERO
-	var tween := create_tween()
-	tween.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tween.tween_property(selection, "scale", Vector2.ONE * selection_scale, pop_time).from(Vector2.ZERO)
+	if _tween and _tween.is_running():
+		_tween.kill()
+	_tween = create_tween()
+	_tween.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	_tween.tween_property(selection, "scale", Vector2.ONE * selection_scale, pop_time).from(Vector2.ZERO)
 
 ## Auswahl entfernen: schrumpft wieder weg.
 func deselect() -> void:
-	selection.modulate = deselect_color
 	if selection == null:
 		return
-	var tween := create_tween()
-	tween.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-	tween.tween_property(selection, "scale", Vector2.ZERO, pop_time * 0.7)
-	tween.tween_callback(func(): selection.visible = false)
+	selection.modulate = deselect_color
+	if _tween and _tween.is_running():
+		_tween.kill()
+	_tween = create_tween()
+	_tween.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	_tween.tween_property(selection, "scale", Vector2.ZERO, pop_time * 0.7)
+	_tween.tween_callback(func(): selection.visible = false)

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://pk0jwm8us1sn"
+path="res://.godot/imported/Small_Explosion_2.wav-6ef433df962669f3ef7f4fd24b52ae5e.sample"
+
+[deps]
+
+source_file="res://resources/assets/sfx/Explosions - Sound Effects/Explosions - Sound Effects/Small_Explosion_2.wav"
+dest_files=["res://.godot/imported/Small_Explosion_2.wav-6ef433df962669f3ef7f4fd24b52ae5e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

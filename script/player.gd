@@ -2,11 +2,13 @@ extends CharacterBody2D
 
 @export var speed := 300.0
 ## Abstand zwischen zwei Schrittgeraeuschen in Sekunden (Schritt-Takt).
-@export var step_interval := 0.4
+@export var step_interval := 0.5
+
+@onready var player_sprite: AnimatedSprite2D = $PlayerSprite
 
 @onready var player_light: PointLight2D = $playerLight
 @onready var flashlights: PointLight2D = $Flashlights
-@onready var puuftrail: CPUParticles2D = $ProcreateAtlas/puuftrail
+@onready var puuftrail: CPUParticles2D = $PlayerSprite/puuftrail
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var ship_lights_on := false
@@ -47,10 +49,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("flash_light"):
 		toggle_flashlight()
 
-	if flashlights.visible:
-		flashlights.look_at(get_global_mouse_position())
+	
+	flashlights.look_at(get_global_mouse_position())
+	
+	
 	
 	if direction != Vector2.ZERO:
+		player_sprite.play("walk")
+		player_sprite.rotation = direction.angle()
 		puuftrail.emitting = true
 		# Schritt im Takt abspielen, nicht jeden Frame neu starten.
 		_step_t -= delta
@@ -58,6 +64,7 @@ func _physics_process(delta: float) -> void:
 			audio_stream_player.play()   # Randomizer waehlt einen zufaelligen Schritt
 			_step_t = step_interval
 	else:
+		player_sprite.play("default")
 		puuftrail.emitting = false
 		_step_t = 0.0   # beim naechsten Loslaufen sofort ein Schritt
 	
