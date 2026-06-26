@@ -171,6 +171,8 @@ offset_right = 60.0
 offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/normal_font = ExtResource("11_pu2lt")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
@@ -179,9 +181,11 @@ fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 script = ExtResource("11_gymyn")
+text_color = Color(1, 1, 1, 1)
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="LabelBacklight" type="PointLight2D" parent="Label" unique_id=2056320006]
+visible = false
 position = Vector2(62, 31.5)
 scale = Vector2(1.2, 1.2)
 color = Color(0.98, 0.87857, 0.71540004, 0.6745098)

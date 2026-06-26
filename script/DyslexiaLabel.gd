@@ -47,7 +47,6 @@ func _ready() -> void:
 	bbcode_enabled = true
 	fit_content = true
 	scroll_active = false
-	autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	add_theme_color_override("default_color", text_color)
 	_source_text = text
 	_ready_done = true

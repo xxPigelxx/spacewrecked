@@ -30,12 +30,15 @@ func _while_dragging(delta: float) -> void:
 			current_container = a.get_parent()
 			break
 
-	if current_container and not current_container.is_full():
+	var wants_pour := Input.is_action_pressed("pour")
+
+	if current_container and not current_container.is_full() and wants_pour:
 		if not is_pouring:
 			start_pouring()
 
 		var poured = pour_rate * delta
 		current_container.add_to_container(self, poured)
+
 	else:
 		if is_pouring:
 			stop_pouring()

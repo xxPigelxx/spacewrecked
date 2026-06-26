@@ -28,6 +28,7 @@ position = Vector2(-4, -85.999985)
 scale = Vector2(2, 2)
 emitting = false
 texture = ExtResource("3_n4j8r")
+lifetime = 0.5
 randomness = 0.3
 lifetime_randomness = 0.15
 emission_shape = 1

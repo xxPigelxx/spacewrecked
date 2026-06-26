@@ -61,6 +61,9 @@ texture_margin_right = 57.895527
 texture_margin_bottom = 112.50263
 region_rect = Rect2(782, 1429, 484, 594)
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_164it"]
+thickness = 4
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n500u"]
 
 [node name="Manual" type="CanvasLayer" unique_id=1520689515 groups=["no_freeze"]]
@@ -117,10 +120,11 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_q6b25")
 layout_mode = 2
 theme_override_constants/tab_separation = 4
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 clip_tabs = false
 
 [node name="Home" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=504548785]
+visible = false
 layout_mode = 2
 script = ExtResource("2_q6b25")
 metadata/_tab_index = 0
@@ -415,7 +419,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Energie" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=880822609]
-visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
 swap_percent = 50.0
@@ -425,13 +428,16 @@ metadata/_tab_index = 1
 
 [node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie" unique_id=1877905917]
 layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
+offset_right = 611.1953
+offset_bottom = 721.4763
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="PageTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox" unique_id=2038688491]
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
-text = "[b]Energie[/b]"
+text = "Energie"
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -458,49 +464,389 @@ script = ExtResource("2_puywe")
 
 [node name="StepsTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox" unique_id=1290121924]
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
-text = "[b]Cable:"
+text = "Cable"
 fit_content = true
-horizontal_alignment = 1
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
-[node name="StepList" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox" unique_id=1813678494]
+[node name="HSeparator" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox" unique_id=1778169348]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox" unique_id=1086987990]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer" unique_id=148044690]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StepList" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer" unique_id=1813678494]
 layout_mode = 2
 
-[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/StepList" unique_id=569539212]
+[node name="ListTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=2067429402]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "Error Code: 1281"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=1210151258]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=762503407]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=569539212]
 layout_mode = 2
 text = "Blau <-> lila"
 fit_content = true
 scroll_active = false
+autowrap_mode = 0
 horizontal_alignment = 1
 script = ExtResource("2_puywe")
 
-[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/StepList" unique_id=538155865]
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=2000837554]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=538155865]
 layout_mode = 2
 text = "Magenta <-> Grau"
 fit_content = true
 scroll_active = false
+autowrap_mode = 0
 horizontal_alignment = 1
 script = ExtResource("2_puywe")
 
-[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/StepList" unique_id=81365175]
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=487069445]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=237782494]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=169095652]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=81365175]
 layout_mode = 2
 text = "Rot <-> Grün"
 fit_content = true
 scroll_active = false
+autowrap_mode = 0
 horizontal_alignment = 1
 script = ExtResource("2_puywe")
 
-[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/StepList" unique_id=954431327]
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=901902910]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=954431327]
 layout_mode = 2
 text = "Gelb <-> Orange"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=1732039961]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=699017450]
+layout_mode = 2
+bbcode_enabled = true
+text = "Limette <-> Cyan"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 script = ExtResource("2_puywe")
 
-[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/StepList" unique_id=699017450]
+[node name="HSeparator2" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer" unique_id=147630858]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="StepList2" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer" unique_id=147660546]
+layout_mode = 2
+
+[node name="ListTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=413736158]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "Error Code: 3854"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=209707154]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=268324257]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=716592493]
+layout_mode = 2
+text = "Blau <-> lila"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=1773058906]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=1922022539]
+layout_mode = 2
+text = "Magenta <-> Grau"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=487849258]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=1389294952]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=1966664027]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=1258087147]
+layout_mode = 2
+text = "Rot <-> Grün"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=872676758]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=62461876]
+layout_mode = 2
+text = "Gelb <-> Orange"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=289188762]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=755348854]
+layout_mode = 2
+bbcode_enabled = true
+text = "Limette <-> Cyan"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="HSeparator3" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer" unique_id=1988802002]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="StepList3" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer" unique_id=1112879786]
+layout_mode = 2
+
+[node name="ListTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=1849487690]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "Error Code: 3854"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=2091968455]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=1283006697]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=141359970]
+layout_mode = 2
+text = "Blau <-> lila"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=1876711503]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=1361556701]
+layout_mode = 2
+text = "Magenta <-> Grau"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=1296113410]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=833207698]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=2098126172]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=1526051493]
+layout_mode = 2
+text = "Rot <-> Grün"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=1278697753]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=239305755]
+layout_mode = 2
+text = "Gelb <-> Orange"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=997802694]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=390444661]
+layout_mode = 2
+bbcode_enabled = true
+text = "Limette <-> Cyan"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="HSeparator4" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer" unique_id=988850858]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="StepList4" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer" unique_id=1803047547]
+layout_mode = 2
+
+[node name="ListTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1839252215]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "Error Code: 3854"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1778062955]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=1927825257]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=96287848]
+layout_mode = 2
+text = "Blau <-> lila"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=73178423]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=1829003244]
+layout_mode = 2
+text = "Magenta <-> Grau"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=1670968792]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=100528225]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=1753553417]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=1394828945]
+layout_mode = 2
+text = "Rot <-> Grün"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=1160110170]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=712535045]
+layout_mode = 2
+text = "Gelb <-> Orange"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=2030394911]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1662943750]
 layout_mode = 2
 bbcode_enabled = true
 text = "Limette <-> Cyan"
