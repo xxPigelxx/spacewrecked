@@ -4,6 +4,9 @@ extends Node
 @export var cable_spawn_y_offset := 80.0
 @export var category:  = "strom"
 
+@onready var error_code: Node2D = $ErrorCode
+@onready var cable_spawn_marker: Marker2D = $CableSpawnMarker
+
 ## Wird von der Malfunction über open_overlay_with_data gesetzt (kann null sein bei Tutorial).
 var malfunction = null
 
@@ -12,8 +15,6 @@ var win := false
 
 var cable := preload("res://Scenes/cable.tscn")
 var spawned_cables := []
-
-@onready var cable_spawn_marker: Marker2D = $CableSpawnMarker
 
 func _ready() -> void:
 	sockets = get_tree().get_nodes_in_group("socket")
@@ -30,6 +31,9 @@ func _check_all_sockets_aktive() -> void:
 
 func _on_win():
 	win = true
+	error_code.lamp_flash()
+	AudioManager.play_success()
+	await get_tree().create_timer(0.75).timeout
 	if malfunction:
 		malfunction.mark_solved()
 	SceneSwitcher.close_overlay_scene()

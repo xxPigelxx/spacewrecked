@@ -29,6 +29,7 @@ const COL_RED := Color(1.0, 0.45, 0.45)
 @onready var _status: Label = $Center/Panel/Margin/VBox/Status
 @onready var _confirm_bt: Button = $Center/Panel/Margin/VBox/Buttons/ConfirmBt
 @onready var _back_bt: Button = $Center/Panel/Margin/VBox/Buttons/BackBt
+@onready var error_code: Node2D = $ErrorCode
 
 var _knobs: Array = []
 var _slots: Array = []
@@ -130,7 +131,9 @@ func _win() -> void:
 		k.set_process(false)
 	_status.add_theme_color_override("font_color", COL_GREEN)
 	_status.text = "SCHILD STABIL — Reparatur abgeschlossen!"
-	await get_tree().create_timer(0.9).timeout
+	error_code.lamp_flash()
+	AudioManager.play_success()
+	await get_tree().create_timer(0.75).timeout
 	if malfunction:
 		malfunction.mark_solved()
 	SceneSwitcher.close_overlay_scene()

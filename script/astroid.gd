@@ -18,5 +18,5 @@ func move_to_point(target_pos: Vector2):
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", target_pos, 1.5)
 	await tween.finished
-	AudioManager.play_sfx("res://resources/assets/sfx/Explosions - Sound Effects/Explosions - Sound Effects/Small_Explosion_3.wav")
+	#AudioManager.play_sfx("res://resources/assets/sfx/Explosions - Sound Effects/Explosions - Sound Effects/Small_Explosion_3.wav")
 	queue_free()

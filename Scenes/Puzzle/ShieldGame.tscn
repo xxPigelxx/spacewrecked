@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="3_qv22v"]
 [ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="4_tdh0k"]
 [ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="5_qv22v"]
+[ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="7_yae4s"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tdh0k"]
 texture = ExtResource("3_qv22v")
@@ -259,5 +260,8 @@ theme = ExtResource("5_qv22v")
 theme_override_font_sizes/font_size = 50
 text = "Win
 "
+
+[node name="ErrorCode" parent="." unique_id=1170533520 instance=ExtResource("7_yae4s")]
+position = Vector2(633, 189)
 
 [connection signal="pressed" from="Win" to="." method="_win"]

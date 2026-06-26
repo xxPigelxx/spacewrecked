@@ -34,7 +34,6 @@ func get_free_sfx_player() -> AudioStreamPlayer:
 	# fallback if all are busy (overwrites oldest slot)
 	return sfx_players[0]
 
-
 func play_sfx(path: String) -> void:
 	var player := get_free_sfx_player()
 
@@ -44,6 +43,9 @@ func play_sfx(path: String) -> void:
 	player.stream = sfx_cache[path]
 	player.play()
 
+
+func play_success():
+	play_sfx("res://resources/assets/sfx/Interface_Bleeps_Wav/Confirm_01.wav")
 
 # --------------------
 # MUSIC SYSTEM

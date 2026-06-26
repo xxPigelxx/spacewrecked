@@ -10,6 +10,9 @@ extends Node2D
 var current_time := 0.0
 var lamp_active := true
 
+var actiave_lamp_color := Color(0.0, 0.972, 0.142, 1.0)
+
+
 func _ready() -> void:
 	dyslexia_label.text = error_code
 	_update_lamps()
@@ -25,3 +28,8 @@ func _process(delta: float) -> void:
 func _update_lamps() -> void:
 	lamp.set_active(lamp_active)
 	lamp_2.set_active(lamp_active)
+
+func lamp_flash():
+	lamp_flash_time = 0.2
+	lamp.active_color = actiave_lamp_color
+	lamp_2.active_color = actiave_lamp_color

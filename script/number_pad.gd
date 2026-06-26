@@ -15,8 +15,12 @@ extends Node
 
 var _text_start_position: Vector2
 var cheat_code := "666666"
+var lamp_scale
+var solved := false
 
 func _ready() -> void:
+	solved = false
+	lamp_scale = lamp.scale
 	_text_start_position = numpad_text.position
 	for child in numpad_buttons.get_children():
 		if child is Button:
@@ -35,8 +39,7 @@ func _on_button_pressed(button: Button) -> void:
 		return
 
 	if numpad_text.text.length() >= max_length:
-		if numpad_text.text != code:
-			_shake_text()
+		_try_submit()
 		return
 
 	numpad_text.text += button.text
@@ -45,14 +48,16 @@ func _on_button_pressed(button: Button) -> void:
 		_try_submit()
 
 func _try_submit() -> void:
-	var audio = "res://resources/assets/sfx/Interface_Bleeps_Wav/Denied_03.wav"
+	if solved:
+		return
 	if numpad_text.text == code or numpad_text.text == cheat_code:
 		print("Puzzle Solved")
+		solved = true
 		_on_win()
-		audio = "res://resources/assets/sfx/Interface_Bleeps_Wav/Confirm_01.wav"
+		AudioManager.play_success()
 	else:
 		_shake_text()
-	AudioManager.play_sfx(audio)
+		AudioManager.play_sfx("res://resources/assets/sfx/Interface_Bleeps_Wav/Denied_03.wav")
 
 func _shake_text() -> void:
 	numpad_text.position = _text_start_position
@@ -65,11 +70,25 @@ func _shake_text() -> void:
 	tween.tween_property(numpad_text, "position", _text_start_position, shake_speed)
 
 
+func _flash_lights() -> Tween:
+	var tween := create_tween()
+
+	for i in range(2):
+		tween.tween_property(lamp, "scale", lamp_scale*1.2, 0.05)
+		tween.tween_property(lamp_2, "scale", lamp_scale*1.2, 0.05)
+		
+		tween.tween_property(lamp, "scale", lamp_scale, 0.05)
+		tween.tween_property(lamp_2, "scale", lamp_scale, 0.05)
+		
+
+	return tween
+
 func _on_return_bt_pressed() -> void:
 	SceneSwitcher.close_overlay_scene(true, false)
 
 func _on_win() -> void:
 	lamp.set_active(true)
 	lamp_2.set_active(true)
+	await _flash_lights().finished
 	GameState.unlock_door(door_id)
 	SceneSwitcher.close_overlay_scene(true,false)

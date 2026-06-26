@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var liquid_line: AnimatedSprite2D = $Container/ColorRect/LiquidLine
 @onready var recipe_label: RichTextLabel = $RecipePanel/RichTextLabel
 @onready var fulestand: RichTextLabel = $Fulestand
+@onready var error_code: Node2D = $ErrorCode
 
 @export var max_fill: float = 140.0
 ## Rezept: jeder Eintrag ist { "bottle_name": String, "target_pct": float (0–100) }
@@ -116,6 +117,9 @@ func _check_win() -> bool:
 
 func _on_win() -> void:
 	print("WIN! Rezept stimmt!")
+	error_code.lamp_flash()
+	AudioManager.play_success()
+	await get_tree().create_timer(0.75).timeout
 	if malfunction:
 		malfunction.mark_solved()
 	SceneSwitcher.close_overlay_scene()

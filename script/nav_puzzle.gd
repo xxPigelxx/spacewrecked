@@ -28,6 +28,7 @@ extends Node
 @onready var planets_root: Node2D = $Space/planets
 @onready var start_button: Button = $StartShipBt
 @onready var return_bt: Button = $ReturnBt
+@onready var error_code: Node2D = $ErrorCode
 
 var malfunction = null
 
@@ -199,6 +200,8 @@ func _win() -> void:
 	_solved = true
 	if malfunction:
 		malfunction.mark_solved()
+	error_code.lamp_flash()
+	AudioManager.play_success()
 	_play_win_animation()
 	return_bt.disabled = true
 	

@@ -45,16 +45,16 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_brwtl")
 
 [node name="ProcreateAtlas" type="Sprite2D" parent="PanelContainer" unique_id=1791106985]
 position = Vector2(152, -75.99999)
-scale = Vector2(0.8590022, 0.6335079)
+scale = Vector2(0.859, 0.634)
 texture = ExtResource("1_brwtl")
 region_enabled = true
 region_rect = Rect2(1033, 815, 461, 191)
 
 [node name="NumpadText" type="RichTextLabel" parent="PanelContainer/ProcreateAtlas" unique_id=1814745856]
-offset_left = -168.8005
-offset_top = -21.30992
-offset_right = 157.15909
-offset_bottom = 51.049583
+offset_left = -171.12923
+offset_top = -29.968441
+offset_right = 154.83037
+offset_bottom = 42.391064
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_rbccy")
 theme_override_font_sizes/normal_font_size = 57
@@ -63,12 +63,12 @@ horizontal_alignment = 1
 
 [node name="lamp" parent="PanelContainer/ProcreateAtlas" unique_id=402077154 instance=ExtResource("4_mfesi")]
 position = Vector2(197.3295, 7.093437)
-scale = Vector2(0.302, 0.409)
+scale = Vector2(0.35, 0.35)
 active_color = Color(0.5371481, 0.86613333, 0.51741296, 1)
 
 [node name="lamp2" parent="PanelContainer/ProcreateAtlas" unique_id=162806052 instance=ExtResource("4_mfesi")]
 position = Vector2(-208.95584, 7.093437)
-scale = Vector2(0.302, 0.409)
+scale = Vector2(0.35, 0.35)
 active_color = Color(0.5371481, 0.86613333, 0.51741296, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=40228863]

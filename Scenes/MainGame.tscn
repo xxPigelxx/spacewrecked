@@ -103,7 +103,7 @@ horizontal_alignment = 1
 
 [node name="PointLight2D" type="PointLight2D" parent="Interactabels/SetupMalfunctions/ManualItemPickup" unique_id=2047586178]
 light_mask = 2
-color = Color(0.9998614, 0.23779336, 0.24820319, 0.9137255)
+color = Color(1, 0.24000001, 0.25266647, 0.74509805)
 texture = ExtResource("13_wyocf")
 offset = Vector2(6, 3)
 

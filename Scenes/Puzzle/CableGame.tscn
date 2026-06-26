@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dfvo5edp67xki" path="res://script/cablegame_manager.gd" id="1_tkd5u"]
 [ext_resource type="PackedScene" uid="uid://dlocelh4wsyel" path="res://Scenes/socket.tscn" id="2_hesem"]
 [ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="3_t1tc3"]
+[ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="5_1d3s5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_heo7m"]
 texture = ExtResource("1_hesem")
@@ -45,9 +46,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 245.0
-offset_top = 44.0
+offset_top = 34.0
 offset_right = -307.0
-offset_bottom = -56.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -199,6 +200,10 @@ socket_color = Color(0.5686275, 0.11764706, 0.7058824, 1)
 pair_id = "3"
 
 [node name="Cabels" type="Node2D" parent="." unique_id=1846986884]
+
+[node name="ErrorCode" parent="." unique_id=1170533520 instance=ExtResource("5_1d3s5")]
+position = Vector2(960, 80)
+error_code = "34"
 
 [connection signal="pressed" from="Panel/SpawnCableBt" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Panel/ReturnBt" to="." method="_on_return_bt_pressed"]

@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dxt4ee8t4jved" path="res://resources/assets/Items/Bottles/PetrolBottle.tres" id="13_p5xu6"]
 [ext_resource type="Texture2D" uid="uid://7u720v4croox" path="res://resources/assets/Items/Bottles/WatterinngCan.tres" id="14_it0an"]
 [ext_resource type="Script" uid="uid://clg63em8vrbc0" path="res://script/DyslexiaLabel.gd" id="14_nrd5h"]
+[ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="15_5bels"]
 [ext_resource type="Texture2D" uid="uid://wof4yw2g8cy4" path="res://resources/assets/Items/Bottles/RoundBottle.tres" id="15_nrd5h"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p5xu6"]
@@ -84,7 +85,7 @@ anchor_bottom = 1.0
 offset_left = 245.0
 offset_top = 44.0
 offset_right = -307.0
-offset_bottom = -56.0
+offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -179,27 +180,27 @@ bottle_texture = ExtResource("15_nrd5h")
 
 [node name="returnBt" type="Button" parent="." unique_id=590159499]
 offset_left = 1278.0
-offset_top = 913.0
+offset_top = 933.0
 offset_right = 1530.0
-offset_bottom = 1002.4972
+offset_bottom = 1022.4972
 theme = ExtResource("10_f2yc3")
 theme_override_font_sizes/font_size = 50
 text = "Return"
 
 [node name="resetBt2" type="Button" parent="." unique_id=1708794599]
 offset_left = 821.0
-offset_top = 914.0
+offset_top = 934.0
 offset_right = 1073.0
-offset_bottom = 1003.4972
+offset_bottom = 1023.4972
 theme = ExtResource("10_f2yc3")
 theme_override_font_sizes/font_size = 50
 text = "win"
 
 [node name="resetBt" type="Button" parent="." unique_id=1744834196]
 offset_left = 348.0
-offset_top = 907.0
+offset_top = 927.0
 offset_right = 600.0
-offset_bottom = 996.4972
+offset_bottom = 1016.4972
 theme = ExtResource("10_f2yc3")
 theme_override_font_sizes/font_size = 50
 text = "Empty"
@@ -227,6 +228,9 @@ text = "Füllstand: "
 fit_content = true
 script = ExtResource("14_nrd5h")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="ErrorCode" parent="." unique_id=1170533520 instance=ExtResource("15_5bels")]
+position = Vector2(923, 93.045)
 
 [connection signal="pressed" from="returnBt" to="." method="_on_return_bt_pressed"]
 [connection signal="pressed" from="resetBt2" to="." method="_on_win"]

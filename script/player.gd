@@ -28,6 +28,7 @@ func _ready() -> void:
 	GameState.broken_systems_changed.connect(_on_strom_changed)
 	
 	label.visible = false
+	flashlights.visible = false
 	
 func _on_strom_changed() -> void:
 	switch_lights(not GameState.is_system_broken("strom"))

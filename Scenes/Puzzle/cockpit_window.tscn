@@ -12,6 +12,7 @@
 [ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="7_cmgvn"]
 [ext_resource type="Texture2D" uid="uid://bdmxe45utame4" path="res://resources/assets/over.tres" id="7_es3id"]
 [ext_resource type="Script" uid="uid://iqf6kfhsygp6" path="res://script/nav_puzzle.gd" id="12_c6vri"]
+[ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="13_0q44l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbavm"]
 size = Vector2(1934, 1065)
@@ -294,7 +295,7 @@ offset_bottom = 1080.0
 texture = ExtResource("3_lq4cw")
 
 [node name="Joystick" parent="." unique_id=555388885 instance=ExtResource("4_cmgvn")]
-position = Vector2(960, 927)
+position = Vector2(960, 884)
 
 [node name="Detector" type="Area2D" parent="." unique_id=433302880]
 position = Vector2(960, 540)
@@ -344,6 +345,9 @@ theme = ExtResource("7_cmgvn")
 theme_override_font_sizes/font_size = 50
 text = "win
 "
+
+[node name="ErrorCode" parent="." unique_id=1170533520 instance=ExtResource("13_0q44l")]
+position = Vector2(960, 1024)
 
 [connection signal="area_entered" from="Detector" to="Detector" method="_on_area_entered"]
 [connection signal="area_exited" from="Detector" to="Detector" method="_on_area_exited"]
