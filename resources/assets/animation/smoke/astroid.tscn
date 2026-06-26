@@ -12,33 +12,33 @@ rotation_speed = -4
 [node name="AstriodSprite" type="Sprite2D" parent="." unique_id=199252120]
 self_modulate = Color(0.4392157, 0.24313726, 0.12941177, 1)
 position = Vector2(11, 9)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_v1vmo")
 region_enabled = true
 region_rect = Rect2(1054, 550, 245, 192)
 
 [node name="FierSFX" parent="." unique_id=1174731421 instance=ExtResource("3_ijs3o")]
 show_behind_parent = true
-position = Vector2(49.861824, -14.107357)
+position = Vector2(59.769684, -16.497364)
 rotation = 1.0751299
-scale = Vector2(0.3460262, 0.39522246)
+scale = Vector2(0.346, 0.395)
 animation = &"Fier_ainmation"
 frame_progress = 0.0
 
 [node name="FierSFX2" parent="." unique_id=1852422795 instance=ExtResource("3_ijs3o")]
 show_behind_parent = true
-position = Vector2(59.019352, 20.369137)
+position = Vector2(68.92721, 17.97913)
 rotation = 1.8754541
-scale = Vector2(0.27360687, 0.40197802)
+scale = Vector2(0.346, 0.395)
 animation = &"Fier_ainmation"
 frame = 5
 frame_progress = 0.0
 
 [node name="FierSFX3" parent="." unique_id=802076513 instance=ExtResource("3_ijs3o")]
 show_behind_parent = true
-position = Vector2(71.694565, 5.7656703)
+position = Vector2(81.602425, 3.3756633)
 rotation = 1.5707964
-scale = Vector2(0.325773, 0.60092556)
+scale = Vector2(0.346, 0.395)
 animation = &"Fier_ainmation"
 frame = 2
 frame_progress = 0.0

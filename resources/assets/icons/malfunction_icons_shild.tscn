@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://paf2ndw45mpb"]
+
+[ext_resource type="Texture2D" uid="uid://d052ggnbiiynp" path="res://resources/assets/malfunction_icons.png" id="1_hy17a"]
+
+[node name="MalfunctionIconsShild" type="Sprite2D" unique_id=277156904]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_hy17a")
+region_enabled = true
+region_rect = Rect2(256, 28, 145, 141)

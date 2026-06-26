@@ -16,6 +16,8 @@ enum Phase { TUTORIAL, JOURNEY }
 @export var partical: CPUParticles2D = null
 @export var astoroid: = false
 
+@onready var ship: Node2D = $"../../../Ship"
+
 const ASTROID = preload("uid://bdb3yq2bckj6b")
 
 var _active := false
@@ -77,6 +79,8 @@ func activate() -> void:
 
 		# Auf Ankunft warten
 		await new_asteroid.move_to_point(global_position)
+		
+		await ship.shake_ship()
 		
 	visible = true
 	set_deferred("monitoring", true)

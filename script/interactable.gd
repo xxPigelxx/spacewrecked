@@ -39,14 +39,14 @@ func _action() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		body.set_text(prompt_text)
 		player_near = true
-		if label:
-			label.visible = true
-			label.text = "[wave amp=20 freq=4]%s[/wave]" % prompt_text
+		#label.visible = true
+		#label.text = "[wave amp=20 freq=4]%s[/wave]" % prompt_text
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		body.disable_text()
 		player_near = false
-		if label:
-			label.visible = false
-			label.text = ""
+		label.visible = false
+		label.text = ""

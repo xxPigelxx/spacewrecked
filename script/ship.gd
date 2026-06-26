@@ -4,6 +4,8 @@ extends Node2D
 @onready var space_bg: Node2D = $SpaceBg
 @onready var shilds: Sprite2D = $shilds
 
+@export var ship_impact_shake_intecity:= 5
+
 func _ready() -> void:
 	fier_sfx_1.visible = false
 	fier_sfx_2.visible = false
@@ -14,6 +16,17 @@ func _physics_process(delta: float) -> void:
 		start_flight()
 	#_are_shilds_active()
 
+
+func shake_ship():
+	var tween = create_tween()
+	var intensity = deg_to_rad(ship_impact_shake_intecity)
+
+	for i in range(4):
+		tween.tween_property(self, "rotation", intensity, 0.04)
+		tween.tween_property(self, "rotation", -intensity, 0.04)
+		intensity *= 0.6
+
+	tween.tween_property(self, "rotation", 0.0, 0.05)
 
 func _play_fier_animation():
 	fier_sfx_1.visible = true

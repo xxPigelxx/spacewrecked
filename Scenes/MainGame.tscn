@@ -12,27 +12,23 @@
 [ext_resource type="PackedScene" uid="uid://dob8m8k1h72mn" path="res://Scenes/Manual_NEU.tscn" id="7_ktwve"]
 [ext_resource type="Script" uid="uid://kudxrduhqrqa" path="res://script/manual_item_pickup.gd" id="11_q8sds"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="12_yr2pg"]
+[ext_resource type="PackedScene" uid="uid://drta8bv48ypoi" path="res://resources/assets/icons/malfunction_icons_signal.tscn" id="13_wn26v"]
 [ext_resource type="Texture2D" uid="uid://evb6q7n135rx" path="res://resources/assets/Items/lights/player_light.png" id="13_wyocf"]
 [ext_resource type="PackedScene" uid="uid://gokpjx4gjg6h" path="res://resources/assets/animation/smoke/smoke.tscn" id="15_k6vqf"]
 [ext_resource type="PackedScene" uid="uid://cp1xf440pul8v" path="res://resources/assets/animation/smoke/smoke_ani.tscn" id="15_yc6xl"]
 [ext_resource type="Script" uid="uid://7yhscdoqwdut" path="res://script/ship_lights.gd" id="16_ktwve"]
 [ext_resource type="PackedScene" uid="uid://vs526fyd62fp" path="res://Scenes/DyslexiaDebugPanel.tscn" id="16_r5sjn"]
+[ext_resource type="PackedScene" uid="uid://cdbcc2ctfsiag" path="res://resources/assets/icons/malfunction_icons_wiers.tscn" id="17_cmrup"]
+[ext_resource type="PackedScene" uid="uid://dmp5si50jkk1f" path="res://Scenes/malfunction_interactable.tscn" id="17_wn26v"]
+[ext_resource type="PackedScene" uid="uid://dqxb5w7muq4js" path="res://resources/assets/icons/malfunction_icons_mix.tscn" id="18_im1vy"]
 [ext_resource type="Script" uid="uid://6nusq4blrso6" path="res://script/malfunction_interactable.gd" id="19_k6vqf"]
+[ext_resource type="PackedScene" uid="uid://paf2ndw45mpb" path="res://resources/assets/icons/malfunction_icons_shild.tscn" id="19_yy0n7"]
 [ext_resource type="Texture2D" uid="uid://lfjd27jlm270" path="res://resources/assets/underHealthbar.tres" id="20_jn25s"]
 [ext_resource type="Texture2D" uid="uid://6q5gw8ommti" path="res://resources/assets/progressHealthbar.tres" id="21_glaac"]
 [ext_resource type="Script" uid="uid://bja6tafov3g2l" path="res://script/ship_health_bar.gd" id="22_glaac"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yr2pg"]
 radius = 71.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_wyocf"]
-radius = 73.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_k6vqf"]
-radius = 48.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_jn25s"]
-radius = 48.0
 
 [node name="MainGame" type="Node2D" unique_id=819575177]
 
@@ -68,9 +64,9 @@ visible = false
 
 [node name="Interactabels" type="Node" parent="." unique_id=967127591]
 
-[node name="SetupMalfunctions" type="Node" parent="Interactabels" unique_id=1447381201]
+[node name="SetupMalfunctions" type="Node2D" parent="Interactabels" unique_id=35942549]
 
-[node name="Interactable" parent="Interactabels/SetupMalfunctions" unique_id=844235675 node_paths=PackedStringArray("start_up_animation", "partical") instance=ExtResource("4_ybmw1")]
+[node name="NavStart" parent="Interactabels/SetupMalfunctions" unique_id=844235675 node_paths=PackedStringArray("start_up_animation", "partical") instance=ExtResource("4_ybmw1")]
 position = Vector2(1408, 550)
 script = ExtResource("19_k6vqf")
 category = 4
@@ -79,9 +75,11 @@ start_up_animation = NodePath("SmokeAni")
 partical = NodePath("SmokeParticle")
 overlay_scene = "uid://dhaqf5a5qa6di"
 
-[node name="SmokeParticle" parent="Interactabels/SetupMalfunctions/Interactable" unique_id=46986883 instance=ExtResource("15_k6vqf")]
+[node name="SmokeParticle" parent="Interactabels/SetupMalfunctions/NavStart" unique_id=46986883 instance=ExtResource("15_k6vqf")]
 
-[node name="SmokeAni" parent="Interactabels/SetupMalfunctions/Interactable" unique_id=726230904 instance=ExtResource("15_yc6xl")]
+[node name="SmokeAni" parent="Interactabels/SetupMalfunctions/NavStart" unique_id=726230904 instance=ExtResource("15_yc6xl")]
+
+[node name="MalfunctionIconsSignal" parent="Interactabels/SetupMalfunctions/NavStart" unique_id=72393084 instance=ExtResource("13_wn26v")]
 
 [node name="ManualItemPickup" type="Area2D" parent="Interactabels/SetupMalfunctions" unique_id=612487883]
 position = Vector2(1113, 365)
@@ -90,12 +88,6 @@ prompt_text = "Press E to Pickup"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/SetupMalfunctions/ManualItemPickup" unique_id=691600370]
 shape = SubResource("CircleShape2D_yr2pg")
-
-[node name="Sprite2D" type="Sprite2D" parent="Interactabels/SetupMalfunctions/ManualItemPickup" unique_id=415291239]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("12_yr2pg")
-region_enabled = true
-region_rect = Rect2(1346, 1049, 102, 129)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/SetupMalfunctions/ManualItemPickup" unique_id=1189917796]
 offset_left = -61.0
@@ -110,184 +102,198 @@ scroll_active = false
 horizontal_alignment = 1
 
 [node name="PointLight2D" type="PointLight2D" parent="Interactabels/SetupMalfunctions/ManualItemPickup" unique_id=2047586178]
+light_mask = 2
 color = Color(0.9998614, 0.23779336, 0.24820319, 0.9137255)
 texture = ExtResource("13_wyocf")
 offset = Vector2(6, 3)
 
-[node name="Wiers1" type="Area2D" parent="Interactabels/SetupMalfunctions" unique_id=1236526605 node_paths=PackedStringArray("start_up_animation", "partical")]
-position = Vector2(-113, 186)
-script = ExtResource("19_k6vqf")
+[node name="Sprite2D" type="Sprite2D" parent="Interactabels/SetupMalfunctions/ManualItemPickup" unique_id=415291239]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_yr2pg")
+region_enabled = true
+region_rect = Rect2(1346, 1049, 102, 129)
+
+[node name="WiersStart" parent="Interactabels/SetupMalfunctions" unique_id=1566729689 instance=ExtResource("17_wn26v")]
+position = Vector2(662, 309)
 category = 1
 phase = 0
-start_up_animation = NodePath("SmokeAni")
-partical = NodePath("SmokeParticle")
 overlay_scene = "uid://mx67lrqv2oom"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/SetupMalfunctions/Wiers1" unique_id=1479118903]
-shape = SubResource("CircleShape2D_wyocf")
+[node name="MalfunctionIconsWiers" parent="Interactabels/SetupMalfunctions/WiersStart" unique_id=112730009 instance=ExtResource("17_cmrup")]
 
-[node name="Sprite2D" type="Sprite2D" parent="Interactabels/SetupMalfunctions/Wiers1" unique_id=1796741518]
-scale = Vector2(0.4331117, 0.4331117)
-texture = ExtResource("12_yr2pg")
-region_enabled = true
-region_rect = Rect2(34, 1307, 175, 166)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/SetupMalfunctions/Wiers1" unique_id=1597470499]
-offset_left = -61.0
-offset_top = -97.0
-offset_right = 63.0
-offset_bottom = -34.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_321ql")
-theme_override_font_sizes/normal_font_size = 28
-text = "Press E to Interact"
-scroll_active = false
-horizontal_alignment = 1
-
-[node name="SmokeParticle" parent="Interactabels/SetupMalfunctions/Wiers1" unique_id=1951573385 instance=ExtResource("15_k6vqf")]
-
-[node name="SmokeAni" parent="Interactabels/SetupMalfunctions/Wiers1" unique_id=1623758218 instance=ExtResource("15_yc6xl")]
-
-[node name="Mix" type="Area2D" parent="Interactabels/SetupMalfunctions" unique_id=440245220 node_paths=PackedStringArray("start_up_animation", "partical")]
-position = Vector2(-101, 1105)
-script = ExtResource("19_k6vqf")
+[node name="MixStart" parent="Interactabels/SetupMalfunctions" unique_id=1610473039 instance=ExtResource("17_wn26v")]
+position = Vector2(-49, 1028)
 category = 2
 phase = 0
-start_up_animation = NodePath("SmokeAni")
-partical = NodePath("SmokeParticle")
 overlay_scene = "uid://cipbu25o2n6ae"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/SetupMalfunctions/Mix" unique_id=76625290]
-shape = SubResource("CircleShape2D_wyocf")
+[node name="MalfunctionIconsMix" parent="Interactabels/SetupMalfunctions/MixStart" unique_id=1392841191 instance=ExtResource("18_im1vy")]
 
-[node name="Sprite2D" type="Sprite2D" parent="Interactabels/SetupMalfunctions/Mix" unique_id=1840672648]
-scale = Vector2(0.4331117, 0.4331117)
-texture = ExtResource("12_yr2pg")
-region_enabled = true
-region_rect = Rect2(34, 1307, 175, 166)
+[node name="ShildStart" parent="Interactabels/SetupMalfunctions" unique_id=1022493108 instance=ExtResource("17_wn26v")]
+position = Vector2(12, 549)
+category = 3
+phase = 0
+overlay_scene = "uid://c2pjmhdar3m1e"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/SetupMalfunctions/Mix" unique_id=303594322]
-offset_left = -61.0
-offset_top = -97.0
-offset_right = 63.0
-offset_bottom = -34.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_321ql")
-theme_override_font_sizes/normal_font_size = 28
-text = "Press E to Interact"
-scroll_active = false
-horizontal_alignment = 1
+[node name="MalfunctionIconsShild" parent="Interactabels/SetupMalfunctions/ShildStart" unique_id=277156904 instance=ExtResource("19_yy0n7")]
 
-[node name="SmokeParticle" parent="Interactabels/SetupMalfunctions/Mix" unique_id=1124103850 instance=ExtResource("15_k6vqf")]
+[node name="JourneyMalfunctions" type="Node2D" parent="Interactabels" unique_id=459453230]
 
-[node name="SmokeAni" parent="Interactabels/SetupMalfunctions/Mix" unique_id=1872304470 instance=ExtResource("15_yc6xl")]
-
-[node name="MalfunctionSpawner" type="Node2D" parent="Interactabels" unique_id=1994295542]
-
-[node name="CableMalfunction1" type="Area2D" parent="Interactabels/MalfunctionSpawner" unique_id=691038018 node_paths=PackedStringArray("start_up_animation", "partical")]
-position = Vector2(505, 537)
-script = ExtResource("19_k6vqf")
+[node name="WiersJourney" parent="Interactabels/JourneyMalfunctions" unique_id=2023701069 instance=ExtResource("17_wn26v")]
+position = Vector2(662, 773)
 category = 1
-spawn_time = 5.0
-start_up_animation = NodePath("SmokeAni")
-partical = NodePath("SmokeParticle")
+spawn_time = 20.0
 astoroid = true
-prompt_text = "E: Kabel reparieren"
-overlay_scene = "res://Scenes/Puzzle/CableGame.tscn"
+overlay_scene = "uid://mx67lrqv2oom"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/MalfunctionSpawner/CableMalfunction1" unique_id=1113010476]
-shape = SubResource("CircleShape2D_k6vqf")
+[node name="MalfunctionIconsWiers" parent="Interactabels/JourneyMalfunctions/WiersJourney" unique_id=1050304997 instance=ExtResource("17_cmrup")]
 
-[node name="Sprite2D" type="Sprite2D" parent="Interactabels/MalfunctionSpawner/CableMalfunction1" unique_id=242542600]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("12_yr2pg")
-region_enabled = true
-region_rect = Rect2(34, 1307, 175, 166)
-
-[node name="SmokeParticle" parent="Interactabels/MalfunctionSpawner/CableMalfunction1" unique_id=952844784 instance=ExtResource("15_k6vqf")]
-
-[node name="SmokeAni" parent="Interactabels/MalfunctionSpawner/CableMalfunction1" unique_id=82181897 instance=ExtResource("15_yc6xl")]
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/MalfunctionSpawner/CableMalfunction1" unique_id=5774446]
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "Press E"
-
-[node name="CableMalfunction2" type="Area2D" parent="Interactabels/MalfunctionSpawner" unique_id=1806773932 node_paths=PackedStringArray("start_up_animation", "partical")]
-position = Vector2(48, 445)
-script = ExtResource("19_k6vqf")
+[node name="WiersJourney2" parent="Interactabels/JourneyMalfunctions" unique_id=805729252 instance=ExtResource("17_wn26v")]
+position = Vector2(662, 309)
 category = 1
-spawn_time = 45.0
-start_up_animation = NodePath("SmokeAni")
-partical = NodePath("SmokeParticle")
+spawn_time = 75.0
 astoroid = true
-prompt_text = "E: Kabel reparieren"
-overlay_scene = "uid://cvx8uf3sul6n8"
+overlay_scene = "uid://mx67lrqv2oom"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/MalfunctionSpawner/CableMalfunction2" unique_id=10193641]
-shape = SubResource("CircleShape2D_k6vqf")
+[node name="MalfunctionIconsWiers" parent="Interactabels/JourneyMalfunctions/WiersJourney2" unique_id=593299362 instance=ExtResource("17_cmrup")]
 
-[node name="Sprite2D" type="Sprite2D" parent="Interactabels/MalfunctionSpawner/CableMalfunction2" unique_id=7229350]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("12_yr2pg")
-region_enabled = true
-region_rect = Rect2(34, 1307, 175, 166)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/MalfunctionSpawner/CableMalfunction2" unique_id=2104527556]
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "Press E"
-
-[node name="SmokeParticle" parent="Interactabels/MalfunctionSpawner/CableMalfunction2" unique_id=10355101 instance=ExtResource("15_k6vqf")]
-
-[node name="SmokeAni" parent="Interactabels/MalfunctionSpawner/CableMalfunction2" unique_id=1360406114 instance=ExtResource("15_yc6xl")]
-
-[node name="CableMalfunction3" type="Area2D" parent="Interactabels/MalfunctionSpawner" unique_id=1953715534 node_paths=PackedStringArray("start_up_animation", "partical")]
-position = Vector2(448, 937)
-script = ExtResource("19_k6vqf")
+[node name="WiersJourney3" parent="Interactabels/JourneyMalfunctions" unique_id=1549786197 instance=ExtResource("17_wn26v")]
+position = Vector2(963, 373)
 category = 1
+spawn_time = 120.0
+astoroid = true
+overlay_scene = "uid://mx67lrqv2oom"
+
+[node name="MalfunctionIconsWiers" parent="Interactabels/JourneyMalfunctions/WiersJourney3" unique_id=801697842 instance=ExtResource("17_cmrup")]
+
+[node name="WiersJourney4" parent="Interactabels/JourneyMalfunctions" unique_id=1717410255 instance=ExtResource("17_wn26v")]
+position = Vector2(963, 714)
+category = 1
+spawn_time = 255.0
+astoroid = true
+overlay_scene = "uid://mx67lrqv2oom"
+
+[node name="MalfunctionIconsWiers" parent="Interactabels/JourneyMalfunctions/WiersJourney4" unique_id=320011022 instance=ExtResource("17_cmrup")]
+
+[node name="MixJourney" parent="Interactabels/JourneyMalfunctions" unique_id=1439392554 instance=ExtResource("17_wn26v")]
+position = Vector2(-77, 94)
+category = 2
 spawn_time = 35.0
+astoroid = true
+overlay_scene = "uid://cipbu25o2n6ae"
+
+[node name="MalfunctionIconsMix" parent="Interactabels/JourneyMalfunctions/MixJourney" unique_id=2029534547 instance=ExtResource("18_im1vy")]
+
+[node name="MixJourney2" parent="Interactabels/JourneyMalfunctions" unique_id=206406427 instance=ExtResource("17_wn26v")]
+position = Vector2(-49, 1028)
+category = 2
+spawn_time = 77.0
+astoroid = true
+overlay_scene = "uid://cipbu25o2n6ae"
+
+[node name="MalfunctionIconsMix" parent="Interactabels/JourneyMalfunctions/MixJourney2" unique_id=2059732327 instance=ExtResource("18_im1vy")]
+
+[node name="MixJourney3" parent="Interactabels/JourneyMalfunctions" unique_id=633260591 instance=ExtResource("17_wn26v")]
+position = Vector2(-49, 1028)
+category = 2
+spawn_time = 93.0
+astoroid = true
+overlay_scene = "uid://cipbu25o2n6ae"
+
+[node name="MalfunctionIconsMix" parent="Interactabels/JourneyMalfunctions/MixJourney3" unique_id=395214162 instance=ExtResource("18_im1vy")]
+
+[node name="MixJourney4" parent="Interactabels/JourneyMalfunctions" unique_id=26044381 instance=ExtResource("17_wn26v")]
+position = Vector2(-49, 1028)
+category = 2
+spawn_time = 230.0
+astoroid = true
+overlay_scene = "uid://cipbu25o2n6ae"
+
+[node name="MalfunctionIconsMix" parent="Interactabels/JourneyMalfunctions/MixJourney4" unique_id=241757609 instance=ExtResource("18_im1vy")]
+
+[node name="NavJourney" parent="Interactabels/JourneyMalfunctions" unique_id=1737657245 node_paths=PackedStringArray("start_up_animation", "partical") instance=ExtResource("4_ybmw1")]
+position = Vector2(1408, 550)
+script = ExtResource("19_k6vqf")
+category = 4
+spawn_time = 60.0
 start_up_animation = NodePath("SmokeAni")
 partical = NodePath("SmokeParticle")
 astoroid = true
-prompt_text = "E: Kabel reparieren"
-overlay_scene = "uid://dauvboslmqgvj"
+overlay_scene = "uid://dhaqf5a5qa6di"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/MalfunctionSpawner/CableMalfunction3" unique_id=1811687902]
-shape = SubResource("CircleShape2D_k6vqf")
+[node name="SmokeParticle" parent="Interactabels/JourneyMalfunctions/NavJourney" unique_id=758853773 instance=ExtResource("15_k6vqf")]
 
-[node name="Sprite2D" type="Sprite2D" parent="Interactabels/MalfunctionSpawner/CableMalfunction3" unique_id=2009078761]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("12_yr2pg")
-region_enabled = true
-region_rect = Rect2(34, 1307, 175, 166)
+[node name="SmokeAni" parent="Interactabels/JourneyMalfunctions/NavJourney" unique_id=2068189065 instance=ExtResource("15_yc6xl")]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/MalfunctionSpawner/CableMalfunction3" unique_id=486482852]
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "Press E"
+[node name="MalfunctionIconsSignal" parent="Interactabels/JourneyMalfunctions/NavJourney" unique_id=862056084 instance=ExtResource("13_wn26v")]
 
-[node name="SmokeParticle" parent="Interactabels/MalfunctionSpawner/CableMalfunction3" unique_id=1903357758 instance=ExtResource("15_k6vqf")]
-
-[node name="SmokeAni" parent="Interactabels/MalfunctionSpawner/CableMalfunction3" unique_id=395596105 instance=ExtResource("15_yc6xl")]
-
-[node name="ShieldMalfunction" type="Area2D" parent="Interactabels/MalfunctionSpawner" unique_id=1143459471]
-position = Vector2(700, 537)
+[node name="NavJourney2" parent="Interactabels/JourneyMalfunctions" unique_id=948965347 node_paths=PackedStringArray("start_up_animation", "partical") instance=ExtResource("4_ybmw1")]
+position = Vector2(1408, 550)
 script = ExtResource("19_k6vqf")
-spawn_time = 12.0
+category = 4
+spawn_time = 120.0
+start_up_animation = NodePath("SmokeAni")
+partical = NodePath("SmokeParticle")
 astoroid = true
-prompt_text = "E: Schild kalibrieren"
-overlay_scene = "res://Scenes/Puzzle/ShieldGame.tscn"
+overlay_scene = "uid://dhaqf5a5qa6di"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/MalfunctionSpawner/ShieldMalfunction" unique_id=1852398653]
-shape = SubResource("CircleShape2D_jn25s")
+[node name="SmokeParticle" parent="Interactabels/JourneyMalfunctions/NavJourney2" unique_id=883015293 instance=ExtResource("15_k6vqf")]
 
-[node name="Sprite2D" type="Sprite2D" parent="Interactabels/MalfunctionSpawner/ShieldMalfunction" unique_id=1685147886]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("12_yr2pg")
-region_enabled = true
-region_rect = Rect2(34, 1307, 175, 166)
+[node name="SmokeAni" parent="Interactabels/JourneyMalfunctions/NavJourney2" unique_id=1944713442 instance=ExtResource("15_yc6xl")]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Interactabels/MalfunctionSpawner/ShieldMalfunction" unique_id=861432966]
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "Press E"
+[node name="MalfunctionIconsSignal" parent="Interactabels/JourneyMalfunctions/NavJourney2" unique_id=1346631988 instance=ExtResource("13_wn26v")]
+
+[node name="NavJourney3" parent="Interactabels/JourneyMalfunctions" unique_id=1381315741 node_paths=PackedStringArray("start_up_animation", "partical") instance=ExtResource("4_ybmw1")]
+position = Vector2(1408, 550)
+script = ExtResource("19_k6vqf")
+category = 4
+spawn_time = 200.0
+start_up_animation = NodePath("SmokeAni")
+partical = NodePath("SmokeParticle")
+astoroid = true
+overlay_scene = "uid://dhaqf5a5qa6di"
+
+[node name="SmokeParticle" parent="Interactabels/JourneyMalfunctions/NavJourney3" unique_id=1909783783 instance=ExtResource("15_k6vqf")]
+
+[node name="SmokeAni" parent="Interactabels/JourneyMalfunctions/NavJourney3" unique_id=2146779263 instance=ExtResource("15_yc6xl")]
+
+[node name="MalfunctionIconsSignal" parent="Interactabels/JourneyMalfunctions/NavJourney3" unique_id=41076163 instance=ExtResource("13_wn26v")]
+
+[node name="ShildJourney" parent="Interactabels/JourneyMalfunctions" unique_id=1188161468 instance=ExtResource("17_wn26v")]
+position = Vector2(12, 549)
+category = 3
+spawn_time = 10.0
+astoroid = true
+overlay_scene = "uid://c2pjmhdar3m1e"
+
+[node name="MalfunctionIconsShild" parent="Interactabels/JourneyMalfunctions/ShildJourney" unique_id=370138005 instance=ExtResource("19_yy0n7")]
+
+[node name="ShildJourney2" parent="Interactabels/JourneyMalfunctions" unique_id=1356253563 instance=ExtResource("17_wn26v")]
+position = Vector2(12, 549)
+category = 3
+spawn_time = 80.0
+astoroid = true
+overlay_scene = "uid://c2pjmhdar3m1e"
+
+[node name="MalfunctionIconsShild" parent="Interactabels/JourneyMalfunctions/ShildJourney2" unique_id=187408762 instance=ExtResource("19_yy0n7")]
+
+[node name="ShildJourney3" parent="Interactabels/JourneyMalfunctions" unique_id=1407531341 instance=ExtResource("17_wn26v")]
+position = Vector2(12, 549)
+category = 3
+spawn_time = 160.0
+astoroid = true
+overlay_scene = "uid://c2pjmhdar3m1e"
+
+[node name="MalfunctionIconsShild" parent="Interactabels/JourneyMalfunctions/ShildJourney3" unique_id=1800758132 instance=ExtResource("19_yy0n7")]
+
+[node name="ShildJourney4" parent="Interactabels/JourneyMalfunctions" unique_id=1735553862 instance=ExtResource("17_wn26v")]
+position = Vector2(12, 549)
+category = 3
+spawn_time = 220.0
+astoroid = true
+overlay_scene = "uid://c2pjmhdar3m1e"
+
+[node name="MalfunctionIconsShild" parent="Interactabels/JourneyMalfunctions/ShildJourney4" unique_id=959755211 instance=ExtResource("19_yy0n7")]
 
 [node name="player" parent="." unique_id=1759760143 instance=ExtResource("3_321ql")]
 z_index = 1

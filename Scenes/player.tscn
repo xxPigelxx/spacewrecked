@@ -3,13 +3,15 @@
 [ext_resource type="Script" uid="uid://qghfiplatwiv" path="res://script/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://evb6q7n135rx" path="res://resources/assets/Items/lights/player_light.png" id="3_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://tfygiah5jkwd" path="res://resources/assets/animation/player_walk/player_walk.png" id="3_gymyn"]
-[ext_resource type="Texture2D" uid="uid://dwu66hggqlytj" path="res://resources/assets/Items/lights/flashlight.png" id="4_vgqql"]
+[ext_resource type="Texture2D" uid="uid://byq4iqitvqfdh" path="res://resources/assets/Items/lights/flashlight_2.png" id="5_tx1dd"]
 [ext_resource type="Texture2D" uid="uid://b0jebd8kksd74" path="res://resources/assets/animation/smoke/smallsmokee.tres" id="6_x3wgy"]
 [ext_resource type="AudioStream" uid="uid://b5fb02yko7ha0" path="res://resources/assets/sfx/Footsteps Mini Sound Pack/BootsLinoleum_01.wav" id="7_gymyn"]
 [ext_resource type="AudioStream" uid="uid://bl4mj4mqij1h0" path="res://resources/assets/sfx/Footsteps Mini Sound Pack/BootsLinoleum_02.wav" id="8_pu2lt"]
 [ext_resource type="AudioStream" uid="uid://bt3q5ek67aljd" path="res://resources/assets/sfx/Footsteps Mini Sound Pack/BootsLinoleum_03.wav" id="9_ukyrk"]
 [ext_resource type="AudioStream" uid="uid://gdy74f1hfgf6" path="res://resources/assets/sfx/Footsteps Mini Sound Pack/BootsLinoleum_04.wav" id="10_7dp3o"]
+[ext_resource type="Script" uid="uid://clg63em8vrbc0" path="res://script/DyslexiaLabel.gd" id="11_gymyn"]
 [ext_resource type="AudioStream" uid="uid://cjra3vtj3qfe5" path="res://resources/assets/sfx/Footsteps Mini Sound Pack/BootsLinoleum_05.wav" id="11_h4iuc"]
+[ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="11_pu2lt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqtel"]
 radius = 33.01515
@@ -118,7 +120,7 @@ position_smoothing_speed = 1.5
 
 [node name="playerLight" type="PointLight2D" parent="." unique_id=1421645114]
 scale = Vector2(1.625, 1.625)
-color = Color(0.8602191, 0.8636719, 0.8372779, 1)
+color = Color(0.98, 0.87857, 0.71540004, 0.6745098)
 texture = ExtResource("3_6t5aa")
 offset = Vector2(6, 3)
 
@@ -147,10 +149,39 @@ color_ramp = SubResource("Gradient_8erm5")
 [node name="Flashlights" type="PointLight2D" parent="." unique_id=985149395]
 position = Vector2(1, 5)
 scale = Vector2(2.6964464, 2.6964464)
-color = Color(0.85882354, 0.8627451, 0.8392157, 1)
-texture = ExtResource("4_vgqql")
+color = Color(0.98, 0.87857, 0.71540004, 0.6745098)
+texture = ExtResource("5_tx1dd")
 offset = Vector2(88.18, 0)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1613899274]
 stream = SubResource("AudioStreamRandomizer_fd4e3")
 bus = &"sfx"
+
+[node name="Label" type="RichTextLabel" parent="." unique_id=1007172423]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -111.0
+offset_right = 60.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("11_pu2lt")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Press E to Interact"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("11_gymyn")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="LabelBacklight" type="PointLight2D" parent="Label" unique_id=2056320006]
+position = Vector2(62, 31.5)
+scale = Vector2(1.2, 1.2)
+color = Color(0.98, 0.87857, 0.71540004, 0.6745098)
+energy = 0.4
+texture = ExtResource("3_6t5aa")

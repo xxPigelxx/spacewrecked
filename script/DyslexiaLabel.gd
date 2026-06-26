@@ -20,6 +20,9 @@ extends RichTextLabel
 @export_range(0.0, 5.0, 0.1) var pulse_frequency: float = 0.0
 @export var rng_seed: int = 1000
 
+
+@export var text_color: Color = Color.BLACK
+
 var _source_text: String = ""
 var _ready_done: bool = false
 
@@ -45,7 +48,7 @@ func _ready() -> void:
 	fit_content = true
 	scroll_active = false
 	autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	add_theme_color_override("default_color", Color.BLACK)
+	add_theme_color_override("default_color", text_color)
 	_source_text = text
 	_ready_done = true
 	DyslexiaManager.register(self)

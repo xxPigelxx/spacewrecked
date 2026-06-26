@@ -59,7 +59,7 @@ func is_manual_aquiered() -> bool:
 
 # ---- Einstellbare Werte (alles an einem Ort) ----
 @export_group("Journey")
-@export var run_duration := 60.0              ## Messfenster in Sekunden
+@export var run_duration := 300.0             ## Messfenster in Sekunden
 @export var max_health := 100.0                ## Maximales + Start-Leben
 @export var health_per_fix := 20.0             ## Reparatur stellt so viel wieder her (flach)
 @export var health_drain_per_sec := 1.0        ## passiver Verlust pro Sekunde

@@ -10,6 +10,9 @@ extends CharacterBody2D
 @onready var flashlights: PointLight2D = $Flashlights
 @onready var puuftrail: CPUParticles2D = $PlayerSprite/puuftrail
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var label: DyslexiaLabel = $Label
+@onready var label_backlight: PointLight2D = $Label/LabelBacklight
+
 
 var ship_lights_on := false
 var has_manual := false
@@ -23,7 +26,9 @@ func _ready() -> void:
 
 	GameState.manual_acquired_changed.connect(_on_manual_changed)
 	GameState.broken_systems_changed.connect(_on_strom_changed)
-
+	
+	label.visible = false
+	
 func _on_strom_changed() -> void:
 	switch_lights(not GameState.is_system_broken("strom"))
 
@@ -71,6 +76,7 @@ func _physics_process(delta: float) -> void:
 func switch_lights(val: bool) -> void:
 	ship_lights_on = val
 	player_light.visible = not ship_lights_on
+	label_backlight.visible = not ship_lights_on
 
 	if ship_lights_on:
 		flashlights.visible = false
@@ -89,3 +95,11 @@ func _on_manual_changed(acquired: bool) -> void:
 
 	if not has_manual:
 		flashlights.visible = false
+
+func set_text(val: String):
+	label.text = "[wave amp=20 freq=4]%s[/wave]" % val
+	label.visible = true
+
+func disable_text():
+	label.text = ""
+	label.visible = false
