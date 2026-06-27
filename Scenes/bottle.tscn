@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://chm0cx66fx8kh" path="res://resources/assets/Items/Bottles/Bottle.tres" id="2_hcbne"]
 [ext_resource type="Texture2D" uid="uid://b431p5431rmo8" path="res://resources/assets/droplet.png" id="3_n4j8r"]
 [ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="4_hcbne"]
+[ext_resource type="Script" uid="uid://clg63em8vrbc0" path="res://script/DyslexiaLabel.gd" id="5_n4j8r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kxg88"]
 size = Vector2(64, 106)
@@ -41,14 +42,22 @@ scale_amount_max = 1.5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1683996090]
 shape = SubResource("CircleShape2D_gatl4")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=273232681]
-offset_left = -62.0
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=294592600]
+offset_left = -63.0
 offset_top = -95.0
-offset_right = 62.0
+offset_right = 61.0
 offset_bottom = -64.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("4_hcbne")
 theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
 text = "Name"
 scroll_active = false
 horizontal_alignment = 1
+script = ExtResource("5_n4j8r")
+override_page = true
+shake_amplitude = 4.0
+text_color = Color(0.737193, 0.7371929, 0.7371929, 1)
+metadata/_custom_type_script = "uid://clg63em8vrbc0"

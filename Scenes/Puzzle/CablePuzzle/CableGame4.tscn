@@ -1,13 +1,13 @@
-[gd_scene format=3 uid="uid://mx67lrqv2oom"]
+[gd_scene format=3 uid="uid://ddlmoaw5qtiaw"]
 
-[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="1_hesem"]
-[ext_resource type="Script" uid="uid://dfvo5edp67xki" path="res://script/cablegame_manager.gd" id="1_tkd5u"]
-[ext_resource type="PackedScene" uid="uid://dlocelh4wsyel" path="res://Scenes/socket.tscn" id="2_hesem"]
-[ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="3_t1tc3"]
-[ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="5_1d3s5"]
+[ext_resource type="Script" uid="uid://dfvo5edp67xki" path="res://script/cablegame_manager.gd" id="1_in0de"]
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="2_mq2c6"]
+[ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="3_uxj45"]
+[ext_resource type="PackedScene" uid="uid://dlocelh4wsyel" path="res://Scenes/socket.tscn" id="4_22kpn"]
+[ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="5_4m8ly"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_heo7m"]
-texture = ExtResource("1_hesem")
+texture = ExtResource("2_mq2c6")
 texture_margin_left = 64.30769
 texture_margin_top = 91.589745
 texture_margin_right = 70.15385
@@ -15,7 +15,7 @@ texture_margin_bottom = 105.33694
 region_rect = Rect2(807, 835, 184, 148)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1d3s5"]
-texture = ExtResource("1_hesem")
+texture = ExtResource("2_mq2c6")
 texture_margin_left = 42.82495
 texture_margin_top = 36.063118
 texture_margin_right = 31.555227
@@ -30,7 +30,7 @@ size = Vector2(28, 790.5)
 size = Vector2(1166, 21)
 
 [node name="CableGame" type="CanvasLayer" unique_id=39079525]
-script = ExtResource("1_tkd5u")
+script = ExtResource("1_in0de")
 
 [node name="Panel2" type="Panel" parent="." unique_id=608305952]
 anchors_preset = 15
@@ -72,50 +72,40 @@ mouse_filter = 2
 mouse_behavior_recursive = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_1d3s5")
 
-[node name="SpawnCableBt" type="Button" parent="Panel" unique_id=103210677]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=1809561331]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -165.5
-offset_top = -120.0
-offset_right = 165.19507
-offset_bottom = -30.502808
+offset_left = -1.0
+offset_top = -109.0
+offset_right = -1.0
+offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = ExtResource("3_t1tc3")
-theme_override_font_sizes/font_size = 50
-text = "Kabel"
+theme_override_constants/separation = 300
+alignment = 1
 
-[node name="ReturnBt" type="Button" parent="Panel" unique_id=1521703684]
-layout_mode = 0
-offset_left = 1060.0
-offset_top = 864.0
-offset_right = 1312.0
-offset_bottom = 953.4972
-theme = ExtResource("3_t1tc3")
-theme_override_font_sizes/font_size = 50
-text = "Zuruck"
-
-[node name="Win" type="Button" parent="Panel" unique_id=196559703]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -528.0
-offset_top = -120.0
-offset_right = -197.30493
-offset_bottom = -30.502808
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("3_t1tc3")
+[node name="Win" type="Button" parent="Panel/HBoxContainer" unique_id=196559703]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("3_uxj45")
 theme_override_font_sizes/font_size = 50
 text = "Win
 "
+
+[node name="SpawnCableBt" type="Button" parent="Panel/HBoxContainer" unique_id=103210677]
+layout_mode = 2
+theme = ExtResource("3_uxj45")
+theme_override_font_sizes/font_size = 50
+text = "Kabel"
+
+[node name="ReturnBt" type="Button" parent="Panel/HBoxContainer" unique_id=1521703684]
+layout_mode = 2
+theme = ExtResource("3_uxj45")
+theme_override_font_sizes/font_size = 50
+text = "Zuruck"
 
 [node name="CableSpawnMarker" type="Marker2D" parent="." unique_id=6755401]
 position = Vector2(913, 807)
@@ -142,58 +132,58 @@ shape = SubResource("RectangleShape2D_t1tc3")
 
 [node name="Left" type="Node2D" parent="Sockets" unique_id=1774481423]
 
-[node name="Rot" parent="Sockets/Left" unique_id=410540247 instance=ExtResource("2_hesem")]
+[node name="Rot" parent="Sockets/Left" unique_id=410540247 instance=ExtResource("4_22kpn")]
 position = Vector2(520, 501)
 socket_color = Color(0.9019608, 0.09803922, 0.29411766, 1)
 pair_id = "4"
 
-[node name="Lime" parent="Sockets/Left" unique_id=1221650162 instance=ExtResource("2_hesem")]
+[node name="Lime" parent="Sockets/Left" unique_id=1221650162 instance=ExtResource("4_22kpn")]
 position = Vector2(518, 356)
 socket_color = Color(0.7490196, 0.9372549, 0.27058825, 1)
 pair_id = "2"
 
-[node name="Gelb" parent="Sockets/Left" unique_id=42840864 instance=ExtResource("2_hesem")]
+[node name="Gelb" parent="Sockets/Left" unique_id=42840864 instance=ExtResource("4_22kpn")]
 position = Vector2(511, 200)
 socket_color = Color(1, 0.88235295, 0.09803922, 1)
 pair_id = "5"
 
-[node name="magenta" parent="Sockets/Left" unique_id=1106657845 instance=ExtResource("2_hesem")]
+[node name="magenta" parent="Sockets/Left" unique_id=1106657845 instance=ExtResource("4_22kpn")]
 position = Vector2(524, 810)
 socket_color = Color(0.9411765, 0.19607843, 0.9019608, 1)
 pair_id = "1"
 
-[node name="Blau" parent="Sockets/Left" unique_id=2120209152 instance=ExtResource("2_hesem")]
+[node name="Blau" parent="Sockets/Left" unique_id=2120209152 instance=ExtResource("4_22kpn")]
 position = Vector2(520, 648)
 socket_color = Color(0.2627451, 0.3882353, 0.84705883, 1)
 pair_id = "3"
 
 [node name="Right" type="Node2D" parent="Sockets" unique_id=1609544262]
 
-[node name="Cyan" parent="Sockets/Right" unique_id=507004883 instance=ExtResource("2_hesem")]
+[node name="Cyan" parent="Sockets/Right" unique_id=507004883 instance=ExtResource("4_22kpn")]
 position = Vector2(1357, 669)
 side = 1
 socket_color = Color(0.25882354, 0.83137256, 0.95686275, 1)
 pair_id = "2"
 
-[node name="Grau" parent="Sockets/Right" unique_id=1339555870 instance=ExtResource("2_hesem")]
+[node name="Grau" parent="Sockets/Right" unique_id=1339555870 instance=ExtResource("4_22kpn")]
 position = Vector2(1347, 533)
 side = 1
 socket_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
 pair_id = "1"
 
-[node name="Gruen" parent="Sockets/Right" unique_id=1663060115 instance=ExtResource("2_hesem")]
+[node name="Gruen" parent="Sockets/Right" unique_id=1663060115 instance=ExtResource("4_22kpn")]
 position = Vector2(1362, 813)
 side = 1
 socket_color = Color(0.23529412, 0.7058824, 0.29411766, 1)
 pair_id = "4"
 
-[node name="Orange" parent="Sockets/Right" unique_id=89349907 instance=ExtResource("2_hesem")]
+[node name="Orange" parent="Sockets/Right" unique_id=89349907 instance=ExtResource("4_22kpn")]
 position = Vector2(1353, 220)
 side = 1
 socket_color = Color(0.9607843, 0.50980395, 0.19215687, 1)
 pair_id = "5"
 
-[node name="Lila" parent="Sockets/Right" unique_id=2083023251 instance=ExtResource("2_hesem")]
+[node name="Lila" parent="Sockets/Right" unique_id=2083023251 instance=ExtResource("4_22kpn")]
 position = Vector2(1342, 386)
 side = 1
 socket_color = Color(0.5686275, 0.11764706, 0.7058824, 1)
@@ -201,10 +191,10 @@ pair_id = "3"
 
 [node name="Cabels" type="Node2D" parent="." unique_id=1846986884]
 
-[node name="ErrorCode" parent="." unique_id=1170533520 instance=ExtResource("5_1d3s5")]
+[node name="ErrorCode" parent="." unique_id=1170533520 instance=ExtResource("5_4m8ly")]
 position = Vector2(960, 80)
-error_code = "34"
+error_code = "2458"
 
-[connection signal="pressed" from="Panel/SpawnCableBt" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Panel/ReturnBt" to="." method="_on_return_bt_pressed"]
-[connection signal="pressed" from="Panel/Win" to="." method="_on_win"]
+[connection signal="pressed" from="Panel/HBoxContainer/Win" to="." method="_on_win"]
+[connection signal="pressed" from="Panel/HBoxContainer/SpawnCableBt" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/ReturnBt" to="." method="_on_return_bt_pressed"]

@@ -1,0 +1,269 @@
+[gd_scene format=3 uid="uid://d2xue47yiiydp"]
+
+[ext_resource type="Script" uid="uid://c6ejbhom87vka" path="res://script/shield_game.gd" id="1_cb77n"]
+[ext_resource type="Theme" uid="uid://xm5urjrf4aua" path="res://resources/themes/main_theme.tres" id="2_crlc1"]
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="3_rvb0e"]
+[ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="4_y4a5u"]
+[ext_resource type="PackedScene" uid="uid://b4av7s35soom4" path="res://Scenes/CalibrationKnob.tscn" id="5_opcmf"]
+[ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="6_dg18v"]
+[ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="7_4gtua"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tdh0k"]
+texture = ExtResource("3_rvb0e")
+texture_margin_left = 23.595015
+texture_margin_top = 19.869486
+texture_margin_right = 29.804228
+texture_margin_bottom = 19.248564
+region_rect = Rect2(1535, 0, 256, 255)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a5jua"]
+texture = ExtResource("3_rvb0e")
+texture_margin_left = 19.0
+texture_margin_top = 25.788193
+texture_margin_right = 16.765446
+texture_margin_bottom = 20.275047
+region_rect = Rect2(807, 835, 184, 148)
+modulate_color = Color(0.57700837, 0.5770084, 0.57700837, 1)
+
+[node name="ShieldGame" type="CanvasLayer" unique_id=325781525]
+script = ExtResource("1_cb77n")
+targets = Array[int]([28, 49, 96])
+
+[node name="Dim" type="ColorRect" parent="." unique_id=189453360]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.6)
+
+[node name="Center" type="CenterContainer" parent="." unique_id=606299746]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource("2_crlc1")
+
+[node name="Panel" type="PanelContainer" parent="Center" unique_id=560834360]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_tdh0k")
+
+[node name="Margin" type="MarginContainer" parent="Center/Panel" unique_id=1764446807]
+layout_mode = 2
+theme_override_constants/margin_left = 34
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 34
+theme_override_constants/margin_bottom = 24
+
+[node name="VBox" type="VBoxContainer" parent="Center/Panel/Margin" unique_id=583316640]
+custom_minimum_size = Vector2(760, 0)
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Center/Panel/Margin/VBox" unique_id=2044734992]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_y4a5u")
+theme_override_font_sizes/font_size = 50
+text = "Frequenzen Kalibriren"
+horizontal_alignment = 1
+
+[node name="Sub" type="Label" parent="Center/Panel/Margin/VBox" unique_id=1792289029]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_y4a5u")
+theme_override_font_sizes/font_size = 18
+text = "Sollwerte stehen im Handbuch  ▸  Tab „Schild“."
+horizontal_alignment = 1
+
+[node name="HSep" type="HSeparator" parent="Center/Panel/Margin/VBox" unique_id=1415760866]
+layout_mode = 2
+
+[node name="Channels" type="VBoxContainer" parent="Center/Panel/Margin/VBox" unique_id=1870487357]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Channel1" type="HBoxContainer" parent="Center/Panel/Margin/VBox/Channels" unique_id=872984086]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Info" type="VBoxContainer" parent="Center/Panel/Margin/VBox/Channels/Channel1" unique_id=320108093]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+
+[node name="Name" type="Label" parent="Center/Panel/Margin/VBox/Channels/Channel1/Info" unique_id=619457208]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_y4a5u")
+theme_override_font_sizes/font_size = 22
+text = "Kanal A"
+
+[node name="Value" type="Label" parent="Center/Panel/Margin/VBox/Channels/Channel1/Info" unique_id=1657334706]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_y4a5u")
+theme_override_font_sizes/font_size = 34
+text = "10"
+
+[node name="Scope" type="Panel" parent="Center/Panel/Margin/VBox/Channels/Channel1" unique_id=1703421868]
+clip_contents = true
+custom_minimum_size = Vector2(380, 110)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_a5jua")
+
+[node name="Sine" type="Line2D" parent="Center/Panel/Margin/VBox/Channels/Channel1/Scope" unique_id=584374564]
+width = 3.0
+default_color = Color(0.3, 1, 0.55, 1)
+
+[node name="Slot" type="Control" parent="Center/Panel/Margin/VBox/Channels/Channel1" unique_id=326458324]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Knob" parent="Center/Panel/Margin/VBox/Channels/Channel1/Slot" unique_id=2062019192 instance=ExtResource("5_opcmf")]
+position = Vector2(75, 75)
+scale = Vector2(0.7, 0.7)
+
+[node name="Channel2" type="HBoxContainer" parent="Center/Panel/Margin/VBox/Channels" unique_id=315041940]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Info" type="VBoxContainer" parent="Center/Panel/Margin/VBox/Channels/Channel2" unique_id=866640122]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+
+[node name="Name" type="Label" parent="Center/Panel/Margin/VBox/Channels/Channel2/Info" unique_id=47629018]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_y4a5u")
+theme_override_font_sizes/font_size = 22
+text = "Kanal B"
+
+[node name="Value" type="Label" parent="Center/Panel/Margin/VBox/Channels/Channel2/Info" unique_id=197066398]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_y4a5u")
+theme_override_font_sizes/font_size = 34
+text = "10"
+
+[node name="Scope" type="Panel" parent="Center/Panel/Margin/VBox/Channels/Channel2" unique_id=1069415596]
+clip_contents = true
+custom_minimum_size = Vector2(380, 110)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_a5jua")
+
+[node name="Sine" type="Line2D" parent="Center/Panel/Margin/VBox/Channels/Channel2/Scope" unique_id=1874631068]
+width = 3.0
+default_color = Color(0.3, 1, 0.55, 1)
+
+[node name="Slot" type="Control" parent="Center/Panel/Margin/VBox/Channels/Channel2" unique_id=1635843761]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Knob" parent="Center/Panel/Margin/VBox/Channels/Channel2/Slot" unique_id=180644889 instance=ExtResource("5_opcmf")]
+position = Vector2(75, 75)
+scale = Vector2(0.7, 0.7)
+
+[node name="Channel3" type="HBoxContainer" parent="Center/Panel/Margin/VBox/Channels" unique_id=1675587421]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Info" type="VBoxContainer" parent="Center/Panel/Margin/VBox/Channels/Channel3" unique_id=1893414608]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+
+[node name="Name" type="Label" parent="Center/Panel/Margin/VBox/Channels/Channel3/Info" unique_id=330223739]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_y4a5u")
+theme_override_font_sizes/font_size = 22
+text = "Kanal C"
+
+[node name="Value" type="Label" parent="Center/Panel/Margin/VBox/Channels/Channel3/Info" unique_id=1483343017]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_y4a5u")
+theme_override_font_sizes/font_size = 34
+text = "10"
+
+[node name="Scope" type="Panel" parent="Center/Panel/Margin/VBox/Channels/Channel3" unique_id=2052175806]
+clip_contents = true
+custom_minimum_size = Vector2(380, 110)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_a5jua")
+
+[node name="Sine" type="Line2D" parent="Center/Panel/Margin/VBox/Channels/Channel3/Scope" unique_id=1872696583]
+width = 3.0
+default_color = Color(0.3, 1, 0.55, 1)
+
+[node name="Slot" type="Control" parent="Center/Panel/Margin/VBox/Channels/Channel3" unique_id=811885196]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Knob" parent="Center/Panel/Margin/VBox/Channels/Channel3/Slot" unique_id=459966012 instance=ExtResource("5_opcmf")]
+position = Vector2(75, 75)
+scale = Vector2(0.7, 0.7)
+
+[node name="HSep2" type="HSeparator" parent="Center/Panel/Margin/VBox" unique_id=1634133899]
+layout_mode = 2
+
+[node name="Status" type="Label" parent="Center/Panel/Margin/VBox" unique_id=63156257]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_y4a5u")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="Center/Panel/Margin/VBox" unique_id=133496681]
+layout_mode = 2
+theme = ExtResource("6_dg18v")
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="Center/Panel/Margin/VBox/Buttons" unique_id=1836804278]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ConfirmBt" type="Button" parent="Center/Panel/Margin/VBox/Buttons" unique_id=875277641]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Stabilisieren"
+
+[node name="VSeparator" type="VSeparator" parent="Center/Panel/Margin/VBox/Buttons" unique_id=2040600815]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BackBt" type="Button" parent="Center/Panel/Margin/VBox/Buttons" unique_id=796059929]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Zurueck"
+
+[node name="VSeparator2" type="VSeparator" parent="Center/Panel/Margin/VBox/Buttons" unique_id=1657117743]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Win" type="Button" parent="." unique_id=1800034081]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -159.0
+offset_top = -101.0
+offset_right = 171.69507
+offset_bottom = -11.502808
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("6_dg18v")
+theme_override_font_sizes/font_size = 50
+text = "Win
+"
+
+[node name="ErrorCode" parent="." unique_id=1170533520 instance=ExtResource("7_4gtua")]
+position = Vector2(633, 189)
+error_code = "7321"
+
+[connection signal="pressed" from="Win" to="." method="_win"]

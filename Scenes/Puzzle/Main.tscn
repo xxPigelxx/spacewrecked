@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c5pr55rqn7q6y"]
 
 [ext_resource type="PackedScene" uid="uid://cnbh3ya334cou" path="res://Scenes/Manual.tscn" id="1_37kl0"]
-[ext_resource type="PackedScene" uid="uid://dhaqf5a5qa6di" path="res://Scenes/Puzzle/cockpit_window.tscn" id="2_fos0i"]
+[ext_resource type="PackedScene" uid="uid://dhaqf5a5qa6di" path="res://Scenes/Puzzle/NavigationPuzzle/cockpit_window.tscn" id="2_fos0i"]
 [ext_resource type="PackedScene" uid="uid://c1winj24qyyfi" path="res://Scenes/ShipPanle.tscn" id="2_uu6xs"]
-[ext_resource type="PackedScene" uid="uid://mx67lrqv2oom" path="res://Scenes/Puzzle/CableGame.tscn" id="3_3dxm6"]
+[ext_resource type="PackedScene" uid="uid://mx67lrqv2oom" path="res://Scenes/Puzzle/CablePuzzle/CableGame.tscn" id="3_3dxm6"]
 [ext_resource type="Script" uid="uid://77osfixanqog" path="res://script/camera_controller.gd" id="3_cm0pq"]
 [ext_resource type="Texture2D" uid="uid://ccqem7hyt54x4" path="res://resources/assets/arrow.png" id="4_cm0pq"]
 

@@ -335,7 +335,7 @@ layout_mode = 2
 theme_override_constants/underline_alpha = 100
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
-text = "[u]Info"
+text = "Info"
 fit_content = true
 horizontal_alignment = 1
 script = ExtResource("2_puywe")
@@ -855,48 +855,6 @@ scroll_active = false
 horizontal_alignment = 1
 script = ExtResource("2_puywe")
 
-[node name="Treibstoff" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=457657676]
-visible = false
-layout_mode = 2
-script = ExtResource("3_q6b25")
-vanish_percent = 6.0
-size_variation = 4.0
-mirror_percent = 44.0
-metadata/_tab_index = 2
-
-[node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff" unique_id=1620121749]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="PageTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=1240226048]
-layout_mode = 2
-bbcode_enabled = true
-text = "[b]Treibstoff[/b]"
-fit_content = true
-script = ExtResource("2_puywe")
-metadata/_custom_type_script = "uid://clg63em8vrbc0"
-
-[node name="Sep" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=672362311]
-layout_mode = 2
-
-[node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=939337749]
-layout_mode = 2
-text = "Der Treibstoff des Schiffes ist sehr bestimmt und muss aus sicherheitsgründen nicht gemischt gelagert werden. Deshalb muss der Treibstoff wen er niederig wird manuel gemischt werden.  Dafür muss das Rezept genutze werden. Der Treibstoff besteht aus Hyperion zu 23%,   12% Xytherium, 25% Vortex, und 20% wasser. Der Treibstoff wird in dem Rechten Torbienenraum Gemischt. "
-fit_content = true
-scroll_active = false
-script = ExtResource("2_puywe")
-
-[node name="WarningBox" type="PanelContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=166867886]
-layout_mode = 2
-
-[node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/WarningBox" unique_id=1339958454]
-layout_mode = 2
-text = "KRITISCH: !!!! Die Verhältnisse dürfen nicht zu weit auseinander raten !!!!!"
-fit_content = true
-scroll_active = false
-script = ExtResource("2_puywe")
-
 [node name="Navigation" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=529697749]
 visible = false
 layout_mode = 2
@@ -904,7 +862,7 @@ script = ExtResource("3_q6b25")
 drift_amplitude = 11.0
 drift_frequency = 3.0
 scramble_percent = 50.0
-metadata/_tab_index = 3
+metadata/_tab_index = 2
 
 [node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation" unique_id=1185844001]
 layout_mode = 0
@@ -913,6 +871,7 @@ anchor_bottom = 1.0
 
 [node name="PageTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox" unique_id=1106442680]
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
 text = "[b] Navigation[/b]"
 fit_content = true
@@ -939,6 +898,894 @@ fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
 
+[node name="ScrollContainer" type="ScrollContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox" unique_id=2084509858]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer" unique_id=86715798]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StepList" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=244990239]
+layout_mode = 2
+
+[node name="ListTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=1246356698]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "Error Code: 8946"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=514197543]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=1003585941]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=1600387604]
+layout_mode = 2
+text = "Blau <-> lila"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=1703976164]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=187397872]
+layout_mode = 2
+text = "Magenta <-> Grau"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=979622893]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=1683672079]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=1423194725]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=2052323643]
+layout_mode = 2
+text = "Rot <-> Grün"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=1584884158]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=1654426698]
+layout_mode = 2
+text = "Gelb <-> Orange"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=888755332]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=1938564320]
+layout_mode = 2
+bbcode_enabled = true
+text = "Limette <-> Cyan"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="HSeparator2" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=573232343]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="StepList2" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1679400269]
+layout_mode = 2
+
+[node name="ListTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=1286960810]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "Error Code: 7824"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=43705562]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=1866080504]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=1280867145]
+layout_mode = 2
+text = "Blau <-> lila"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=1410463649]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=981592619]
+layout_mode = 2
+text = "Magenta <-> Grau"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=1096189295]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=125196941]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=528432313]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=389053677]
+layout_mode = 2
+text = "Rot <-> Grün"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=60177892]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=678791326]
+layout_mode = 2
+text = "Gelb <-> Orange"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=644103343]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=2021989452]
+layout_mode = 2
+bbcode_enabled = true
+text = "Limette <-> Cyan"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="HSeparator3" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1507417602]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="StepList3" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=56387919]
+layout_mode = 2
+
+[node name="ListTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=1713133111]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "Error Code: 3687"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="Treibstoff" type="Control" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/ListTitle" unique_id=417856871]
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -648.0
+offset_bottom = -698.0
+script = ExtResource("3_q6b25")
+vanish_percent = 6.0
+size_variation = 4.0
+mirror_percent = 44.0
+
+[node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/ListTitle/Treibstoff" unique_id=473170609]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PageTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/ListTitle/Treibstoff/VBox" unique_id=230089996]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Treibstoff[/b]"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="Sep" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/ListTitle/Treibstoff/VBox" unique_id=999739028]
+layout_mode = 2
+
+[node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/ListTitle/Treibstoff/VBox" unique_id=1992640395]
+layout_mode = 2
+text = "Der Treibstoff des Schiffes ist sehr bestimmt und muss aus sicherheitsgründen nicht gemischt gelagert werden. Deshalb muss der Treibstoff wen er niederig wird manuel gemischt werden.  Dafür muss das Rezept genutze werden. Der Treibstoff besteht aus Hyperion zu 23%,   12% Xytherium, 25% Vortex, und 20% wasser. Der Treibstoff wird in dem Rechten Torbienenraum Gemischt. "
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="WarningBox" type="PanelContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/ListTitle/Treibstoff/VBox" unique_id=1991947443]
+layout_mode = 2
+
+[node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/ListTitle/Treibstoff/VBox/WarningBox" unique_id=621137223]
+layout_mode = 2
+text = "KRITISCH: !!!! Die Verhältnisse dürfen nicht zu weit auseinander raten !!!!!"
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=13259847]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=1706678463]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=2065748346]
+layout_mode = 2
+text = "Blau <-> lila"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=990798641]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=596646549]
+layout_mode = 2
+text = "Magenta <-> Grau"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=799284417]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=1949683443]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=855966142]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=1216690103]
+layout_mode = 2
+text = "Rot <-> Grün"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=682183340]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=2080014947]
+layout_mode = 2
+text = "Gelb <-> Orange"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=343169140]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=575179778]
+layout_mode = 2
+bbcode_enabled = true
+text = "Limette <-> Cyan"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="HSeparator4" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=269630468]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="StepList4" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1989245102]
+layout_mode = 2
+
+[node name="ListTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1129810698]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "Error Code: 6781"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1039767398]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=807381382]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=1360829740]
+layout_mode = 2
+text = "Blau <-> lila"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=1906181460]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=275649282]
+layout_mode = 2
+text = "Magenta <-> Grau"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=1062865397]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1294063464]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=735950955]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=698765510]
+layout_mode = 2
+text = "Rot <-> Grün"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=2131122975]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=1081167217]
+layout_mode = 2
+text = "Gelb <-> Orange"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=412744008]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1016393442]
+layout_mode = 2
+bbcode_enabled = true
+text = "Limette <-> Cyan"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="Treibstoff" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=283084671]
+layout_mode = 2
+script = ExtResource("3_q6b25")
+drift_amplitude = 11.0
+drift_frequency = 3.0
+scramble_percent = 50.0
+metadata/_tab_index = 3
+
+[node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff" unique_id=1283369308]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PageTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=585010929]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "Treibstoff"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="Sep" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=1083748472]
+layout_mode = 2
+
+[node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=1321132059]
+layout_mode = 2
+text = "Der Treibstoff des Schiffes ist sehr bestimmt und muss aus sicherheitsgründen nicht gemischt gelagert werden. Deshalb muss der Treibstoff wen er niederig wird manuel gemischt werden.  Dafür muss das Rezept genutze werden. Der Treibstoff besteht aus Hyperion zu 23%,   12% Xytherium, 25% Vortex, und 20% wasser. Der Treibstoff wird in dem Rechten Torbienenraum Gemischt"
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="WarningBox" type="PanelContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=740124246]
+layout_mode = 2
+
+[node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/WarningBox" unique_id=1635859299]
+layout_mode = 2
+text = "+KRITISCH: !!!! Die Verhältnisse dürfen nicht zu weit auseinander raten !!!!!"
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=1945806946]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer" unique_id=735117743]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StepList" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer" unique_id=1650754374]
+layout_mode = 2
+
+[node name="ListTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=869974521]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "Nyxium"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=652882733]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=2014588900]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=617284572]
+layout_mode = 2
+text = "Blau <-> lila"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=1925870371]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=1952578129]
+layout_mode = 2
+text = "Magenta <-> Grau"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=430578842]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=996650598]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=1545591125]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=251057179]
+layout_mode = 2
+text = "Rot <-> Grün"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=373734124]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=1410039864]
+layout_mode = 2
+text = "Gelb <-> Orange"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=1715867255]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=1716298688]
+layout_mode = 2
+bbcode_enabled = true
+text = "Limette <-> Cyan"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="HSeparator2" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer" unique_id=1376844396]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="StepList2" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer" unique_id=16642015]
+layout_mode = 2
+
+[node name="ListTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=1745201124]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "Aetheron"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=64191744]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=1682907047]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=1917601617]
+layout_mode = 2
+text = "Blau <-> lila"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=321722730]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=624851044]
+layout_mode = 2
+text = "Magenta <-> Grau"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=174300646]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=1890353956]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=1418686516]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=691651188]
+layout_mode = 2
+text = "Rot <-> Grün"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=1641955376]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=1009742119]
+layout_mode = 2
+text = "Gelb <-> Orange"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=1954634201]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=688632368]
+layout_mode = 2
+bbcode_enabled = true
+text = "Limette <-> Cyan"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="HSeparator3" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer" unique_id=105187457]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="StepList3" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer" unique_id=910358153]
+layout_mode = 2
+
+[node name="ListTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=86845731]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "Quantrex"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="Treibstoff" type="Control" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList3/ListTitle" unique_id=1658569881]
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -648.0
+offset_bottom = -698.0
+script = ExtResource("3_q6b25")
+vanish_percent = 6.0
+size_variation = 4.0
+mirror_percent = 44.0
+
+[node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList3/ListTitle/Treibstoff" unique_id=1588627824]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PageTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList3/ListTitle/Treibstoff/VBox" unique_id=1026360373]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Treibstoff[/b]"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="Sep" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList3/ListTitle/Treibstoff/VBox" unique_id=2117130203]
+layout_mode = 2
+
+[node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList3/ListTitle/Treibstoff/VBox" unique_id=119822044]
+layout_mode = 2
+text = "Der Treibstoff des Schiffes ist sehr bestimmt und muss aus sicherheitsgründen nicht gemischt gelagert werden. Deshalb muss der Treibstoff wen er niederig wird manuel gemischt werden.  Dafür muss das Rezept genutze werden. Der Treibstoff besteht aus Hyperion zu 23%,   12% Xytherium, 25% Vortex, und 20% wasser. Der Treibstoff wird in dem Rechten Torbienenraum Gemischt. "
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="WarningBox" type="PanelContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList3/ListTitle/Treibstoff/VBox" unique_id=1523375218]
+layout_mode = 2
+
+[node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList3/ListTitle/Treibstoff/VBox/WarningBox" unique_id=1692781510]
+layout_mode = 2
+text = "KRITISCH: !!!! Die Verhältnisse dürfen nicht zu weit auseinander raten !!!!!"
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=1878968775]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=364082460]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=1693570484]
+layout_mode = 2
+text = "Blau <-> lila"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=2054491107]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=294142181]
+layout_mode = 2
+text = "Magenta <-> Grau"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=1538770565]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=2135894193]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=8673273]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=1465776291]
+layout_mode = 2
+text = "Rot <-> Grün"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=1292006524]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=388580183]
+layout_mode = 2
+text = "Gelb <-> Orange"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=1358104279]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=178977396]
+layout_mode = 2
+bbcode_enabled = true
+text = "Limette <-> Cyan"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="HSeparator4" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer" unique_id=326107096]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="StepList4" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer" unique_id=1933176662]
+layout_mode = 2
+
+[node name="ListTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=794348963]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "Heliox-9"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=789133307]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=380973104]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=482399027]
+layout_mode = 2
+text = "Blau <-> lila"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=1285878106]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=1882541356]
+layout_mode = 2
+text = "Magenta <-> Grau"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=2098976439]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=531487953]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=1888139617]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=985360078]
+layout_mode = 2
+text = "Rot <-> Grün"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=1007180318]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=1869221609]
+layout_mode = 2
+text = "Gelb <-> Orange"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=2091206999]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=462394790]
+layout_mode = 2
+bbcode_enabled = true
+text = "Limette <-> Cyan"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
 [node name="Schild" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=1133952086]
 visible = false
 layout_mode = 2
@@ -953,9 +1800,13 @@ layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="PageTitle" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox" unique_id=1351416326]
+[node name="PageTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox" unique_id=685906067]
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
 text = "Schild — Frequenz-Kalibrierung"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="Sep" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox" unique_id=1320294761]
 layout_mode = 2
@@ -977,46 +1828,170 @@ fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
 
-[node name="StepsTitle" type="Label" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox" unique_id=1351086971]
+[node name="ScrollContainer" type="ScrollContainer" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox" unique_id=293679448]
 layout_mode = 2
-text = "Sollwerte (Frequenz):"
+size_flags_vertical = 3
 
-[node name="StepList" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox" unique_id=854526177]
+[node name="VBoxContainer" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer" unique_id=1856129975]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StepList" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer" unique_id=854526177]
 layout_mode = 2
 
-[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/StepList" unique_id=427143907]
+[node name="StepsTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=584748872]
 layout_mode = 2
-text = "1.  Schild-Pult oeffnen (Taste E)."
+theme_override_font_sizes/normal_font_size = 38
+text = "Frequenz: 6841"
 fit_content = true
-scroll_active = false
 script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
-[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/StepList" unique_id=1556671819]
-layout_mode = 2
-text = "2.  Jeden Kanal per Regler einstellen:"
-fit_content = true
-scroll_active = false
-script = ExtResource("2_puywe")
-
-[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/StepList" unique_id=41088390]
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=41088390]
 layout_mode = 2
 text = "Kanal A:  43"
 fit_content = true
 scroll_active = false
+horizontal_alignment = 1
 script = ExtResource("2_puywe")
 
-[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/StepList" unique_id=1468283089]
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=1468283089]
 layout_mode = 2
 text = "Kanal B:  68"
 fit_content = true
 scroll_active = false
+horizontal_alignment = 1
 script = ExtResource("2_puywe")
 
-[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/StepList" unique_id=1094497487]
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=1094497487]
 layout_mode = 2
 text = "Kanal C:  25"
 fit_content = true
 scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="HSeparator2" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer" unique_id=1454670457]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="StepList2" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer" unique_id=490376846]
+layout_mode = 2
+
+[node name="ListTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=228304142]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "Frequenz: 8713"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=1960706810]
+layout_mode = 2
+text = "Kanal A:  64"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=905154551]
+layout_mode = 2
+text = "Kanal B:  45"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=669893440]
+layout_mode = 2
+text = "Kanal C:  12"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="HSeparator3" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer" unique_id=1937532985]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="StepList3" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer" unique_id=494576490]
+layout_mode = 2
+
+[node name="ListTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=370807768]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "Frequenz: 6384"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=1480027568]
+layout_mode = 2
+text = "Kanal A:  24"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=1038832187]
+layout_mode = 2
+text = "Kanal B:  33"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=2099351659]
+layout_mode = 2
+text = "Kanal C:  81"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="HSeparator4" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer" unique_id=893115772]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="StepList4" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer" unique_id=1418811396]
+layout_mode = 2
+
+[node name="ListTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1277923800]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "frequenz: 7321"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1865409696]
+layout_mode = 2
+text = "Kanal A:  28"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=2065014582]
+layout_mode = 2
+text = "Kanal B:  49"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("2_puywe")
+
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1606712805]
+layout_mode = 2
+text = "Kanal C:  96"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
 script = ExtResource("2_puywe")
 
 [node name="Codes" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=1981724562]
@@ -1053,12 +2028,18 @@ text = "Die folgenden Codes wurden bei der letzten Wartung vergeben. Bewahre die
 fit_content = true
 script = ExtResource("2_puywe")
 
+[node name="HSeparator2" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Codes/VBox" unique_id=1829390263]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
 [node name="CodesGrid" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Codes/VBox" unique_id=328743667]
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Codes/VBox/CodesGrid" unique_id=681428399]
 layout_mode = 2
+alignment = 1
 
 [node name="L1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Codes/VBox/CodesGrid/HBoxContainer" unique_id=2137287570]
 clip_contents = false
@@ -1066,6 +2047,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Haupttür:"
 fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("2_puywe")
 
 [node name="V1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Codes/VBox/CodesGrid/HBoxContainer" unique_id=249945762]
@@ -1074,6 +2057,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "385197"
 fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("2_puywe")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Codes/VBox/CodesGrid" unique_id=903548032]
@@ -1085,6 +2070,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Linke Motortür:"
 fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("2_puywe")
 
 [node name="V2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Codes/VBox/CodesGrid/HBoxContainer2" unique_id=2085592976]
@@ -1093,6 +2080,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "468217"
 fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("2_puywe")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Codes/VBox/CodesGrid" unique_id=1344530154]
@@ -1103,6 +2092,8 @@ clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Rechte Motortür:"
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("2_puywe")
 
 [node name="V3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Codes/VBox/CodesGrid/HBoxContainer3" unique_id=1812989358]
@@ -1111,6 +2102,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "562823"
 fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("2_puywe")
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Codes/VBox/CodesGrid" unique_id=2088255759]
@@ -1122,6 +2115,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Lagerraum:"
 fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("2_puywe")
 
 [node name="V4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Codes/VBox/CodesGrid/HBoxContainer4" unique_id=1748438165]
@@ -1130,6 +2125,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "182182"
 fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("2_puywe")
 
 [node name="Footer" type="HBoxContainer" parent="ManualRoot" unique_id=132583014]

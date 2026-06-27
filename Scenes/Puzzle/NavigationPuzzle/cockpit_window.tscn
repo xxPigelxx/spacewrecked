@@ -12,7 +12,9 @@
 [ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="7_cmgvn"]
 [ext_resource type="Texture2D" uid="uid://bdmxe45utame4" path="res://resources/assets/over.tres" id="7_es3id"]
 [ext_resource type="Script" uid="uid://iqf6kfhsygp6" path="res://script/nav_puzzle.gd" id="12_c6vri"]
+[ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="12_m2n8x"]
 [ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="13_0q44l"]
+[ext_resource type="Script" uid="uid://clg63em8vrbc0" path="res://script/DyslexiaLabel.gd" id="13_qf566"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbavm"]
 size = Vector2(1934, 1065)
@@ -315,6 +317,21 @@ texture_over = ExtResource("7_es3id")
 texture_progress = ExtResource("7_bd08j")
 texture_progress_offset = Vector2(-2.005, 14.26)
 tint_progress = Color(0.63632363, 0.89193815, 0.5438833, 1)
+
+[node name="PlanetNameLabel" type="RichTextLabel" parent="Detector" unique_id=912584839]
+offset_left = -105.0
+offset_top = 75.0
+offset_right = 87.0
+offset_bottom = 117.0
+theme_override_fonts/normal_font = ExtResource("12_m2n8x")
+theme_override_font_sizes/normal_font_size = 41
+text = "Test"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("13_qf566")
+text_color = Color(0.74, 0.74, 0.74, 1)
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="ReturnBt" type="Button" parent="." unique_id=2016330464]
 offset_left = 1398.0

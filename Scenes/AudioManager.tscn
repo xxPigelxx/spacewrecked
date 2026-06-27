@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dho7vfq575a1o"]
 
-[ext_resource type="Script" uid="uid://bxhxauhsnmd5e" path="res://Scenes/audio_manager.gd" id="1_dygvs"]
+[ext_resource type="Script" uid="uid://bxhxauhsnmd5e" path="res://script/audio_manager.gd" id="1_dygvs"]
 [ext_resource type="AudioStream" uid="uid://bo68tqavwrsm8" path="res://resources/assets/sfx/Sci-Fi Music Pack/Loops/wav/Sci-Fi 5 Loop.wav" id="2_i2xd5"]
 
 [node name="AudioManager" type="Node" unique_id=1717690277]

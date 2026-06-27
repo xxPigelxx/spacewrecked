@@ -7,10 +7,17 @@ var pressing := false
 @export var maxLength := 50.0
 @export var deadzone := 5.0
 
+var active_color = Color.WHITE
+var deactivated_color = Color(0.144, 0.144, 0.144, 1.0)
+
 func _ready() -> void:
 	maxLength *= parent.scale.x
 
 func _process(delta: float) -> void:
+	if GameState.is_system_broken("treibstoff") or GameState.is_system_broken("strom"):
+		modulate = deactivated_color
+		return
+	modulate = active_color
 	if pressing:
 		if get_global_mouse_position().distance_to(parent.global_position) <= maxLength:
 			global_position = get_global_mouse_position()

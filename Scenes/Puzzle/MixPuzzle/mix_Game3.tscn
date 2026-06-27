@@ -1,0 +1,294 @@
+[gd_scene format=3 uid="uid://bfbdgtgbotl6t"]
+
+[ext_resource type="Script" uid="uid://5fx0xgbsgc3n" path="res://script/mix_game.gd" id="1_fupm8"]
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="2_ol2lc"]
+[ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="3_w4agj"]
+[ext_resource type="Texture2D" uid="uid://rv48om81h8jr" path="res://resources/assets/animation/water/water1.tres" id="4_tfg8g"]
+[ext_resource type="Texture2D" uid="uid://7tn74alrr2ru" path="res://resources/assets/animation/water/water2.tres" id="5_28q16"]
+[ext_resource type="Texture2D" uid="uid://cowl12dmddoth" path="res://resources/assets/animation/water/water3.tres" id="6_wve6i"]
+[ext_resource type="Texture2D" uid="uid://dsndqo81xreba" path="res://resources/assets/animation/water/water4.tres" id="7_iem7c"]
+[ext_resource type="PackedScene" uid="uid://1hljbht02t" path="res://Scenes/bottle.tscn" id="8_wcq8i"]
+[ext_resource type="Texture2D" uid="uid://d4m2agfyueg8m" path="res://resources/assets/Items/Bottles/LongBottle.tres" id="9_t4bdr"]
+[ext_resource type="Texture2D" uid="uid://b43u3pmotcfn7" path="res://resources/assets/Items/Bottles/Cup.tres" id="10_7jmwm"]
+[ext_resource type="Texture2D" uid="uid://dxt4ee8t4jved" path="res://resources/assets/Items/Bottles/PetrolBottle.tres" id="11_un0qj"]
+[ext_resource type="Texture2D" uid="uid://7u720v4croox" path="res://resources/assets/Items/Bottles/WatterinngCan.tres" id="12_4nsr7"]
+[ext_resource type="Texture2D" uid="uid://wof4yw2g8cy4" path="res://resources/assets/Items/Bottles/RoundBottle.tres" id="13_uf4x0"]
+[ext_resource type="Script" uid="uid://clg63em8vrbc0" path="res://script/DyslexiaLabel.gd" id="14_bkkw7"]
+[ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="15_mmq01"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p5xu6"]
+texture = ExtResource("2_ol2lc")
+texture_margin_left = 64.30769
+texture_margin_top = 91.589745
+texture_margin_right = 70.15385
+texture_margin_bottom = 105.33694
+region_rect = Rect2(807, 835, 184, 148)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_it0an"]
+texture = ExtResource("2_ol2lc")
+texture_margin_left = 42.82495
+texture_margin_top = 36.063118
+texture_margin_right = 31.555227
+texture_margin_bottom = 42.82495
+region_rect = Rect2(807, 835, 184, 148)
+modulate_color = Color(0.2592937, 0.2592937, 0.2592937, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ij5bd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_tfg8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_28q16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wve6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_iem7c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mjqs"]
+size = Vector2(170, 205)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gatl4"]
+size = Vector2(245, 273)
+
+[node name="Mixing_Game" type="CanvasLayer" unique_id=1650878428]
+script = ExtResource("1_fupm8")
+recipe = Array[Dictionary]([{
+"bottle_name": "Wasser",
+"target_pct": 25.0
+}, {
+"bottle_name": "Xytherium",
+"target_pct": 12.0
+}, {}])
+require_full = false
+
+[node name="Panel" type="Panel" parent="." unique_id=1025445036]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel2" type="Panel" parent="." unique_id=1290801594]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 245.0
+offset_top = 44.0
+offset_right = -307.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_p5xu6")
+
+[node name="Panel" type="Panel" parent="Panel2" unique_id=359702033]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -567.0
+offset_top = -424.0
+offset_right = 604.0
+offset_bottom = 352.75
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_it0an")
+
+[node name="Button Array" type="HBoxContainer" parent="Panel2" unique_id=134325051]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = -119.0
+offset_right = -21.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 272
+alignment = 1
+
+[node name="winBt" type="Button" parent="Panel2/Button Array" unique_id=1708794599]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("3_w4agj")
+theme_override_font_sizes/font_size = 50
+text = "win"
+
+[node name="resetBt" type="Button" parent="Panel2/Button Array" unique_id=1744834196]
+layout_mode = 2
+theme = ExtResource("3_w4agj")
+theme_override_font_sizes/font_size = 50
+text = "Empty"
+
+[node name="returnBt" type="Button" parent="Panel2/Button Array" unique_id=590159499]
+layout_mode = 2
+theme = ExtResource("3_w4agj")
+theme_override_font_sizes/font_size = 50
+text = "Return"
+
+[node name="Container" type="Area2D" parent="." unique_id=1839147150 groups=["Container"]]
+position = Vector2(962, 700)
+
+[node name="ColorRect" type="ColorRect" parent="Container" unique_id=276339799]
+anchors_preset = -1
+anchor_bottom = 0.74326247
+offset_left = -94.0
+offset_top = -30.0
+offset_right = 71.630005
+offset_bottom = 138.38
+metadata/_edit_use_anchors_ = true
+
+[node name="LiquidLine" type="AnimatedSprite2D" parent="Container/ColorRect" unique_id=2073819832]
+position = Vector2(80, -2)
+sprite_frames = SubResource("SpriteFrames_ij5bd")
+frame_progress = 0.16438462
+
+[node name="ContainerSprite" type="Sprite2D" parent="Container" unique_id=289083097]
+position = Vector2(-9, 36)
+texture = ExtResource("2_ol2lc")
+region_enabled = true
+region_rect = Rect2(1828, 1768, 188, 236)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Container" unique_id=1621771806]
+position = Vector2(-2, 56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/StaticBody2D" unique_id=995079272]
+position = Vector2(-8, -11.5)
+shape = SubResource("RectangleShape2D_3mjqs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Container" unique_id=1955900501]
+position = Vector2(-14.5, -192.5)
+shape = SubResource("RectangleShape2D_gatl4")
+
+[node name="Shelfs" type="Node2D" parent="." unique_id=162625515]
+
+[node name="ProcreateSprites" type="Sprite2D" parent="Shelfs" unique_id=1990249481]
+position = Vector2(577, 415.00003)
+scale = Vector2(0.3622807, 0.359375)
+texture = ExtResource("2_ol2lc")
+region_enabled = true
+region_rect = Rect2(80, 596, 855, 64)
+
+[node name="ProcreateSprites2" type="Sprite2D" parent="Shelfs" unique_id=160693307]
+position = Vector2(572, 572)
+scale = Vector2(0.3622807, 0.359375)
+texture = ExtResource("2_ol2lc")
+region_enabled = true
+region_rect = Rect2(80, 596, 855, 64)
+
+[node name="ProcreateSprites3" type="Sprite2D" parent="Shelfs" unique_id=925709804]
+position = Vector2(1306.875, 415.5)
+scale = Vector2(0.3622807, 0.359375)
+texture = ExtResource("2_ol2lc")
+region_enabled = true
+region_rect = Rect2(80, 596, 855, 64)
+
+[node name="ProcreateSprites4" type="Sprite2D" parent="Shelfs" unique_id=1204505886]
+position = Vector2(1301.875, 572.5)
+scale = Vector2(0.3622807, 0.359375)
+texture = ExtResource("2_ol2lc")
+region_enabled = true
+region_rect = Rect2(80, 596, 855, 64)
+
+[node name="Bottles" type="Node2D" parent="." unique_id=2032119311]
+
+[node name="Bottle" parent="Bottles" unique_id=2017601924 instance=ExtResource("8_wcq8i")]
+position = Vector2(1364, 357)
+bottle_color = Color(0.26039997, 0.74028003, 0.93, 1)
+bottle_name = "Hyperion"
+
+[node name="Bottle2" parent="Bottles" unique_id=906856601 instance=ExtResource("8_wcq8i")]
+position = Vector2(1310, 510)
+bottle_color = Color(0.56, 0.3378667, 0.16800001, 1)
+bottle_name = "Xytherium"
+bottle_texture = ExtResource("9_t4bdr")
+
+[node name="Bottle3" parent="Bottles" unique_id=1125590377 instance=ExtResource("8_wcq8i")]
+position = Vector2(1254, 358)
+bottle_color = Color(0.8772146, 0.54144984, 0.7787397, 1)
+bottle_name = "Zeraphine"
+bottle_texture = ExtResource("10_7jmwm")
+
+[node name="Bottle4" parent="Bottles" unique_id=512509899 instance=ExtResource("8_wcq8i")]
+position = Vector2(652, 359)
+bottle_color = Color(0.066758975, 0.0923285, 0.010655793, 1)
+bottle_name = "Oel"
+bottle_texture = ExtResource("11_un0qj")
+
+[node name="Bottle5" parent="Bottles" unique_id=1111120526 instance=ExtResource("8_wcq8i")]
+position = Vector2(488, 355)
+bottle_color = Color(0.19195771, 0.39252624, 0.8397936, 1)
+bottle_name = "Wasser"
+bottle_texture = ExtResource("12_4nsr7")
+
+[node name="Bottle6" parent="Bottles" unique_id=1422683580 instance=ExtResource("8_wcq8i")]
+position = Vector2(570, 512)
+bottle_color = Color(0.59, 0, 0.46216664, 1)
+bottle_name = "Vortex"
+bottle_texture = ExtResource("13_uf4x0")
+
+[node name="RecipePanel" type="VBoxContainer" parent="." unique_id=1966141697]
+visible = false
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 320.0
+offset_bottom = 400.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="RecipePanel" unique_id=1148366719]
+layout_mode = 2
+bbcode_enabled = true
+text = "Rezept:"
+fit_content = true
+
+[node name="Fulestand" type="RichTextLabel" parent="." unique_id=340789079]
+offset_left = 857.0
+offset_top = 854.0
+offset_right = 1050.0
+offset_bottom = 894.0
+theme_override_colors/default_color = Color(0.7372549, 0.7372549, 0.7372549, 1)
+theme_override_font_sizes/normal_font_size = 24
+text = "Füllstand: "
+fit_content = true
+script = ExtResource("14_bkkw7")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="ErrorCode" parent="." unique_id=1170533520 instance=ExtResource("15_mmq01")]
+position = Vector2(923, 93.045)
+error_code = "Quantrex"
+
+[node name="ProcreateSprites" parent="ErrorCode" index="0" unique_id=1600055411]
+scale = Vector2(1.6811594, 1)
+
+[node name="lamp" parent="ErrorCode" index="1" unique_id=402077154]
+position = Vector2(-90, 0.5)
+
+[node name="lamp2" parent="ErrorCode" index="2" unique_id=1142474370]
+position = Vector2(90, 0.5)
+
+[node name="DyslexiaLabel" parent="ErrorCode" index="3" unique_id=996815021]
+offset_left = -82.06
+offset_right = 84.285
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Panel2/Button Array/winBt" to="." method="_on_win"]
+[connection signal="pressed" from="Panel2/Button Array/resetBt" to="." method="_on_reset_bt_pressed"]
+[connection signal="pressed" from="Panel2/Button Array/returnBt" to="." method="_on_return_bt_pressed"]
+
+[editable path="ErrorCode"]
