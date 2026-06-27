@@ -144,7 +144,7 @@ position = Vector2(662, 773)
 category = 1
 spawn_time = 20.0
 astoroid = true
-overlay_scene = "uid://mx67lrqv2oom"
+overlay_scene = "uid://cvx8uf3sul6n8"
 
 [node name="MalfunctionIconsWiers" parent="Interactabels/JourneyMalfunctions/WiersJourney" unique_id=1050304997 instance=ExtResource("17_cmrup")]
 
@@ -153,7 +153,7 @@ position = Vector2(662, 309)
 category = 1
 spawn_time = 75.0
 astoroid = true
-overlay_scene = "uid://mx67lrqv2oom"
+overlay_scene = "uid://ddlmoaw5qtiaw"
 
 [node name="MalfunctionIconsWiers" parent="Interactabels/JourneyMalfunctions/WiersJourney2" unique_id=593299362 instance=ExtResource("17_cmrup")]
 
@@ -162,7 +162,7 @@ position = Vector2(963, 373)
 category = 1
 spawn_time = 120.0
 astoroid = true
-overlay_scene = "uid://mx67lrqv2oom"
+overlay_scene = "uid://dauvboslmqgvj"
 
 [node name="MalfunctionIconsWiers" parent="Interactabels/JourneyMalfunctions/WiersJourney3" unique_id=801697842 instance=ExtResource("17_cmrup")]
 
@@ -180,7 +180,7 @@ position = Vector2(-77, 94)
 category = 2
 spawn_time = 35.0
 astoroid = true
-overlay_scene = "uid://cipbu25o2n6ae"
+overlay_scene = "uid://bcrjbuv5p0yew"
 
 [node name="MalfunctionIconsMix" parent="Interactabels/JourneyMalfunctions/MixJourney" unique_id=2029534547 instance=ExtResource("18_im1vy")]
 
@@ -189,7 +189,7 @@ position = Vector2(-49, 1028)
 category = 2
 spawn_time = 77.0
 astoroid = true
-overlay_scene = "uid://cipbu25o2n6ae"
+overlay_scene = "uid://bfbdgtgbotl6t"
 
 [node name="MalfunctionIconsMix" parent="Interactabels/JourneyMalfunctions/MixJourney2" unique_id=2059732327 instance=ExtResource("18_im1vy")]
 
@@ -207,7 +207,7 @@ position = Vector2(-49, 1028)
 category = 2
 spawn_time = 230.0
 astoroid = true
-overlay_scene = "uid://cipbu25o2n6ae"
+overlay_scene = "uid://hohj66sg0vwv"
 
 [node name="MalfunctionIconsMix" parent="Interactabels/JourneyMalfunctions/MixJourney4" unique_id=241757609 instance=ExtResource("18_im1vy")]
 
@@ -219,7 +219,6 @@ spawn_time = 60.0
 start_up_animation = NodePath("SmokeAni")
 partical = NodePath("SmokeParticle")
 astoroid = true
-overlay_scene = "uid://dhaqf5a5qa6di"
 
 [node name="SmokeParticle" parent="Interactabels/JourneyMalfunctions/NavJourney" unique_id=758853773 instance=ExtResource("15_k6vqf")]
 
@@ -235,7 +234,6 @@ spawn_time = 120.0
 start_up_animation = NodePath("SmokeAni")
 partical = NodePath("SmokeParticle")
 astoroid = true
-overlay_scene = "uid://dhaqf5a5qa6di"
 
 [node name="SmokeParticle" parent="Interactabels/JourneyMalfunctions/NavJourney2" unique_id=883015293 instance=ExtResource("15_k6vqf")]
 
@@ -251,7 +249,6 @@ spawn_time = 200.0
 start_up_animation = NodePath("SmokeAni")
 partical = NodePath("SmokeParticle")
 astoroid = true
-overlay_scene = "uid://dhaqf5a5qa6di"
 
 [node name="SmokeParticle" parent="Interactabels/JourneyMalfunctions/NavJourney3" unique_id=1909783783 instance=ExtResource("15_k6vqf")]
 
@@ -264,7 +261,7 @@ position = Vector2(12, 549)
 category = 3
 spawn_time = 10.0
 astoroid = true
-overlay_scene = "uid://c2pjmhdar3m1e"
+overlay_scene = "uid://cnp0w5vjlrxy6"
 
 [node name="MalfunctionIconsShild" parent="Interactabels/JourneyMalfunctions/ShildJourney" unique_id=370138005 instance=ExtResource("19_yy0n7")]
 
@@ -273,7 +270,7 @@ position = Vector2(12, 549)
 category = 3
 spawn_time = 80.0
 astoroid = true
-overlay_scene = "uid://c2pjmhdar3m1e"
+overlay_scene = "uid://brf04gogimq8o"
 
 [node name="MalfunctionIconsShild" parent="Interactabels/JourneyMalfunctions/ShildJourney2" unique_id=187408762 instance=ExtResource("19_yy0n7")]
 
@@ -282,7 +279,7 @@ position = Vector2(12, 549)
 category = 3
 spawn_time = 160.0
 astoroid = true
-overlay_scene = "uid://c2pjmhdar3m1e"
+overlay_scene = "uid://d2xue47yiiydp"
 
 [node name="MalfunctionIconsShild" parent="Interactabels/JourneyMalfunctions/ShildJourney3" unique_id=1800758132 instance=ExtResource("19_yy0n7")]
 

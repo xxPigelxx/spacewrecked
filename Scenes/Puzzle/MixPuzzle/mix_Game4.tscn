@@ -62,12 +62,18 @@ size = Vector2(245, 273)
 [node name="Mixing_Game" type="CanvasLayer" unique_id=1650878428]
 script = ExtResource("1_d4i36")
 recipe = Array[Dictionary]([{
-"bottle_name": "Wasser",
-"target_pct": 25.0
+"bottle_name": "Zeraphine",
+"target_pct": 19.0
 }, {
-"bottle_name": "Xytherium",
-"target_pct": 12.0
-}, {}])
+"bottle_name": "Oel",
+"target_pct": 27.0
+}, {
+"bottle_name": "Hyperion",
+"target_pct": 22.0
+}, {
+"bottle_name": "Vortex",
+"target_pct": 31.0
+}])
 require_full = false
 
 [node name="Panel" type="Panel" parent="." unique_id=1025445036]
@@ -285,6 +291,7 @@ position = Vector2(90, 0.5)
 [node name="DyslexiaLabel" parent="ErrorCode" index="3" unique_id=996815021]
 offset_left = -66.0
 offset_right = 70.0
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Panel2/Button Array/winBt" to="." method="_on_win"]
 [connection signal="pressed" from="Panel2/Button Array/resetBt" to="." method="_on_reset_bt_pressed"]

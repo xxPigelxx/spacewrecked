@@ -8,8 +8,6 @@ extends CanvasLayer
 @onready var error_code: Node2D = $ErrorCode
 
 @export var max_fill: float = 140.0
-## Rezept: jeder Eintrag ist { "bottle_name": String, "target_pct": float (0–100) }
-## Beispiel: [{"bottle_name":"Wasser","target_pct":50.0},{"bottle_name":"Oel","target_pct":25.0}]
 @export var recipe: Array[Dictionary] = [{"bottle_name":"Wasser","target_pct":20.0},{"bottle_name":"Xytherium","target_pct":12.0},{"bottle_name":"Hyperion","target_pct":23.0},{"bottle_name":"Vortex","target_pct":25.0} ]
 
 ## Spielraum in Prozentpunkten (±). 10 = ±10%
