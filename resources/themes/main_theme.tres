@@ -16,6 +16,7 @@ content_margin_right = 12.0
 content_margin_bottom = 12.0
 texture = SubResource("CompressedTexture2D_x2ak3")
 region_rect = Rect2(807, 835, 184, 148)
+modulate_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0wthw"]
 load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"

@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bjd5y58apnmu" path="res://resources/assets/Selection_ring.tres" id="6_me2tk"]
 [ext_resource type="Script" uid="uid://h52vsw4aeb4u" path="res://script/mal_notification.gd" id="7_164it"]
 [ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="7_n500u"]
+[ext_resource type="Texture2D" uid="uid://mnpplgcph5f7" path="res://resources/assets/spacemap_rounded.png" id="11_cw3p6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7jiqe"]
 texture = ExtResource("2_byvqj")
@@ -63,6 +64,13 @@ region_rect = Rect2(782, 1429, 484, 594)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_164it"]
 thickness = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cw3p6"]
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+corner_detail = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n500u"]
 
@@ -118,9 +126,9 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_q6b25")
 
 [node name="TabContainer" type="TabContainer" parent="ManualRoot/PanelContainer" unique_id=1076820476]
 layout_mode = 2
-theme_override_constants/tab_separation = 4
+theme_override_constants/tab_separation = 22
 tab_alignment = 1
-current_tab = 3
+current_tab = 2
 clip_tabs = false
 
 [node name="Home" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=504548785]
@@ -907,7 +915,6 @@ horizontal_alignment = 1
 script = ExtResource("2_puywe")
 
 [node name="Navigation" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=529697749]
-visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
 drift_amplitude = 11.0
@@ -924,7 +931,7 @@ anchor_bottom = 1.0
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
-text = "[b] Navigation[/b]"
+text = "Navigation"
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -934,7 +941,7 @@ layout_mode = 2
 
 [node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox" unique_id=804382157]
 layout_mode = 2
-text = "Das Navigations System ist shjer fragiel falll je war dem Schiff passier muss es Neu kalibriet werdenn Dafür musss eine bestimmte sequenz von Planeten angestert werden. Dies ist erst möglich wen das Schiff in einem Zustand ist das  es sich auch bewegen kann sprich es muss Energie haben und auch den passenden triebstoff. Zuerst muss der Planet \"Thsien\" angesteuert werden."
+text = "Das Navigations System ist sehr fragiel fall je	des mal wen dem Schiff etwas passiert leuft es gefahr einzubrechen und muss neu kalibriet werden. Dafür musss eine bestimmte sequenz von Planeten angestert werden. Dies ist erst möglich wen das Schiff in einem flugtüchtigen Zustand ist. Das es genug Energie und den passenden triebstoff hat. Eine Karte des Alls und eine Beschreibung der Planeten finden sie ganz unten auf dieser Seite."
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -964,7 +971,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
-text = "Error Code: 8946"
+text = "Signal Code: 8946"
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -979,7 +986,7 @@ size_flags_horizontal = 3
 
 [node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=1600387604]
 layout_mode = 2
-text = "Blau <-> lila"
+text = "1 Aquaron"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -992,7 +999,7 @@ size_flags_horizontal = 3
 
 [node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=187397872]
 layout_mode = 2
-text = "Magenta <-> Grau"
+text = "2 Nyxara"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1013,7 +1020,7 @@ size_flags_horizontal = 3
 
 [node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=2052323643]
 layout_mode = 2
-text = "Rot <-> Grün"
+text = "3 Sproutia"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1026,7 +1033,7 @@ size_flags_horizontal = 3
 
 [node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=1654426698]
 layout_mode = 2
-text = "Gelb <-> Orange"
+text = "4 Solvane"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1040,7 +1047,7 @@ size_flags_horizontal = 3
 [node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=1938564320]
 layout_mode = 2
 bbcode_enabled = true
-text = "Limette <-> Cyan"
+text = "5 Ignara"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -1058,7 +1065,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
-text = "Error Code: 7824"
+text = "Signal Code: 7824"
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1073,7 +1080,7 @@ size_flags_horizontal = 3
 
 [node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=1280867145]
 layout_mode = 2
-text = "Blau <-> lila"
+text = "1 Florexia"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1086,7 +1093,7 @@ size_flags_horizontal = 3
 
 [node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=981592619]
 layout_mode = 2
-text = "Magenta <-> Grau"
+text = "2 Ingnara"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1107,7 +1114,7 @@ size_flags_horizontal = 3
 
 [node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=389053677]
 layout_mode = 2
-text = "Rot <-> Grün"
+text = "3 Stellaris"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1120,7 +1127,7 @@ size_flags_horizontal = 3
 
 [node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=678791326]
 layout_mode = 2
-text = "Gelb <-> Orange"
+text = "4 Aquaron"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1134,7 +1141,7 @@ size_flags_horizontal = 3
 [node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=2021989452]
 layout_mode = 2
 bbcode_enabled = true
-text = "Limette <-> Cyan"
+text = "5 Terra"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -1152,7 +1159,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
-text = "Error Code: 3687"
+text = "Signal Code: 3687"
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1211,7 +1218,7 @@ size_flags_horizontal = 3
 
 [node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=2065748346]
 layout_mode = 2
-text = "Blau <-> lila"
+text = "1 Pyronis"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1224,7 +1231,7 @@ size_flags_horizontal = 3
 
 [node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=596646549]
 layout_mode = 2
-text = "Magenta <-> Grau"
+text = "2 Sproutia"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1245,7 +1252,7 @@ size_flags_horizontal = 3
 
 [node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=1216690103]
 layout_mode = 2
-text = "Rot <-> Grün"
+text = "3 Terra"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1258,7 +1265,7 @@ size_flags_horizontal = 3
 
 [node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=2080014947]
 layout_mode = 2
-text = "Gelb <-> Orange"
+text = "4 Nyxara"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1272,7 +1279,7 @@ size_flags_horizontal = 3
 [node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=575179778]
 layout_mode = 2
 bbcode_enabled = true
-text = "Limette <-> Cyan"
+text = "5 Florexia"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -1290,7 +1297,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
-text = "Error Code: 6781"
+text = "Signal Code: 6781"
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1305,7 +1312,7 @@ size_flags_horizontal = 3
 
 [node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=1360829740]
 layout_mode = 2
-text = "Blau <-> lila"
+text = "1 Verdantis"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1318,7 +1325,7 @@ size_flags_horizontal = 3
 
 [node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=275649282]
 layout_mode = 2
-text = "Magenta <-> Grau"
+text = "2 Nyxara"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1339,7 +1346,7 @@ size_flags_horizontal = 3
 
 [node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=698765510]
 layout_mode = 2
-text = "Rot <-> Grün"
+text = "3 Sproutia"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1352,7 +1359,7 @@ size_flags_horizontal = 3
 
 [node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=1081167217]
 layout_mode = 2
-text = "Gelb <-> Orange"
+text = "4 Glacium"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1366,13 +1373,255 @@ size_flags_horizontal = 3
 [node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1016393442]
 layout_mode = 2
 bbcode_enabled = true
-text = "Limette <-> Cyan"
+text = "5 Solvane"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 script = ExtResource("2_puywe")
 
+[node name="HSeparator5" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1746926766]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="map" type="PanelContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1927722111]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cw3p6")
+
+[node name="MarginContainer" type="MarginContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/map" unique_id=170144107]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Spacemap" type="TextureRect" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/map/MarginContainer" unique_id=1385103991]
+layout_mode = 2
+texture = ExtResource("11_cw3p6")
+expand_mode = 5
+
+[node name="HSeparator6" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1469434198]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="Terra" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=11065724]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "Terra"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="TerraText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1405028591]
+layout_mode = 2
+text = "Ein Planet mit blau-grünen Kontinenten und wirbelnden weißen Wolkenbändern, die sich über die Oberfläche ziehen. Ozeane glitzern in tiefem Türkis, durchzogen von kleinen grünen Landmassen."
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="HSeparator7" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=996568185]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="Glacium" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=233473984]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "Galcium"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="GlaciumText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1570024302]
+layout_mode = 2
+text = "Eine winzige, fast bunte Kugel mit blau-gelben Mustern, die wie gefrorene Risse oder Energieadern wirken, eingebettet in ein violettes Strudelmuster im Hintergrund."
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="HSeparator8" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1676419327]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="Florexia" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=2131579125]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "Florexia"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="FlorexiaText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=189474291]
+layout_mode = 2
+text = "Ein zartes, blütenähnliches Gebilde aus rosa und hellblauen Blättern, die sternförmig um einen Kern angeordnet sind – wirkt eher wie eine kosmische Blume als ein klassischer Planet."
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="HSeparator9" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1343709414]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="Ignara" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1532117150]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "Ignara"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="IgnaraText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=79241767]
+layout_mode = 2
+text = "Ein rötlich-brauner Gesteinsplanet mit deutlich sichtbarem Ringsystem, das sich schräg um den Äquator legt. Die Oberfläche zeigt dunkle, narbige Krater."
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="HSeparator10" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1106431500]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="Nyxara" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1681849006]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "Nyxara"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="NyxaraText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=347048827]
+layout_mode = 2
+text = "Ein dunkler Planet mit einem violetten Spiralwirbel auf der Oberfläche, der an ein kosmisches Auge oder einen Sturm erinnert. Die Ränder gehen ins Schwarze über."
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="HSeparator11" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=147631966]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="Stellaris" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1294180615]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "Stellaris"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="StellarisText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1473373409]
+layout_mode = 2
+text = "Eine kleine graue diamantförmige Raumstation. wirkt wie eingefrorenes Sternenlicht."
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="HSeparator12" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=697925365]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="Pyronis" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=921037807]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "Pyronis"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="PyronisText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1104122966]
+layout_mode = 2
+text = "Ein orange-pink-violetter Planet mit wolkigen, nebelartigen Texturen, die wie brodelnde Gaswolken über die Oberfläche ziehen, mit einem dunkleren Kern in der Mitte."
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="HSeparator13" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1633999620]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="Solvane" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1083579618]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "Solvane"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="SolvaneText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1744699650]
+layout_mode = 2
+text = "Ein brodelnder Gasriese mit einem hypnotischen orangenen Spiralmuster, das sich wie ein Sturm um seinen Kern windet. Der dunkle Hintergrund changiert von tiefem Türkis ins Schwarze und verleiht der Szene den Charakter eines Übergangs- oder Portal-Bildschirms."
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="HSeparator14" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=669775474]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="Aquaron" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1505587647]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "Aquaron"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="AquaronText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=102741919]
+layout_mode = 2
+text = " Ein blau-orangener Planet mit konzentrischen Ringmustern auf der Oberfläche, die wie Wasserwellen oder Energiezonen wirken."
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="HSeparator15" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=459673578]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="Sproutia" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=223327371]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "Sproutia"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="SproutiaText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=314183718]
+layout_mode = 2
+text = "Ein junger, lebensspendender Planet, aus dessen heller Oberfläche zarte grüne Triebe und Ranken sprießen – ein Symbol für aufkeimendes Leben inmitten der Leere des Alls."
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="HSeparator16" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1732054393]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_164it")
+
+[node name="Verdantis" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=776827490]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+text = "Verdantis"
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="VerdantisText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1708965545]
+layout_mode = 2
+text = "Kein Planet, sondern ein kleines grünes, tintenfischartiges Wesen oder Symbol – möglicherweise ein Charakter- oder Statusicon für eine außerirdische Spezies."
+fit_content = true
+script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
 [node name="Treibstoff" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=283084671]
+visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
 drift_amplitude = 11.0

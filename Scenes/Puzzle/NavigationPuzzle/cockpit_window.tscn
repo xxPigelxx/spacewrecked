@@ -22,6 +22,9 @@ size = Vector2(1934, 1065)
 [sub_resource type="CircleShape2D" id="CircleShape2D_wngar"]
 radius = 152.11838
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_m2n8x"]
+radius = 280.7864
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hdqt"]
 size = Vector2(5758.25, 7528)
 
@@ -33,6 +36,7 @@ radius = 86.0
 
 [node name="CockpitWindow" type="CanvasLayer" unique_id=1066614739]
 script = ExtResource("12_c6vri")
+correct_order = Array[String](["Aquaron", "Nyxara", "Sproutia", "Solvane", "Ignara"])
 
 [node name="Plain BG" type="ColorRect" parent="." unique_id=1525244899]
 offset_left = -29609.0
@@ -42,6 +46,10 @@ offset_bottom = -22622.0
 scale = Vector2(8, 8)
 pivot_offset = Vector2(0.5, 0.5)
 color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1171980544]
+position = Vector2(952, 550.5)
+zoom = Vector2(66.5, 66.5)
 
 [node name="Space" type="CharacterBody2D" parent="." unique_id=1328670499 node_paths=PackedStringArray("parallax_background")]
 position = Vector2(960, 540)
@@ -92,182 +100,182 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="Earth" type="Area2D" parent="Space/planets" unique_id=1624081399 groups=["Planet"]]
+[node name="Terra" type="Area2D" parent="Space/planets" unique_id=1624081399 groups=["Planet"]]
 position = Vector2(599, -1601)
 script = ExtResource("4_0q44l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Earth" unique_id=1916989070]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Terra" unique_id=1916989070]
 shape = SubResource("CircleShape2D_wngar")
 
-[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Earth" unique_id=1497984669]
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Terra" unique_id=1497984669]
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("6_0q44l")
 
-[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Earth" unique_id=631605073]
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Terra" unique_id=631605073]
 texture = ExtResource("4_wngar")
 region_enabled = true
 region_rect = Rect2(2098, 1613, 249, 232)
 
-[node name="Blackhole" type="Area2D" parent="Space/planets" unique_id=2007543501 groups=["Planet"]]
+[node name="Nyxara" type="Area2D" parent="Space/planets" unique_id=2007543501 groups=["Planet"]]
 position = Vector2(-1823, 1518)
 script = ExtResource("4_0q44l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Blackhole" unique_id=1356176643]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Nyxara" unique_id=1356176643]
 shape = SubResource("CircleShape2D_wngar")
 
-[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Blackhole" unique_id=945833805]
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Nyxara" unique_id=945833805]
 scale = Vector2(2.95, 2.95)
 texture = ExtResource("6_0q44l")
 
-[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Blackhole" unique_id=1081303703]
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Nyxara" unique_id=1081303703]
 texture = ExtResource("4_wngar")
 region_enabled = true
 region_rect = Rect2(1713, 536, 467, 349)
 
-[node name="GeenEgg" type="Area2D" parent="Space/planets" unique_id=675845182 groups=["Planet"]]
+[node name="Verdantis" type="Area2D" parent="Space/planets" unique_id=675845182 groups=["Planet"]]
 position = Vector2(-1806, -1527)
 script = ExtResource("4_0q44l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/GeenEgg" unique_id=2032782354]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Verdantis" unique_id=2032782354]
 shape = SubResource("CircleShape2D_wngar")
 
-[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/GeenEgg" unique_id=1225414860]
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Verdantis" unique_id=1225414860]
 scale = Vector2(1.8731154, 1.8731152)
 texture = ExtResource("6_0q44l")
 
-[node name="Sprite2D" type="Sprite2D" parent="Space/planets/GeenEgg" unique_id=1922624683]
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Verdantis" unique_id=1922624683]
 texture = ExtResource("4_wngar")
 region_enabled = true
 region_rect = Rect2(797, 2637, 232, 256)
 
-[node name="Station" type="Area2D" parent="Space/planets" unique_id=1190770002 groups=["Planet"]]
+[node name="Stellaris" type="Area2D" parent="Space/planets" unique_id=1190770002 groups=["Planet"]]
 position = Vector2(-2422, 75)
 script = ExtResource("4_0q44l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Station" unique_id=15814945]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Stellaris" unique_id=15814945]
 shape = SubResource("CircleShape2D_wngar")
 
-[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Station" unique_id=63628036]
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Stellaris" unique_id=63628036]
 scale = Vector2(1.8731154, 1.8731152)
 texture = ExtResource("6_0q44l")
 
-[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Station" unique_id=2097118356]
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Stellaris" unique_id=2097118356]
 texture = ExtResource("4_wngar")
 region_enabled = true
 region_rect = Rect2(1515, 1818, 168, 240)
 
-[node name="Sonic" type="Area2D" parent="Space/planets" unique_id=825591823 groups=["Planet"]]
+[node name="Glacium" type="Area2D" parent="Space/planets" unique_id=825591823 groups=["Planet"]]
 position = Vector2(2684, -336)
 script = ExtResource("4_0q44l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Sonic" unique_id=1251747490]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Glacium" unique_id=1251747490]
 shape = SubResource("CircleShape2D_wngar")
 
-[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Sonic" unique_id=1636033749]
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Glacium" unique_id=1636033749]
 scale = Vector2(1.8731154, 1.8731152)
 texture = ExtResource("6_0q44l")
 
-[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Sonic" unique_id=295029450]
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Glacium" unique_id=295029450]
 texture = ExtResource("4_wngar")
 region_enabled = true
 region_rect = Rect2(2535, 174, 172, 174)
 
-[node name="Saturn" type="Area2D" parent="Space/planets" unique_id=631048206 groups=["Planet"]]
+[node name="Ignara" type="Area2D" parent="Space/planets" unique_id=631048206 groups=["Planet"]]
 position = Vector2(-446, 970)
 script = ExtResource("4_0q44l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Saturn" unique_id=1732019237]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Ignara" unique_id=1732019237]
 shape = SubResource("CircleShape2D_wngar")
 
-[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Saturn" unique_id=859295617]
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Ignara" unique_id=859295617]
 scale = Vector2(2.358, 2.358)
 texture = ExtResource("6_0q44l")
 
-[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Saturn" unique_id=1145061281]
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Ignara" unique_id=1145061281]
 texture = ExtResource("4_wngar")
 region_enabled = true
 region_rect = Rect2(3271, 940, 549, 347)
 
-[node name="Spireal" type="Area2D" parent="Space/planets" unique_id=1110540882 groups=["Planet"]]
+[node name="Solvane" type="Area2D" parent="Space/planets" unique_id=1110540882 groups=["Planet"]]
 position = Vector2(750, 284)
 script = ExtResource("4_0q44l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Spireal" unique_id=1054529513]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Solvane" unique_id=1054529513]
 shape = SubResource("CircleShape2D_wngar")
 
-[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Spireal" unique_id=1864019725]
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Solvane" unique_id=1864019725]
 scale = Vector2(1.8731154, 1.8731152)
 texture = ExtResource("6_0q44l")
 
-[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Spireal" unique_id=559932718]
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Solvane" unique_id=559932718]
 texture = ExtResource("4_wngar")
 region_enabled = true
 region_rect = Rect2(1969, 2470, 308, 325)
 
-[node name="Tri" type="Area2D" parent="Space/planets" unique_id=1380850929 groups=["Planet"]]
+[node name="Pyronis" type="Area2D" parent="Space/planets" unique_id=1380850929 groups=["Planet"]]
 position = Vector2(-1043, 117)
 script = ExtResource("4_0q44l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Tri" unique_id=1639635386]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Pyronis" unique_id=1639635386]
 shape = SubResource("CircleShape2D_wngar")
 
-[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Tri" unique_id=802688608]
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Pyronis" unique_id=802688608]
 position = Vector2(2, 3.0000153)
 scale = Vector2(1.8731154, 1.8731152)
 texture = ExtResource("6_0q44l")
 
-[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Tri" unique_id=1586161106]
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Pyronis" unique_id=1586161106]
 texture = ExtResource("4_wngar")
 region_enabled = true
 region_rect = Rect2(221, 1945, 275, 249)
 
-[node name="BlueMoon" type="Area2D" parent="Space/planets" unique_id=2039928627 groups=["Planet"]]
+[node name="Aquaron" type="Area2D" parent="Space/planets" unique_id=2039928627 groups=["Planet"]]
 position = Vector2(-879, -1027)
 script = ExtResource("4_0q44l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/BlueMoon" unique_id=888677402]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Aquaron" unique_id=888677402]
 shape = SubResource("CircleShape2D_wngar")
 
-[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/BlueMoon" unique_id=40037490]
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Aquaron" unique_id=40037490]
 scale = Vector2(1.8731154, 1.8731152)
 texture = ExtResource("6_0q44l")
 
-[node name="Sprite2D" type="Sprite2D" parent="Space/planets/BlueMoon" unique_id=242425601]
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Aquaron" unique_id=242425601]
 texture = ExtResource("4_wngar")
 region_enabled = true
 region_rect = Rect2(728, 1149, 208, 200)
 
-[node name="Commet" type="Area2D" parent="Space/planets" unique_id=845838974 groups=["Planet"]]
+[node name="Sproutia" type="Area2D" parent="Space/planets" unique_id=845838974 groups=["Planet"]]
 position = Vector2(248, 1690)
 script = ExtResource("4_0q44l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Commet" unique_id=570133225]
-position = Vector2(-163, 257)
-shape = SubResource("CircleShape2D_wngar")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Sproutia" unique_id=570133225]
+position = Vector2(-21, 75)
+shape = SubResource("CircleShape2D_m2n8x")
 
-[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Commet" unique_id=1696614773]
-position = Vector2(-140, 227)
-scale = Vector2(1.8731154, 1.8731152)
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Sproutia/CollisionShape2D" unique_id=1696614773]
+position = Vector2(15.999947, 19.000004)
+scale = Vector2(3.0813446, 3.0813437)
 texture = ExtResource("6_0q44l")
 
-[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Commet" unique_id=1676481904]
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Sproutia" unique_id=1676481904]
 texture = ExtResource("4_wngar")
 region_enabled = true
 region_rect = Rect2(2791, 1740, 587, 740)
 
-[node name="SquerTri" type="Area2D" parent="Space/planets" unique_id=991848806 groups=["Planet"]]
+[node name="Florexia" type="Area2D" parent="Space/planets" unique_id=991848806 groups=["Planet"]]
 position = Vector2(1724, 360)
 script = ExtResource("4_0q44l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/SquerTri" unique_id=702295766]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Florexia" unique_id=702295766]
 shape = SubResource("CircleShape2D_wngar")
 
-[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/SquerTri" unique_id=264101701]
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Florexia" unique_id=264101701]
 position = Vector2(5.999957, 10.9999695)
 scale = Vector2(1.8731154, 1.8731152)
 texture = ExtResource("6_0q44l")
 
-[node name="Sprite2D" type="Sprite2D" parent="Space/planets/SquerTri" unique_id=1323343067]
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Florexia" unique_id=1323343067]
 texture = ExtResource("4_wngar")
 region_enabled = true
 region_rect = Rect2(2438, 928, 381, 385)
@@ -365,6 +373,7 @@ text = "win
 
 [node name="ErrorCode" parent="." unique_id=1170533520 instance=ExtResource("13_0q44l")]
 position = Vector2(960, 1024)
+error_code = "8946"
 
 [connection signal="area_entered" from="Detector" to="Detector" method="_on_area_entered"]
 [connection signal="area_exited" from="Detector" to="Detector" method="_on_area_exited"]
