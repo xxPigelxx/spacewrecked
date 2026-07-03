@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://bbv8il7ntgvnv"]
 
 [ext_resource type="Script" uid="uid://bbdxcp21cl5yt" path="res://script/options_panel.gd" id="1_0o44g"]
+[ext_resource type="Theme" uid="uid://xm5urjrf4aua" path="res://resources/themes/main_theme.tres" id="2_4bd31"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4bd31"]
 
 [node name="OptionsPanel" type="VBoxContainer" unique_id=369735057]
 custom_minimum_size = Vector2(560, 0)
@@ -14,6 +17,7 @@ theme_override_constants/separation = 16
 [node name="Label" type="Label" parent="Master" unique_id=736292578]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 text = "Master"
 vertical_alignment = 1
@@ -34,6 +38,7 @@ theme_override_constants/separation = 16
 [node name="Label" type="Label" parent="Music" unique_id=1020436551]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 text = "Musik"
 vertical_alignment = 1
@@ -54,6 +59,7 @@ theme_override_constants/separation = 16
 [node name="Label" type="Label" parent="SFX" unique_id=1234843129]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 text = "SFX"
 vertical_alignment = 1
@@ -74,6 +80,7 @@ theme_override_constants/separation = 16
 [node name="Label" type="Label" parent="Dyslexie" unique_id=1801378660]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 text = "Dyslexie"
 vertical_alignment = 1
@@ -81,6 +88,7 @@ vertical_alignment = 1
 [node name="Check" type="CheckButton" parent="Dyslexie" unique_id=844811002]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4bd31")
 
 [node name="Stress" type="HBoxContainer" parent="." unique_id=1775086565]
 layout_mode = 2
@@ -89,10 +97,12 @@ theme_override_constants/separation = 16
 [node name="Label" type="Label" parent="Stress" unique_id=65251314]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 text = "Stress"
 vertical_alignment = 1
 
 [node name="Check" type="CheckButton" parent="Stress" unique_id=546908117]
 layout_mode = 2
+theme = ExtResource("2_4bd31")
 theme_override_font_sizes/font_size = 30

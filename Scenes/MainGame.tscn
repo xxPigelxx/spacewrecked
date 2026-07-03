@@ -219,6 +219,7 @@ spawn_time = 60.0
 start_up_animation = NodePath("SmokeAni")
 partical = NodePath("SmokeParticle")
 astoroid = true
+overlay_scene = "uid://be30jx5qpeea2"
 
 [node name="SmokeParticle" parent="Interactabels/JourneyMalfunctions/NavJourney" unique_id=758853773 instance=ExtResource("15_k6vqf")]
 
@@ -234,6 +235,7 @@ spawn_time = 120.0
 start_up_animation = NodePath("SmokeAni")
 partical = NodePath("SmokeParticle")
 astoroid = true
+overlay_scene = "uid://d2ps1l3ox4ju"
 
 [node name="SmokeParticle" parent="Interactabels/JourneyMalfunctions/NavJourney2" unique_id=883015293 instance=ExtResource("15_k6vqf")]
 
@@ -249,6 +251,7 @@ spawn_time = 200.0
 start_up_animation = NodePath("SmokeAni")
 partical = NodePath("SmokeParticle")
 astoroid = true
+overlay_scene = "uid://3k2yrv3k5toe"
 
 [node name="SmokeParticle" parent="Interactabels/JourneyMalfunctions/NavJourney3" unique_id=1909783783 instance=ExtResource("15_k6vqf")]
 

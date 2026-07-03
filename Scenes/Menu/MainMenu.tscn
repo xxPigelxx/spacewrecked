@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c78phqbegrmpg"]
 
 [ext_resource type="Script" uid="uid://bv6bmxd6utgn8" path="res://script/main_menu.gd" id="1_853f1"]
+[ext_resource type="Theme" uid="uid://xm5urjrf4aua" path="res://resources/themes/main_theme.tres" id="1_tjif3"]
 [ext_resource type="PackedScene" uid="uid://bcot68oel2ml3" path="res://Scenes/menu_background.tscn" id="2_8um5k"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="3_8saeu"]
 [ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="3_df05h"]
@@ -9,7 +10,9 @@
 [ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="7_xim88"]
 [ext_resource type="PackedScene" uid="uid://bbv8il7ntgvnv" path="res://Scenes/Menu/OptionsPanel.tscn" id="8_ykvod"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8um5k"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ykvod"]
+texture = ExtResource("3_8saeu")
+region_rect = Rect2(782, 1429, 484, 594)
 
 [node name="MainMenu" type="Control" unique_id=1567821724]
 layout_mode = 3
@@ -20,6 +23,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_tjif3")
 script = ExtResource("1_853f1")
 
 [node name="MenuBackground" parent="." unique_id=146504196 instance=ExtResource("2_8um5k")]
@@ -48,10 +52,10 @@ scale = Vector2(1, 1)
 
 [node name="main" type="VBoxContainer" parent="." unique_id=2083465148]
 layout_mode = 0
-offset_left = -320.0
-offset_top = -69.0
-offset_right = 320.0
-offset_bottom = 491.0
+offset_left = -338.0
+offset_top = -74.0
+offset_right = 338.0
+offset_bottom = 486.0
 theme = ExtResource("3_df05h")
 alignment = 1
 
@@ -71,7 +75,7 @@ theme_override_constants/separation = 32
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 75
-text = "Options"
+text = "Optionen"
 script = ExtResource("4_ghw46")
 
 [node name="CreditsBt" type="Button" parent="main/HBoxContainer" unique_id=2064194056]
@@ -85,55 +89,42 @@ script = ExtResource("4_ghw46")
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 75
-text = "Exit"
+text = "Schliessen"
 script = ExtResource("4_ghw46")
 
 [node name="credits" type="VBoxContainer" parent="." unique_id=1975557991]
-visible = false
 layout_mode = 0
-offset_left = -321.0
-offset_top = -36.0
-offset_right = 321.0
-offset_bottom = 516.0
+offset_left = -335.0
+offset_top = -56.0
+offset_right = 337.0
+offset_bottom = 496.0
 theme = ExtResource("3_df05h")
+theme_override_constants/separation = 231
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="credits" unique_id=1825849461]
+[node name="Label" type="Label" parent="credits" unique_id=1638922837]
 layout_mode = 2
-size_flags_vertical = 2
-alignment = 1
-
-[node name="Label2" type="Label" parent="credits/HBoxContainer" unique_id=1338627768]
-layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("7_xim88")
-theme_override_font_sizes/font_size = 40
-text = "Creator:"
-
-[node name="Seperator" type="VSeparator" parent="credits/HBoxContainer" unique_id=1107209945]
-layout_mode = 2
-theme_override_constants/separation = 98
-theme_override_styles/separator = SubResource("StyleBoxEmpty_8um5k")
-
-[node name="Label" type="Label" parent="credits/HBoxContainer" unique_id=1638922837]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("7_xim88")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 80
 text = "Nikolai  Bohse"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BackBt" type="Button" parent="credits" unique_id=1858407186]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 75
-text = "Back"
+text = "Zurueck"
 script = ExtResource("4_ghw46")
 
 [node name="Options" type="VBoxContainer" parent="." unique_id=475429602]
 visible = false
 layout_mode = 0
-offset_left = -360.0
-offset_top = -36.0
-offset_right = 360.0
-offset_bottom = 516.0
+offset_left = -332.0
+offset_top = -42.0
+offset_right = 342.0
+offset_bottom = 510.0
 theme = ExtResource("3_df05h")
 alignment = 1
 
@@ -148,9 +139,74 @@ theme_override_font_sizes/font_size = 75
 text = "Back"
 script = ExtResource("4_ghw46")
 
+[node name="StartUpPopUp" type="MarginContainer" parent="." unique_id=403262516]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tjif3")
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 400
+theme_override_constants/margin_bottom = 100
+
+[node name="PanelContainer" type="PanelContainer" parent="StartUpPopUp" unique_id=1107854146]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ykvod")
+
+[node name="MarginContainer" type="MarginContainer" parent="StartUpPopUp/PanelContainer" unique_id=973382450]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 150
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartUpPopUp/PanelContainer/MarginContainer" unique_id=627972210]
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="Header" type="RichTextLabel" parent="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer" unique_id=371925994]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/bold_font_size = 100
+bbcode_enabled = true
+text = "[b]!Wilkommen!
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Body" type="RichTextLabel" parent="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer" unique_id=1808364680]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+text = "Spacewrecked ist Teil einer Bachelorarbeit, die untersucht, wie Dyslexie für nicht betroffene Personen erfahrbar gemacht werden kann. Das Spiel stellt dabei keine realistische Simulation der Wahrnehmung von Menschen mit Dyslexie dar. Stattdessen soll es die kognitive Belastung und die Herausforderungen beim Lesen verdeutlichen und meine persönliche Erfahrung ansatzweise vermitteln.
+Es ist möglich, dass einige Effekte als „tanzender Text“ wahrgenommen werden, dies entspricht jedoch nicht in jedem Fall der tatsächlichen Wahrnehmung von Betroffenen.
+Ich würde mich sehr freuen, wenn Sie nach dem Spielen einen kurzen Fragebogen zu Ihrer Erfahrung ausfüllen. Vielen Dank fürs Spielen!"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="ClosePopUpBt" type="Button" parent="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer" unique_id=974581839]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("3_df05h")
+theme_override_font_sizes/font_size = 75
+text = "Schliessen"
+script = ExtResource("4_ghw46")
+
 [connection signal="pressed" from="main/StartBt" to="." method="_on_start_bt_pressed"]
 [connection signal="pressed" from="main/HBoxContainer/OptionsBt" to="." method="_on_options_bt_pressed"]
 [connection signal="pressed" from="main/HBoxContainer/CreditsBt" to="." method="_on_credit_bt_pressed"]
 [connection signal="pressed" from="main/ExitBt" to="." method="_on_exit_bt_pressed"]
 [connection signal="pressed" from="credits/BackBt" to="." method="_on_credit_bt_pressed"]
 [connection signal="pressed" from="Options/BackBt" to="." method="_on_options_bt_pressed"]
+[connection signal="pressed" from="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer/ClosePopUpBt" to="." method="_on_close_pop_up_bt_pressed"]

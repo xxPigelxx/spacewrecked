@@ -58,6 +58,7 @@ modulate_color = Color(0.3553137, 0.3553135, 0.35531366, 1)
 [resource]
 default_font = ExtResource("1_x2ak3")
 Button/colors/font_color = Color(0, 0, 0, 1)
+CheckButton/styles/focus = null
 HSeparator/styles/separator = SubResource("StyleBoxEmpty_x2ak3")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)

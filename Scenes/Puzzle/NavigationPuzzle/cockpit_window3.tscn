@@ -1,0 +1,382 @@
+[gd_scene format=3 uid="uid://3k2yrv3k5toe"]
+
+[ext_resource type="Script" uid="uid://iqf6kfhsygp6" path="res://script/nav_puzzle.gd" id="1_j1d3v"]
+[ext_resource type="Script" uid="uid://65n72rwo2xbw" path="res://script/space.gd" id="2_wggrs"]
+[ext_resource type="Texture2D" uid="uid://ce0ll6nwkp2ti" path="res://resources/assets/SpaceBGwithStars.png" id="3_wab87"]
+[ext_resource type="Script" uid="uid://bij0p0kngbe7" path="res://script/planet.gd" id="4_q3spn"]
+[ext_resource type="Texture2D" uid="uid://bjd5y58apnmu" path="res://resources/assets/Selection_ring.tres" id="5_pa44e"]
+[ext_resource type="Texture2D" uid="uid://bfivvbjqnqq2o" path="res://resources/assets/planets.png" id="6_by7ok"]
+[ext_resource type="Texture2D" uid="uid://cdfu1yfawobu0" path="res://resources/assets/Cockpit.png" id="7_82da2"]
+[ext_resource type="PackedScene" uid="uid://cur6fk02lbkm0" path="res://Scenes/joystick.tscn" id="8_rnvhg"]
+[ext_resource type="Script" uid="uid://cldqa3du7bqrx" path="res://script/planet_detector_new.gd" id="9_0jl5m"]
+[ext_resource type="Texture2D" uid="uid://bdmxe45utame4" path="res://resources/assets/over.tres" id="10_pcsxb"]
+[ext_resource type="Texture2D" uid="uid://ca1ivbc2ob23s" path="res://resources/assets/Progress.tres" id="11_b35kn"]
+[ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="12_plpsh"]
+[ext_resource type="Script" uid="uid://clg63em8vrbc0" path="res://script/DyslexiaLabel.gd" id="13_r537v"]
+[ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="14_v4mmx"]
+[ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="15_c6ai3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbavm"]
+size = Vector2(1934, 1065)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wngar"]
+radius = 152.11838
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m2n8x"]
+radius = 280.7864
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hdqt"]
+size = Vector2(5758.25, 7528)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6v54c"]
+size = Vector2(18617, 1568)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6v54c"]
+radius = 86.0
+
+[node name="CockpitWindow" type="CanvasLayer" unique_id=1066614739]
+script = ExtResource("1_j1d3v")
+correct_order = Array[String](["Pyronis", "Sproutia", "Terra", "Nyxara", "Florexia"])
+
+[node name="Plain BG" type="ColorRect" parent="." unique_id=1525244899]
+offset_left = -29609.0
+offset_top = -30622.0
+offset_right = -21609.0
+offset_bottom = -22622.0
+scale = Vector2(8, 8)
+pivot_offset = Vector2(0.5, 0.5)
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1171980544]
+position = Vector2(952, 550.5)
+zoom = Vector2(66.5, 66.5)
+
+[node name="Space" type="CharacterBody2D" parent="." unique_id=1328670499 node_paths=PackedStringArray("parallax_background")]
+position = Vector2(960, 540)
+motion_mode = 1
+script = ExtResource("2_wggrs")
+parallax_background = NodePath("Background")
+
+[node name="Background" type="Node2D" parent="Space" unique_id=1812533170]
+scale = Vector2(2, 2)
+
+[node name="SpaceBGwithStars3" type="TextureRect" parent="Space/Background" unique_id=902658288]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -4200.0
+offset_top = -1650.0
+offset_bottom = 1650.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_wab87")
+
+[node name="SpaceBGwithStars2" type="TextureRect" parent="Space/Background" unique_id=753630633]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -1650.0
+offset_right = 4200.0
+offset_bottom = 1650.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_wab87")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space" unique_id=19769075]
+position = Vector2(-8, 10.5)
+shape = SubResource("RectangleShape2D_lbavm")
+
+[node name="planets" type="Node2D" parent="Space" unique_id=1355274266 groups=["Planet"]]
+
+[node name="NavLine" type="Line2D" parent="Space/planets" unique_id=244636454]
+width = 8.0
+default_color = Color(0.3, 0.9, 1, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Terra" type="Area2D" parent="Space/planets" unique_id=1624081399 groups=["Planet"]]
+position = Vector2(599, -1601)
+script = ExtResource("4_q3spn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Terra" unique_id=1916989070]
+shape = SubResource("CircleShape2D_wngar")
+
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Terra" unique_id=1497984669]
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("5_pa44e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Terra" unique_id=631605073]
+texture = ExtResource("6_by7ok")
+region_enabled = true
+region_rect = Rect2(2098, 1613, 249, 232)
+
+[node name="Nyxara" type="Area2D" parent="Space/planets" unique_id=2007543501 groups=["Planet"]]
+position = Vector2(-1823, 1518)
+script = ExtResource("4_q3spn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Nyxara" unique_id=1356176643]
+shape = SubResource("CircleShape2D_wngar")
+
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Nyxara" unique_id=945833805]
+scale = Vector2(2.95, 2.95)
+texture = ExtResource("5_pa44e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Nyxara" unique_id=1081303703]
+texture = ExtResource("6_by7ok")
+region_enabled = true
+region_rect = Rect2(1713, 536, 467, 349)
+
+[node name="Verdantis" type="Area2D" parent="Space/planets" unique_id=675845182 groups=["Planet"]]
+position = Vector2(-1806, -1527)
+script = ExtResource("4_q3spn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Verdantis" unique_id=2032782354]
+shape = SubResource("CircleShape2D_wngar")
+
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Verdantis" unique_id=1225414860]
+scale = Vector2(1.8731154, 1.8731152)
+texture = ExtResource("5_pa44e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Verdantis" unique_id=1922624683]
+texture = ExtResource("6_by7ok")
+region_enabled = true
+region_rect = Rect2(797, 2637, 232, 256)
+
+[node name="Stellaris" type="Area2D" parent="Space/planets" unique_id=1190770002 groups=["Planet"]]
+position = Vector2(-2422, 75)
+script = ExtResource("4_q3spn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Stellaris" unique_id=15814945]
+shape = SubResource("CircleShape2D_wngar")
+
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Stellaris" unique_id=63628036]
+scale = Vector2(1.8731154, 1.8731152)
+texture = ExtResource("5_pa44e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Stellaris" unique_id=2097118356]
+texture = ExtResource("6_by7ok")
+region_enabled = true
+region_rect = Rect2(1515, 1818, 168, 240)
+
+[node name="Glacium" type="Area2D" parent="Space/planets" unique_id=825591823 groups=["Planet"]]
+position = Vector2(2684, -336)
+script = ExtResource("4_q3spn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Glacium" unique_id=1251747490]
+shape = SubResource("CircleShape2D_wngar")
+
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Glacium" unique_id=1636033749]
+scale = Vector2(1.8731154, 1.8731152)
+texture = ExtResource("5_pa44e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Glacium" unique_id=295029450]
+texture = ExtResource("6_by7ok")
+region_enabled = true
+region_rect = Rect2(2535, 174, 172, 174)
+
+[node name="Ignara" type="Area2D" parent="Space/planets" unique_id=631048206 groups=["Planet"]]
+position = Vector2(-446, 970)
+script = ExtResource("4_q3spn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Ignara" unique_id=1732019237]
+shape = SubResource("CircleShape2D_wngar")
+
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Ignara" unique_id=859295617]
+scale = Vector2(2.358, 2.358)
+texture = ExtResource("5_pa44e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Ignara" unique_id=1145061281]
+texture = ExtResource("6_by7ok")
+region_enabled = true
+region_rect = Rect2(3271, 940, 549, 347)
+
+[node name="Solvane" type="Area2D" parent="Space/planets" unique_id=1110540882 groups=["Planet"]]
+position = Vector2(750, 284)
+script = ExtResource("4_q3spn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Solvane" unique_id=1054529513]
+shape = SubResource("CircleShape2D_wngar")
+
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Solvane" unique_id=1864019725]
+scale = Vector2(1.8731154, 1.8731152)
+texture = ExtResource("5_pa44e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Solvane" unique_id=559932718]
+texture = ExtResource("6_by7ok")
+region_enabled = true
+region_rect = Rect2(1969, 2470, 308, 325)
+
+[node name="Pyronis" type="Area2D" parent="Space/planets" unique_id=1380850929 groups=["Planet"]]
+position = Vector2(-1043, 117)
+script = ExtResource("4_q3spn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Pyronis" unique_id=1639635386]
+shape = SubResource("CircleShape2D_wngar")
+
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Pyronis" unique_id=802688608]
+position = Vector2(2, 3.0000153)
+scale = Vector2(1.8731154, 1.8731152)
+texture = ExtResource("5_pa44e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Pyronis" unique_id=1586161106]
+texture = ExtResource("6_by7ok")
+region_enabled = true
+region_rect = Rect2(221, 1945, 275, 249)
+
+[node name="Aquaron" type="Area2D" parent="Space/planets" unique_id=2039928627 groups=["Planet"]]
+position = Vector2(-879, -1027)
+script = ExtResource("4_q3spn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Aquaron" unique_id=888677402]
+shape = SubResource("CircleShape2D_wngar")
+
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Aquaron" unique_id=40037490]
+scale = Vector2(1.8731154, 1.8731152)
+texture = ExtResource("5_pa44e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Aquaron" unique_id=242425601]
+texture = ExtResource("6_by7ok")
+region_enabled = true
+region_rect = Rect2(728, 1149, 208, 200)
+
+[node name="Sproutia" type="Area2D" parent="Space/planets" unique_id=845838974 groups=["Planet"]]
+position = Vector2(248, 1690)
+script = ExtResource("4_q3spn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Sproutia" unique_id=570133225]
+position = Vector2(-21, 75)
+shape = SubResource("CircleShape2D_m2n8x")
+
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Sproutia/CollisionShape2D" unique_id=1696614773]
+position = Vector2(15.999947, 19.000004)
+scale = Vector2(3.0813446, 3.0813437)
+texture = ExtResource("5_pa44e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Sproutia" unique_id=1676481904]
+texture = ExtResource("6_by7ok")
+region_enabled = true
+region_rect = Rect2(2791, 1740, 587, 740)
+
+[node name="Florexia" type="Area2D" parent="Space/planets" unique_id=991848806 groups=["Planet"]]
+position = Vector2(1724, 360)
+script = ExtResource("4_q3spn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space/planets/Florexia" unique_id=702295766]
+shape = SubResource("CircleShape2D_wngar")
+
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Florexia" unique_id=264101701]
+position = Vector2(5.999957, 10.9999695)
+scale = Vector2(1.8731154, 1.8731152)
+texture = ExtResource("5_pa44e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Space/planets/Florexia" unique_id=1323343067]
+texture = ExtResource("6_by7ok")
+region_enabled = true
+region_rect = Rect2(2438, 928, 381, 385)
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1499051540]
+position = Vector2(960, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1669508669]
+position = Vector2(7582, 300)
+shape = SubResource("RectangleShape2D_4hdqt")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1764626955]
+position = Vector2(-6767.125, 307)
+shape = SubResource("RectangleShape2D_4hdqt")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=1839653865]
+position = Vector2(-262, -3416)
+shape = SubResource("RectangleShape2D_6v54c")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls" unique_id=365649629]
+position = Vector2(-336.5, 4089)
+shape = SubResource("RectangleShape2D_6v54c")
+
+[node name="Window" type="TextureRect" parent="." unique_id=1950571081]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("7_82da2")
+
+[node name="Joystick" parent="." unique_id=555388885 instance=ExtResource("8_rnvhg")]
+position = Vector2(960, 884)
+
+[node name="Detector" type="Area2D" parent="." unique_id=433302880]
+position = Vector2(960, 540)
+script = ExtResource("9_0jl5m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=230314862]
+shape = SubResource("CircleShape2D_6v54c")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Detector" unique_id=1230180292]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 3
+texture_over = ExtResource("10_pcsxb")
+texture_progress = ExtResource("11_b35kn")
+texture_progress_offset = Vector2(-2.005, 14.26)
+tint_progress = Color(0.63632363, 0.89193815, 0.5438833, 1)
+
+[node name="PlanetNameLabel" type="RichTextLabel" parent="Detector" unique_id=912584839]
+offset_left = -105.0
+offset_top = 75.0
+offset_right = 87.0
+offset_bottom = 117.0
+theme_override_fonts/normal_font = ExtResource("12_plpsh")
+theme_override_font_sizes/normal_font_size = 41
+text = "Test"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("13_r537v")
+text_color = Color(0.74, 0.74, 0.74, 1)
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
+
+[node name="ReturnBt" type="Button" parent="." unique_id=2016330464]
+offset_left = 1398.0
+offset_top = 974.0
+offset_right = 1650.0
+offset_bottom = 1063.4972
+theme = ExtResource("14_v4mmx")
+theme_override_font_sizes/font_size = 50
+text = "Return"
+
+[node name="StartShipBt" type="Button" parent="." unique_id=109563995]
+offset_left = 271.0
+offset_top = 974.0
+offset_right = 523.0
+offset_bottom = 1063.4972
+theme = ExtResource("14_v4mmx")
+theme_override_font_sizes/font_size = 50
+disabled = true
+text = "Start
+"
+
+[node name="winBt" type="Button" parent="." unique_id=1456065049]
+offset_left = 37.0
+offset_top = 56.0
+offset_right = 289.0
+offset_bottom = 145.4972
+theme = ExtResource("14_v4mmx")
+theme_override_font_sizes/font_size = 50
+text = "win
+"
+
+[node name="ErrorCode" parent="." unique_id=1170533520 instance=ExtResource("15_c6ai3")]
+position = Vector2(960, 1024)
+error_code = "3687"
+
+[connection signal="area_entered" from="Detector" to="Detector" method="_on_area_entered"]
+[connection signal="area_exited" from="Detector" to="Detector" method="_on_area_exited"]
+[connection signal="pressed" from="ReturnBt" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="StartShipBt" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="winBt" to="." method="_win"]
