@@ -215,7 +215,6 @@ overlay_scene = "uid://hohj66sg0vwv"
 position = Vector2(1408, 550)
 script = ExtResource("19_k6vqf")
 category = 4
-spawn_time = 60.0
 start_up_animation = NodePath("SmokeAni")
 partical = NodePath("SmokeParticle")
 astoroid = true

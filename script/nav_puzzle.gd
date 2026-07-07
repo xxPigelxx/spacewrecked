@@ -229,5 +229,6 @@ func _on_return_pressed() -> void:
 
 func _on_start_pressed() -> void:
 	# Start-Schiff Button: Journey-Phase + Messfenster starten.
-	GameState.start_journey()
+	if GameState.phase != GameState.Phase.JOURNEY:
+		GameState.start_journey()
 	SceneSwitcher.close_overlay_scene()
