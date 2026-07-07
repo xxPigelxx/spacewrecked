@@ -1,31 +1,27 @@
 [gd_scene format=3 uid="uid://bx3ycj02l1xc4"]
 
-[ext_resource type="Script" uid="uid://slil33qjlmmi" path="res://question_checkboxees.gd" id="1_wuamt"]
+[ext_resource type="Script" uid="uid://slil33qjlmmi" path="res://question_checkboxees.gd" id="1_1nuy6"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_wuamt"]
 allow_unpress = true
 
-[node name="CheckboxBar" type="Control" unique_id=926106328]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_wuamt")
+[node name="LikertBar" type="VBoxContainer" unique_id=1095676823]
+offset_right = 362.0
+offset_bottom = 101.0
+theme_override_constants/separation = 32
+script = ExtResource("1_1nuy6")
 
 [node name="Label" type="Label" parent="." unique_id=539754652]
-layout_mode = 1
-offset_right = 182.0
-offset_bottom = 23.0
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
 text = "Frage???????????????????"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1727281946]
-layout_mode = 1
-offset_left = 1.0
-offset_top = 21.0
-offset_right = 165.0
-offset_bottom = 61.0
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 42
 
 [node name="0" type="CheckBox" parent="HBoxContainer" unique_id=60814400]
 layout_mode = 2
@@ -43,6 +39,8 @@ offset_top = 27.0
 offset_right = 5.0
 offset_bottom = 50.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -63,6 +61,8 @@ offset_top = 27.0
 offset_right = 5.0
 offset_bottom = 50.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -81,6 +81,8 @@ offset_top = 27.0
 offset_right = 5.0
 offset_bottom = 50.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
 text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -99,6 +101,8 @@ offset_top = 27.0
 offset_right = 5.0
 offset_bottom = 50.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
 text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -117,6 +121,8 @@ offset_top = 27.0
 offset_right = 5.0
 offset_bottom = 50.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
 text = "4"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -135,6 +141,12 @@ offset_top = 27.0
 offset_right = 5.0
 offset_bottom = 50.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
 text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Control" type="Control" parent="." unique_id=1396688337]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2

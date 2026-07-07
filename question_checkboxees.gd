@@ -13,7 +13,7 @@ extends Control
 ]
 
 @onready var question_label: Label = $Label
-var selected :int
+var selected :int = -1
 
 func _ready() -> void:
 	question_label.text = question_text
@@ -23,3 +23,6 @@ func _ready() -> void:
 func _on_checkbox_toggled(pressed: bool, source: CheckBox) -> void:
 	if pressed:
 		selected = checkboxes.find(source)
+
+func get_selected():
+	return selected

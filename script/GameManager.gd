@@ -237,6 +237,7 @@ func _process(delta: float) -> void:
 		_finish_run()
 	elif time_left <= 0.0:
 		_finish_run()
+	
 	ship_lights = is_system_broken("strom")
 		
 

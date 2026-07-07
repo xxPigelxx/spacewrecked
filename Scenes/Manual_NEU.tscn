@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://h52vsw4aeb4u" path="res://script/mal_notification.gd" id="7_164it"]
 [ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="7_n500u"]
 [ext_resource type="Texture2D" uid="uid://mnpplgcph5f7" path="res://resources/assets/spacemap_rounded.png" id="11_cw3p6"]
+[ext_resource type="PackedScene" uid="uid://cq18f4cl84tt7" path="res://Scenes/manual_sperator.tscn" id="11_rrxqo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7jiqe"]
 texture = ExtResource("2_byvqj")
@@ -1053,10 +1054,8 @@ scroll_active = false
 horizontal_alignment = 1
 script = ExtResource("2_puywe")
 
-[node name="HSeparator2" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=573232343]
+[node name="HSeparator2" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1849054439 instance=ExtResource("11_rrxqo")]
 layout_mode = 2
-theme_override_constants/separation = 24
-theme_override_styles/separator = SubResource("StyleBoxLine_164it")
 
 [node name="StepList2" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1679400269]
 layout_mode = 2

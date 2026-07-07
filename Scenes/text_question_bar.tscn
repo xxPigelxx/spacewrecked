@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cmbencs8cn0j1"]
+
+[ext_resource type="Script" uid="uid://cbjmesuudfrj1" path="res://Scenes/text_question_bar.gd" id="1_tbxu7"]
+
+[node name="VBoxContainer" type="VBoxContainer" unique_id=558521449]
+offset_right = 362.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+alignment = 1
+script = ExtResource("1_tbxu7")
+
+[node name="Label" type="Label" parent="." unique_id=539754652]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Frage???????????????????"
+horizontal_alignment = 1
+
+[node name="Edit" type="TextEdit" parent="." unique_id=1264294314]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Antwort     "
+wrap_mode = 1
+scroll_fit_content_height = true
+caret_type = 1
