@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bx3ycj02l1xc4" path="res://Scenes/Likert_bar.tscn" id="1_ai5ut"]
 [ext_resource type="PackedScene" uid="uid://cq18f4cl84tt7" path="res://Scenes/manual_sperator.tscn" id="1_l2d0k"]
-[ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="2_52kx5"]
+[ext_resource type="Script" uid="uid://dmii2fren2un4" path="res://questionear.gd" id="1_v3451"]
 [ext_resource type="PackedScene" uid="uid://cmbencs8cn0j1" path="res://Scenes/text_question_bar.tscn" id="2_v3451"]
-[ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="3_v3451"]
+[ext_resource type="PackedScene" uid="uid://6vlh4fls1osw" path="res://Scenes/multiple_choice.tscn" id="5_l2d0k"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jrnw2"]
 load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"
@@ -12,9 +12,9 @@ load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wnqk4"]
 texture = SubResource("CompressedTexture2D_jrnw2")
 texture_margin_left = 60.90915
-texture_margin_top = 79.02109
+texture_margin_top = 89.0
 texture_margin_right = 57.895527
-texture_margin_bottom = 32.0
+texture_margin_bottom = 93.0
 region_rect = Rect2(782, 1429, 484, 594)
 
 [node name="Questionear" type="Control" unique_id=663815784]
@@ -24,15 +24,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_v3451")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1279946846]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 583.0
+offset_left = 230.0
 offset_top = 34.0
-offset_right = -583.0
+offset_right = -230.0
 offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -40,7 +41,6 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_wnqk4")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=919001290]
 layout_mode = 2
-theme_override_constants/margin_bottom = 121
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer" unique_id=305355684]
 layout_mode = 2
@@ -55,14 +55,14 @@ theme_override_constants/separation = 24
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 74
+theme_override_font_sizes/font_size = 64
 text = "Frage Bogen"
 horizontal_alignment = 1
 
 [node name="HSeparator3" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1849054439 instance=ExtResource("1_l2d0k")]
 layout_mode = 2
 
-[node name="TextBar" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=283956535 instance=ExtResource("2_v3451")]
+[node name="Q1" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=283956535 instance=ExtResource("2_v3451")]
 layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 2
@@ -70,15 +70,15 @@ size_flags_vertical = 2
 [node name="HSeparator2" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1582892850 instance=ExtResource("1_l2d0k")]
 layout_mode = 2
 
-[node name="LikertBar" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=926106328 instance=ExtResource("1_ai5ut")]
+[node name="Q2" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=926106328 instance=ExtResource("1_ai5ut")]
 layout_mode = 2
 size_flags_vertical = 3
-question_text = "Q1?"
+question_text = "Haben sie nach dieser Erfahrung mehr Empathie für Menschen mit Dyslexie?"
 
 [node name="HSeparator5" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1143170300 instance=ExtResource("1_l2d0k")]
 layout_mode = 2
 
-[node name="LikertBar2" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=27587041 instance=ExtResource("1_ai5ut")]
+[node name="Q3" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=27587041 instance=ExtResource("1_ai5ut")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Q2?"
@@ -86,7 +86,7 @@ question_text = "Q2?"
 [node name="HSeparator4" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1306325643 instance=ExtResource("1_l2d0k")]
 layout_mode = 2
 
-[node name="LikertBar3" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1538070335 instance=ExtResource("1_ai5ut")]
+[node name="Q4" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1538070335 instance=ExtResource("1_ai5ut")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Q3?"
@@ -94,25 +94,21 @@ question_text = "Q3?"
 [node name="HSeparator6" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1044202651 instance=ExtResource("1_l2d0k")]
 layout_mode = 2
 
-[node name="LikertBar4" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=24423758 instance=ExtResource("1_ai5ut")]
+[node name="Q5" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=24423758 instance=ExtResource("1_ai5ut")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Q4?"
 
-[node name="Button" type="Button" parent="." unique_id=1942405256]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -108.0
-offset_top = -124.0
-offset_right = 109.0
-offset_bottom = -42.502808
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("2_52kx5")
-theme_override_font_sizes/font_size = 42
-text = "Submit"
-script = ExtResource("3_v3451")
+[node name="HSeparator7" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1381260668 instance=ExtResource("1_l2d0k")]
+layout_mode = 2
+
+[node name="MultipleChoice" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1823932599 instance=ExtResource("5_l2d0k")]
+layout_mode = 2
+question_text = "Welche Seite hat ihnen am meisten Probleme bereitet?"
+
+[node name="HSeparator8" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1603426597 instance=ExtResource("1_l2d0k")]
+layout_mode = 2
+
+[node name="MultipleChoice2" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=461030741 instance=ExtResource("5_l2d0k")]
+layout_mode = 2
+question_text = "Welche Seite hat ihnen am wenigsten Probleme bereitet?"

@@ -253,8 +253,8 @@ script = ExtResource("4_nwh2e")
 position = Vector2(-21, 75)
 shape = SubResource("CircleShape2D_m2n8x")
 
-[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Sproutia/CollisionShape2D" unique_id=1696614773]
-position = Vector2(15.999947, 19.000004)
+[node name="SelectionSprite" type="Sprite2D" parent="Space/planets/Sproutia" unique_id=1696614773]
+position = Vector2(-5, 94)
 scale = Vector2(3.0813446, 3.0813437)
 texture = ExtResource("5_a0xvn")
 

@@ -1,7 +1,4 @@
-extends Control
-
-@export var question_text: String = ""
-
+extends Question
 
 @onready var checkboxes: Array[CheckBox] = [
 	$"HBoxContainer/0",
@@ -12,11 +9,9 @@ extends Control
 	$"HBoxContainer/5",
 ]
 
-@onready var question_label: Label = $Label
 var selected :int = -1
 
-func _ready() -> void:
-	question_label.text = question_text
+func _set_up():
 	for cb in checkboxes:
 		cb.toggled.connect(_on_checkbox_toggled.bind(cb))
 
@@ -26,3 +21,6 @@ func _on_checkbox_toggled(pressed: bool, source: CheckBox) -> void:
 
 func get_selected():
 	return selected
+
+func is_answered() -> bool:
+	return selected != -1

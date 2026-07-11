@@ -12,18 +12,23 @@ theme_override_constants/separation = 32
 script = ExtResource("1_1nuy6")
 
 [node name="Label" type="Label" parent="." unique_id=539754652]
+custom_minimum_size = Vector2(750, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
-text = "Frage???????????????????"
+text = "Frage"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1727281946]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 42
+theme_override_constants/separation = 100
 
 [node name="0" type="CheckBox" parent="HBoxContainer" unique_id=60814400]
+visible = false
 layout_mode = 2
 button_group = SubResource("ButtonGroup_wuamt")
 clip_text = true

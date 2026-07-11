@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c54ta61o55dvj" path="res://Scenes/star.tscn" id="5_iapu6"]
 [ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="6_sc664"]
 [ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="7_jvhs5"]
+[ext_resource type="PackedScene" uid="uid://cygx85tabr6bj" path="res://questionear.tscn" id="7_w6fsh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uuef0"]
 
@@ -155,6 +156,8 @@ size_flags_vertical = 6
 theme_override_font_sizes/font_size = 75
 text = "Back"
 script = ExtResource("7_jvhs5")
+
+[node name="Questionear" parent="." unique_id=663815784 instance=ExtResource("7_w6fsh")]
 
 [connection signal="pressed" from="main/HBoxContainer/CreditsBt" to="." method="_on_credit_bt_pressed"]
 [connection signal="pressed" from="main/HBoxContainer/QuitBt" to="." method="_on_return_bt_pressed"]

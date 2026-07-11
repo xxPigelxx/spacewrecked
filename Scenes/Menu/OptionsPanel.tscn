@@ -74,6 +74,7 @@ step = 0.01
 value = 1.0
 
 [node name="Dyslexie" type="HBoxContainer" parent="." unique_id=1057104469]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 16
 
@@ -91,6 +92,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4bd31")
 
 [node name="Stress" type="HBoxContainer" parent="." unique_id=1775086565]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 16
 

@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 	var direction := Vector2.ZERO
 
 	if Input.is_action_just_pressed("pause"):
-		SceneSwitcher.open_overlay_scene("res://Scenes/Menu/PauseMenu.tscn", true, true, true)
+		SceneSwitcher.open_overlay_scene("res://Scenes/Menu/PauseMenu.tscn", false, false, true)
 
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1

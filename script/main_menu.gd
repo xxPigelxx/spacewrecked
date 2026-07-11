@@ -31,3 +31,8 @@ func _on_exit_bt_pressed() -> void:
 func _on_close_pop_up_bt_pressed() -> void:
 	start_up_pop_up.visible = false
 	main.visible = true
+
+
+func _on_check_box_toggled(toggled_on: bool) -> void:
+	print(toggled_on)
+	GameState.dyslexia_enabled = not toggled_on

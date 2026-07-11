@@ -11,6 +11,10 @@ func _ready() -> void:
 	options.visible = false
 	_update_label()
 	
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		_close()	
+
 func _update_label() ->void:
 	var lable_text = "Menu"
 	if options.visible:
@@ -23,6 +27,7 @@ func _update_label() ->void:
 
 func _on_main_menu_bt_pressed() -> void:
 	SceneSwitcher.close_overlay_and_switch_scene("res://Scenes/Menu/MainMenu.tscn")
+	
 
 func _on_options_bt_pressed() -> void:
 	main.visible = !main.visible
@@ -35,4 +40,8 @@ func _on_credit_bt_pressed() -> void:
 	_update_label()
 
 func _on_return_bt_pressed() -> void:
-	SceneSwitcher.close_overlay_scene()
+	_close()
+	
+func _close():
+	SceneSwitcher.close_overlay_scene( true, false)
+	
