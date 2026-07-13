@@ -9,11 +9,31 @@ extends Node
 
 const SHEET_URL := "https://script.google.com/macros/s/AKfycbxcDLo86UI7y4sMGBlWF7Yi14kRsgg0IvaS9zZYo0vtrKvRathwdnkuXtjmQmZGs7zuMg/exec"
 
+## Feuert, wenn ein Upload wirklich beantwortet wurde (ok=false bei Fehler/Timeout).
+## Z. B. vom Fragebogen genutzt, um sich erst nach Bestaetigung zu schliessen.
+signal upload_finished(payload_type: String, ok: bool)
+
 var _pending_run: Dictionary = {}   ## wartet auf Manual-Zeiten
+var _pending_uploads := 0           ## Anzahl noch laufender POSTs (fuer sauberes Beenden)
+var _quitting := false
 
 func _ready() -> void:
 	GameState.run_finished.connect(_on_run_finished)
 	GameState.questionnaire_submitted.connect(_on_questionnaire_submitted)
+	# Fenster-X soll nicht sofort beenden: erst laufende Uploads abschliessen
+	# (sonst geht z. B. der gerade abgeschickte Fragebogen verloren).
+	get_tree().set_auto_accept_quit(false)
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		_quit_when_uploads_done()
+
+func _quit_when_uploads_done() -> void:
+	if _quitting:
+		return
+	_quitting = true
+	await await_pending_uploads()
+	get_tree().quit()
 
 func _on_run_finished(results: Dictionary) -> void:
 	# Run-Basisdaten zwischenspeichern, warten auf Manual-Zeiten.
@@ -24,8 +44,8 @@ func _on_run_finished(results: Dictionary) -> void:
 		"participant_id": results.get("participant_id", ""),
 		"dyslexia_enabled": results.get("dyslexia_enabled", false),
 		"stress_from_health": results.get("stress_from_health", false),
-		"run_duration_s": results.get("run_duration", 0.0),
-		"time_used_s": results.get("time_used", 0.0),
+		"run_duration_s": _round2(results.get("run_duration", 0.0)),
+		"time_used_s": _round2(results.get("time_used", 0.0)),
 		"malfunctions_solved": results.get("malfunctions_solved", 0),
 		"died_early": results.get("died_early", false),
 	}
@@ -40,8 +60,8 @@ func _on_run_finished(results: Dictionary) -> void:
 			"participant_id": results.get("participant_id", ""),
 			"task_no": i + 1,
 			"category": str(entry.get("puzzle_id", "?")),
-			"solved_at_s": entry.get("elapsed", 0.0),
-			"time_left_s": entry.get("time_left", 0.0),
+			"solved_at_s": _round2(entry.get("elapsed", 0.0)),
+			"time_left_s": _round2(entry.get("time_left", 0.0)),
 		})
 
 	print("=== Run %s: %d Task-Zeilen gesendet, warte auf Manual-Zeiten ===" % [
@@ -54,7 +74,7 @@ func deliver_manual_times(run_id: String, page_times: Dictionary) -> void:
 		return
 
 	for tab_name in page_times:
-		_pending_run["manual_time_%s_s" % tab_name] = page_times[tab_name]
+		_pending_run["manual_time_%s_s" % tab_name] = _round2(page_times[tab_name])
 
 	_send_to_sheet(_pending_run)
 	print("=== Run+Manual-Zeile fuer %s gesendet ===" % run_id)
@@ -79,11 +99,46 @@ func _on_questionnaire_submitted(answers: Array) -> void:
 ## (Apps Script setzt selbst keine CORS-Header fuer OPTIONS).
 func _send_to_sheet(payload: Dictionary) -> void:
 	var http := HTTPRequest.new()
+	# Apps Script beantwortet einen erfolgreichen POST mit einem 302-Redirect.
+	# Godot wuerde dem Redirect wieder als POST folgen -> Google lehnt mit 400 ab.
+	# Also: Redirects nicht folgen und den 302 selbst als Erfolg werten.
+	http.max_redirects = 0
+	# Ohne Timeout wuerde ein Upload ohne Internet ewig haengen — und damit auch
+	# alles, was per upload_finished auf die Bestaetigung wartet (z. B. Fragebogen).
+	http.timeout = 10.0
 	add_child(http)
-	http.request_completed.connect(func(_result, _code, _headers, _body): http.queue_free())
+	_pending_uploads += 1
+	var payload_type := str(payload.get("type", "?"))
+	http.request_completed.connect(func(_result: int, code: int, _headers: PackedStringArray, body: PackedByteArray):
+		var body_text := body.get_string_from_utf8()
+		var ok := code == 302 or (code == 200 and body_text.begins_with("OK"))
+		if ok:
+			print("Sheet-Upload angekommen (type=%s)" % payload_type)
+		else:
+			push_warning("Sheet-Upload fehlgeschlagen (type=%s, HTTP %d): %s" % [
+				payload_type, code, body_text])
+		http.queue_free()
+		_pending_uploads -= 1
+		upload_finished.emit(payload_type, ok))
 	var json := JSON.stringify(payload)
 	var headers := ["Content-Type: text/plain"]
 	var err := http.request(SHEET_URL, headers, HTTPClient.METHOD_POST, json)
 	if err != OK:
 		push_error("Sheet-Upload fehlgeschlagen: " + str(err))
 		http.queue_free()
+		_pending_uploads -= 1
+		upload_finished.emit(payload_type, false)
+
+## Rundet Sekundenwerte auf 2 Nachkommastellen fuer eine lesbare Tabelle.
+func _round2(value: float) -> float:
+	return snappedf(value, 0.01)
+
+## Wartet, bis alle laufenden Uploads fertig sind (oder timeout_s ueberschritten ist).
+## Vor get_tree().quit() aufrufen, sonst werden gerade laufende POSTs abgebrochen
+## (z. B. der Fragebogen, der kurz vorm Beenden abgeschickt wurde).
+func await_pending_uploads(timeout_s := 5.0) -> void:
+	var waited := 0.0
+	var step := 0.05
+	while _pending_uploads > 0 and waited < timeout_s:
+		await get_tree().create_timer(step).timeout
+		waited += step

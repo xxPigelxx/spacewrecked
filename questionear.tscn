@@ -61,7 +61,7 @@ theme_override_font_sizes/font_size = 64
 text = "Frage Bogen"
 horizontal_alignment = 1
 
-[node name="HSeparator3" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1849054439 instance=ExtResource("1_l2d0k")]
+[node name="HSeparator1" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1849054439 instance=ExtResource("1_l2d0k")]
 layout_mode = 2
 
 [node name="Q1" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=283956535 instance=ExtResource("2_v3451")]
@@ -77,13 +77,13 @@ layout_mode = 2
 size_flags_vertical = 3
 question_text = "Haben sie nach dieser Erfahrung mehr Empathie für Menschen mit Dyslexie?"
 
-[node name="HSeparator5" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1143170300 instance=ExtResource("1_l2d0k")]
+[node name="HSeparator3" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1143170300 instance=ExtResource("1_l2d0k")]
 layout_mode = 2
 
 [node name="Q3" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=27587041 instance=ExtResource("1_ai5ut")]
 layout_mode = 2
 size_flags_vertical = 3
-question_text = "Q2?"
+question_text = "Frage 3?"
 
 [node name="HSeparator4" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1306325643 instance=ExtResource("1_l2d0k")]
 layout_mode = 2
@@ -91,37 +91,68 @@ layout_mode = 2
 [node name="Q4" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1538070335 instance=ExtResource("1_ai5ut")]
 layout_mode = 2
 size_flags_vertical = 3
-question_text = "Q3?"
+question_text = "Frage 4?"
 
-[node name="HSeparator6" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1044202651 instance=ExtResource("1_l2d0k")]
+[node name="HSeparator5" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1044202651 instance=ExtResource("1_l2d0k")]
 layout_mode = 2
 
 [node name="Q5" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=24423758 instance=ExtResource("1_ai5ut")]
 layout_mode = 2
 size_flags_vertical = 3
-question_text = "Q4?"
+question_text = "Frage 5?"
 
-[node name="HSeparator7" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1381260668 instance=ExtResource("1_l2d0k")]
+[node name="HSeparator6" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1381260668 instance=ExtResource("1_l2d0k")]
 layout_mode = 2
 
-[node name="MultipleChoice" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1823932599 instance=ExtResource("5_l2d0k")]
+[node name="Q6" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000001 instance=ExtResource("1_ai5ut")]
+layout_mode = 2
+size_flags_vertical = 3
+question_text = "Frage 6?"
+
+[node name="HSeparator7" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000002 instance=ExtResource("1_l2d0k")]
+layout_mode = 2
+
+[node name="Q7" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000003 instance=ExtResource("1_ai5ut")]
+layout_mode = 2
+size_flags_vertical = 3
+question_text = "Frage 7?"
+
+[node name="HSeparator8" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000004 instance=ExtResource("1_l2d0k")]
+layout_mode = 2
+
+[node name="Q8" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000005 instance=ExtResource("1_ai5ut")]
+layout_mode = 2
+size_flags_vertical = 3
+question_text = "Frage 8?"
+
+[node name="HSeparator9" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1603426597 instance=ExtResource("1_l2d0k")]
+layout_mode = 2
+
+[node name="Q9" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1823932599 instance=ExtResource("5_l2d0k")]
 layout_mode = 2
 question_text = "Welche Seite hat ihnen am meisten Probleme bereitet?"
 
-[node name="HSeparator8" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1603426597 instance=ExtResource("1_l2d0k")]
+[node name="HSeparator10" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000006 instance=ExtResource("1_l2d0k")]
 layout_mode = 2
 
-[node name="MultipleChoice2" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=461030741 instance=ExtResource("5_l2d0k")]
+[node name="Q10" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=461030741 instance=ExtResource("5_l2d0k")]
 layout_mode = 2
 question_text = "Welche Seite hat ihnen am wenigsten Probleme bereitet?"
 
 [node name="SubmitButton" type="Button" parent="." unique_id=1215507431]
 custom_minimum_size = Vector2(120, 50)
-layout_mode = 0
-offset_left = 849.0
-offset_top = 969.0
-offset_right = 1124.0
-offset_bottom = 1037.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -137.0
+offset_top = -110.0
+offset_right = 138.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 0
 theme = ExtResource("6_bkink")
 disabled = true
 text = "Abschicken"

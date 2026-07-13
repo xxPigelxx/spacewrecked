@@ -45,4 +45,5 @@ func _on_main_menu_bt_pressed() -> void:
 	SceneSwitcher.switch_scene("res://Scenes/Menu/MainMenu.tscn")
 
 func _on_return_bt_pressed() -> void:
+	await ResultsExporter.await_pending_uploads()
 	get_tree().quit()
