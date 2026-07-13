@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://dmii2fren2un4" path="res://questionear.gd" id="1_v3451"]
 [ext_resource type="PackedScene" uid="uid://cmbencs8cn0j1" path="res://Scenes/text_question_bar.tscn" id="2_v3451"]
 [ext_resource type="PackedScene" uid="uid://6vlh4fls1osw" path="res://Scenes/multiple_choice.tscn" id="5_l2d0k"]
+[ext_resource type="Theme" uid="uid://dvs0r83gvhd2k" path="res://resources/themes/small_Bt.tres" id="6_bkink"]
+[ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="7_da6x5"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jrnw2"]
 load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"
@@ -112,3 +114,17 @@ layout_mode = 2
 [node name="MultipleChoice2" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=461030741 instance=ExtResource("5_l2d0k")]
 layout_mode = 2
 question_text = "Welche Seite hat ihnen am wenigsten Probleme bereitet?"
+
+[node name="SubmitButton" type="Button" parent="." unique_id=1215507431]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 0
+offset_left = 849.0
+offset_top = 969.0
+offset_right = 1124.0
+offset_bottom = 1037.0
+theme = ExtResource("6_bkink")
+disabled = true
+text = "Abschicken"
+script = ExtResource("7_da6x5")
+
+[connection signal="pressed" from="SubmitButton" to="." method="_on_submit_button_pressed"]

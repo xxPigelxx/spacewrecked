@@ -12,6 +12,7 @@ signal time_changed(seconds_left: float)
 signal malfunctions_solved_changed(count: int)
 signal broken_systems_changed()
 signal run_finished(results: Dictionary)
+signal questionnaire_submitted(answers: Array)
 
 enum Phase { SETUP, JOURNEY, RESULTS }
 
@@ -239,7 +240,12 @@ func _process(delta: float) -> void:
 		_finish_run()
 	
 	ship_lights = is_system_broken("strom")
-		
+
+func submit_questionnaire(answers: Array) -> void:
+	questionnaire_submitted.emit(answers)
+
+func get_current_run_id() -> String:
+	return _run_id	
 
 func _report_malfunction_solved(puzzle_id: String) -> void:
 	if phase != Phase.JOURNEY:
