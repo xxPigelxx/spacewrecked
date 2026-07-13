@@ -131,6 +131,7 @@ theme_override_constants/separation = 272
 alignment = 1
 
 [node name="winBt" type="Button" parent="Panel2/Button Array" unique_id=1708794599]
+visible = false
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("3_7f5km")

@@ -12,11 +12,8 @@ texture_margin_bottom = 21.34828
 region_rect = Rect2(1570, 552, 444, 162)
 modulate_color = Color(0.16565639, 0.16565642, 0.16565639, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tndxr"]
-load_path = "res://.godot/imported/procreate_atlas.png-da84be31f39250f8df4ef08b4b01d03c.ctex"
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ip646"]
-texture = SubResource("CompressedTexture2D_tndxr")
+texture = ExtResource("1_tndxr")
 texture_margin_left = 41.800056
 texture_margin_right = 44.894978
 texture_margin_bottom = 38.497166
@@ -32,11 +29,8 @@ texture_margin_bottom = 38.497166
 expand_margin_top = 14.0
 region_rect = Rect2(1569, 314, 444, 180)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_if7li"]
-load_path = "res://.godot/imported/procreate_atlas.png-da84be31f39250f8df4ef08b4b01d03c.ctex"
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rrcx7"]
-texture = SubResource("CompressedTexture2D_if7li")
+texture = ExtResource("1_tndxr")
 texture_margin_left = 39.30265
 texture_margin_right = 35.01317
 texture_margin_bottom = 26.236847

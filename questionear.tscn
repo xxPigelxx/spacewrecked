@@ -7,12 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://6vlh4fls1osw" path="res://Scenes/multiple_choice.tscn" id="5_l2d0k"]
 [ext_resource type="Theme" uid="uid://dvs0r83gvhd2k" path="res://resources/themes/small_Bt.tres" id="6_bkink"]
 [ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="7_da6x5"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jrnw2"]
-load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="8_sprit"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wnqk4"]
-texture = SubResource("CompressedTexture2D_jrnw2")
+texture = ExtResource("8_sprit")
 texture_margin_left = 60.90915
 texture_margin_top = 89.0
 texture_margin_right = 57.895527

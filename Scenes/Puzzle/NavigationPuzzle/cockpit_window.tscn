@@ -362,6 +362,7 @@ text = "Start
 "
 
 [node name="winBt" type="Button" parent="." unique_id=1456065049]
+visible = false
 offset_left = 37.0
 offset_top = 56.0
 offset_right = 289.0

@@ -22,11 +22,8 @@ texture_margin_bottom = 20.285522
 axis_stretch_horizontal = 2
 region_rect = Rect2(1423, 1297, 119, 129)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nj0vq"]
-load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n500u"]
-texture = SubResource("CompressedTexture2D_nj0vq")
+texture = ExtResource("2_byvqj")
 texture_margin_left = 26.296047
 texture_margin_top = 23.290785
 texture_margin_bottom = 20.285522
@@ -35,7 +32,7 @@ region_rect = Rect2(1423, 1297, 120, 129)
 modulate_color = Color(0.19076231, 0.19076234, 0.19076231, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ivmx"]
-texture = SubResource("CompressedTexture2D_nj0vq")
+texture = ExtResource("2_byvqj")
 texture_margin_left = 26.296047
 texture_margin_top = 23.290785
 texture_margin_bottom = 20.285522
@@ -44,7 +41,7 @@ region_rect = Rect2(1423, 1297, 119.46106, 129)
 modulate_color = Color(0.37413925, 0.37413928, 0.37413922, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_me2tk"]
-texture = SubResource("CompressedTexture2D_nj0vq")
+texture = ExtResource("2_byvqj")
 texture_margin_left = 26.296047
 texture_margin_top = 23.290785
 texture_margin_bottom = 20.285522
@@ -52,11 +49,8 @@ axis_stretch_horizontal = 2
 region_rect = Rect2(1423, 1297, 119.46106, 129)
 modulate_color = Color(0.37413925, 0.37413928, 0.37413922, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jrnw2"]
-load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q6b25"]
-texture = SubResource("CompressedTexture2D_jrnw2")
+texture = ExtResource("2_byvqj")
 texture_margin_left = 60.90915
 texture_margin_top = 79.02109
 texture_margin_right = 57.895527
@@ -1414,7 +1408,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="TerraText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1405028591]
 layout_mode = 2
-text = "Ein Planet mit blau-grünen Kontinenten und wirbelnden weißen Wolkenbändern, die sich über die Oberfläche ziehen. Ozeane glitzern in tiefem Türkis, durchzogen von kleinen grünen Landmassen."
+text = "Ein blau-grüner Planet, wie ihn jedes Kind zeichnen würde: türkisfarbene Ozeane, kleine grüne Landmassen und weiße Wolkenbänder, die über die Oberfläche wirbeln."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1427,14 +1421,14 @@ theme_override_styles/separator = SubResource("StyleBoxLine_164it")
 [node name="Glacium" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=233473984]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 28
-text = "Galcium"
+text = "Glacium"
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="GlaciumText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1570024302]
 layout_mode = 2
-text = "Eine winzige, fast bunte Kugel mit blau-gelben Mustern, die wie gefrorene Risse oder Energieadern wirken, eingebettet in ein violettes Strudelmuster im Hintergrund."
+text = "Ein kleiner Eisplanet. Blaue und gelbe Adern ziehen sich wie gefrorene Risse über die Oberfläche, als wäre die ganze Welt einmal zersprungen und wieder zusammengefroren."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1454,7 +1448,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="FlorexiaText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=189474291]
 layout_mode = 2
-text = "Ein zartes, blütenähnliches Gebilde aus rosa und hellblauen Blättern, die sternförmig um einen Kern angeordnet sind – wirkt eher wie eine kosmische Blume als ein klassischer Planet."
+text = "Weniger Planet, mehr kosmische Blume: rosa und hellblaue Blätter legen sich sternförmig um einen leuchtenden Kern. Nicht pflücken."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1474,7 +1468,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="IgnaraText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=79241767]
 layout_mode = 2
-text = "Ein rötlich-brauner Gesteinsplanet mit deutlich sichtbarem Ringsystem, das sich schräg um den Äquator legt. Die Oberfläche zeigt dunkle, narbige Krater."
+text = "Ein rotbrauner Gesteinsplanet, übersät mit dunklen, narbigen Kratern. Sein Ringsystem liegt schräg um den Äquator wie ein schlecht sitzender Hut."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1494,7 +1488,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="NyxaraText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=347048827]
 layout_mode = 2
-text = "Ein dunkler Planet mit einem violetten Spiralwirbel auf der Oberfläche, der an ein kosmisches Auge oder einen Sturm erinnert. Die Ränder gehen ins Schwarze über."
+text = "Ein dunkler Planet, auf dem ein violetter Sturm wirbelt — von weitem wirkt er wie ein riesiges Auge, das zurückstarrt. Die Ränder verlaufen ins Schwarze."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1514,7 +1508,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="StellarisText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1473373409]
 layout_mode = 2
-text = "Eine kleine graue diamantförmige Raumstation. wirkt wie eingefrorenes Sternenlicht."
+text = "Kein Planet, sondern eine Raumstation: ein grauer, diamantförmiger Metallkörper, der im Dunkeln glitzert wie eingefrorenes Sternenlicht."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1534,7 +1528,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="PyronisText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1104122966]
 layout_mode = 2
-text = "Ein orange-pink-violetter Planet mit wolkigen, nebelartigen Texturen, die wie brodelnde Gaswolken über die Oberfläche ziehen, mit einem dunkleren Kern in der Mitte."
+text = "Ein Gasplanet in Orange, Pink und Violett. Brodelnde Nebelschwaden ziehen über die Oberfläche und verdichten sich zu einem dunklen Kern in der Mitte."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1554,7 +1548,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="SolvaneText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1744699650]
 layout_mode = 2
-text = "Ein brodelnder Gasriese mit einem hypnotischen orangenen Spiralmuster, das sich wie ein Sturm um seinen Kern windet. Der dunkle Hintergrund changiert von tiefem Türkis ins Schwarze und verleiht der Szene den Charakter eines Übergangs- oder Portal-Bildschirms."
+text = "Ein brodelnder Gasriese mit einer einzigen, hypnotischen orangen Spirale, die sich wie ein endloser Sturm um den Kern windet. Nicht zu lange hinsehen."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1574,7 +1568,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="AquaronText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=102741919]
 layout_mode = 2
-text = " Ein blau-orangener Planet mit konzentrischen Ringmustern auf der Oberfläche, die wie Wasserwellen oder Energiezonen wirken."
+text = "Ein blau-oranger Planet mit konzentrischen Ringen auf der Oberfläche — wie Wellen, die sich ausbreiten, nachdem jemand einen Stein in einen Ozean aus Licht geworfen hat."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1594,7 +1588,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="SproutiaText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=314183718]
 layout_mode = 2
-text = "Ein junger, lebensspendender Planet, aus dessen heller Oberfläche zarte grüne Triebe und Ranken sprießen – ein Symbol für aufkeimendes Leben inmitten der Leere des Alls."
+text = "Ein junger Planet, aus dessen heller Oberfläche zarte grüne Triebe und Ranken sprießen — aufkeimendes Leben mitten in der Leere des Alls. Bitte nicht darauf herumtrampeln."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1614,7 +1608,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="VerdantisText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1708965545]
 layout_mode = 2
-text = "Kein Planet, sondern ein kleines grünes, tintenfischartiges Wesen oder Symbol – möglicherweise ein Charakter- oder Statusicon für eine außerirdische Spezies."
+text = "Achtung, kein Planet: ein kleines grünes, tintenfischartiges Wesen, das an dieser Position durchs All treibt. Warum es dort schwebt, weiß niemand. Bitte nicht anfunken."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"

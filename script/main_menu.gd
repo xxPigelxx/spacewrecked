@@ -10,7 +10,7 @@ func _ready() -> void:
 	main.visible = false
 	credits.visible = false
 	options.visible = false
-	AudioManager.play_music("res://resources/assets/sfx/Sci-Fi Music Pack/Loops/wav/Sci-Fi 5 Loop.wav")
+	AudioManager.play_music("res://resources/assets/sfx/music/Sci-Fi 5 Loop.mp3")
 
 func _on_start_bt_pressed() -> void:
 	GameState.reset_game()

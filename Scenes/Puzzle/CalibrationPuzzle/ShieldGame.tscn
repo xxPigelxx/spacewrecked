@@ -245,6 +245,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Win" type="Button" parent="." unique_id=1800034081]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

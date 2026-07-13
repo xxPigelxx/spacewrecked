@@ -1,55 +1,44 @@
 [gd_resource type="Theme" format=3 uid="uid://xm5urjrf4aua"]
 
 [ext_resource type="FontFile" uid="uid://dld0grsdcans2" path="res://resources/fonts/Share_Tech/ShareTech-Regular.ttf" id="1_x2ak3"]
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="2_sprit"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x2ak3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yjg5f"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x2ak3"]
-load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i4ejt"]
 content_margin_left = 12.0
 content_margin_top = 12.0
 content_margin_right = 12.0
 content_margin_bottom = 12.0
-texture = SubResource("CompressedTexture2D_x2ak3")
+texture = ExtResource("2_sprit")
 region_rect = Rect2(807, 835, 184, 148)
 modulate_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0wthw"]
-load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dagba"]
 content_margin_left = 12.0
 content_margin_top = 12.0
 content_margin_right = 12.0
 content_margin_bottom = 12.0
-texture = SubResource("CompressedTexture2D_0wthw")
+texture = ExtResource("2_sprit")
 region_rect = Rect2(807, 835, 184, 148)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yjg5f"]
-load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0wthw"]
 content_margin_left = 12.0
 content_margin_top = 12.0
 content_margin_right = 12.0
 content_margin_bottom = 12.0
-texture = SubResource("CompressedTexture2D_yjg5f")
+texture = ExtResource("2_sprit")
 region_rect = Rect2(807, 835, 184, 148)
 modulate_color = Color(0.6255971, 0.6255971, 0.6255971, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hf3i3"]
-load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1nr78"]
 content_margin_left = 8.0
 content_margin_top = 12.0
 content_margin_right = 8.0
 content_margin_bottom = 12.0
-texture = SubResource("CompressedTexture2D_hf3i3")
+texture = ExtResource("2_sprit")
 region_rect = Rect2(1570, 552, 444, 162)
 modulate_color = Color(0.3553137, 0.3553135, 0.35531366, 1)
 

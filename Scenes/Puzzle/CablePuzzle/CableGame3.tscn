@@ -88,6 +88,7 @@ theme_override_constants/separation = 300
 alignment = 1
 
 [node name="Win" type="Button" parent="Panel/HBoxContainer" unique_id=196559703]
+visible = false
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("3_o7rrp")
