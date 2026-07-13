@@ -123,7 +123,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_q6b25")
 layout_mode = 2
 theme_override_constants/tab_separation = 22
 tab_alignment = 1
-current_tab = 2
+current_tab = 4
 clip_tabs = false
 
 [node name="Home" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=504548785]
@@ -156,11 +156,11 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
-text = "Dieses Handbuch ist dein Begeliter Astor. Es wird dein wichtigster freund auf deiner weiten Reise durchs Weltall.
+text = "Dieses Handbuch ist dein Begleiter an Bord. Es wird dein wichtigster Freund auf deiner weiten Reise durchs Weltall.
 
-Dieses Handbuch führt dich durch alle Systeme des Schiffs. Wähle oben den passenden Tab dort findest du Erklärungen, Warnhinweise und Schritt-für-Schritt-Anleitungen.
+Es führt dich durch alle Systeme des Schiffs. Wähle oben den passenden Tab — dort findest du Erklärungen, Warnhinweise und Schritt-für-Schritt-Anleitungen.
 
-Wichitg!!! Im fall eines Energieverlust Drücke (F), um die Taschenlampe ein- oder auszuschalten und versuche die Energie wiederherzustellen."
+Wichtig! Fällt die Energie aus, drücke (F), um die Taschenlampe ein- oder auszuschalten, und versuche, die Energie wiederherzustellen."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -173,7 +173,7 @@ theme_override_constants/separation = 40
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
-text = "AtroExplora Status"
+text = "Status"
 fit_content = true
 horizontal_alignment = 1
 script = ExtResource("2_puywe")
@@ -364,7 +364,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
-text = "Ship Health:"
+text = "Schiffshülle:"
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -379,7 +379,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
-text = "Journye Time:"
+text = "Zeit:"
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -403,7 +403,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
-text = "Task :"
+text = "Repariert:"
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -457,7 +457,7 @@ layout_mode = 2
 
 [node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox" unique_id=2039417495]
 layout_mode = 2
-text = "Auf der AstroExplora kann es in seltenen fällen zu einen Energieverlust kommen. Falls dieses unwarscheinliche senario eintrit muss der Sicherungs kasten, hinten im Raum schif bei der in flugrichtung linken Antrieb neu verkabelt werden. Hierfür mussen bestimmte fraben an sokel verbunden werden und nur wen jeder richtig verbunden ist Hat das Schif wieder Energie."
+text = "Auf der AstroExplora kann es in seltenen Fällen zu einem Energieverlust kommen. Tritt dieses unwahrscheinliche Szenario ein, muss der Sicherungskasten neu verkabelt werden. Er befindet sich hinten im Schiff, am in Flugrichtung linken Antrieb. Dabei müssen bestimmte Farben an die Sockel angeschlossen werden — erst wenn alle Paare richtig verbunden sind, hat das Schiff wieder Energie."
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -476,7 +476,7 @@ script = ExtResource("2_puywe")
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
-text = "Cable"
+text = "Kabelbelegung"
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -501,7 +501,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
-text = "Error Code: 1281"
+text = "Fehlercode: 1281"
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -516,7 +516,7 @@ size_flags_horizontal = 3
 
 [node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=569539212]
 layout_mode = 2
-text = "Blau <-> lila"
+text = "Blau <-> Lila"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -595,7 +595,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
-text = "Error Code: 3854"
+text = "Fehlercode: 3854"
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -610,7 +610,7 @@ size_flags_horizontal = 3
 
 [node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=716592493]
 layout_mode = 2
-text = "Blau <-> lila"
+text = "Blau <-> Lila"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -689,7 +689,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
-text = "Error Code: 9418"
+text = "Fehlercode: 9418"
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -723,7 +723,7 @@ layout_mode = 2
 
 [node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3/ListTitle/Treibstoff/VBox" unique_id=939337749]
 layout_mode = 2
-text = "Der Treibstoff des Schiffes ist sehr bestimmt und muss aus sicherheitsgründen nicht gemischt gelagert werden. Deshalb muss der Treibstoff wen er niederig wird manuel gemischt werden.  Dafür muss das Rezept genutze werden. Der Treibstoff besteht aus Hyperion zu 23%,   12% Xytherium, 25% Vortex, und 20% wasser. Der Treibstoff wird in dem Rechten Torbienenraum Gemischt. "
+text = "Der Treibstoff des Schiffes ist eine empfindliche Mischung und darf aus Sicherheitsgründen nicht fertig gemischt gelagert werden. Wird der Vorrat knapp, muss er von Hand nach Rezept gemischt werden. Der Standard-Treibstoff Nyxium besteht aus 23% Hyperion, 12% Xytherium, 25% Vortex und 20% Wasser. Gemischt wird im rechten Turbinenraum. "
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -733,7 +733,7 @@ layout_mode = 2
 
 [node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3/ListTitle/Treibstoff/VBox/WarningBox" unique_id=1339958454]
 layout_mode = 2
-text = "KRITISCH: !!!! Die Verhältnisse dürfen nicht zu weit auseinander raten !!!!!"
+text = "KRITISCH: Die Mischverhältnisse dürfen nur wenig vom Rezept abweichen!"
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -748,7 +748,7 @@ size_flags_horizontal = 3
 
 [node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=141359970]
 layout_mode = 2
-text = "Blau <-> lila"
+text = "Blau <-> Lila"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -827,7 +827,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
-text = "Error Code: 2458"
+text = "Fehlercode: 2458"
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -842,7 +842,7 @@ size_flags_horizontal = 3
 
 [node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=96287848]
 layout_mode = 2
-text = "Blau <-> lila"
+text = "Blau <-> Lila"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -910,6 +910,7 @@ horizontal_alignment = 1
 script = ExtResource("2_puywe")
 
 [node name="Navigation" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=529697749]
+visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
 drift_amplitude = 11.0
@@ -936,7 +937,7 @@ layout_mode = 2
 
 [node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox" unique_id=804382157]
 layout_mode = 2
-text = "Das Navigations System ist sehr fragiel fall je	des mal wen dem Schiff etwas passiert leuft es gefahr einzubrechen und muss neu kalibriet werden. Dafür musss eine bestimmte sequenz von Planeten angestert werden. Dies ist erst möglich wen das Schiff in einem flugtüchtigen Zustand ist. Das es genug Energie und den passenden triebstoff hat. Eine Karte des Alls und eine Beschreibung der Planeten finden sie ganz unten auf dieser Seite."
+text = "Das Navigationssystem ist sehr empfindlich. Jedes Mal, wenn das Schiff Schaden nimmt, kann die Navigation ausfallen und muss neu kalibriert werden. Dafür muss eine bestimmte Sequenz von Planeten angesteuert werden. Das ist erst möglich, wenn das Schiff flugtüchtig ist — also genug Energie und den passenden Treibstoff hat. Eine Karte des Alls und eine Beschreibung der Planeten findest du ganz unten auf dieser Seite."
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -946,7 +947,7 @@ layout_mode = 2
 
 [node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/WarningBox" unique_id=570961848]
 layout_mode = 2
-text = "Navigation erst aktivieren wenn Strom UND Treibstoff gruen sind."
+text = "Navigation erst aktivieren, wenn Energie UND Treibstoff grün sind."
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -966,7 +967,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
-text = "Signal Code: 8946"
+text = "Signalcode: 8946"
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -981,7 +982,7 @@ size_flags_horizontal = 3
 
 [node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=1600387604]
 layout_mode = 2
-text = "1 Aquaron"
+text = "1. Aquaron"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -994,7 +995,7 @@ size_flags_horizontal = 3
 
 [node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=187397872]
 layout_mode = 2
-text = "2 Nyxara"
+text = "2. Nyxara"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1015,7 +1016,7 @@ size_flags_horizontal = 3
 
 [node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=2052323643]
 layout_mode = 2
-text = "3 Sproutia"
+text = "3. Sproutia"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1028,7 +1029,7 @@ size_flags_horizontal = 3
 
 [node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=1654426698]
 layout_mode = 2
-text = "4 Solvane"
+text = "4. Solvane"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1042,7 +1043,7 @@ size_flags_horizontal = 3
 [node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=1938564320]
 layout_mode = 2
 bbcode_enabled = true
-text = "5 Ignara"
+text = "5. Ignara"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -1058,7 +1059,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
-text = "Signal Code: 7824"
+text = "Signalcode: 7824"
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1073,7 +1074,7 @@ size_flags_horizontal = 3
 
 [node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=1280867145]
 layout_mode = 2
-text = "1 Florexia"
+text = "1. Florexia"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1086,7 +1087,7 @@ size_flags_horizontal = 3
 
 [node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=981592619]
 layout_mode = 2
-text = "2 Ingnara"
+text = "2. Ignara"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1107,7 +1108,7 @@ size_flags_horizontal = 3
 
 [node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=389053677]
 layout_mode = 2
-text = "3 Stellaris"
+text = "3. Stellaris"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1120,7 +1121,7 @@ size_flags_horizontal = 3
 
 [node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=678791326]
 layout_mode = 2
-text = "4 Aquaron"
+text = "4. Aquaron"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1134,7 +1135,7 @@ size_flags_horizontal = 3
 [node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=2021989452]
 layout_mode = 2
 bbcode_enabled = true
-text = "5 Terra"
+text = "5. Terra"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -1152,7 +1153,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
-text = "Signal Code: 3687"
+text = "Signalcode: 3687"
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1186,7 +1187,7 @@ layout_mode = 2
 
 [node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/ListTitle/Treibstoff/VBox" unique_id=1992640395]
 layout_mode = 2
-text = "Der Treibstoff des Schiffes ist sehr bestimmt und muss aus sicherheitsgründen nicht gemischt gelagert werden. Deshalb muss der Treibstoff wen er niederig wird manuel gemischt werden.  Dafür muss das Rezept genutze werden. Der Treibstoff besteht aus Hyperion zu 23%,   12% Xytherium, 25% Vortex, und 20% wasser. Der Treibstoff wird in dem Rechten Torbienenraum Gemischt. "
+text = "Der Treibstoff des Schiffes ist eine empfindliche Mischung und darf aus Sicherheitsgründen nicht fertig gemischt gelagert werden. Wird der Vorrat knapp, muss er von Hand nach Rezept gemischt werden. Der Standard-Treibstoff Nyxium besteht aus 23% Hyperion, 12% Xytherium, 25% Vortex und 20% Wasser. Gemischt wird im rechten Turbinenraum. "
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -1196,7 +1197,7 @@ layout_mode = 2
 
 [node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/ListTitle/Treibstoff/VBox/WarningBox" unique_id=621137223]
 layout_mode = 2
-text = "KRITISCH: !!!! Die Verhältnisse dürfen nicht zu weit auseinander raten !!!!!"
+text = "KRITISCH: Die Mischverhältnisse dürfen nur wenig vom Rezept abweichen!"
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -1211,7 +1212,7 @@ size_flags_horizontal = 3
 
 [node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=2065748346]
 layout_mode = 2
-text = "1 Pyronis"
+text = "1. Pyronis"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1224,7 +1225,7 @@ size_flags_horizontal = 3
 
 [node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=596646549]
 layout_mode = 2
-text = "2 Sproutia"
+text = "2. Sproutia"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1245,7 +1246,7 @@ size_flags_horizontal = 3
 
 [node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=1216690103]
 layout_mode = 2
-text = "3 Terra"
+text = "3. Terra"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1258,7 +1259,7 @@ size_flags_horizontal = 3
 
 [node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=2080014947]
 layout_mode = 2
-text = "4 Nyxara"
+text = "4. Nyxara"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1272,7 +1273,7 @@ size_flags_horizontal = 3
 [node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=575179778]
 layout_mode = 2
 bbcode_enabled = true
-text = "5 Florexia"
+text = "5. Florexia"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -1290,7 +1291,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
-text = "Signal Code: 6781"
+text = "Signalcode: 6781"
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1305,7 +1306,7 @@ size_flags_horizontal = 3
 
 [node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=1360829740]
 layout_mode = 2
-text = "1 Verdantis"
+text = "1. Verdantis"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1318,7 +1319,7 @@ size_flags_horizontal = 3
 
 [node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=275649282]
 layout_mode = 2
-text = "2 Nyxara"
+text = "2. Nyxara"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1339,7 +1340,7 @@ size_flags_horizontal = 3
 
 [node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=698765510]
 layout_mode = 2
-text = "3 Sproutia"
+text = "3. Sproutia"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1352,7 +1353,7 @@ size_flags_horizontal = 3
 
 [node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=1081167217]
 layout_mode = 2
-text = "4 Glacium"
+text = "4. Glacium"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1366,7 +1367,7 @@ size_flags_horizontal = 3
 [node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1016393442]
 layout_mode = 2
 bbcode_enabled = true
-text = "5 Solvane"
+text = "5. Solvane"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -1408,7 +1409,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="TerraText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1405028591]
 layout_mode = 2
-text = "Ein blau-grüner Planet, wie ihn jedes Kind zeichnen würde: türkisfarbene Ozeane, kleine grüne Landmassen und weiße Wolkenbänder, die über die Oberfläche wirbeln."
+text = "Ein blau-grüner Planet, wie ihn jedes Kind zeichnen würde: türkisfarbene Ozeane, kleine grüne Landmassen und weisse Wolkenbänder, die über die Oberfläche wirbeln."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1588,7 +1589,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="SproutiaText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=314183718]
 layout_mode = 2
-text = "Ein junger Planet, aus dessen heller Oberfläche zarte grüne Triebe und Ranken sprießen — aufkeimendes Leben mitten in der Leere des Alls. Bitte nicht darauf herumtrampeln."
+text = "Ein junger Planet, aus dessen heller Oberfläche zarte grüne Triebe und Ranken wachsen — aufkeimendes Leben mitten in der Leere des Alls. Bitte nicht darauf herumtrampeln."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1608,7 +1609,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="VerdantisText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1708965545]
 layout_mode = 2
-text = "Achtung, kein Planet: ein kleines grünes, tintenfischartiges Wesen, das an dieser Position durchs All treibt. Warum es dort schwebt, weiß niemand. Bitte nicht anfunken."
+text = "Achtung, kein Planet: ein kleines grünes, tintenfischartiges Wesen, das an dieser Position durchs All treibt. Warum es dort schwebt, kann niemand sagen. Bitte nicht anfunken."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1641,7 +1642,7 @@ layout_mode = 2
 
 [node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=1321132059]
 layout_mode = 2
-text = "Der Treibstoff des Schiffes ist sehr bestimmt und muss aus sicherheitsgründen nicht gemischt gelagert werden. Deshalb muss der Treibstoff wen er niederig wird manuel gemischt werden.  Dafür muss das Rezept genutze werden. Der Treibstoff besteht aus Hyperion zu 23%,   12% Xytherium, 25% Vortex, und 20% wasser. Der Treibstoff wird in dem Rechten Torbienenraum Gemischt"
+text = "Der Treibstoff des Schiffes ist eine empfindliche Mischung und darf aus Sicherheitsgründen nicht fertig gemischt gelagert werden. Wird der Vorrat knapp, muss er von Hand nach Rezept gemischt werden."
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -1651,7 +1652,7 @@ layout_mode = 2
 
 [node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/WarningBox" unique_id=1635859299]
 layout_mode = 2
-text = "+KRITISCH: !!!! Die Verhältnisse dürfen nicht zu weit auseinander raten !!!!!"
+text = "KRITISCH: Die Mischverhältnisse dürfen nur wenig vom Rezept abweichen!"
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -2136,7 +2137,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Schild" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=1133952086]
-visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
 swap_percent = 25.0
@@ -2162,7 +2162,7 @@ layout_mode = 2
 
 [node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox" unique_id=777706702]
 layout_mode = 2
-text = "Das Schild-System muss nach einem Treffer neu kalibriert werden. Am Schild-Pult stellst du drei Frequenzkanaele per Drehregler auf ihre Sollwerte ein. Stimmen alle drei, ist das Schild wieder stabil."
+text = "Das Schild-System muss nach einem Treffer neu kalibriert werden. Am Schild-Pult stellst du drei Frequenzkanäle per Drehregler auf ihre Sollwerte ein. Stimmen alle drei, ist das Schild wieder stabil."
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -2172,7 +2172,7 @@ layout_mode = 2
 
 [node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/WarningBox" unique_id=486265831]
 layout_mode = 2
-text = "Schon eine falsch eingestellte Frequenz haelt das Schild offline."
+text = "Schon eine falsch eingestellte Frequenz hält das Schild offline."
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -2314,7 +2314,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
-text = "frequenz: 7321"
+text = "Frequenz: 7321"
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -2363,7 +2363,7 @@ grow_vertical = 2
 [node name="PageTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Codes/VBox" unique_id=26657604]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 38
-text = "Zugangscodes "
+text = "Zugangscodes"
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -2498,7 +2498,7 @@ alignment = 1
 custom_minimum_size = Vector2(120, 50)
 layout_mode = 2
 theme = ExtResource("6_7jiqe")
-text = "Prev"
+text = "Zurueck"
 script = ExtResource("7_n500u")
 
 [node name="VSeparator2" type="VSeparator" parent="ManualRoot/Footer" unique_id=1467544893]
@@ -2510,5 +2510,5 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_n500u")
 custom_minimum_size = Vector2(120, 50)
 layout_mode = 2
 theme = ExtResource("6_7jiqe")
-text = "Next"
+text = "Weiter"
 script = ExtResource("7_n500u")
