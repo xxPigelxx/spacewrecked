@@ -14,6 +14,8 @@
 texture = ExtResource("3_8saeu")
 region_rect = Rect2(782, 1429, 484, 594)
 
+[sub_resource type="ButtonGroup" id="ButtonGroup_dysfr"]
+
 [node name="MainMenu" type="Control" unique_id=1567821724]
 layout_mode = 3
 anchors_preset = 8
@@ -171,14 +173,14 @@ theme_override_constants/margin_bottom = 150
 
 [node name="VBoxContainer" type="VBoxContainer" parent="StartUpPopUp/PanelContainer/MarginContainer" unique_id=627972210]
 layout_mode = 2
-theme_override_constants/separation = 70
+theme_override_constants/separation = 50
 
 [node name="Header" type="RichTextLabel" parent="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer" unique_id=371925994]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/bold_font_size = 100
 bbcode_enabled = true
-text = "[b]!Wilkommen!
+text = "[b]Willkommen an Bord!
 "
 fit_content = true
 horizontal_alignment = 1
@@ -188,8 +190,8 @@ vertical_alignment = 1
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 24
-text = "Spacewrecked ist Teil einer Bachelorarbeit, die untersucht, wie Dyslexie für nicht betroffene Personen erfahrbar gemacht werden kann. Das Spiel stellt dabei keine realistische Simulation der Wahrnehmung von Menschen mit Dyslexie dar. Stattdessen soll es die kognitive Belastung und die Herausforderungen beim Lesen verdeutlichen und meine persönliche Erfahrung ansatzweise vermitteln.
-Es ist möglich, dass einige Effekte als „tanzender Text“ wahrgenommen werden, dies entspricht jedoch nicht in jedem Fall der tatsächlichen Wahrnehmung von Betroffenen.
+text = "Spacewrecked ist Teil einer Bachelorarbeit, die untersucht, wie Dyslexie für nicht betroffene Personen erfahrbar gemacht werden kann. Das Spiel ist keine realistische Simulation der Wahrnehmung von Menschen mit Dyslexie. Es soll vielmehr die kognitive Belastung und die Herausforderungen beim Lesen spürbar machen und meine persönliche Erfahrung ansatzweise vermitteln.
+Manche Effekte wirken dabei wie „tanzender Text“. Das entspricht nicht in jedem Fall der tatsächlichen Wahrnehmung von Betroffenen.
 Ich würde mich sehr freuen, wenn Sie nach dem Spielen einen kurzen Fragebogen zu Ihrer Erfahrung ausfüllen. Vielen Dank fürs Spielen!"
 fit_content = true
 horizontal_alignment = 1
@@ -197,20 +199,41 @@ horizontal_alignment = 1
 [node name="Label" type="Label" parent="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer" unique_id=79943676]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Haben sie Dyslexie? "
+text = "Wurde bei Ihnen eine Lese-Rechtschreib-Schwäche (Dyslexie/Legasthenie) festgestellt?"
 
-[node name="CheckBox" type="CheckBox" parent="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer/Label" unique_id=92209656]
-layout_mode = 0
-offset_left = 214.0
-offset_top = 3.5
-offset_right = 238.0
-offset_bottom = 27.5
+[node name="DysFrage" type="HBoxContainer" parent="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer" unique_id=92209656]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 60
+
+[node name="JaBt" type="CheckBox" parent="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer/DysFrage" unique_id=922096561]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = 15
+theme_override_font_sizes/font_size = 32
+button_group = SubResource("ButtonGroup_dysfr")
+text = "Ja"
+
+[node name="NeinBt" type="CheckBox" parent="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer/DysFrage" unique_id=922096562]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = 15
+theme_override_font_sizes/font_size = 32
+button_group = SubResource("ButtonGroup_dysfr")
+text = "Nein"
 
 [node name="ClosePopUpBt" type="Button" parent="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer" unique_id=974581839]
 layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("3_df05h")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 60
+disabled = true
 text = "Schliessen"
 script = ExtResource("4_ghw46")
 
@@ -220,5 +243,6 @@ script = ExtResource("4_ghw46")
 [connection signal="pressed" from="main/ExitBt" to="." method="_on_exit_bt_pressed"]
 [connection signal="pressed" from="credits/BackBt" to="." method="_on_credit_bt_pressed"]
 [connection signal="pressed" from="Options/BackBt" to="." method="_on_options_bt_pressed"]
-[connection signal="toggled" from="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer/Label/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer/DysFrage/JaBt" to="." method="_on_ja_bt_pressed"]
+[connection signal="pressed" from="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer/DysFrage/NeinBt" to="." method="_on_nein_bt_pressed"]
 [connection signal="pressed" from="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer/ClosePopUpBt" to="." method="_on_close_pop_up_bt_pressed"]

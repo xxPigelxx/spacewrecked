@@ -86,6 +86,11 @@ var _run_log: Array[Dictionary] = []
 ## jeden Teilnehmer wird das Spiel neu gestartet). Kann vor dem Lauf manuell
 ## ueberschrieben werden (z. B. spaeter ueber ein Eingabefeld).
 var participant_id := ""
+## Antwort aus dem Startup-Popup ("Wurde bei Ihnen eine Lese-Rechtschreib-Schwaeche
+## festgestellt?"). Wird pro App-Start einmal gesetzt und mit jeder Run-Zeile
+## exportiert, damit dyslexia_enabled=false eindeutig interpretierbar bleibt
+## (Kontrollgruppe vs. betroffene Person). Absichtlich NICHT in reset_game().
+var participant_has_dyslexia := false
 var _run_index := 0                            ## Laufnummer innerhalb dieser Sitzung
 var _run_id := ""                              ## eindeutig pro Lauf, verknuepft runs.csv & tasks.csv
 
@@ -286,6 +291,7 @@ func _finish_run() -> void:
 		"time_used": run_duration - time_left,
 		"dyslexia_enabled": dyslexia_enabled,
 		"stress_from_health": stress_from_health,
+		"has_dyslexia": participant_has_dyslexia,
 		"log": _run_log.duplicate(),
 	}
 	# ResultsExporter (Autoload) lauscht auf run_finished und schreibt die CSVs.

@@ -3,6 +3,7 @@ extends Control
 @onready var credits: VBoxContainer = $credits
 @onready var options: VBoxContainer = $Options
 @onready var start_up_pop_up: MarginContainer = $StartUpPopUp
+@onready var close_pop_up_bt: Button = $StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer/ClosePopUpBt
 
 
 func _ready() -> void:
@@ -33,6 +34,15 @@ func _on_close_pop_up_bt_pressed() -> void:
 	main.visible = true
 
 
-func _on_check_box_toggled(toggled_on: bool) -> void:
-	print(toggled_on)
-	GameState.dyslexia_enabled = not toggled_on
+## Pflichtfrage im Startup-Popup: erst nach Ja/Nein laesst sich das Popup schliessen.
+## "Ja" (Dyslexie vorhanden) schaltet die Simulation ab; die Antwort selbst wird
+## in GameState gespeichert und landet als eigene Spalte in der Run-Zeile im Sheet.
+func _on_ja_bt_pressed() -> void:
+	GameState.participant_has_dyslexia = true
+	GameState.dyslexia_enabled = false
+	close_pop_up_bt.disabled = false
+
+func _on_nein_bt_pressed() -> void:
+	GameState.participant_has_dyslexia = false
+	GameState.dyslexia_enabled = true
+	close_pop_up_bt.disabled = false

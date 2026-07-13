@@ -44,6 +44,7 @@ func _on_run_finished(results: Dictionary) -> void:
 		"participant_id": results.get("participant_id", ""),
 		"dyslexia_enabled": results.get("dyslexia_enabled", false),
 		"stress_from_health": results.get("stress_from_health", false),
+		"has_dyslexia": results.get("has_dyslexia", false),
 		"run_duration_s": _round2(results.get("run_duration", 0.0)),
 		"time_used_s": _round2(results.get("time_used", 0.0)),
 		"malfunctions_solved": results.get("malfunctions_solved", 0),
