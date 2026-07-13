@@ -60,11 +60,11 @@ func is_manual_aquiered() -> bool:
 
 # ---- Einstellbare Werte (alles an einem Ort) ----
 @export_group("Journey")
-@export var run_duration := 300.0             ## Messfenster in Sekunden
+@export var run_duration := 360.0             ## Messfenster in Sekunden
 @export var max_health := 100.0                ## Maximales + Start-Leben
-@export var health_per_fix := 10.0             ## Reparatur stellt so viel wieder her (flach)
-@export var health_drain_per_sec := 1.0        ## passiver Verlust pro Sekunde
-@export var drain_per_active_malfunction := 0.2## extra Verlust pro offener Störung (0 = aus)
+@export var health_per_fix := 20.0             ## Reparatur stellt so viel wieder her (flach)
+@export var health_drain_per_sec := 0.5       ## passiver Verlust pro Sekunde
+@export var drain_per_active_malfunction := 0.05## extra Verlust pro offener Störung (0 = aus)
 
 # Hinweis: Jede Stoerung hat ihren eigenen spawn_time (Sekunden ab Journey-Start).
 
@@ -243,7 +243,8 @@ func _process(delta: float) -> void:
 		_finish_run()
 	elif time_left <= 0.0:
 		_finish_run()
-	
+	elif  malfunctions_solved >= 15:
+		_finish_run()
 	ship_lights = is_system_broken("strom")
 
 func submit_questionnaire(answers: Array) -> void:

@@ -4,6 +4,7 @@ extends Draggable
 @export var pour_rate: float = 20.0
 @export var bottle_name: = "Bottle"
 @export var bottle_texture: Texture2D = preload("uid://chm0cx66fx8kh")
+@export var pour_rotation: = -120 
 
 @onready var cpu_particles_2d: CPUParticles2D = $Bottle/CPUParticles2D
 @onready var rich_text_label: RichTextLabel = $RichTextLabel
@@ -48,10 +49,11 @@ func _on_drag_ended() -> void:
 
 func start_pouring() -> void:
 	is_pouring = true
-	if position.x >= get_window().size.x / 2.0:
-		rotate_to(deg_to_rad(-120))
-	else:
-		rotate_to(deg_to_rad(120))
+	#if position.x >= get_window().size.x / 2.0:
+		#rotate_to(deg_to_rad(-120))
+	#else:
+		#rotate_to(deg_to_rad(120))
+	rotate_to(deg_to_rad(pour_rotation))
 	cpu_particles_2d.modulate = bottle_color
 	cpu_particles_2d.emitting = true
 

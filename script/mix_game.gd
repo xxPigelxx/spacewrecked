@@ -22,7 +22,7 @@ var malfunction = null
 var current_fill: float = 0.0
 var bottles: Array = []
 var mixed_color: Color = Color(0, 0, 0, 1)
-
+var completed: = false
 ## Wie viel wurde von jeder Flasche (per bottle_name) eingefüllt
 var poured_per_bottle: Dictionary = {}
 
@@ -114,6 +114,9 @@ func _check_win() -> bool:
 	return true
 
 func _on_win() -> void:
+	if completed: 
+		return
+	completed = true
 	print("WIN! Rezept stimmt!")
 	error_code.lamp_flash()
 	AudioManager.play_success()

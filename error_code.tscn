@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://b36umvyqpvqe1" path="res://error_code.gd" id="1_0tvpd"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="1_vcj2s"]
 [ext_resource type="PackedScene" uid="uid://b8b7l3jlaxb3c" path="res://Scenes/lamp.tscn" id="2_lx3e1"]
-[ext_resource type="Script" uid="uid://clg63em8vrbc0" path="res://script/DyslexiaLabel.gd" id="3_0tvpd"]
 [ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="3_lx3e1"]
 
 [node name="ErrorCode" type="Node2D" unique_id=1170533520]
@@ -25,7 +24,7 @@ position = Vector2(47, 0.5)
 scale = Vector2(0.25, 0.25)
 active_color = Color(0.98039216, 0.14509805, 0, 1)
 
-[node name="DyslexiaLabel" type="RichTextLabel" parent="." unique_id=996815021]
+[node name="RichLabel" type="RichTextLabel" parent="." unique_id=1304442458]
 offset_left = -40.0
 offset_top = -26.0
 offset_right = 39.0
@@ -37,6 +36,3 @@ text = "3842"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("3_0tvpd")
-text_color = Color(0.6505837, 0, 0.18167478, 1)
-metadata/_custom_type_script = "uid://clg63em8vrbc0"

@@ -9,13 +9,16 @@ var pressing := false
 
 var active_color = Color.WHITE
 var deactivated_color = Color(0.144, 0.144, 0.144, 1.0)
+var active = true
 
 func _ready() -> void:
 	maxLength *= parent.scale.x
-
-func _process(delta: float) -> void:
 	if GameState.is_system_broken("treibstoff") or GameState.is_system_broken("strom"):
 		modulate = deactivated_color
+		active = false
+
+func _process(delta: float) -> void:
+	if not active:
 		return
 	modulate = active_color
 	if pressing:

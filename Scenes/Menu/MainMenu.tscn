@@ -178,7 +178,7 @@ theme_override_constants/separation = 50
 [node name="Header" type="RichTextLabel" parent="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer" unique_id=371925994]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_font_sizes/bold_font_size = 100
+theme_override_font_sizes/bold_font_size = 75
 bbcode_enabled = true
 text = "[b]Willkommen an Bord!
 "
@@ -199,7 +199,7 @@ horizontal_alignment = 1
 [node name="Label" type="Label" parent="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer" unique_id=79943676]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Wurde bei Ihnen eine Lese-Rechtschreib-Schwäche (Dyslexie/Legasthenie) festgestellt?"
+text = "Wurde bei Ihnen Dyslexie/Legasthenie festgestellt?"
 
 [node name="DysFrage" type="HBoxContainer" parent="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer" unique_id=92209656]
 layout_mode = 2

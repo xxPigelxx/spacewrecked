@@ -123,11 +123,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_q6b25")
 layout_mode = 2
 theme_override_constants/tab_separation = 22
 tab_alignment = 1
-current_tab = 2
+current_tab = 0
 clip_tabs = false
 
 [node name="Home" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=504548785]
-visible = false
 layout_mode = 2
 script = ExtResource("2_q6b25")
 metadata/_tab_index = 0
@@ -154,11 +153,13 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="Title" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Home/VBoxContainer" unique_id=930135573]
 layout_mode = 2
+theme_override_constants/line_separation = 2
+theme_override_constants/paragraph_separation = -2
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "Dieses Handbuch ist dein Begleiter an Bord. Es wird dein wichtigster Freund auf deiner weiten Reise durchs Weltall.
 
-Es führt dich durch alle Systeme des Schiffs. Wähle oben den passenden Tab — dort findest du Erklärungen, Warnhinweise und Schritt-für-Schritt-Anleitungen.
+Es führt dich durch alle Systeme des Schiffs. Wähle oben den passenden Tab – dort findest du Erklärungen, Warnhinweise und Schritt-für-Schritt-Anleitungen. Während deiner Reise kannst du hier den aktuellen Status des Schiffes nachschauen. Achte auf ein rotes Licht am Handbuch. Leuchtet es, weißt du, dass etwas kaputt ist.
 
 Wichtig! Fällt die Energie aus, drücke (F), um die Taschenlampe ein- oder auszuschalten, und versuche, die Energie wiederherzustellen."
 fit_content = true
@@ -910,6 +911,7 @@ horizontal_alignment = 1
 script = ExtResource("2_puywe")
 
 [node name="Navigation" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=529697749]
+visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
 drift_amplitude = 11.0
@@ -1288,7 +1290,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="AquaronText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=102741919]
 layout_mode = 2
-text = "Ein blau-oranger Planet mit konzentrischen Ringen auf der Oberfläche — wie Wellen, die sich ausbreiten, nachdem jemand einen Stein in einen Ozean aus Licht geworfen hat."
+text = "Ein blau-oranger Planet mit einem Hablmond auf der Oberfläche — wie eine Welle, die sich ausbreitet, nachdem jemand einen Stein in einen Ozean aus Licht geworfen hat."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1361,14 +1363,7 @@ layout_mode = 2
 
 [node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=1321132059]
 layout_mode = 2
-text = "Der Treibstoff des Schiffes ist eine empfindliche Mischung und darf aus Sicherheitsgründen nicht fertig gemischt gelagert werden. Wird der Vorrat knapp, muss er von Hand nach Rezept gemischt werden."
-fit_content = true
-scroll_active = false
-script = ExtResource("2_puywe")
-
-[node name="Body2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=1073420886]
-layout_mode = 2
-text = "Der Treibstoff des Schiffes ist eine empfindliche Mischung und darf aus Sicherheitsgründen nicht fertig gemischt gelagert werden. Wird der Vorrat knapp, muss er von Hand nach Rezept gemischt werden."
+text = "Der Treibstoff des Schiffes ist eine empfindliche Mischung und darf aus Sicherheitsgründen nicht fertig gemischt gelagert werden. Wird der Vorrat knapp, muss er von Hand nach Rezept gemischt werden. Nutze die rechte Maustaste, um die Flüssigkeit gekonnt zu kippen."
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")

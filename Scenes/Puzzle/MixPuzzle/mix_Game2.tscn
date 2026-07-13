@@ -290,10 +290,9 @@ position = Vector2(-90, 0.5)
 [node name="lamp2" parent="ErrorCode" index="2" unique_id=1142474370]
 position = Vector2(90, 0.5)
 
-[node name="DyslexiaLabel" parent="ErrorCode" index="3" unique_id=996815021]
-offset_left = -80.0
-offset_right = 82.96001
-metadata/_edit_use_anchors_ = true
+[node name="RichLabel" parent="ErrorCode" index="3" unique_id=1304442458]
+offset_left = -75.0
+offset_right = 74.0
 
 [connection signal="pressed" from="Panel2/Button Array/winBt" to="." method="_on_win"]
 [connection signal="pressed" from="Panel2/Button Array/resetBt" to="." method="_on_reset_bt_pressed"]

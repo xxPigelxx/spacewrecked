@@ -15,6 +15,9 @@
 [ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="12_m2n8x"]
 [ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="13_0q44l"]
 [ext_resource type="Script" uid="uid://clg63em8vrbc0" path="res://script/DyslexiaLabel.gd" id="13_qf566"]
+[ext_resource type="Texture2D" uid="uid://lfjd27jlm270" path="res://resources/assets/underHealthbar.tres" id="16_ljpde"]
+[ext_resource type="Texture2D" uid="uid://6q5gw8ommti" path="res://resources/assets/progressHealthbar.tres" id="17_1rry4"]
+[ext_resource type="Script" uid="uid://bja6tafov3g2l" path="res://script/ship_health_bar.gd" id="18_evsv8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbavm"]
 size = Vector2(1934, 1065)
@@ -375,6 +378,23 @@ text = "win
 [node name="ErrorCode" parent="." unique_id=1170533520 instance=ExtResource("13_0q44l")]
 position = Vector2(960, 1024)
 error_code = "8946"
+
+[node name="ShipHealthBar" type="TextureProgressBar" parent="." unique_id=688891185]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -427.0
+offset_top = 39.0
+offset_right = 428.0
+offset_bottom = 103.0
+grow_horizontal = 2
+size_flags_vertical = 0
+value = 100.0
+texture_under = ExtResource("16_ljpde")
+texture_progress = ExtResource("17_1rry4")
+tint_under = Color(0.2520276, 0.25202766, 0.25202763, 1)
+tint_progress = Color(0.7019608, 0.20392157, 0.26666668, 1)
+script = ExtResource("18_evsv8")
 
 [connection signal="area_entered" from="Detector" to="Detector" method="_on_area_entered"]
 [connection signal="area_exited" from="Detector" to="Detector" method="_on_area_exited"]
