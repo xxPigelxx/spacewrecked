@@ -123,7 +123,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_q6b25")
 layout_mode = 2
 theme_override_constants/tab_separation = 22
 tab_alignment = 1
-current_tab = 4
+current_tab = 2
 clip_tabs = false
 
 [node name="Home" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=504548785]
@@ -910,7 +910,6 @@ horizontal_alignment = 1
 script = ExtResource("2_puywe")
 
 [node name="Navigation" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=529697749]
-visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
 drift_amplitude = 11.0
@@ -972,82 +971,12 @@ fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=514197543]
+[node name="Route" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=721010220]
 layout_mode = 2
-alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=1003585941]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=1600387604]
-layout_mode = 2
-text = "1. Aquaron"
+text = "Steuere zuerst Aquaron an. Von dort führt der Kurs weiter nach Nyxara und danach zu Sproutia. Als vierte Station folgt Solvane, bevor die Route bei Ignara endet."
 fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
 script = ExtResource("2_puywe")
-
-[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=1703976164]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=187397872]
-layout_mode = 2
-text = "2. Nyxara"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer" unique_id=979622893]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=1683672079]
-layout_mode = 2
-alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=1423194725]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=2052323643]
-layout_mode = 2
-text = "3. Sproutia"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=1584884158]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=1654426698]
-layout_mode = 2
-text = "4. Solvane"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList/HBoxContainer3" unique_id=888755332]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=1938564320]
-layout_mode = 2
-bbcode_enabled = true
-text = "5. Ignara"
-fit_content = true
-scroll_active = false
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="HSeparator2" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1849054439 instance=ExtResource("11_rrxqo")]
 layout_mode = 2
@@ -1064,82 +993,12 @@ fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=43705562]
+[node name="Route" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=681629512]
 layout_mode = 2
-alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=1866080504]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=1280867145]
-layout_mode = 2
-text = "1. Florexia"
+text = "Der Kurs beginnt bei Florexia. Weiter geht es zu Ignara und als dritte Station zu Stellaris. Danach steuerst du Aquaron an, und die Route endet bei Terra."
 fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
 script = ExtResource("2_puywe")
-
-[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=1410463649]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=981592619]
-layout_mode = 2
-text = "2. Ignara"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=1096189295]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=125196941]
-layout_mode = 2
-alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=528432313]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=389053677]
-layout_mode = 2
-text = "3. Stellaris"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=60177892]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=678791326]
-layout_mode = 2
-text = "4. Aquaron"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=644103343]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=2021989452]
-layout_mode = 2
-bbcode_enabled = true
-text = "5. Terra"
-fit_content = true
-scroll_active = false
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="HSeparator3" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1507417602]
 layout_mode = 2
@@ -1202,82 +1061,12 @@ fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=13259847]
+[node name="Route" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=2025461314]
 layout_mode = 2
-alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=1706678463]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=2065748346]
-layout_mode = 2
-text = "1. Pyronis"
+text = "Starte bei Pyronis und fliege von dort nach Sproutia. Die dritte Station ist Terra. Danach folgt Nyxara, und den Abschluss macht Florexia."
 fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
 script = ExtResource("2_puywe")
-
-[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=990798641]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=596646549]
-layout_mode = 2
-text = "2. Sproutia"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=799284417]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=1949683443]
-layout_mode = 2
-alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=855966142]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=1216690103]
-layout_mode = 2
-text = "3. Terra"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=682183340]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=2080014947]
-layout_mode = 2
-text = "4. Nyxara"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=343169140]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=575179778]
-layout_mode = 2
-bbcode_enabled = true
-text = "5. Florexia"
-fit_content = true
-scroll_active = false
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="HSeparator4" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=269630468]
 layout_mode = 2
@@ -1296,82 +1085,12 @@ fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1039767398]
+[node name="Route" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1268991432]
 layout_mode = 2
-alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=807381382]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=1360829740]
-layout_mode = 2
-text = "1. Verdantis"
+text = "Die Route beginnt bei Verdantis. Steuere danach Nyxara an und weiter Sproutia. Als vierte Station folgt Glacium, bevor der Kurs bei Solvane endet."
 fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
 script = ExtResource("2_puywe")
-
-[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=1906181460]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=275649282]
-layout_mode = 2
-text = "2. Nyxara"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=1062865397]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1294063464]
-layout_mode = 2
-alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=735950955]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=698765510]
-layout_mode = 2
-text = "3. Sproutia"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=2131122975]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=1081167217]
-layout_mode = 2
-text = "4. Glacium"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=412744008]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1016393442]
-layout_mode = 2
-bbcode_enabled = true
-text = "5. Solvane"
-fit_content = true
-scroll_active = false
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="HSeparator5" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1746926766]
 layout_mode = 2
@@ -1647,6 +1366,13 @@ fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
 
+[node name="Body2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=1073420886]
+layout_mode = 2
+text = "Der Treibstoff des Schiffes ist eine empfindliche Mischung und darf aus Sicherheitsgründen nicht fertig gemischt gelagert werden. Wird der Vorrat knapp, muss er von Hand nach Rezept gemischt werden."
+fit_content = true
+scroll_active = false
+script = ExtResource("2_puywe")
+
 [node name="WarningBox" type="PanelContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=740124246]
 layout_mode = 2
 
@@ -1677,107 +1403,12 @@ fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Nyxium" unique_id=652882733]
+[node name="Rezept" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Nyxium" unique_id=1561113157]
 layout_mode = 2
-alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Nyxium/HBoxContainer" unique_id=2014588900]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Nyxium/HBoxContainer" unique_id=617284572]
-layout_mode = 2
-text = "Wasser: 20%"
+text = "Fülle zuerst 20% Wasser ein und gib dann 12% Xytherium dazu. Hyperion macht 23% der Mischung aus, Vortex die restlichen 25%. Zeraphine und Oel gehören nicht in dieses Gemisch."
 fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
 script = ExtResource("2_puywe")
-
-[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Nyxium/HBoxContainer" unique_id=1925870371]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Nyxium/HBoxContainer" unique_id=1952578129]
-layout_mode = 2
-text = "Xytherium: 12%"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Nyxium/HBoxContainer" unique_id=430578842]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Nyxium" unique_id=996650598]
-layout_mode = 2
-alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Nyxium/HBoxContainer3" unique_id=1545591125]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Nyxium/HBoxContainer3" unique_id=251057179]
-layout_mode = 2
-text = "Hyperion: 23%"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Nyxium/HBoxContainer3" unique_id=373734124]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Nyxium/HBoxContainer3" unique_id=1410039864]
-layout_mode = 2
-text = "Vortex: 25%"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Nyxium/HBoxContainer3" unique_id=1715867255]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Nyxium" unique_id=842820045]
-layout_mode = 2
-alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Nyxium/HBoxContainer4" unique_id=33303762]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Nyxium/HBoxContainer4" unique_id=1273892760]
-layout_mode = 2
-text = "Zeraphine: 0%"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Nyxium/HBoxContainer4" unique_id=531652870]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Nyxium/HBoxContainer4" unique_id=177895465]
-layout_mode = 2
-text = "Oel: 0%"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Nyxium/HBoxContainer4" unique_id=406746790]
-layout_mode = 2
-size_flags_horizontal = 3
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="HSeparator2" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer" unique_id=1376844396]
 layout_mode = 2
@@ -1796,107 +1427,12 @@ fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Aetheron" unique_id=629667900]
+[node name="Rezept" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Aetheron" unique_id=1392044008]
 layout_mode = 2
-alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Aetheron/HBoxContainer" unique_id=459683742]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Aetheron/HBoxContainer" unique_id=164136404]
-layout_mode = 2
-text = "Wasser: 0%"
+text = "Die Basis bilden 35% Xytherium und 30% Zeraphine. Dazu kommen 21% Vortex und 12% Oel. Wasser und Hyperion haben in dieser Mischung nichts verloren."
 fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
 script = ExtResource("2_puywe")
-
-[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Aetheron/HBoxContainer" unique_id=2080883783]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Aetheron/HBoxContainer" unique_id=1688531296]
-layout_mode = 2
-text = "Xytherium: 35%"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Aetheron/HBoxContainer" unique_id=807627945]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Aetheron" unique_id=294471818]
-layout_mode = 2
-alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Aetheron/HBoxContainer3" unique_id=1240869557]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Aetheron/HBoxContainer3" unique_id=1018780527]
-layout_mode = 2
-text = "Hyperion: 0%"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Aetheron/HBoxContainer3" unique_id=1006688778]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Aetheron/HBoxContainer3" unique_id=961470150]
-layout_mode = 2
-text = "Vortex: 21%"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Aetheron/HBoxContainer3" unique_id=1845886510]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Aetheron" unique_id=1220962607]
-layout_mode = 2
-alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Aetheron/HBoxContainer4" unique_id=1716997517]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Aetheron/HBoxContainer4" unique_id=289383719]
-layout_mode = 2
-text = "Zeraphine: 30%"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Aetheron/HBoxContainer4" unique_id=1198236511]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Aetheron/HBoxContainer4" unique_id=2012192012]
-layout_mode = 2
-text = "Oel: 12%"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Aetheron/HBoxContainer4" unique_id=835272763]
-layout_mode = 2
-size_flags_horizontal = 3
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="HSeparator3" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer" unique_id=105187457]
 layout_mode = 2
@@ -1915,107 +1451,12 @@ fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Quantrex" unique_id=602881727]
+[node name="Rezept" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Quantrex" unique_id=636048324]
 layout_mode = 2
-alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Quantrex/HBoxContainer" unique_id=1234580636]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Quantrex/HBoxContainer" unique_id=1793885132]
-layout_mode = 2
-text = "Wasser: 13%"
+text = "Beginne mit 13% Wasser und 15% Xytherium. Den Hauptanteil bilden 31% Zeraphine, dazu kommen 23% Oel. Hyperion und Vortex gehören nicht hinein."
 fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
 script = ExtResource("2_puywe")
-
-[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Quantrex/HBoxContainer" unique_id=1076385703]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Quantrex/HBoxContainer" unique_id=342662579]
-layout_mode = 2
-text = "Xytherium: 15%"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Quantrex/HBoxContainer" unique_id=9670136]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Quantrex" unique_id=398932298]
-layout_mode = 2
-alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Quantrex/HBoxContainer3" unique_id=1145378426]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Quantrex/HBoxContainer3" unique_id=437922705]
-layout_mode = 2
-text = "Hyperion: 0%"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Quantrex/HBoxContainer3" unique_id=267756857]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Quantrex/HBoxContainer3" unique_id=2006478066]
-layout_mode = 2
-text = "Vortex: 0%"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Quantrex/HBoxContainer3" unique_id=1156251511]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Quantrex" unique_id=1378694378]
-layout_mode = 2
-alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Quantrex/HBoxContainer4" unique_id=455401857]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Quantrex/HBoxContainer4" unique_id=1429537873]
-layout_mode = 2
-text = "Zeraphine: 31%"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Quantrex/HBoxContainer4" unique_id=1504599195]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Quantrex/HBoxContainer4" unique_id=1328819230]
-layout_mode = 2
-text = "Oel: 23%"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Quantrex/HBoxContainer4" unique_id=1403905686]
-layout_mode = 2
-size_flags_horizontal = 3
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="HSeparator4" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer" unique_id=326107096]
 layout_mode = 2
@@ -2034,109 +1475,15 @@ fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Heliox-9" unique_id=1868301224]
+[node name="Rezept" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Heliox-9" unique_id=802987055]
 layout_mode = 2
-alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Heliox-9/HBoxContainer" unique_id=1270426536]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Heliox-9/HBoxContainer" unique_id=37972366]
-layout_mode = 2
-text = "Wasser: 0%"
+text = "Diese Mischung besteht aus 22% Hyperion und 31% Vortex. Dazu kommen 19% Zeraphine und 27% Oel. Wasser und Xytherium bleiben aussen vor."
 fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
 script = ExtResource("2_puywe")
-
-[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Heliox-9/HBoxContainer" unique_id=1482093564]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Heliox-9/HBoxContainer" unique_id=1985650864]
-layout_mode = 2
-text = "Xytherium: 0%"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Heliox-9/HBoxContainer" unique_id=870246260]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Heliox-9" unique_id=751798635]
-layout_mode = 2
-alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Heliox-9/HBoxContainer3" unique_id=1866026463]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Heliox-9/HBoxContainer3" unique_id=1751568833]
-layout_mode = 2
-text = "Hyperion: 22%"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Heliox-9/HBoxContainer3" unique_id=76203199]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Heliox-9/HBoxContainer3" unique_id=1465806338]
-layout_mode = 2
-text = "Vortex: 31%"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Heliox-9/HBoxContainer3" unique_id=808476672]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Heliox-9" unique_id=1740335263]
-layout_mode = 2
-alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Heliox-9/HBoxContainer4" unique_id=390475359]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Heliox-9/HBoxContainer4" unique_id=845245376]
-layout_mode = 2
-text = "Zeraphine: 19%"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator2" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Heliox-9/HBoxContainer4" unique_id=392178477]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Heliox-9/HBoxContainer4" unique_id=389016897]
-layout_mode = 2
-text = "Oel: 27%"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-script = ExtResource("2_puywe")
-
-[node name="VSeparator3" type="VSeparator" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Heliox-9/HBoxContainer4" unique_id=1615532871]
-layout_mode = 2
-size_flags_horizontal = 3
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="Schild" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=1133952086]
+visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
 swap_percent = 25.0
@@ -2196,29 +1543,29 @@ fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
-[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=41088390]
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=967536308]
 layout_mode = 2
-text = "Kanal A:  43"
+text = "Kanal A:	Dreiundvierzig"
 fit_content = true
-scroll_active = false
 horizontal_alignment = 1
 script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
-[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=1468283089]
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=917660058]
 layout_mode = 2
-text = "Kanal B:  68"
+text = "Kanal B:	Achtundsechzig"
 fit_content = true
-scroll_active = false
 horizontal_alignment = 1
 script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
-[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=1094497487]
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=529658751]
 layout_mode = 2
-text = "Kanal C:  25"
+text = "Kanal C:		Fünfundzwanzig"
 fit_content = true
-scroll_active = false
 horizontal_alignment = 1
 script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="HSeparator2" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer" unique_id=1454670457]
 layout_mode = 2
@@ -2237,29 +1584,29 @@ fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
-[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=1960706810]
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=1387285677]
 layout_mode = 2
-text = "Kanal A:  64"
+text = "Kanal A:	Vierundsechzig"
 fit_content = true
-scroll_active = false
 horizontal_alignment = 1
 script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
-[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=905154551]
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=483975070]
 layout_mode = 2
-text = "Kanal B:  45"
+text = "Kanal B:	Fünfundvierzig"
 fit_content = true
-scroll_active = false
 horizontal_alignment = 1
 script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
-[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=669893440]
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=594485440]
 layout_mode = 2
-text = "Kanal C:  12"
+text = "Kanal C: 				Zwölf"
 fit_content = true
-scroll_active = false
 horizontal_alignment = 1
 script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="HSeparator3" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer" unique_id=1937532985]
 layout_mode = 2
@@ -2278,29 +1625,29 @@ fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
-[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=1480027568]
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=633502199]
 layout_mode = 2
-text = "Kanal A:  24"
+text = "Kanal A: 	Vierundzwanzig"
 fit_content = true
-scroll_active = false
 horizontal_alignment = 1
 script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
-[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=1038832187]
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=386140160]
 layout_mode = 2
-text = "Kanal B:  33"
+text = "Kanal B:	Dreiunddreissig"
 fit_content = true
-scroll_active = false
 horizontal_alignment = 1
 script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
-[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=2099351659]
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=1731824380]
 layout_mode = 2
-text = "Kanal C:  81"
+text = "Kanal C:	Einundachtzig"
 fit_content = true
-scroll_active = false
 horizontal_alignment = 1
 script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="HSeparator4" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer" unique_id=893115772]
 layout_mode = 2
@@ -2319,29 +1666,26 @@ fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
-[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1865409696]
+[node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=285925871]
 layout_mode = 2
-text = "Kanal A:  28"
+text = "Kanal A:	Achtundzwanzig"
 fit_content = true
-scroll_active = false
-horizontal_alignment = 1
 script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
-[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=2065014582]
+[node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=639342679]
 layout_mode = 2
-text = "Kanal B:  49"
+text = "Kanal B:	Neunundvierzig"
 fit_content = true
-scroll_active = false
-horizontal_alignment = 1
 script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
-[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1606712805]
+[node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1665582200]
 layout_mode = 2
-text = "Kanal C:  96"
+text = "Kanal C:	Sechsundneunzig"
 fit_content = true
-scroll_active = false
-horizontal_alignment = 1
 script = ExtResource("2_puywe")
+metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="Codes" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=1981724562]
 visible = false
