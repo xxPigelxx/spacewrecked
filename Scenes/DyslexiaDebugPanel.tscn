@@ -330,6 +330,60 @@ custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 text = "0.0"
 
+[node name="RotateRow" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="Lbl" type="Label" parent="Panel/VBox/RotateRow"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+text = "Rotation %:"
+
+[node name="RotateSlider" type="HSlider" parent="Panel/VBox/RotateRow"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+
+[node name="RotateLabel" type="Label" parent="Panel/VBox/RotateRow"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "0%"
+
+[node name="RotateDegRow" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="Lbl" type="Label" parent="Panel/VBox/RotateDegRow"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+text = "Rotation ±θ:"
+
+[node name="RotateDegSlider" type="HSlider" parent="Panel/VBox/RotateDegRow"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+max_value = 180.0
+step = 5.0
+value = 60.0
+
+[node name="RotateDegLabel" type="Label" parent="Panel/VBox/RotateDegRow"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "60°"
+
+[node name="MissingRow" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="Lbl" type="Label" parent="Panel/VBox/MissingRow"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+text = "Fehlende Teile %:"
+
+[node name="MissingSlider" type="HSlider" parent="Panel/VBox/MissingRow"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+
+[node name="MissingLabel" type="Label" parent="Panel/VBox/MissingRow"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "0%"
+
 [node name="ColorPulseRow" type="HBoxContainer" parent="Panel/VBox" unique_id=1837040469]
 layout_mode = 2
 
@@ -359,6 +413,9 @@ color = Color(1, 1, 1, 0.53)
 [connection signal="value_changed" from="Panel/VBox/TornadoRadiusRow/TornadoRadiusSlider" to="." method="_on_tornado_radius_changed"]
 [connection signal="value_changed" from="Panel/VBox/TornadoFreqRow/TornadoFreqSlider" to="." method="_on_tornado_freq_changed"]
 [connection signal="value_changed" from="Panel/VBox/PulseRow/PulseSlider" to="." method="_on_pulse_changed"]
+[connection signal="value_changed" from="Panel/VBox/RotateRow/RotateSlider" to="." method="_on_rotate_changed"]
+[connection signal="value_changed" from="Panel/VBox/RotateDegRow/RotateDegSlider" to="." method="_on_rotate_deg_changed"]
+[connection signal="value_changed" from="Panel/VBox/MissingRow/MissingSlider" to="." method="_on_missing_changed"]
 [connection signal="color_changed" from="Panel/VBox/ColorSwapRow/ColorSwapPicker" to="." method="_on_color_swap_changed"]
 [connection signal="color_changed" from="Panel/VBox/ColorScrambleRow/ColorScramblePicker" to="." method="_on_color_scramble_changed"]
 [connection signal="color_changed" from="Panel/VBox/ColorTransposeRow/ColorTransposePicker" to="." method="_on_color_transpose_changed"]

@@ -40,9 +40,15 @@ var _shake_amp     : float = 0.0
 var _tornado_radius: float = 0.0
 var _tornado_freq  : float = 1.0
 var _pulse_freq    : float = 0.0
+var _rotate_pct    : float = 0.0
+var _missing_pct   : float = 0.0
+
+const MISSING_SHADER := preload("res://shader/glyph_missing.gdshader")
+var _missing_mat: ShaderMaterial
 
 func _ready() -> void:
 	panel.visible = false
+	preview_label.install_effect(RichTextRotate.new())
 	stress_slider.value  = DyslexiaManager.stress
 	vanish_slider.value  = DyslexiaManager.global_vanish
 	access_check.button_pressed = DyslexiaManager.accessibility
@@ -133,6 +139,21 @@ func _on_pulse_changed(value: float) -> void:
 	$Panel/VBox/PulseRow/PulseLabel.text = "%.1f" % value
 	_update_preview()
 
+func _on_rotate_changed(value: float) -> void:
+	_rotate_pct = value
+	$Panel/VBox/RotateRow/RotateLabel.text = "%d%%" % int(value)
+	_update_preview()
+
+func _on_rotate_deg_changed(value: float) -> void:
+	DyslexiaManager.rotate_deg = value
+	$Panel/VBox/RotateDegRow/RotateDegLabel.text = "%d°" % int(value)
+	_update_preview()
+
+func _on_missing_changed(value: float) -> void:
+	_missing_pct = value
+	$Panel/VBox/MissingRow/MissingLabel.text = "%d%%" % int(value)
+	_update_preview()
+
 
 # —— Farben ————————————————————————————————————
 func _on_color_swap_changed(color: Color) -> void:
@@ -164,5 +185,21 @@ func _update_preview() -> void:
 		_swap_pct, _drift_amp, _drift_freq,
 		_size_var, _river_gap, _mirror_pct,
 		_scramble_pct, _crowd_pct, _transpose_pct,
-		_shake_amp, _tornado_radius, _tornado_freq, _pulse_freq
+		_shake_amp, _tornado_radius, _tornado_freq, _pulse_freq,
+		_rotate_pct
 	)
+	_apply_missing_shader()
+
+func _apply_missing_shader() -> void:
+	var amount := DyslexiaManager.effective_missing(_missing_pct)
+	if amount <= 0.0:
+		preview_label.material = null
+		return
+	if _missing_mat == null:
+		_missing_mat = ShaderMaterial.new()
+		_missing_mat.shader = MISSING_SHADER
+	_missing_mat.set_shader_parameter("missing_amount", amount)
+	_missing_mat.set_shader_parameter("pattern_seed", 42.0)
+	var fs := preview_label.get_theme_font_size("normal_font_size")
+	_missing_mat.set_shader_parameter("cell_size", maxf(float(fs) * 0.8, 4.0))
+	preview_label.material = _missing_mat

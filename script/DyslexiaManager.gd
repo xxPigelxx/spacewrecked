@@ -32,6 +32,11 @@ var color_scramble   := Color("#4a0e8f")
 var color_transpose  := Color("#005f5f")
 var color_pulse      := Color("#ffffff88")
 
+## Orientierungsbereich ±θ der Buchstaben-Rotation (Grad), wie im
+## Corballis-Lesexperiment: jeder Buchstabe bekommt einen zufälligen
+## Winkel innerhalb ±θ. Studienstufen: 20, 40, 60, 90, 120, 180.
+var rotate_deg: float = 60.0
+
 const SWAP_PAIRS: Dictionary = {
 	"b": "d", "d": "b",
 	"p": "q", "q": "p",
@@ -74,7 +79,8 @@ func process_text(
 	shake_amp: float = 0.0,
 	tornado_radius: float = 0.0,
 	tornado_freq: float = 1.0,
-	pulse_freq: float = 0.0
+	pulse_freq: float = 0.0,
+	rotate_pct: float = 0.0
 ) -> String:
 	if accessibility or raw.is_empty():
 		return raw
@@ -131,6 +137,13 @@ func process_text(
 		if cp > 0.0:
 			w = _apply_crowding(w, cp, rng)
 
+		# Buchstaben-Rotation — durch stress verstärkt.
+		# Welche Buchstaben sich drehen entscheidet der RichTextRotate-Effekt
+		# deterministisch aus dem seed (siehe RichTextRotate.gd).
+		var rp: float = clampf((rotate_pct / 100.0) * boost, 0.0, 1.0)
+		if rp > 0.0:
+			w = "[rot pct=%.2f deg=%.0f seed=%d]%s[/rot]" % [rp, rotate_deg, rng.randi_range(0, 999999), w]
+
 		# Drift / Welle — durch stress verstärkt
 		var da: float = drift_amp * boost
 		if da > 0.5:
@@ -167,6 +180,17 @@ func process_text(
 		return "".join(parts)
 
 	return " ".join(out)
+
+
+## Effektive Stärke (0–1) des Fehlende-Teile-Shaders (glyph_missing.gdshader).
+## Kein BBCode-Effekt — DyslexiaLabel setzt damit sein ShaderMaterial.
+## Stress-verstärkt wie die anderen Effekte, gedeckelt bei 0.9 damit
+## Buchstaben nie komplett verschwinden.
+func effective_missing(missing_pct: float) -> float:
+	if accessibility:
+		return 0.0
+	var boost: float = 1.0 + (stress / 100.0)
+	return clampf((missing_pct / 100.0) * boost, 0.0, 0.9)
 
 
 func _swap_letters(word: String, chance: float, rng: RandomNumberGenerator) -> String:
