@@ -15,6 +15,13 @@ enum Phase { TUTORIAL, JOURNEY }
 @export var start_up_animation: AnimatedSprite2D = null
 @export var partical: CPUParticles2D = null
 @export var astoroid: = false
+## Meteor-Warnung (nur wenn astoroid = true): ein Alarm-Sound wird warning_lead_time
+## Sekunden VOR dem Anflug abgespielt, damit der Spieler den Einschlag kommen hoert.
+## warning_sound ist bewusst als Pfad exportiert, damit der Sound spaeter leicht
+## gegen einen echten Alarm/Sirene getauscht werden kann.
+@export var warning_sound: String = "res://resources/assets/sfx/Interface_Bleeps_Wav/Denied_01.wav"
+@export var warning_beeps: int = 3       ## wie oft der Alarm-Sound in der Vorlaufzeit ertoent
+@export var warning_lead_time: float = 1.0  ## Sekunden Alarm vor dem Anflug (+1.5 s Flug = Gesamtwarnung)
 
 @onready var ship: Node2D = $"../../../Ship"
 
@@ -24,6 +31,8 @@ var _active := false
 var _solved := false
 var _counted := false        ## ob diese Stoerung aktuell im Kategorie-Zaehler steckt
 var _spawned := false        ## ob try_spawn sie in dieser Journey schon aktiviert hat
+var _was_blocked := false    ## true, sobald ihr Spawn wegen belegter Kategorie verschoben wurde
+var _release_time := -1.0    ## elapsed-Zeitpunkt, ab dem nach dem Freiwerden gespawnt werden darf (-1 = noch nicht gesetzt)
 
 
 func _setup() -> void:
@@ -41,20 +50,47 @@ func _exit_tree() -> void:
 	if is_instance_valid(GameState):
 		GameState.unregister_malfunction(self)
 
-## Vom GameState pro Frame aufgerufen. Aktiviert sich, sobald elapsed >= spawn_time.
+## Vom GameState pro Frame aufgerufen. Aktiviert sich, sobald elapsed >= spawn_time —
+## aber nie, solange eine ANDERE Stoerung derselben Kategorie noch aktiv ist.
+## Ist die Kategorie belegt, wird gewartet, bis die andere geloest ist, plus ein
+## kleiner Zufalls-Offset (10–20 s), damit nicht sofort die naechste losgeht.
 func try_spawn(elapsed: float) -> void:
 	if _spawned or _active or _solved:
 		return
-	if elapsed >= spawn_time:
-		_spawned = true
-		activate()
+	if elapsed < spawn_time:
+		return
+
+	# Nie zwei Stoerungen derselben Kategorie gleichzeitig: ist bereits eine andere
+	# aktiv, verschieben wir den Spawn und merken uns, dass wir blockiert waren.
+	if GameState.is_category_active(_category_name(), self):
+		_was_blocked = true
+		_release_time = -1.0
+		return
+
+	# Kategorie ist frei. Falls wir vorher blockiert waren, erst einen kleinen
+	# Offset nach dem Freiwerden abwarten (einmalig setzen, dann herunterzaehlen).
+	if _was_blocked:
+		if _release_time < 0.0:
+			_release_time = elapsed + randf_range(10.0, 20.0)
+			return
+		if elapsed < _release_time:
+			return
+
+	_spawned = true
+	activate()
 
 ## Vor Journey-Start zuruecksetzen, damit erneute Laeufe sauber starten.
 func reset_for_journey() -> void:
 	_spawned = false
 	_solved = false
+	_was_blocked = false
+	_release_time = -1.0
 	deactivate()
 	
+
+## Oeffentlicher Zugriff auf den Kategorie-String (fuer GameState.is_category_active).
+func get_category_name() -> String:
+	return _category_name()
 
 ## Kategorie als String fuer GameState (muss zu HomePanel passen).
 func _category_name() -> String:
@@ -72,6 +108,8 @@ func activate() -> void:
 	_active = true
 	_solved = false
 	if astoroid:
+		# Erst den Alarm (Vorwarnung), dann den Anflug — Spieler hoert den Meteor kommen.
+		await _play_meteor_warning()
 		var new_asteroid = ASTROID.instantiate()
 		get_tree().current_scene.add_child(new_asteroid)
 
@@ -95,6 +133,18 @@ func activate() -> void:
 		start_up_animation.play()
 	if partical:
 		partical.emitting = true
+## Spielt vor dem Meteor-Anflug einen Alarm-Sound (warning_beeps mal, gleichmaessig
+## ueber warning_lead_time verteilt) und wartet dabei die volle Vorlaufzeit ab.
+## Danach folgt der ~1.5 s Anflug in activate() -> Gesamtwarnung ~2.5 s.
+func _play_meteor_warning() -> void:
+	var beeps: int = max(1, warning_beeps)
+	var gap: float = warning_lead_time / float(beeps)
+	for i in beeps:
+		if warning_sound != "" and is_instance_valid(AudioManager):
+			AudioManager.play_sfx(warning_sound)
+		if gap > 0.0:
+			await get_tree().create_timer(gap).timeout
+
 ## Stoerung ausblenden + deaktivieren.
 ## Falls die Stoerung noch gezaehlt war (aber nicht geloest), Zaehler bereinigen,
 ## damit _counted konsistent bleibt (z.B. bei Reset/begin oder clear_all).

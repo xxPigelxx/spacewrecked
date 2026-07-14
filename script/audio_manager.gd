@@ -59,6 +59,9 @@ func play_music(path: String) -> void:
 		sfx_cache[path] = load(path)
 
 	music_player.stream = sfx_cache[path]
+	# Musik soll immer loopen — unabhaengig von der Import-Einstellung der Datei.
+	if "loop" in music_player.stream:
+		music_player.stream.loop = true
 	curently_playing_song = path
 	is_music_playing = true
 	music_player.play()

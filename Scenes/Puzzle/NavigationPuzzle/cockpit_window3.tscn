@@ -15,9 +15,7 @@
 [ext_resource type="Script" uid="uid://clg63em8vrbc0" path="res://script/DyslexiaLabel.gd" id="13_r537v"]
 [ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="14_v4mmx"]
 [ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="15_c6ai3"]
-[ext_resource type="Texture2D" uid="uid://lfjd27jlm270" path="res://resources/assets/underHealthbar.tres" id="16_q3spn"]
-[ext_resource type="Texture2D" uid="uid://6q5gw8ommti" path="res://resources/assets/progressHealthbar.tres" id="17_pa44e"]
-[ext_resource type="Script" uid="uid://bja6tafov3g2l" path="res://script/ship_health_bar.gd" id="18_by7ok"]
+[ext_resource type="PackedScene" uid="uid://djqajkjejcw4" path="res://Scenes/info_bars.tscn" id="16_wggrs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbavm"]
 size = Vector2(1934, 1065)
@@ -379,22 +377,13 @@ text = "win
 position = Vector2(960, 1024)
 error_code = "3687"
 
-[node name="ShipHealthBar" type="TextureProgressBar" parent="." unique_id=1199312407]
+[node name="InfoBars" parent="." unique_id=1636553147 instance=ExtResource("16_wggrs")]
 anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -427.0
-offset_top = 39.0
-offset_right = 428.0
-offset_bottom = 103.0
-grow_horizontal = 2
-size_flags_vertical = 0
-value = 100.0
-texture_under = ExtResource("16_q3spn")
-texture_progress = ExtResource("17_pa44e")
-tint_under = Color(0.2520276, 0.25202766, 0.25202763, 1)
-tint_progress = Color(0.7019608, 0.20392157, 0.26666668, 1)
-script = ExtResource("18_by7ok")
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 168.0
+offset_bottom = 168.0
+grow_vertical = 1
 
 [connection signal="area_entered" from="Detector" to="Detector" method="_on_area_entered"]
 [connection signal="area_exited" from="Detector" to="Detector" method="_on_area_exited"]

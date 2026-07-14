@@ -23,9 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dqxb5w7muq4js" path="res://resources/assets/icons/malfunction_icons_mix.tscn" id="18_im1vy"]
 [ext_resource type="Script" uid="uid://6nusq4blrso6" path="res://script/malfunction_interactable.gd" id="19_k6vqf"]
 [ext_resource type="PackedScene" uid="uid://paf2ndw45mpb" path="res://resources/assets/icons/malfunction_icons_shild.tscn" id="19_yy0n7"]
-[ext_resource type="Texture2D" uid="uid://lfjd27jlm270" path="res://resources/assets/underHealthbar.tres" id="20_jn25s"]
-[ext_resource type="Texture2D" uid="uid://6q5gw8ommti" path="res://resources/assets/progressHealthbar.tres" id="21_glaac"]
-[ext_resource type="Script" uid="uid://bja6tafov3g2l" path="res://script/ship_health_bar.gd" id="22_glaac"]
+[ext_resource type="PackedScene" uid="uid://djqajkjejcw4" path="res://Scenes/info_bars.tscn" id="24_him8o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yr2pg"]
 radius = 71.0
@@ -142,7 +140,7 @@ overlay_scene = "uid://c2pjmhdar3m1e"
 [node name="WiersJourney" parent="Interactabels/JourneyMalfunctions" unique_id=2023701069 instance=ExtResource("17_wn26v")]
 position = Vector2(662, 773)
 category = 1
-spawn_time = 20.0
+spawn_time = 12.0
 astoroid = true
 overlay_scene = "uid://cvx8uf3sul6n8"
 
@@ -151,7 +149,7 @@ overlay_scene = "uid://cvx8uf3sul6n8"
 [node name="WiersJourney2" parent="Interactabels/JourneyMalfunctions" unique_id=805729252 instance=ExtResource("17_wn26v")]
 position = Vector2(662, 309)
 category = 1
-spawn_time = 75.0
+spawn_time = 216.0
 astoroid = true
 overlay_scene = "uid://ddlmoaw5qtiaw"
 
@@ -160,7 +158,7 @@ overlay_scene = "uid://ddlmoaw5qtiaw"
 [node name="WiersJourney3" parent="Interactabels/JourneyMalfunctions" unique_id=1549786197 instance=ExtResource("17_wn26v")]
 position = Vector2(963, 373)
 category = 1
-spawn_time = 120.0
+spawn_time = 316.0
 astoroid = true
 overlay_scene = "uid://dauvboslmqgvj"
 
@@ -169,7 +167,7 @@ overlay_scene = "uid://dauvboslmqgvj"
 [node name="WiersJourney4" parent="Interactabels/JourneyMalfunctions" unique_id=1717410255 instance=ExtResource("17_wn26v")]
 position = Vector2(963, 714)
 category = 1
-spawn_time = 255.0
+spawn_time = 368.0
 astoroid = true
 overlay_scene = "uid://mx67lrqv2oom"
 
@@ -178,7 +176,7 @@ overlay_scene = "uid://mx67lrqv2oom"
 [node name="MixJourney" parent="Interactabels/JourneyMalfunctions" unique_id=1439392554 instance=ExtResource("17_wn26v")]
 position = Vector2(-77, 94)
 category = 2
-spawn_time = 35.0
+spawn_time = 128.0
 astoroid = true
 overlay_scene = "uid://bcrjbuv5p0yew"
 
@@ -187,7 +185,7 @@ overlay_scene = "uid://bcrjbuv5p0yew"
 [node name="MixJourney2" parent="Interactabels/JourneyMalfunctions" unique_id=206406427 instance=ExtResource("17_wn26v")]
 position = Vector2(-49, 1028)
 category = 2
-spawn_time = 77.0
+spawn_time = 295.0
 astoroid = true
 overlay_scene = "uid://bfbdgtgbotl6t"
 
@@ -196,7 +194,7 @@ overlay_scene = "uid://bfbdgtgbotl6t"
 [node name="MixJourney3" parent="Interactabels/JourneyMalfunctions" unique_id=633260591 instance=ExtResource("17_wn26v")]
 position = Vector2(-49, 1028)
 category = 2
-spawn_time = 93.0
+spawn_time = 352.0
 astoroid = true
 overlay_scene = "uid://cipbu25o2n6ae"
 
@@ -205,7 +203,7 @@ overlay_scene = "uid://cipbu25o2n6ae"
 [node name="MixJourney4" parent="Interactabels/JourneyMalfunctions" unique_id=26044381 instance=ExtResource("17_wn26v")]
 position = Vector2(-49, 1028)
 category = 2
-spawn_time = 230.0
+spawn_time = 397.0
 astoroid = true
 overlay_scene = "uid://hohj66sg0vwv"
 
@@ -215,6 +213,7 @@ overlay_scene = "uid://hohj66sg0vwv"
 position = Vector2(1408, 550)
 script = ExtResource("19_k6vqf")
 category = 4
+spawn_time = 90.0
 start_up_animation = NodePath("SmokeAni")
 partical = NodePath("SmokeParticle")
 astoroid = true
@@ -230,7 +229,7 @@ overlay_scene = "uid://be30jx5qpeea2"
 position = Vector2(1408, 550)
 script = ExtResource("19_k6vqf")
 category = 4
-spawn_time = 120.0
+spawn_time = 180.0
 start_up_animation = NodePath("SmokeAni")
 partical = NodePath("SmokeParticle")
 astoroid = true
@@ -246,7 +245,7 @@ overlay_scene = "uid://d2ps1l3ox4ju"
 position = Vector2(1408, 550)
 script = ExtResource("19_k6vqf")
 category = 4
-spawn_time = 200.0
+spawn_time = 272.0
 start_up_animation = NodePath("SmokeAni")
 partical = NodePath("SmokeParticle")
 astoroid = true
@@ -261,7 +260,7 @@ overlay_scene = "uid://3k2yrv3k5toe"
 [node name="ShildJourney" parent="Interactabels/JourneyMalfunctions" unique_id=1188161468 instance=ExtResource("17_wn26v")]
 position = Vector2(12, 549)
 category = 3
-spawn_time = 10.0
+spawn_time = 50.0
 astoroid = true
 overlay_scene = "uid://cnp0w5vjlrxy6"
 
@@ -270,7 +269,7 @@ overlay_scene = "uid://cnp0w5vjlrxy6"
 [node name="ShildJourney2" parent="Interactabels/JourneyMalfunctions" unique_id=1356253563 instance=ExtResource("17_wn26v")]
 position = Vector2(12, 549)
 category = 3
-spawn_time = 80.0
+spawn_time = 246.0
 astoroid = true
 overlay_scene = "uid://brf04gogimq8o"
 
@@ -279,7 +278,7 @@ overlay_scene = "uid://brf04gogimq8o"
 [node name="ShildJourney3" parent="Interactabels/JourneyMalfunctions" unique_id=1407531341 instance=ExtResource("17_wn26v")]
 position = Vector2(12, 549)
 category = 3
-spawn_time = 160.0
+spawn_time = 335.0
 astoroid = true
 overlay_scene = "uid://d2xue47yiiydp"
 
@@ -288,7 +287,7 @@ overlay_scene = "uid://d2xue47yiiydp"
 [node name="ShildJourney4" parent="Interactabels/JourneyMalfunctions" unique_id=1735553862 instance=ExtResource("17_wn26v")]
 position = Vector2(12, 549)
 category = 3
-spawn_time = 220.0
+spawn_time = 383.0
 astoroid = true
 overlay_scene = "uid://c2pjmhdar3m1e"
 
@@ -308,21 +307,4 @@ script = ExtResource("16_ktwve")
 
 [node name="hud" type="CanvasLayer" parent="." unique_id=749700066]
 
-[node name="ShipHealthBar" type="TextureProgressBar" parent="hud" unique_id=273330731]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -429.0
-offset_top = -130.255
-offset_right = 426.0
-offset_bottom = -66.255005
-grow_horizontal = 2
-grow_vertical = 0
-value = 100.0
-texture_under = ExtResource("20_jn25s")
-texture_progress = ExtResource("21_glaac")
-tint_under = Color(0.2520276, 0.25202766, 0.25202763, 1)
-tint_progress = Color(0.7019608, 0.20392157, 0.26666668, 1)
-script = ExtResource("22_glaac")
+[node name="InfroBars" parent="hud" unique_id=1636553147 instance=ExtResource("24_him8o")]

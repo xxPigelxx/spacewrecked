@@ -18,5 +18,7 @@ func move_to_point(target_pos: Vector2):
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", target_pos, 1.5)
 	await tween.finished
-	#AudioManager.play_sfx("res://resources/assets/sfx/Explosions - Sound Effects/Explosions - Sound Effects/Small_Explosion_3.wav")
+	# Einschlag-Sound aus dem export-sicheren impact-Ordner (die Explosions-Pack-
+	# Kopie liegt in einem vom Web-Export ausgeschlossenen Verzeichnis).
+	AudioManager.play_sfx("res://resources/assets/sfx/impact/Small_Explosion_3.wav")
 	queue_free()

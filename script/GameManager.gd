@@ -60,10 +60,10 @@ func is_manual_aquiered() -> bool:
 
 # ---- Einstellbare Werte (alles an einem Ort) ----
 @export_group("Journey")
-@export var run_duration := 360.0             ## Messfenster in Sekunden
+@export var run_duration := 440.0             ## Messfenster in Sekunden
 @export var max_health := 100.0                ## Maximales + Start-Leben
 @export var health_per_fix := 20.0             ## Reparatur stellt so viel wieder her (flach)
-@export var health_drain_per_sec := 0.5       ## passiver Verlust pro Sekunde
+@export var health_drain_per_sec := 0.4       ## passiver Verlust pro Sekunde
 @export var drain_per_active_malfunction := 0.05## extra Verlust pro offener Störung (0 = aus)
 
 # Hinweis: Jede Stoerung hat ihren eigenen spawn_time (Sekunden ab Journey-Start).
@@ -145,6 +145,20 @@ func is_system_broken(system: String) -> bool:
 		"treibstoff": return broken_treibstoff > 0
 		"schild": return broken_schild > 0
 		"navigation": return broken_navigation > 0
+	return false
+
+## True, wenn eine ANDERE Stoerung derselben Kategorie gerade aktiv (und ungeloest)
+## ist. Prueft die Instanzen direkt statt der Zaehler, weil eine Asteroiden-Stoerung
+## erst nach ihrem Anflug hochzaehlt, aber schon vorher als aktiv gilt.
+func is_category_active(category_name: String, exclude: Node = null) -> bool:
+	if category_name == "":
+		return false
+	for m in _malfunctions:
+		if m == exclude or not is_instance_valid(m):
+			continue
+		if m.has_method("is_active_unsolved") and m.is_active_unsolved() \
+				and m.has_method("get_category_name") and m.get_category_name() == category_name:
+			return true
 	return false
 
 func is_any_system_broken() -> bool:
@@ -242,8 +256,6 @@ func _process(delta: float) -> void:
 		died_early = true
 		_finish_run()
 	elif time_left <= 0.0:
-		_finish_run()
-	elif  malfunctions_solved >= 15:
 		_finish_run()
 	ship_lights = is_system_broken("strom")
 
