@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var speed := 300.0
+@export var run_speed := 600.0
 ## Abstand zwischen zwei Schrittgeraeuschen in Sekunden (Schritt-Takt).
 @export var step_interval := 0.5
 
@@ -35,10 +36,10 @@ func _on_strom_changed() -> void:
 
 func _physics_process(delta: float) -> void:
 	var direction := Vector2.ZERO
+	var current_speed :=  speed
 
 	if Input.is_action_just_pressed("pause"):
 		SceneSwitcher.open_overlay_scene("res://Scenes/Menu/PauseMenu.tscn", false, false, true)
-
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1
 	if Input.is_action_pressed("move_left"):
@@ -47,9 +48,11 @@ func _physics_process(delta: float) -> void:
 		direction.y += 1
 	if Input.is_action_pressed("move_up"):
 		direction.y -= 1
+	if Input.is_action_pressed("run"):
+		current_speed = run_speed
 
 	direction = direction.normalized()
-	velocity = direction * speed
+	velocity = direction * current_speed
 	move_and_slide()
 
 	if Input.is_action_just_pressed("flash_light"):
@@ -60,17 +63,24 @@ func _physics_process(delta: float) -> void:
 	
 	
 	
+	# Schritt-Takt und Animation skalieren mit dem Tempo, sonst laufen
+	# Sound und Beine beim Rennen aus dem Takt.
+	var speed_ratio := current_speed / speed
+
 	if direction != Vector2.ZERO:
 		player_sprite.play("walk")
+		player_sprite.speed_scale = speed_ratio
 		player_sprite.rotation = direction.angle()
 		puuftrail.emitting = true
+		puuftrail.speed_scale = speed_ratio
 		# Schritt im Takt abspielen, nicht jeden Frame neu starten.
 		_step_t -= delta
 		if _step_t <= 0.0:
 			audio_stream_player.play()   # Randomizer waehlt einen zufaelligen Schritt
-			_step_t = step_interval
+			_step_t = step_interval / speed_ratio
 	else:
 		player_sprite.play("default")
+		player_sprite.speed_scale = 1.0
 		puuftrail.emitting = false
 		_step_t = 0.0   # beim naechsten Loslaufen sofort ein Schritt
 	

@@ -29,6 +29,10 @@ var poured_per_bottle: Dictionary = {}
 var full_liquid_height: float
 var bottom_y: float
 
+## Farbe je bottle_name, damit die Mischfarbe nach dem Ablassen neu
+## berechnet werden kann.
+var _bottle_colors: Dictionary = {}
+
 func _ready() -> void:
 	full_liquid_height = color_rect.size.y
 	bottom_y = color_rect.position.y + color_rect.size.y
@@ -43,23 +47,69 @@ func add_to_container(bottle, amount: float) -> void:
 		bottles.append(bottle)
 
 	current_fill = min(current_fill + amount, max_fill)
-	update_mixed_color(bottle.bottle_color, amount)
 
 	# Wie viel wurde von dieser Flasche eingefüllt verfolgen
 	var bname: String = bottle.bottle_name
 	poured_per_bottle[bname] = poured_per_bottle.get(bname, 0.0) + amount
+	_bottle_colors[bname] = bottle.bottle_color
 
+	update_mixed_color()
 	update_visual()
 	if _check_win():
 		_on_win()
 
-func update_mixed_color(new_color: Color, amount: float) -> void:
-	if current_fill <= 0.0:
-		mixed_color = new_color
+## Laesst Fluessigkeit einer Flasche wieder ab, solange davon etwas im
+## Behaelter ist. Gibt zurueck wie viel tatsaechlich entfernt wurde.
+func remove_from_container(bottle, amount: float) -> float:
+	if not bottle.is_in_group("Bottle"):
+		return 0.0
+
+	var bname: String = bottle.bottle_name
+	var already_in: float = poured_per_bottle.get(bname, 0.0)
+	if already_in <= 0.0:
+		return 0.0
+
+	var removed: float = min(amount, already_in)
+	poured_per_bottle[bname] = already_in - removed
+
+	if poured_per_bottle[bname] <= 0.0:
+		poured_per_bottle.erase(bname)
+		bottles.erase(bottle)
+
+	current_fill = max(current_fill - removed, 0.0)
+
+	update_mixed_color()
+	update_visual()
+	if _check_win():
+		_on_win()
+	return removed
+
+## Ist von dieser Flasche ueberhaupt etwas im Behaelter?
+func has_liquid_from(bottle) -> bool:
+	return poured_per_bottle.get(bottle.bottle_name, 0.0) > 0.0
+
+## Mischfarbe als gewichteter Durchschnitt aller eingefuellten Mengen.
+## Wird komplett neu berechnet, damit Ablassen die Farbe korrekt zuruecknimmt.
+func update_mixed_color() -> void:
+	var total := 0.0
+	for amount in poured_per_bottle.values():
+		total += amount
+
+	if total <= 0.0:
+		mixed_color = Color(0, 0, 0, 1)
 		return
-	
-	var mix_strength := amount / current_fill
-	mixed_color = mixed_color.lerp(new_color, mix_strength)
+
+	var r := 0.0
+	var g := 0.0
+	var b := 0.0
+	for bname in poured_per_bottle:
+		var weight: float = poured_per_bottle[bname] / total
+		var col: Color = _bottle_colors.get(bname, Color.WHITE)
+		r += col.r * weight
+		g += col.g * weight
+		b += col.b * weight
+
+	mixed_color = Color(r, g, b, 1)
 
 func update_visual() -> void:
 	var percent := current_fill / max_fill
@@ -82,6 +132,7 @@ func reset_container() -> void:
 	current_fill = 0.0
 	mixed_color = Color(0, 0, 0, 1)
 	poured_per_bottle.clear()
+	_bottle_colors.clear()
 	update_visual()
 
 func is_full() -> bool:

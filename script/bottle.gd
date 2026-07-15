@@ -13,6 +13,7 @@ extends Draggable
 
 var current_container: Node = null
 var is_pouring := false
+var is_draining := false
 var rotate_tween: Tween = null
 
 
@@ -32,8 +33,18 @@ func _while_dragging(delta: float) -> void:
 			break
 
 	var wants_pour := Input.is_action_pressed("pour")
+	var wants_drain := Input.is_action_pressed("drain")
 
-	if current_container and not current_container.is_full() and wants_pour:
+	# Ablassen hat Vorrang, damit gleichzeitiges Druecken nicht flackert.
+	if current_container and wants_drain and current_container.has_liquid_from(self):
+		stop_pouring()
+		if not is_draining:
+			start_draining()
+
+		current_container.remove_from_container(self, pour_rate * delta)
+
+	elif current_container and not current_container.is_full() and wants_pour:
+		stop_draining()
 		if not is_pouring:
 			start_pouring()
 
@@ -41,11 +52,13 @@ func _while_dragging(delta: float) -> void:
 		current_container.add_to_container(self, poured)
 
 	else:
-		if is_pouring:
-			stop_pouring()
+		stop_pouring()
+		stop_draining()
 
 func _on_drag_ended() -> void:
 	stop_pouring()
+	stop_draining()
+	current_container = null
 
 func start_pouring() -> void:
 	is_pouring = true
@@ -58,10 +71,24 @@ func start_pouring() -> void:
 	cpu_particles_2d.emitting = true
 
 func stop_pouring() -> void:
+	if not is_pouring:
+		return
 	is_pouring = false
-	current_container = null
 	rotate_to(0.0)
 	cpu_particles_2d.emitting = false
+
+## Ablassen: Flasche kippt in die Gegenrichtung, keine Partikel, weil
+## nichts herauslaeuft.
+func start_draining() -> void:
+	is_draining = true
+	rotate_to(deg_to_rad(-pour_rotation))
+	cpu_particles_2d.emitting = false
+
+func stop_draining() -> void:
+	if not is_draining:
+		return
+	is_draining = false
+	rotate_to(0.0)
 
 func _on_mouse_enterd():
 	rich_text_label.visible = true
