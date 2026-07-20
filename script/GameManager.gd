@@ -91,6 +91,11 @@ var participant_id := ""
 ## exportiert, damit dyslexia_enabled=false eindeutig interpretierbar bleibt
 ## (Kontrollgruppe vs. betroffene Person). Absichtlich NICHT in reset_game().
 var participant_has_dyslexia := false
+## Antworten des Vor-dem-Spiel-Fragebogens (pre_questionear.tscn). Werden nach
+## "Start" gesammelt, hier zwischengelagert und erst am Ende zusammen mit dem
+## End-Fragebogen gesendet — so profitieren sie von dessen Bestaetigungs-/Retry-
+## Logik. In reset_game() geleert (fuellt sich danach ueber den Pre-Fragebogen).
+var pre_questionnaire_answers: Array = []
 var _run_index := 0                            ## Laufnummer innerhalb dieser Sitzung
 var _run_id := ""                              ## eindeutig pro Lauf, verknuepft runs.csv & tasks.csv
 
@@ -201,6 +206,7 @@ func reset_game() -> void:
 	died_early = false
 	_malfunctions.clear()
 	_run_log.clear()
+	pre_questionnaire_answers.clear()
 
 	# Dyslexie: kein Stress, Effekte je nach Einstellung
 	DyslexiaManager.stress = 0.0
@@ -259,8 +265,13 @@ func _process(delta: float) -> void:
 		_finish_run()
 	ship_lights = is_system_broken("strom")
 
+## Sendet Pre- und End-Fragebogen gemeinsam als eine Zeile: der Pre-Fragebogen
+## wurde nach "Start" nur zwischengespeichert und faehrt hier vorne mit, damit
+## alles ueber die Upload-Bestaetigung/Retry des End-Fragebogens abgesichert ist.
 func submit_questionnaire(answers: Array) -> void:
-	questionnaire_submitted.emit(answers)
+	var all_answers: Array = pre_questionnaire_answers.duplicate()
+	all_answers.append_array(answers)
+	questionnaire_submitted.emit(all_answers)
 
 func get_current_run_id() -> String:
 	return _run_id	
@@ -282,9 +293,17 @@ func _set_health(value: float) -> void:
 	health_changed.emit(health)
 	_apply_stress_from_health()
 
+## Stress in groben Stufen setzen statt jeden Frame stufenlos: der Health-Drain
+## laeuft pro Frame, wuerde also sonst jeden Frame einen neuen Stresswert und
+## damit ein komplettes Neu-Parsen aller DyslexiaLabels ausloesen (Ruckeln +
+## zuruecksetzende Wave/Shake-Animationen). Quantisiert => Re-Render nur, wenn
+## eine Stufe ueberschritten wird.
+const STRESS_STEP := 5.0
+
 func _apply_stress_from_health() -> void:
 	if stress_from_health and dyslexia_enabled:
-		DyslexiaManager.stress = (1.0 - health / max_health) * 100.0
+		var raw := (1.0 - health / max_health) * 100.0
+		DyslexiaManager.stress = roundf(raw / STRESS_STEP) * STRESS_STEP
 	DyslexiaManager.accessibility = not dyslexia_enabled
 
 func _finish_run() -> void:

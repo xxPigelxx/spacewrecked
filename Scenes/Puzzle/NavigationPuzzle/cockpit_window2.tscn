@@ -16,6 +16,7 @@
 [ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="14_5bu0k"]
 [ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="15_hqmwt"]
 [ext_resource type="PackedScene" uid="uid://djqajkjejcw4" path="res://Scenes/info_bars.tscn" id="16_k8p3f"]
+[ext_resource type="PackedScene" uid="uid://cm4lf0cnt0ui1" path="res://malfuntion_counter.tscn" id="17_caxsb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbavm"]
 size = Vector2(1934, 1065)
@@ -384,6 +385,8 @@ anchor_bottom = 0.0
 offset_top = 168.0
 offset_bottom = 168.0
 grow_vertical = 1
+
+[node name="MalfunctionCounter" parent="." unique_id=772232712 instance=ExtResource("17_caxsb")]
 
 [connection signal="area_entered" from="Detector" to="Detector" method="_on_area_entered"]
 [connection signal="area_exited" from="Detector" to="Detector" method="_on_area_exited"]

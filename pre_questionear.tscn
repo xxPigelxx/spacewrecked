@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://b1preqst0na1r"]
+
+[ext_resource type="PackedScene" uid="uid://bx3ycj02l1xc4" path="res://Scenes/Likert_bar.tscn" id="1_likert"]
+[ext_resource type="Script" uid="uid://dioevxvqyi6wf" path="res://pre_questionear.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://cq18f4cl84tt7" path="res://Scenes/manual_sperator.tscn" id="1_sep"]
+[ext_resource type="PackedScene" uid="uid://bcot68oel2ml3" path="res://Scenes/menu_background.tscn" id="2_opxtd"]
+[ext_resource type="PackedScene" uid="uid://cmbencs8cn0j1" path="res://Scenes/text_question_bar.tscn" id="2_text"]
+[ext_resource type="PackedScene" uid="uid://6vlh4fls1osw" path="res://Scenes/multiple_choice.tscn" id="5_mc"]
+[ext_resource type="Theme" uid="uid://dvs0r83gvhd2k" path="res://resources/themes/small_Bt.tres" id="6_theme"]
+[ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="7_btn"]
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="8_sprit"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pre"]
+texture = ExtResource("8_sprit")
+texture_margin_left = 60.90915
+texture_margin_top = 89.0
+texture_margin_right = 57.895527
+texture_margin_bottom = 93.0
+region_rect = Rect2(782, 1429, 484, 594)
+
+[node name="PreQuestionear" type="Control" unique_id=1720164952]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="MenuBackground" parent="." unique_id=146504196 instance=ExtResource("2_opxtd")]
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1424288649]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 230.0
+offset_top = 34.0
+offset_right = -230.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_pre")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1247927801]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer" unique_id=658059687]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer" unique_id=1336230302]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1224795276]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "Vor dem Spiel"
+horizontal_alignment = 1
+
+[node name="HSeparator1" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=2134379582 instance=ExtResource("1_sep")]
+layout_mode = 2
+
+[node name="PreAlter" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=411361964 instance=ExtResource("2_text")]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 2
+question_text = "Wie alt bist du?"
+
+[node name="HSeparator2" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1752344396 instance=ExtResource("1_sep")]
+layout_mode = 2
+
+[node name="PreGeschlecht" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1942004269 instance=ExtResource("5_mc")]
+layout_mode = 2
+question_text = "Geschlecht"
+
+[node name="HSeparator3" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1501707774 instance=ExtResource("1_sep")]
+layout_mode = 2
+
+[node name="PreMuttersprache" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1596950314 instance=ExtResource("5_mc")]
+layout_mode = 2
+question_text = "Ist Deutsch deine Muttersprache?"
+
+[node name="HSeparator4" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=95215899 instance=ExtResource("1_sep")]
+layout_mode = 2
+
+[node name="PreGaming" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1111629625 instance=ExtResource("1_likert")]
+layout_mode = 2
+size_flags_vertical = 3
+question_text = "Wie viel Erfahrung hast du mit Videospielen? (0 = keine, 5 = sehr viel)"
+
+[node name="HSeparator5" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1235512510 instance=ExtResource("1_sep")]
+layout_mode = 2
+
+[node name="PreDyslexieWissen" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1937056221 instance=ExtResource("1_likert")]
+layout_mode = 2
+size_flags_vertical = 3
+question_text = "Wie gut kennst du dich mit Dyslexie / Lese-Rechtschreib-Schwaeche aus? (0 = gar nicht, 5 = sehr gut)"
+
+[node name="HSeparator6" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=2046125741 instance=ExtResource("1_sep")]
+layout_mode = 2
+
+[node name="PreEmpathie" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1288858298 instance=ExtResource("1_likert")]
+layout_mode = 2
+size_flags_vertical = 3
+question_text = "Wie gut kannst du dir vorstellen, wie sich Lesen mit Dyslexie anfuehlt? (0 = gar nicht, 5 = sehr gut)"
+
+[node name="SubmitButton" type="Button" parent="." unique_id=1652673311]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -137.0
+offset_top = -110.0
+offset_right = 138.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("6_theme")
+disabled = true
+text = "Weiter"
+script = ExtResource("7_btn")
+
+[connection signal="pressed" from="SubmitButton" to="." method="_on_submit_button_pressed"]

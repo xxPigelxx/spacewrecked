@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="13_0q44l"]
 [ext_resource type="Script" uid="uid://clg63em8vrbc0" path="res://script/DyslexiaLabel.gd" id="13_qf566"]
 [ext_resource type="PackedScene" uid="uid://djqajkjejcw4" path="res://Scenes/info_bars.tscn" id="16_qf566"]
+[ext_resource type="PackedScene" uid="uid://cm4lf0cnt0ui1" path="res://malfuntion_counter.tscn" id="17_tnem7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbavm"]
 size = Vector2(1934, 1065)
@@ -383,6 +384,8 @@ anchor_bottom = 0.0
 offset_top = 168.0
 offset_bottom = 168.0
 grow_vertical = 1
+
+[node name="MalfunctionCounter" parent="." unique_id=772232712 instance=ExtResource("17_tnem7")]
 
 [connection signal="area_entered" from="Detector" to="Detector" method="_on_area_entered"]
 [connection signal="area_exited" from="Detector" to="Detector" method="_on_area_exited"]

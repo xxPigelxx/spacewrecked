@@ -27,6 +27,10 @@ extends RichTextLabel
 
 var _source_text: String = ""
 var _ready_done: bool = false
+## Zuletzt gesetzter, fertig verarbeiteter String. Nur bei Aenderung wird .text
+## neu zugewiesen — sonst wuerde RichTextLabel neu parsen und die zeitbasierten
+## Effekte (wave/shake/tornado/pulse) auf Phase 0 zuruecksetzen (sichtbares Springen).
+var _last_rendered: String = ""
 
 # Gespeicherte Werte von PageEffects — damit Stress-Änderung neu rendern kann
 var _v: float = 0.0
@@ -97,19 +101,27 @@ func set_source_text(new_text: String) -> void:
 func _render() -> void:
 	if _source_text.is_empty():
 		return
-	text = DyslexiaManager.process_text(_source_text, _s, _v, _sw, _da, _df, _sv, _rs, _mp, _sc, _cp, _tp, _sa, _tr, _tf, _pf, _rp)
+	_set_rendered(DyslexiaManager.process_text(_source_text, _s, _v, _sw, _da, _df, _sv, _rs, _mp, _sc, _cp, _tp, _sa, _tr, _tf, _pf, _rp))
 	_update_missing_shader(_mi, _s)
 
 func _render_own() -> void:
 	if _source_text.is_empty():
 		_source_text = text
-	text = DyslexiaManager.process_text(_source_text, rng_seed,
+	_set_rendered(DyslexiaManager.process_text(_source_text, rng_seed,
 		vanish_percent, swap_percent, drift_amplitude, drift_frequency,
 		size_variation, river_spacing, mirror_percent,
 		scramble_percent, crowd_percent, transpose_percent,
 		shake_amplitude, tornado_radius, tornado_frequency, pulse_frequency,
-		rotate_percent)
+		rotate_percent))
 	_update_missing_shader(missing_percent, rng_seed)
+
+## Weist .text nur zu, wenn sich der verarbeitete String geaendert hat — sonst
+## bliebe die laufende Animation erhalten (kein Neu-Parsen, kein Zuruecksetzen).
+func _set_rendered(rendered: String) -> void:
+	if rendered == _last_rendered:
+		return
+	_last_rendered = rendered
+	text = rendered
 
 ## Fehlende-Teile-Effekt läuft als ShaderMaterial über das ganze Label,
 ## nicht als BBCode — deshalb hier statt in process_text.

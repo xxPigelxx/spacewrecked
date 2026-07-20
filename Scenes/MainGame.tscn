@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://6nusq4blrso6" path="res://script/malfunction_interactable.gd" id="19_k6vqf"]
 [ext_resource type="PackedScene" uid="uid://paf2ndw45mpb" path="res://resources/assets/icons/malfunction_icons_shild.tscn" id="19_yy0n7"]
 [ext_resource type="PackedScene" uid="uid://djqajkjejcw4" path="res://Scenes/info_bars.tscn" id="24_him8o"]
+[ext_resource type="PackedScene" uid="uid://cm4lf0cnt0ui1" path="res://malfuntion_counter.tscn" id="25_malfc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yr2pg"]
 radius = 71.0
@@ -308,3 +309,7 @@ script = ExtResource("16_ktwve")
 [node name="hud" type="CanvasLayer" parent="." unique_id=749700066]
 
 [node name="InfroBars" parent="hud" unique_id=1636553147 instance=ExtResource("24_him8o")]
+
+[node name="MalfunctionCounter" parent="hud" unique_id=308412049 instance=ExtResource("25_malfc")]
+offset_right = 124.0
+offset_bottom = 110.0

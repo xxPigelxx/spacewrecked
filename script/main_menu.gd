@@ -15,7 +15,8 @@ func _ready() -> void:
 
 func _on_start_bt_pressed() -> void:
 	GameState.reset_game()
-	SceneSwitcher.switch_scene("res://Scenes/MainGame.tscn")
+	# Erst der Vor-dem-Spiel-Fragebogen; dieser wechselt nach "Weiter" ins MainGame.
+	SceneSwitcher.switch_scene("res://pre_questionear.tscn")
 
 func _on_options_bt_pressed() -> void:
 	main.visible = !main.visible

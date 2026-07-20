@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cm4lf0cnt0ui1"]
+
+[ext_resource type="Script" uid="uid://c7qcc7se63gn6" path="res://malfuntion_counter.gd" id="1_mc"]
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="1_rjo06"]
+[ext_resource type="Texture2D" uid="uid://ra8uu0h037qi" path="res://resources/assets/MalfunctionSolvedIcon.tres" id="2_m3s8a"]
+[ext_resource type="Texture2D" uid="uid://duxc6cspbcl3a" path="res://resources/assets/MalfunctionWarninngIcon.tres" id="2_warn"]
+[ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="3_rjo06"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1uhpm"]
+texture = ExtResource("1_rjo06")
+region_rect = Rect2(807, 835, 184, 148)
+
+[node name="MalfunctionCounter" type="PanelContainer" unique_id=772232712]
+offset_left = 86.0
+offset_top = 59.0
+offset_right = 237.0
+offset_bottom = 188.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_1uhpm")
+script = ExtResource("1_mc")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1401592323]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Vbox" type="VBoxContainer" parent="MarginContainer" unique_id=1254086841]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="SolvedIcon" type="HBoxContainer" parent="MarginContainer/Vbox" unique_id=1185844950]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 15
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Vbox/SolvedIcon" unique_id=262410679]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_m3s8a")
+expand_mode = 3
+
+[node name="Solved" type="Label" parent="MarginContainer/Vbox/SolvedIcon" unique_id=1378502124]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_rjo06")
+theme_override_font_sizes/font_size = 48
+text = "42"
+
+[node name="Malfunction" type="HBoxContainer" parent="MarginContainer/Vbox" unique_id=896057056]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 15
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Vbox/Malfunction" unique_id=1922157690]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_warn")
+expand_mode = 3
+
+[node name="Malfunctions" type="Label" parent="MarginContainer/Vbox/Malfunction" unique_id=807217863]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_rjo06")
+theme_override_font_sizes/font_size = 48
+text = "42"

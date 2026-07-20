@@ -7,19 +7,27 @@ signal stress_changed(val: float)
 ## Beeinflusst NICHT das Verschwinden — das ist global_vanish.
 var stress: float = 0.0:
 	set(v):
-		stress = clampf(v, 0.0, 100.0)
+		var nv := clampf(v, 0.0, 100.0)
+		if nv == stress:
+			return  # kein Re-Render bei unveraendertem Wert (spart Neu-Parsen)
+		stress = nv
 		stress_changed.emit(stress)
 
 ## Globales Verschwinden 0–100: lässt Wörter bei ALLEN Labels verschwinden.
 ## Unabhängig von stress und den per-Label Einstellungen.
 var global_vanish: float = 0.0:
 	set(v):
-		global_vanish = clampf(v, 0.0, 100.0)
+		var nv := clampf(v, 0.0, 100.0)
+		if nv == global_vanish:
+			return
+		global_vanish = nv
 		stress_changed.emit(stress)
 
 ## true = alle Effekte aus, reiner Text.
 var accessibility: bool = false:
 	set(v):
+		if v == accessibility:
+			return
 		accessibility = v
 		stress_changed.emit(stress)
 
