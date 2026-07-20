@@ -29,7 +29,13 @@ func _check_all_sockets_aktive() -> void:
 			return
 	_on_win()
 
+func _activate_socket_lamps():
+	for socket in sockets:
+		socket.activate_lamps()
+		await get_tree().create_timer(0.05).timeout
+
 func _on_win():
+	_activate_socket_lamps()
 	win = true
 	error_code.lamp_flash()
 	AudioManager.play_success()

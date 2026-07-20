@@ -41,7 +41,9 @@ func _update_visual():
 		return
 		
 	if !occupied:
-		visual.self_modulate = socket_color * 0.6
+		visual.modulate = socket_color * 0.6
 	else:
-		visual.self_modulate = socket_color
+		visual.modulate = socket_color
+
+func activate_lamps():
 	lamp.set_active(aktive)

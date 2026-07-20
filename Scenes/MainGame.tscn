@@ -81,7 +81,7 @@ overlay_scene = "uid://dhaqf5a5qa6di"
 [node name="MalfunctionIconsSignal" parent="Interactabels/SetupMalfunctions/NavStart" unique_id=72393084 instance=ExtResource("13_wn26v")]
 
 [node name="ManualItemPickup" type="Area2D" parent="Interactabels/SetupMalfunctions" unique_id=612487883]
-position = Vector2(1113, 365)
+position = Vector2(987, 542)
 script = ExtResource("11_q8sds")
 prompt_text = "Press E to Pickup"
 
