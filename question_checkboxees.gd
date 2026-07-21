@@ -18,6 +18,7 @@ func _set_up():
 func _on_checkbox_toggled(pressed: bool, source: CheckBox) -> void:
 	if pressed:
 		selected = checkboxes.find(source)
+		print(selected)
 
 func get_selected():
 	return selected
