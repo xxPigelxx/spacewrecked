@@ -42,6 +42,9 @@ tint_under = Color(0.2520276, 0.25202766, 0.25202763, 1)
 tint_progress = Color(0.7019608, 0.20392157, 0.26666668, 1)
 script = ExtResource("3_ldltn")
 
+[node name="HeartBeatPlayer" type="AudioStreamPlayer" parent="VBoxContainer/ShipHealthBar" unique_id=1377830887]
+bus = &"sfx"
+
 [node name="ShipHealthMarker" type="TextureRect" parent="VBoxContainer/ShipHealthBar" unique_id=641676872]
 modulate = Color(0.8956841, 0.3443088, 0.39588407, 1)
 layout_mode = 1

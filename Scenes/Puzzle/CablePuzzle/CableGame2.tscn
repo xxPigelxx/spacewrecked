@@ -129,7 +129,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CableSpawnMarker" type="Marker2D" parent="." unique_id=6755401]
-position = Vector2(913, 807)
+position = Vector2(913, 731)
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=1089851824]
 

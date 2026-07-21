@@ -62,8 +62,8 @@ func is_manual_aquiered() -> bool:
 @export_group("Journey")
 @export var run_duration := 440.0             ## Messfenster in Sekunden
 @export var max_health := 100.0                ## Maximales + Start-Leben
-@export var health_per_fix := 20.0             ## Reparatur stellt so viel wieder her (flach)
-@export var health_drain_per_sec := 0.4       ## passiver Verlust pro Sekunde
+@export var health_per_fix := 25.0             ## Reparatur stellt so viel wieder her (flach)
+@export var health_drain_per_sec := 0.3       ## passiver Verlust pro Sekunde
 @export var drain_per_active_malfunction := 0.05## extra Verlust pro offener Störung (0 = aus)
 
 @export_group("Tutorial")
@@ -349,5 +349,7 @@ func _finish_run() -> void:
 	}
 	# ResultsExporter (Autoload) lauscht auf run_finished und schreibt die CSVs.
 	run_finished.emit(results)
-	# Zum Endscreen wechseln (liest Werte selbst aus GameState).
-	SceneSwitcher.switch_scene("res://Scenes/Menu/EndSceen.tscn")
+	# Zum Endscreen wechseln (liest Werte selbst aus GameState). force_, weil der
+	# Lauf auch mitten in einem offenen Raetsel enden kann — switch_scene() wuerde
+	# dann kommentarlos nichts tun.
+	SceneSwitcher.force_switch_scene("res://Scenes/Menu/EndSceen.tscn")

@@ -978,7 +978,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="Route" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=721010220]
 layout_mode = 2
-text = "Steuere zuerst Aquaron an. Von dort führt der Kurs weiter nach Nyxara und danach zu Sproutia. Als vierte Station folgt Solvane, bevor die Route bei Ignara endet."
+text = "Steuere zuerst Nyxara an. Von dort führt der Kurs weiter nach Sproutia, bevor die Route bei Solvane endet."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1000,7 +1000,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="Route" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=681629512]
 layout_mode = 2
-text = "Der Kurs beginnt bei Florexia. Weiter geht es zu Ignara und als dritte Station zu Stellaris. Danach steuerst du Aquaron an, und die Route endet bei Terra."
+text = "Der Kurs beginnt bei Ignara. Weiter geht es zu Stellaris, und die Route endet bei Aquaron."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1068,7 +1068,7 @@ script = ExtResource("2_puywe")
 
 [node name="Route" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=2025461314]
 layout_mode = 2
-text = "Starte bei Pyronis und fliege von dort nach Sproutia. Die dritte Station ist Terra. Danach folgt Nyxara, und den Abschluss macht Florexia."
+text = "Starte bei Pyronis und fliege von dort nach Terra. Den Abschluss macht Florexia."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1092,7 +1092,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="Route" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1268991432]
 layout_mode = 2
-text = "Die Route beginnt bei Verdantis. Steuere danach Nyxara an und weiter Sproutia. Als vierte Station folgt Glacium, bevor der Kurs bei Solvane endet."
+text = "Die Route beginnt bei Verdantis. Steuere danach Glacium an, bevor der Kurs bei Solvane endet."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"

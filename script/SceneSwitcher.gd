@@ -26,6 +26,21 @@ func switch_scene(res_path: String, fade_in := true, fade_out := true) -> void:
 		return
 	call_deferred("_deferred_switch_scene", res_path, fade_in, fade_out)
 
+## Wechselt zur Szene, egal was gerade offen ist — schliesst ein offenes Overlay
+## mit und wartet einen laufenden Uebergang ab, statt den Aufruf zu verwerfen.
+##
+## switch_scene() steigt bei offenem Overlay wortlos aus. Fuer normale
+## Navigation ist das richtig, aber wenn der Lauf endet (Leben leer oder Zeit um)
+## waehrend ein Raetsel offen ist, bliebe der Endscreen sonst aus und die
+## Versuchsperson haengt im Raetsel fest.
+func force_switch_scene(res_path: String, fade_in := true, fade_out := true) -> void:
+	while is_switching:
+		await get_tree().process_frame
+	if is_overlay_open:
+		close_overlay_and_switch_scene(res_path, fade_in, fade_out)
+	else:
+		switch_scene(res_path, fade_in, fade_out)
+
 func _deferred_switch_scene(res_path: String, fade_in := true, fade_out := true) -> void:
 	is_switching = true
 

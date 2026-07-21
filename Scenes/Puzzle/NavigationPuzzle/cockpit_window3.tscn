@@ -39,7 +39,7 @@ radius = 86.0
 [node name="CockpitWindow" type="CanvasLayer" unique_id=1066614739]
 layer = 3
 script = ExtResource("1_j1d3v")
-correct_order = Array[String](["Pyronis", "Sproutia", "Terra", "Nyxara", "Florexia"])
+correct_order = Array[String](["Pyronis", "Terra", "Florexia"])
 
 [node name="Plain BG" type="ColorRect" parent="." unique_id=1525244899]
 offset_left = -29609.0
