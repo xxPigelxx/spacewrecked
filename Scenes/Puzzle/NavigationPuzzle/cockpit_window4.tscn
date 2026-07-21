@@ -37,6 +37,7 @@ size = Vector2(18617, 1568)
 radius = 86.0
 
 [node name="CockpitWindow" type="CanvasLayer" unique_id=1066614739]
+layer = 3
 script = ExtResource("1_au5em")
 correct_order = Array[String](["Verdantis", "Nyxara", "Sproutia", "Galcium", "Solvane"])
 

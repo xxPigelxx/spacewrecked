@@ -175,6 +175,9 @@ func mark_solved() -> void:
 	# Journey-Score/Health/Log nur für Journey-Störungen, nicht für Tutorial.
 	if phase == Phase.JOURNEY:
 		GameState._report_malfunction_solved(_category_name())
+	else:
+		# Tutorial: baut die Lebensleiste schrittweise von 0 auf voll auf.
+		GameState.report_tutorial_repair()
 
 ## Nur reagieren, wenn aktiv. Meldet sich als "in Bearbeitung" beim Spawner.
 func _action() -> void:

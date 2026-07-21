@@ -66,6 +66,11 @@ func is_manual_aquiered() -> bool:
 @export var health_drain_per_sec := 0.4       ## passiver Verlust pro Sekunde
 @export var drain_per_active_malfunction := 0.05## extra Verlust pro offener Störung (0 = aus)
 
+@export_group("Tutorial")
+## In so vielen gleichen Schritten baut sich die Lebensleiste im Tutorial von 0
+## auf voll auf — eine Stufe pro Tutorial-Stoerung.
+@export var tutorial_steps := 4
+
 # Hinweis: Jede Stoerung hat ihren eigenen spawn_time (Sekunden ab Journey-Start).
 
 # ---- Versuchsvariablen (Settings) ----
@@ -288,6 +293,19 @@ func _report_malfunction_solved(puzzle_id: String) -> void:
 	})
 	malfunctions_solved_changed.emit(malfunctions_solved)
 
+## Tutorial-Reparatur: die Lebensleiste baut sich in gleichen Schritten von 0
+## auf voll auf — ein Schritt pro Tutorial-Stoerung (Strom, Treibstoff, Schild,
+## Navigation). Rein visuelle Progression, max_health bleibt unangetastet, und
+## start_journey() setzt am Ende ohnehin auf voll (ein uebersprungener Schritt
+## korrigiert sich also von selbst).
+##
+## Der Wert springt hier sofort; das weiche Auffuellen macht die Leiste selbst.
+func report_tutorial_repair() -> void:
+	if phase != Phase.SETUP:
+		return
+	var step: float = max_health / float(maxi(tutorial_steps, 1))
+	_set_health(minf(health + step, max_health))
+
 func _set_health(value: float) -> void:
 	health = clampf(value, 0.0, max_health)
 	health_changed.emit(health)
@@ -300,8 +318,11 @@ func _set_health(value: float) -> void:
 ## eine Stufe ueberschritten wird.
 const STRESS_STEP := 5.0
 
+## Nur waehrend der Journey: im Tutorial steigt die Gesundheit von 0 auf voll,
+## das wuerde hier sonst als "maximaler Stress am Anfang" ankommen — also genau
+## verkehrt herum. Die accessibility-Zuweisung laeuft unabhaengig davon weiter.
 func _apply_stress_from_health() -> void:
-	if stress_from_health and dyslexia_enabled:
+	if phase == Phase.JOURNEY and stress_from_health and dyslexia_enabled:
 		var raw := (1.0 - health / max_health) * 100.0
 		DyslexiaManager.stress = roundf(raw / STRESS_STEP) * STRESS_STEP
 	DyslexiaManager.accessibility = not dyslexia_enabled
