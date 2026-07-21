@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="2_mq2c6"]
 [ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="3_uxj45"]
 [ext_resource type="PackedScene" uid="uid://dlocelh4wsyel" path="res://Scenes/socket.tscn" id="4_22kpn"]
+[ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="4_oxt5x"]
 [ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="5_4m8ly"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_heo7m"]
@@ -24,10 +25,10 @@ region_rect = Rect2(807, 835, 184, 148)
 modulate_color = Color(0.2592937, 0.2592937, 0.2592937, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hesem"]
-size = Vector2(28, 790.5)
+size = Vector2(22, 729)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1tc3"]
-size = Vector2(1166, 21)
+size = Vector2(1070.25, 15.5)
 
 [node name="CableGame2" type="CanvasLayer" unique_id=39079525]
 script = ExtResource("1_in0de")
@@ -46,11 +47,13 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 245.0
-offset_top = 34.0
+offset_top = -35.0
 offset_right = -307.0
-offset_bottom = -36.0
+offset_bottom = -105.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 2
 mouse_behavior_recursive = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_heo7m")
@@ -84,7 +87,7 @@ offset_right = -1.0
 offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 300
+theme_override_constants/separation = 500
 alignment = 1
 
 [node name="Win" type="Button" parent="Panel/HBoxContainer" unique_id=196559703]
@@ -108,25 +111,42 @@ theme = ExtResource("3_uxj45")
 theme_override_font_sizes/font_size = 50
 text = "Zuruck"
 
+[node name="Label" type="Label" parent="Panel" unique_id=1558107221]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -221.11115
+offset_top = 17.222221
+offset_right = 221.88885
+offset_bottom = 82.22222
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.17641911, 0.17641908, 0.17641908, 1)
+theme_override_fonts/font = ExtResource("4_oxt5x")
+theme_override_font_sizes/font_size = 64
+text = "Sicherungskasten"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="CableSpawnMarker" type="Marker2D" parent="." unique_id=6755401]
 position = Vector2(913, 807)
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=1089851824]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=73643020]
-position = Vector2(348, 487)
+position = Vector2(407, 435.5)
 shape = SubResource("RectangleShape2D_hesem")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=2060960320]
-position = Vector2(1539, 494.25)
+position = Vector2(1485, 431)
 shape = SubResource("RectangleShape2D_hesem")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=1629799177]
-position = Vector2(938, 104.4375)
+position = Vector2(944, 81)
 shape = SubResource("RectangleShape2D_t1tc3")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls" unique_id=764026913]
-position = Vector2(935.5, 895.5)
+position = Vector2(945.875, 793)
 shape = SubResource("RectangleShape2D_t1tc3")
 
 [node name="Sockets" type="Node2D" parent="." unique_id=1346873290]
@@ -134,58 +154,58 @@ shape = SubResource("RectangleShape2D_t1tc3")
 [node name="Left" type="Node2D" parent="Sockets" unique_id=1774481423]
 
 [node name="Rot" parent="Sockets/Left" unique_id=410540247 instance=ExtResource("4_22kpn")]
-position = Vector2(524, 810)
+position = Vector2(562, 681)
 socket_color = Color(0.9019608, 0.09803922, 0.29411766, 1)
 pair_id = "4"
 
 [node name="Lime" parent="Sockets/Left" unique_id=1221650162 instance=ExtResource("4_22kpn")]
-position = Vector2(511, 200)
+position = Vector2(567, 168)
 socket_color = Color(0.7490196, 0.9372549, 0.27058825, 1)
 pair_id = "2"
 
 [node name="Gelb" parent="Sockets/Left" unique_id=42840864 instance=ExtResource("4_22kpn")]
-position = Vector2(520, 648)
+position = Vector2(565, 546)
 socket_color = Color(1, 0.88235295, 0.09803922, 1)
 pair_id = "5"
 
 [node name="magenta" parent="Sockets/Left" unique_id=1106657845 instance=ExtResource("4_22kpn")]
-position = Vector2(518, 356)
+position = Vector2(568, 284)
 socket_color = Color(0.9411765, 0.19607843, 0.9019608, 1)
 pair_id = "1"
 
 [node name="Blau" parent="Sockets/Left" unique_id=2120209152 instance=ExtResource("4_22kpn")]
-position = Vector2(520, 501)
+position = Vector2(567, 424)
 socket_color = Color(0.2627451, 0.3882353, 0.84705883, 1)
 pair_id = "3"
 
 [node name="Right" type="Node2D" parent="Sockets" unique_id=1609544262]
 
 [node name="Cyan" parent="Sockets/Right" unique_id=507004883 instance=ExtResource("4_22kpn")]
-position = Vector2(1353, 220)
+position = Vector2(1312, 173)
 side = 1
 socket_color = Color(0.25882354, 0.83137256, 0.95686275, 1)
 pair_id = "1"
 
 [node name="Grau" parent="Sockets/Right" unique_id=1339555870 instance=ExtResource("4_22kpn")]
-position = Vector2(1357, 669)
+position = Vector2(1319, 546)
 side = 1
 socket_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
 pair_id = "2"
 
 [node name="Gruen" parent="Sockets/Right" unique_id=1663060115 instance=ExtResource("4_22kpn")]
-position = Vector2(1347, 533)
+position = Vector2(1318, 420)
 side = 1
 socket_color = Color(0.23529412, 0.7058824, 0.29411766, 1)
 pair_id = "5"
 
 [node name="Orange" parent="Sockets/Right" unique_id=89349907 instance=ExtResource("4_22kpn")]
-position = Vector2(1342, 386)
+position = Vector2(1313, 298)
 side = 1
 socket_color = Color(0.9607843, 0.50980395, 0.19215687, 1)
 pair_id = "3"
 
 [node name="Lila" parent="Sockets/Right" unique_id=2083023251 instance=ExtResource("4_22kpn")]
-position = Vector2(1362, 813)
+position = Vector2(1317, 677)
 side = 1
 socket_color = Color(0.5686275, 0.11764706, 0.7058824, 1)
 pair_id = "4"
@@ -193,7 +213,7 @@ pair_id = "4"
 [node name="Cabels" type="Node2D" parent="." unique_id=1846986884]
 
 [node name="ErrorCode" parent="." unique_id=1170533520 instance=ExtResource("5_4m8ly")]
-position = Vector2(960, 80)
+position = Vector2(923, 848)
 error_code = "2458"
 
 [connection signal="pressed" from="Panel/HBoxContainer/Win" to="." method="_on_win"]

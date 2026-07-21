@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://5fx0xgbsgc3n" path="res://script/mix_game.gd" id="1_fupm8"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="2_ol2lc"]
+[ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="3_ol2lc"]
 [ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="3_w4agj"]
 [ext_resource type="Texture2D" uid="uid://rv48om81h8jr" path="res://resources/assets/animation/water/water1.tres" id="4_tfg8g"]
 [ext_resource type="Texture2D" uid="uid://7tn74alrr2ru" path="res://resources/assets/animation/water/water2.tres" id="5_28q16"]
@@ -74,7 +75,6 @@ recipe = Array[Dictionary]([{
 "bottle_name": "Zeraphine",
 "target_ml": 31.0
 }])
-max_fill = 150.0
 require_full = false
 
 [node name="Panel" type="Panel" parent="." unique_id=1025445036]
@@ -90,11 +90,13 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 245.0
-offset_top = 44.0
+offset_top = -35.0
 offset_right = -307.0
-offset_bottom = -26.0
+offset_bottom = -105.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 2
 mouse_behavior_recursive = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_p5xu6")
@@ -116,6 +118,23 @@ mouse_filter = 2
 mouse_behavior_recursive = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_it0an")
 
+[node name="Label" type="Label" parent="Panel2" unique_id=1766847427]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -221.11111
+offset_top = 17.222223
+offset_right = 221.88892
+offset_bottom = 82.22222
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.17641911, 0.17641908, 0.17641908, 1)
+theme_override_fonts/font = ExtResource("3_ol2lc")
+theme_override_font_sizes/font_size = 64
+text = "Treibstoff Lager"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Button Array" type="HBoxContainer" parent="Panel2" unique_id=134325051]
 layout_mode = 1
 anchors_preset = 12
@@ -128,7 +147,7 @@ offset_right = -21.0
 offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 272
+theme_override_constants/separation = 530
 alignment = 1
 
 [node name="winBt" type="Button" parent="Panel2/Button Array" unique_id=1708794599]
@@ -152,7 +171,7 @@ theme_override_font_sizes/font_size = 50
 text = "Return"
 
 [node name="Container" type="Area2D" parent="." unique_id=1839147150 groups=["Container"]]
-position = Vector2(962, 700)
+position = Vector2(962, 579)
 
 [node name="ColorRect" type="ColorRect" parent="Container" unique_id=276339799]
 anchors_preset = -1
@@ -188,28 +207,28 @@ shape = SubResource("RectangleShape2D_gatl4")
 [node name="Shelfs" type="Node2D" parent="." unique_id=162625515]
 
 [node name="ProcreateSprites" type="Sprite2D" parent="Shelfs" unique_id=1990249481]
-position = Vector2(577, 415.00003)
+position = Vector2(611.875, 415.5)
 scale = Vector2(0.3622807, 0.359375)
 texture = ExtResource("2_ol2lc")
 region_enabled = true
 region_rect = Rect2(80, 596, 855, 64)
 
 [node name="ProcreateSprites2" type="Sprite2D" parent="Shelfs" unique_id=160693307]
-position = Vector2(572, 572)
+position = Vector2(606.875, 572.5)
 scale = Vector2(0.3622807, 0.359375)
 texture = ExtResource("2_ol2lc")
 region_enabled = true
 region_rect = Rect2(80, 596, 855, 64)
 
 [node name="ProcreateSprites3" type="Sprite2D" parent="Shelfs" unique_id=925709804]
-position = Vector2(1306.875, 415.5)
+position = Vector2(1287.875, 415.5)
 scale = Vector2(0.3622807, 0.359375)
 texture = ExtResource("2_ol2lc")
 region_enabled = true
 region_rect = Rect2(80, 596, 855, 64)
 
 [node name="ProcreateSprites4" type="Sprite2D" parent="Shelfs" unique_id=1204505886]
-position = Vector2(1301.875, 572.5)
+position = Vector2(1282.875, 572.5)
 scale = Vector2(0.3622807, 0.359375)
 texture = ExtResource("2_ol2lc")
 region_enabled = true
@@ -253,10 +272,10 @@ bottle_name = "Vortex"
 bottle_texture = ExtResource("13_uf4x0")
 
 [node name="Fulestand" type="RichTextLabel" parent="." unique_id=340789079]
-offset_left = 857.0
-offset_top = 854.0
-offset_right = 1050.0
-offset_bottom = 894.0
+offset_left = 850.0
+offset_top = 733.0
+offset_right = 1150.0
+offset_bottom = 773.0
 theme_override_colors/default_color = Color(0.7372549, 0.7372549, 0.7372549, 1)
 theme_override_font_sizes/normal_font_size = 24
 text = "Füllstand: "
@@ -265,7 +284,7 @@ script = ExtResource("14_bkkw7")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="ErrorCode" parent="." unique_id=1170533520 instance=ExtResource("15_mmq01")]
-position = Vector2(923, 93.045)
+position = Vector2(923, 848)
 error_code = "Quantrex"
 
 [node name="ProcreateSprites" parent="ErrorCode" index="0" unique_id=1600055411]

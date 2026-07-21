@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://5fx0xgbsgc3n" path="res://script/mix_game.gd" id="1_f4rim"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="2_mbyvs"]
 [ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="3_egsgn"]
+[ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="3_mbyvs"]
 [ext_resource type="Texture2D" uid="uid://rv48om81h8jr" path="res://resources/assets/animation/water/water1.tres" id="4_723h5"]
 [ext_resource type="Texture2D" uid="uid://7tn74alrr2ru" path="res://resources/assets/animation/water/water2.tres" id="5_ges5f"]
 [ext_resource type="Texture2D" uid="uid://cowl12dmddoth" path="res://resources/assets/animation/water/water3.tres" id="6_bawql"]
@@ -61,7 +62,6 @@ size = Vector2(245, 273)
 
 [node name="Mixing_Game" type="CanvasLayer" unique_id=1650878428]
 script = ExtResource("1_f4rim")
-max_fill = 150.0
 recipe = Array[Dictionary]([{
 "bottle_name": "Zeraphine",
 "target_ml": 30.0
@@ -90,11 +90,13 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 245.0
-offset_top = 44.0
+offset_top = -35.0
 offset_right = -307.0
-offset_bottom = -26.0
+offset_bottom = -105.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 2
 mouse_behavior_recursive = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_p5xu6")
@@ -116,6 +118,23 @@ mouse_filter = 2
 mouse_behavior_recursive = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_it0an")
 
+[node name="Label" type="Label" parent="Panel2" unique_id=1675040845]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -221.11111
+offset_top = 17.222223
+offset_right = 221.88892
+offset_bottom = 82.22222
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.17641911, 0.17641908, 0.17641908, 1)
+theme_override_fonts/font = ExtResource("3_mbyvs")
+theme_override_font_sizes/font_size = 64
+text = "Treibstoff Lager"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Button Array" type="HBoxContainer" parent="Panel2" unique_id=134325051]
 layout_mode = 1
 anchors_preset = 12
@@ -128,7 +147,7 @@ offset_right = -21.0
 offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 272
+theme_override_constants/separation = 530
 alignment = 1
 
 [node name="winBt" type="Button" parent="Panel2/Button Array" unique_id=1708794599]
@@ -152,7 +171,7 @@ theme_override_font_sizes/font_size = 50
 text = "Return"
 
 [node name="Container" type="Area2D" parent="." unique_id=1839147150 groups=["Container"]]
-position = Vector2(962, 700)
+position = Vector2(962, 579)
 
 [node name="ColorRect" type="ColorRect" parent="Container" unique_id=276339799]
 anchors_preset = -1
@@ -188,28 +207,28 @@ shape = SubResource("RectangleShape2D_gatl4")
 [node name="Shelfs" type="Node2D" parent="." unique_id=162625515]
 
 [node name="ProcreateSprites" type="Sprite2D" parent="Shelfs" unique_id=1990249481]
-position = Vector2(577, 415.00003)
+position = Vector2(601.875, 415.5)
 scale = Vector2(0.3622807, 0.359375)
 texture = ExtResource("2_mbyvs")
 region_enabled = true
 region_rect = Rect2(80, 596, 855, 64)
 
 [node name="ProcreateSprites2" type="Sprite2D" parent="Shelfs" unique_id=160693307]
-position = Vector2(572, 572)
+position = Vector2(596.875, 572.5)
 scale = Vector2(0.3622807, 0.359375)
 texture = ExtResource("2_mbyvs")
 region_enabled = true
 region_rect = Rect2(80, 596, 855, 64)
 
 [node name="ProcreateSprites3" type="Sprite2D" parent="Shelfs" unique_id=925709804]
-position = Vector2(1306.875, 415.5)
+position = Vector2(1282.875, 415.5)
 scale = Vector2(0.3622807, 0.359375)
 texture = ExtResource("2_mbyvs")
 region_enabled = true
 region_rect = Rect2(80, 596, 855, 64)
 
 [node name="ProcreateSprites4" type="Sprite2D" parent="Shelfs" unique_id=1204505886]
-position = Vector2(1301.875, 572.5)
+position = Vector2(1277.875, 572.5)
 scale = Vector2(0.3622807, 0.359375)
 texture = ExtResource("2_mbyvs")
 region_enabled = true
@@ -218,45 +237,45 @@ region_rect = Rect2(80, 596, 855, 64)
 [node name="Bottles" type="Node2D" parent="." unique_id=2032119311]
 
 [node name="Bottle" parent="Bottles" unique_id=2017601924 instance=ExtResource("8_5f0i6")]
-position = Vector2(1364, 357)
+position = Vector2(1379, 357)
 bottle_color = Color(0.26039997, 0.74028003, 0.93, 1)
 bottle_name = "Hyperion"
 
 [node name="Bottle2" parent="Bottles" unique_id=906856601 instance=ExtResource("8_5f0i6")]
-position = Vector2(1310, 510)
+position = Vector2(1282, 515)
 bottle_color = Color(0.56, 0.3378667, 0.16800001, 1)
 bottle_name = "Xytherium"
 bottle_texture = ExtResource("9_l3y3m")
 
 [node name="Bottle3" parent="Bottles" unique_id=1125590377 instance=ExtResource("8_5f0i6")]
-position = Vector2(1254, 358)
+position = Vector2(1204, 358)
 bottle_color = Color(0.8772146, 0.54144984, 0.7787397, 1)
 bottle_name = "Zeraphine"
 bottle_texture = ExtResource("10_be3pp")
 
 [node name="Bottle4" parent="Bottles" unique_id=512509899 instance=ExtResource("8_5f0i6")]
-position = Vector2(652, 359)
+position = Vector2(702, 354)
 bottle_color = Color(0.066758975, 0.0923285, 0.010655793, 1)
 bottle_name = "Oel"
 bottle_texture = ExtResource("11_8ec3x")
 
 [node name="Bottle5" parent="Bottles" unique_id=1111120526 instance=ExtResource("8_5f0i6")]
-position = Vector2(488, 355)
+position = Vector2(517, 349)
 bottle_color = Color(0.19195771, 0.39252624, 0.8397936, 1)
 bottle_name = "Wasser"
 bottle_texture = ExtResource("12_23p6b")
 
 [node name="Bottle6" parent="Bottles" unique_id=1422683580 instance=ExtResource("8_5f0i6")]
-position = Vector2(570, 512)
+position = Vector2(604, 509)
 bottle_color = Color(0.59, 0, 0.46216664, 1)
 bottle_name = "Vortex"
 bottle_texture = ExtResource("13_v7o58")
 
 [node name="Fulestand" type="RichTextLabel" parent="." unique_id=340789079]
-offset_left = 857.0
-offset_top = 854.0
-offset_right = 1050.0
-offset_bottom = 894.0
+offset_left = 850.0
+offset_top = 733.0
+offset_right = 1143.0
+offset_bottom = 773.0
 theme_override_colors/default_color = Color(0.7372549, 0.7372549, 0.7372549, 1)
 theme_override_font_sizes/normal_font_size = 24
 text = "Füllstand: "
@@ -265,7 +284,7 @@ script = ExtResource("14_1kn3w")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="ErrorCode" parent="." unique_id=1170533520 instance=ExtResource("15_0ox14")]
-position = Vector2(923, 93.045)
+position = Vector2(923, 848)
 error_code = "Aetheron"
 
 [node name="ProcreateSprites" parent="ErrorCode" index="0" unique_id=1600055411]
