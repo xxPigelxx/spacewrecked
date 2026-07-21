@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://mx67lrqv2oom"]
+[gd_scene format=3 uid="uid://chmc3hxljorrv"]
 
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="1_hesem"]
 [ext_resource type="Script" uid="uid://dfvo5edp67xki" path="res://script/cablegame_manager.gd" id="1_tkd5u"]

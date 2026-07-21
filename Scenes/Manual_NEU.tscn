@@ -613,7 +613,7 @@ size_flags_horizontal = 3
 
 [node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=716592493]
 layout_mode = 2
-text = "Blau <-> Lila"
+text = "Blau <-> Cyan"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -626,7 +626,7 @@ size_flags_horizontal = 3
 
 [node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer" unique_id=1922022539]
 layout_mode = 2
-text = "Magenta <-> Grau"
+text = "Magenta <-> Lila"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -647,7 +647,7 @@ size_flags_horizontal = 3
 
 [node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=1258087147]
 layout_mode = 2
-text = "Rot <-> Grün"
+text = "Rot <-> Orange"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -660,7 +660,7 @@ size_flags_horizontal = 3
 
 [node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList2/HBoxContainer3" unique_id=62461876]
 layout_mode = 2
-text = "Gelb <-> Orange"
+text = "Gelb <-> Grau"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -674,7 +674,7 @@ size_flags_horizontal = 3
 [node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=755348854]
 layout_mode = 2
 bbcode_enabled = true
-text = "Limette <-> Cyan"
+text = "Limette <-> Grün"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -751,7 +751,7 @@ size_flags_horizontal = 3
 
 [node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=141359970]
 layout_mode = 2
-text = "Blau <-> Lila"
+text = "Blau <-> Grau"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -764,7 +764,7 @@ size_flags_horizontal = 3
 
 [node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer" unique_id=1361556701]
 layout_mode = 2
-text = "Magenta <-> Grau"
+text = "Magenta <-> Grün"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -785,7 +785,7 @@ size_flags_horizontal = 3
 
 [node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=1526051493]
 layout_mode = 2
-text = "Rot <-> Grün"
+text = "Rot <-> Cyan"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -798,7 +798,7 @@ size_flags_horizontal = 3
 
 [node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3/HBoxContainer3" unique_id=239305755]
 layout_mode = 2
-text = "Gelb <-> Orange"
+text = "Gelb <-> Lila"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -812,7 +812,7 @@ size_flags_horizontal = 3
 [node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=390444661]
 layout_mode = 2
 bbcode_enabled = true
-text = "Limette <-> Cyan"
+text = "Limette <-> Orange"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -845,7 +845,7 @@ size_flags_horizontal = 3
 
 [node name="S1" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=96287848]
 layout_mode = 2
-text = "Blau <-> Lila"
+text = "Blau <-> Orange"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -858,7 +858,7 @@ size_flags_horizontal = 3
 
 [node name="S2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer" unique_id=1829003244]
 layout_mode = 2
-text = "Magenta <-> Grau"
+text = "Magenta <-> Cyan"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -879,7 +879,7 @@ size_flags_horizontal = 3
 
 [node name="S3" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=1394828945]
 layout_mode = 2
-text = "Rot <-> Grün"
+text = "Rot <-> Lila"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -892,7 +892,7 @@ size_flags_horizontal = 3
 
 [node name="S4" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList4/HBoxContainer3" unique_id=712535045]
 layout_mode = 2
-text = "Gelb <-> Orange"
+text = "Gelb <-> Grün"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -906,7 +906,7 @@ size_flags_horizontal = 3
 [node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1662943750]
 layout_mode = 2
 bbcode_enabled = true
-text = "Limette <-> Cyan"
+text = "Limette <-> Grau"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1

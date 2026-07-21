@@ -29,7 +29,7 @@ size = Vector2(28, 790.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1tc3"]
 size = Vector2(1166, 21)
 
-[node name="CableGame" type="CanvasLayer" unique_id=39079525]
+[node name="CableGame2" type="CanvasLayer" unique_id=39079525]
 script = ExtResource("1_ruhhq")
 
 [node name="Panel2" type="Panel" parent="." unique_id=608305952]
@@ -134,61 +134,61 @@ shape = SubResource("RectangleShape2D_t1tc3")
 [node name="Left" type="Node2D" parent="Sockets" unique_id=1774481423]
 
 [node name="Rot" parent="Sockets/Left" unique_id=410540247 instance=ExtResource("4_6p5jn")]
-position = Vector2(520, 501)
+position = Vector2(520, 648)
 socket_color = Color(0.9019608, 0.09803922, 0.29411766, 1)
 pair_id = "4"
 
 [node name="Lime" parent="Sockets/Left" unique_id=1221650162 instance=ExtResource("4_6p5jn")]
-position = Vector2(518, 356)
+position = Vector2(524, 810)
 socket_color = Color(0.7490196, 0.9372549, 0.27058825, 1)
 pair_id = "2"
 
 [node name="Gelb" parent="Sockets/Left" unique_id=42840864 instance=ExtResource("4_6p5jn")]
-position = Vector2(511, 200)
+position = Vector2(518, 356)
 socket_color = Color(1, 0.88235295, 0.09803922, 1)
 pair_id = "5"
 
 [node name="magenta" parent="Sockets/Left" unique_id=1106657845 instance=ExtResource("4_6p5jn")]
-position = Vector2(524, 810)
+position = Vector2(520, 501)
 socket_color = Color(0.9411765, 0.19607843, 0.9019608, 1)
 pair_id = "1"
 
 [node name="Blau" parent="Sockets/Left" unique_id=2120209152 instance=ExtResource("4_6p5jn")]
-position = Vector2(520, 648)
+position = Vector2(511, 200)
 socket_color = Color(0.2627451, 0.3882353, 0.84705883, 1)
 pair_id = "3"
 
 [node name="Right" type="Node2D" parent="Sockets" unique_id=1609544262]
 
 [node name="Cyan" parent="Sockets/Right" unique_id=507004883 instance=ExtResource("4_6p5jn")]
-position = Vector2(1357, 669)
-side = 1
-socket_color = Color(0.25882354, 0.83137256, 0.95686275, 1)
-pair_id = "2"
-
-[node name="Grau" parent="Sockets/Right" unique_id=1339555870 instance=ExtResource("4_6p5jn")]
 position = Vector2(1347, 533)
 side = 1
-socket_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
-pair_id = "1"
-
-[node name="Gruen" parent="Sockets/Right" unique_id=1663060115 instance=ExtResource("4_6p5jn")]
-position = Vector2(1362, 813)
-side = 1
-socket_color = Color(0.23529412, 0.7058824, 0.29411766, 1)
+socket_color = Color(0.25882354, 0.83137256, 0.95686275, 1)
 pair_id = "4"
 
-[node name="Orange" parent="Sockets/Right" unique_id=89349907 instance=ExtResource("4_6p5jn")]
-position = Vector2(1353, 220)
+[node name="Grau" parent="Sockets/Right" unique_id=1339555870 instance=ExtResource("4_6p5jn")]
+position = Vector2(1362, 813)
 side = 1
-socket_color = Color(0.9607843, 0.50980395, 0.19215687, 1)
-pair_id = "5"
+socket_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+pair_id = "3"
 
-[node name="Lila" parent="Sockets/Right" unique_id=2083023251 instance=ExtResource("4_6p5jn")]
+[node name="Gruen" parent="Sockets/Right" unique_id=1663060115 instance=ExtResource("4_6p5jn")]
 position = Vector2(1342, 386)
 side = 1
+socket_color = Color(0.23529412, 0.7058824, 0.29411766, 1)
+pair_id = "1"
+
+[node name="Orange" parent="Sockets/Right" unique_id=89349907 instance=ExtResource("4_6p5jn")]
+position = Vector2(1357, 669)
+side = 1
+socket_color = Color(0.9607843, 0.50980395, 0.19215687, 1)
+pair_id = "2"
+
+[node name="Lila" parent="Sockets/Right" unique_id=2083023251 instance=ExtResource("4_6p5jn")]
+position = Vector2(1353, 220)
+side = 1
 socket_color = Color(0.5686275, 0.11764706, 0.7058824, 1)
-pair_id = "3"
+pair_id = "5"
 
 [node name="Cabels" type="Node2D" parent="." unique_id=1846986884]
 
