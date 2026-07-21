@@ -5,6 +5,20 @@
 [ext_resource type="PackedScene" uid="uid://c67744no343jm" path="res://Scenes/space_bg.tscn" id="2_v2j2m"]
 [ext_resource type="Script" uid="uid://bjd1klvxq36xp" path="res://script/ship.gd" id="2_v4325"]
 [ext_resource type="Texture2D" uid="uid://dsey7pnpcari0" path="res://resources/assets/ship_gray.png" id="3_v2j2m"]
+[ext_resource type="Shader" uid="uid://qi1pm0av2525" path="res://shader/shield.gdshader" id="4_shield"]
+[ext_resource type="Texture2D" uid="uid://4ej6rcow070o" path="res://resources/assets/ship_shild.png" id="6_fwcnm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_shield"]
+shader = ExtResource("4_shield")
+shader_parameter/shield_color = Color(0.3, 0.62, 1, 1)
+shader_parameter/base_alpha = 0.35
+shader_parameter/pulse_speed = 0.35
+shader_parameter/pulse_strength = 0.25
+shader_parameter/band_scale = 14.0
+shader_parameter/band_speed = 0.5
+shader_parameter/band_strength = 0.3
+shader_parameter/rim_width = 4.0
+shader_parameter/rim_strength = 2.2
 
 [node name="Ship" type="Node2D" unique_id=1210471280]
 z_index = -1
@@ -25,6 +39,13 @@ texture = ExtResource("2_8aq7e")
 [node name="SpaceBg" parent="." unique_id=1555961878 instance=ExtResource("2_v2j2m")]
 visible = false
 
+[node name="shilds" type="Sprite2D" parent="." unique_id=2113865656]
+z_index = -1
+material = SubResource("ShaderMaterial_shield")
+position = Vector2(-16.99996, -5.499916)
+scale = Vector2(1.0915256, 1.0920732)
+texture = ExtResource("6_fwcnm")
+
 [node name="FierSFX3" parent="." unique_id=1174731421 instance=ExtResource("2_4cq66")]
 z_index = -1
 position = Vector2(-1171, -478)
@@ -41,14 +62,6 @@ scale = Vector2(3, 3)
 animation = &"Fier_ainmation"
 frame = 4
 frame_progress = 0.0
-
-[node name="shilds" type="Sprite2D" parent="." unique_id=2113865656]
-visible = false
-self_modulate = Color(1.2205658, 2.3957987, 3.7389216, 0.49019608)
-z_index = -1
-position = Vector2(0, -4.999964)
-scale = Vector2(1.135, 1.097)
-texture = ExtResource("3_v2j2m")
 
 [node name="Ship" type="Sprite2D" parent="." unique_id=45246556]
 z_index = -1

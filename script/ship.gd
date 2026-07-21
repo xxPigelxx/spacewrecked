@@ -6,15 +6,32 @@ extends Node2D
 
 @export var ship_impact_shake_intecity:= 5
 
+## Fliegt das Schiff gerade? Nur bei Wechsel wird umgeschaltet, damit die
+## Animationen nicht jeden Frame neu angestossen werden.
+var _flying := false
+## Schild sichtbar? Haengt an der Schild-Stoerung — steht die Frequenz wieder
+## richtig, meldet das Schild-Raetsel mark_solved() und der Schirm geht an.
+var _shields_up := false
+
 func _ready() -> void:
 	fier_sfx_1.visible = false
 	fier_sfx_2.visible = false
 	space_bg.visible = false
+	shilds.visible = false
 
-func _physics_process(delta: float) -> void:
-	if _is_journey():
-		start_flight()
-	#_are_shilds_active()
+func _physics_process(_delta: float) -> void:
+	var should_fly := _is_journey() and _has_fuel()
+	if should_fly != _flying:
+		_flying = should_fly
+		if should_fly:
+			start_flight()
+		else:
+			stop_flight()
+
+	var shields_up := not GameState.is_system_broken("schild")
+	if shields_up != _shields_up:
+		_shields_up = shields_up
+		shilds.visible = shields_up
 
 
 func shake_ship():
@@ -38,15 +55,27 @@ func _play_space_animation():
 	space_bg.visible = true
 	space_bg.play_space_bg()
 
+func _stop_fier_animation():
+	fier_sfx_1.stop()
+	fier_sfx_2.stop()
+	fier_sfx_1.visible = false
+	fier_sfx_2.visible = false
+
+func _stop_space_animation():
+	space_bg.stop_space_bg()
+	space_bg.visible = false
+
 func start_flight():
 	_play_fier_animation()
 	_play_space_animation()
 
+## Ohne Treibstoff treibt das Schiff: keine Flammen, kein ziehender Hintergrund.
+func stop_flight():
+	_stop_fier_animation()
+	_stop_space_animation()
+
 func _is_journey() -> bool:
 	return ("phase" in GameState) and GameState.phase == GameState.Phase.JOURNEY
 
-func _are_shilds_active():
-	if GameState.is_system_broken("schild"):
-		shilds.visible = false
-	else:
-		shilds.visible = true
+func _has_fuel() -> bool:
+	return not GameState.is_system_broken("treibstoff")

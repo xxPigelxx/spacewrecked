@@ -116,7 +116,7 @@ region_rect = Rect2(1346, 1049, 102, 129)
 position = Vector2(662, 309)
 category = 1
 phase = 0
-overlay_scene = "uid://mx67lrqv2oom"
+overlay_scene = "uid://chmc3hxljorrv"
 
 [node name="MalfunctionIconsWiers" parent="Interactabels/SetupMalfunctions/WiersStart" unique_id=112730009 instance=ExtResource("17_cmrup")]
 
