@@ -3,17 +3,19 @@ extends CanvasLayer
 @onready var container_sprite: Sprite2D = $Container/ContainerSprite
 @onready var color_rect: ColorRect = $Container/ColorRect
 @onready var liquid_line: AnimatedSprite2D = $Container/ColorRect/LiquidLine
-@onready var recipe_label: RichTextLabel = $RecipePanel/RichTextLabel
-@onready var fulestand: RichTextLabel = $Fulestand
+@onready var fulestand: DyslexiaLabel = $Fulestand
 @onready var error_code: Node2D = $ErrorCode
 
-@export var max_fill: float = 140.0
-@export var recipe: Array[Dictionary] = [{"bottle_name":"Wasser","target_pct":20.0},{"bottle_name":"Xytherium","target_pct":12.0},{"bottle_name":"Hyperion","target_pct":23.0},{"bottle_name":"Vortex","target_pct":25.0} ]
+## Fassungsvermoegen des Behaelters in ml. Nur die Obergrenze — die Rezepte
+## liegen bewusst darunter, der Behaelter muss nicht voll werden.
+@export var max_fill: float = 150.0
+@export var recipe: Array[Dictionary] = [{"bottle_name":"Wasser","target_ml":20.0},{"bottle_name":"Xytherium","target_ml":12.0},{"bottle_name":"Hyperion","target_ml":23.0},{"bottle_name":"Vortex","target_ml":25.0} ]
 
-## Spielraum in Prozentpunkten (±). 10 = ±10%
-@export_range(1.0, 30.0, 0.5, "suffix:%") var leeway: float = 10.0
+## Spielraum in ml (±). 10 = ±10 ml um den Zielwert.
+@export_range(1.0, 30.0, 0.5, "suffix:ml") var leeway: float = 10.0
 
 ## Muss der Behälter komplett voll sein oder reicht die richtige Mischung?
+## Greift nur, wenn kein Rezept gesetzt ist.
 @export var require_full: bool = true
 
 @export var category: String = "treibstoff"
@@ -37,7 +39,7 @@ func _ready() -> void:
 	full_liquid_height = color_rect.size.y
 	bottom_y = color_rect.position.y + color_rect.size.y
 	call_deferred("update_visual")
-	call_deferred("_update_recipe_label")
+	call_deferred("_update_fill_label")
 
 func add_to_container(bottle, amount: float) -> void:
 	if not bottle.is_in_group("Bottle"):
@@ -125,7 +127,7 @@ func update_visual() -> void:
 	else:
 		liquid_line.visible = false
 		liquid_line.stop()
-	_update_recipe_label()
+	_update_fill_label()
 		
 func reset_container() -> void:
 	bottles.clear()
@@ -138,17 +140,17 @@ func reset_container() -> void:
 func is_full() -> bool:
 	return current_fill >= max_fill
 
-## Gibt für jeden Rezept-Eintrag zurück wie weit er vom Ziel entfernt ist (0.0 = perfekt).
-## Gibt ein leeres Array zurück wenn kein Rezept definiert ist.
+## Gibt für jeden Rezept-Eintrag zurück wie weit er vom Ziel entfernt ist (in ml,
+## 0.0 = perfekt). Gibt ein leeres Array zurück wenn kein Rezept definiert ist.
 func get_recipe_deltas() -> Array[float]:
 	if recipe.is_empty():
 		return []
 	var deltas: Array[float] = []
 	for entry in recipe:
 		var bname: String = entry.get("bottle_name", "")
-		var target_pct: float = entry.get("target_pct", 0.0)
-		var actual_pct: float = (poured_per_bottle.get(bname, 0.0) / max_fill) * 100.0
-		deltas.append(abs(actual_pct - target_pct))
+		var target_ml: float = entry.get("target_ml", 0.0)
+		var actual_ml: float = poured_per_bottle.get(bname, 0.0)
+		deltas.append(abs(actual_ml - target_ml))
 	return deltas
 
 func _check_win() -> bool:
@@ -156,11 +158,22 @@ func _check_win() -> bool:
 		return is_full()
 	if current_fill <= 0.0:
 		return false
+	# Jede Zutat wird in absoluten ml geprueft — der Behaelter muss dafuer
+	# nicht voll sein, es zaehlt nur die eingefuellte Menge je Flasche.
+	var targets := {}
 	for entry in recipe:
-		var bname: String = entry.get("bottle_name", "")
-		var target_pct: float = entry.get("target_pct", 0.0)
-		var actual_pct: float = (poured_per_bottle.get(bname, 0.0) / max_fill) * 100.0
-		if abs(actual_pct - target_pct) > leeway:
+		targets[entry.get("bottle_name", "")] = entry.get("target_ml", 0.0)
+
+	# Flaschen, die nicht im Rezept stehen, haben Ziel 0 ml — so faellt auch
+	# eine falsche Zutat auf, statt einfach ignoriert zu werden.
+	for bname in poured_per_bottle:
+		if not targets.has(bname):
+			targets[bname] = 0.0
+
+	for bname in targets:
+		var target_ml: float = targets[bname]
+		var actual_ml: float = poured_per_bottle.get(bname, 0.0)
+		if abs(actual_ml - target_ml) > leeway:
 			return false
 	return true
 
@@ -176,25 +189,10 @@ func _on_win() -> void:
 		malfunction.mark_solved()
 	SceneSwitcher.close_overlay_scene()
 
-## Zeigt Rezept-Ziele und aktuelle Prozentwerte live an.
-func _update_recipe_label() -> void:
-	if not is_instance_valid(recipe_label):
-		return
-	if recipe.is_empty():
-		recipe_label.text = "[b]Kein Rezept gesetzt[/b]"
-		return
-	var lines := "[b]Rezept[/b]\n"
-	for entry in recipe:
-		var bname: String = entry.get("bottle_name", "?")
-		var target: float = entry.get("target_pct", 0.0)
-		var actual: float = (poured_per_bottle.get(bname, 0.0) / max_fill) * 100.0
-		var ok: bool = abs(actual - target) <= leeway
-		var col: String = "#44cc44" if ok else "#cc4444"
-		lines += "[color=%s]%s: %d%% / Ziel %d%% (Spielraum \u00b1%d%%)[/color]\n" % [col, bname, int(actual), int(target), int(leeway)]
-	lines += "\nFuellstand: %d%%" % int((current_fill / max_fill) * 100.0)
-	recipe_label.text = lines
+## Zeigt den aktuellen Fuellstand in ml an.
+func _update_fill_label() -> void:
 	if is_instance_valid(fulestand):
-		fulestand.text = "Fuellstand: %d%%" % int((current_fill / max_fill) * 100.0)
+		fulestand.set_source_text("Fuellstand: %d ml" % int(round(current_fill)))
 
 
 func _on_return_bt_pressed() -> void:

@@ -123,10 +123,11 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_q6b25")
 layout_mode = 2
 theme_override_constants/tab_separation = 22
 tab_alignment = 1
-current_tab = 0
+current_tab = 3
 clip_tabs = false
 
 [node name="Home" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=504548785]
+visible = false
 layout_mode = 2
 script = ExtResource("2_q6b25")
 metadata/_tab_index = 0
@@ -726,7 +727,7 @@ layout_mode = 2
 
 [node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3/ListTitle/Treibstoff/VBox" unique_id=939337749]
 layout_mode = 2
-text = "Der Treibstoff des Schiffes ist eine empfindliche Mischung und darf aus Sicherheitsgründen nicht fertig gemischt gelagert werden. Wird der Vorrat knapp, muss er von Hand nach Rezept gemischt werden. Der Standard-Treibstoff Nyxium besteht aus 23% Hyperion, 12% Xytherium, 25% Vortex und 20% Wasser. Gemischt wird im rechten Turbinenraum. "
+text = "Der Treibstoff des Schiffes ist eine empfindliche Mischung und darf aus Sicherheitsgründen nicht fertig gemischt gelagert werden. Wird der Vorrat knapp, muss er von Hand nach Rezept gemischt werden. Der Standard-Treibstoff Nyxium besteht aus 23 ml Hyperion, 12 ml Xytherium, 25 ml Vortex und 20 ml Wasser. Gemischt wird im rechten Turbinenraum. "
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -1050,7 +1051,7 @@ layout_mode = 2
 
 [node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer/StepList3/ListTitle/Treibstoff/VBox" unique_id=1992640395]
 layout_mode = 2
-text = "Der Treibstoff des Schiffes ist eine empfindliche Mischung und darf aus Sicherheitsgründen nicht fertig gemischt gelagert werden. Wird der Vorrat knapp, muss er von Hand nach Rezept gemischt werden. Der Standard-Treibstoff Nyxium besteht aus 23% Hyperion, 12% Xytherium, 25% Vortex und 20% Wasser. Gemischt wird im rechten Turbinenraum. "
+text = "Der Treibstoff des Schiffes ist eine empfindliche Mischung und darf aus Sicherheitsgründen nicht fertig gemischt gelagert werden. Wird der Vorrat knapp, muss er von Hand nach Rezept gemischt werden. Der Standard-Treibstoff Nyxium besteht aus 23 ml Hyperion, 12 ml Xytherium, 25 ml Vortex und 20 ml Wasser. Gemischt wird im rechten Turbinenraum. "
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -1338,7 +1339,6 @@ script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="Treibstoff" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=283084671]
-visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
 drift_amplitude = 11.0
@@ -1365,7 +1365,7 @@ layout_mode = 2
 
 [node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox" unique_id=1321132059]
 layout_mode = 2
-text = "Der Treibstoff des Schiffes ist eine empfindliche Mischung und darf aus Sicherheitsgründen nicht fertig gemischt gelagert werden. Wird der Vorrat knapp, muss er von Hand nach Rezept gemischt werden. Nutze die rechte Maustaste, um die Flüssigkeit gekonnt zu kippen. Ist zu viel davon im Behälter, halte die Leertaste gedrückt, um sie wieder abzulassen."
+text = "Der Treibstoff des Schiffes ist eine empfindliche Mischung und darf aus Sicherheitsgründen nicht fertig gemischt gelagert werden. Wird der Vorrat knapp, muss er von Hand nach Rezept gemischt werden. Nutze die rechte Maustaste, um die Flüssigkeit gekonnt zu kippen. Ist zu viel davon im Behälter, halte die Q-Taste gedrückt, um sie wieder abzulassen."
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -1402,7 +1402,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="Rezept" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Nyxium" unique_id=1561113157]
 layout_mode = 2
-text = "Fülle zuerst 20% Wasser ein und gib dann 12% Xytherium dazu. Hyperion macht 23% der Mischung aus, Vortex die restlichen 25%. Zeraphine und Oel gehören nicht in dieses Gemisch."
+text = "Fülle zuerst 20 ml Wasser ein und gib dann 12 ml Xytherium dazu. Hyperion macht 23 ml der Mischung aus, Vortex die restlichen 25 ml. Zeraphine und Oel gehören nicht in dieses Gemisch."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1426,7 +1426,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="Rezept" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Aetheron" unique_id=1392044008]
 layout_mode = 2
-text = "Die Basis bilden 35% Xytherium und 30% Zeraphine. Dazu kommen 21% Vortex und 12% Oel. Wasser und Hyperion haben in dieser Mischung nichts verloren."
+text = "Die Basis bilden 35 ml Xytherium und 30 ml Zeraphine. Dazu kommen 21 ml Vortex und 12 ml Oel. Wasser und Hyperion haben in dieser Mischung nichts verloren."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1450,7 +1450,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="Rezept" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Quantrex" unique_id=636048324]
 layout_mode = 2
-text = "Beginne mit 13% Wasser und 15% Xytherium. Den Hauptanteil bilden 31% Zeraphine, dazu kommen 23% Oel. Hyperion und Vortex gehören nicht hinein."
+text = "Beginne mit 13 ml Wasser und 15 ml Xytherium. Den Hauptanteil bilden 31 ml Zeraphine, dazu kommen 23 ml Oel. Hyperion und Vortex gehören nicht hinein."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1474,7 +1474,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="Rezept" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/ScrollContainer/VBoxContainer/Heliox-9" unique_id=802987055]
 layout_mode = 2
-text = "Diese Mischung besteht aus 22% Hyperion und 31% Vortex. Dazu kommen 19% Zeraphine und 27% Oel. Wasser und Xytherium bleiben aussen vor."
+text = "Diese Mischung besteht aus 22 ml Hyperion und 31 ml Vortex. Dazu kommen 19 ml Zeraphine und 27 ml Oel. Wasser und Xytherium bleiben aussen vor."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"

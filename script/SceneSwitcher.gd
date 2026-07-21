@@ -98,7 +98,7 @@ func close_overlay_scene(fade_in := true, fade_out := true) -> void:
 ##   SceneSwitcher.open_overlay_with_data(
 ##     "res://Scenes/Puzzle/mix_Game.tscn",
 ##     {
-##       "recipe": [{"bottle_name":"Wasser","target_pct":50.0}],
+##       "recipe": [{"bottle_name":"Wasser","target_ml":50.0}],
 ##       "leeway": 10.0,
 ##       "require_full": true
 ##     }

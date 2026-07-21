@@ -63,17 +63,18 @@ size = Vector2(245, 273)
 script = ExtResource("1_d4i36")
 recipe = Array[Dictionary]([{
 "bottle_name": "Zeraphine",
-"target_pct": 19.0
+"target_ml": 19.0
 }, {
 "bottle_name": "Oel",
-"target_pct": 27.0
+"target_ml": 27.0
 }, {
 "bottle_name": "Hyperion",
-"target_pct": 22.0
+"target_ml": 22.0
 }, {
 "bottle_name": "Vortex",
-"target_pct": 31.0
+"target_ml": 31.0
 }])
+max_fill = 150.0
 require_full = false
 
 [node name="Panel" type="Panel" parent="." unique_id=1025445036]
@@ -250,19 +251,6 @@ position = Vector2(570, 512)
 bottle_color = Color(0.59, 0, 0.46216664, 1)
 bottle_name = "Vortex"
 bottle_texture = ExtResource("13_nkans")
-
-[node name="RecipePanel" type="VBoxContainer" parent="." unique_id=1966141697]
-visible = false
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 320.0
-offset_bottom = 400.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="RecipePanel" unique_id=1148366719]
-layout_mode = 2
-bbcode_enabled = true
-text = "Rezept:"
-fit_content = true
 
 [node name="Fulestand" type="RichTextLabel" parent="." unique_id=340789079]
 offset_left = 857.0

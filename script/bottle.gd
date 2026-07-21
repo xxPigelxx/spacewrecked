@@ -7,7 +7,7 @@ extends Draggable
 @export var pour_rotation: = -120 
 
 @onready var cpu_particles_2d: CPUParticles2D = $Bottle/CPUParticles2D
-@onready var rich_text_label: RichTextLabel = $RichTextLabel
+@onready var rich_text_label: DyslexiaLabel = $RichTextLabel
 @onready var bottle_sprite: Sprite2D = $Bottle
 
 
@@ -21,7 +21,9 @@ func _set_up():
 	bottle_sprite.texture = bottle_texture
 	bottle_sprite.modulate = bottle_color
 	
-	rich_text_label.text = bottle_name
+	# Ueber set_source_text, nicht .text — sonst kennt das DyslexiaLabel weiter
+	# nur seinen Szenen-Text und setzt den Namen beim naechsten Render zurueck.
+	rich_text_label.set_source_text(bottle_name)
 	rich_text_label.visible = false
 	
 func _while_dragging(delta: float) -> void:
