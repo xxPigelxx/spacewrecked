@@ -10,7 +10,13 @@ func _ready() -> void:
 	credits.visible = false
 	options.visible = false
 	_update_label()
-	
+	GameState.pause_run()
+
+## Laeuft bei jedem Weg aus dem Menue (Zuruck, Esc, Hauptmenue), weil das
+## Overlay dabei freigegeben wird.
+func _exit_tree() -> void:
+	GameState.resume_run()
+
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		_close()	
@@ -26,6 +32,10 @@ func _update_label() ->void:
 
 
 func _on_main_menu_bt_pressed() -> void:
+	# Lauf wird abgebrochen. Ohne reset laeuft der Journey-Loop im Hauptmenue
+	# weiter, das Leben sinkt dort unsichtbar und irgendwann springt das Spiel
+	# von selbst in den Endscreen.
+	GameState.reset_game()
 	SceneSwitcher.close_overlay_and_switch_scene("res://Scenes/Menu/MainMenu.tscn")
 	
 

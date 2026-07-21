@@ -327,6 +327,19 @@ func _apply_stress_from_health() -> void:
 		DyslexiaManager.stress = roundf(raw / STRESS_STEP) * STRESS_STEP
 	DyslexiaManager.accessibility = not dyslexia_enabled
 
+## Haelt Zeit und Lebensverlust an, ohne die Phase zu wechseln.
+##
+## Noetig fuers Pausenmenue: SceneSwitcher friert beim Oeffnen eines Overlays nur
+## die Kinder der aktuellen Szene ein. GameState ist Autoload und haengt direkt
+## am Root — der Journey-Loop hier lief also waehrend der "Pause" munter weiter.
+func pause_run() -> void:
+	if phase == Phase.JOURNEY:
+		set_process(false)
+
+func resume_run() -> void:
+	if phase == Phase.JOURNEY:
+		set_process(true)
+
 func _finish_run() -> void:
 	set_process(false)
 	phase = Phase.RESULTS

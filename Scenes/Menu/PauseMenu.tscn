@@ -12,6 +12,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8um5k"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1189384809]
+layer = 4
 script = ExtResource("1_4uifk")
 
 [node name="MenuBackground" parent="." unique_id=146504196 instance=ExtResource("2_5elmk")]
