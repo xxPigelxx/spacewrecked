@@ -26,9 +26,6 @@ func open(tab_name := "") -> void:
 				tab.current_tab = i
 				break
 
-func set_stress(level: float) -> void:
-	DyslexiaManager.stress = level
-
 func _on_prev() -> void:
 	tab_container.current_tab = max(0, tab_container.current_tab - 1)
 

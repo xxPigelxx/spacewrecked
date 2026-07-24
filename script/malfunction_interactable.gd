@@ -184,4 +184,7 @@ func _action() -> void:
 	if not _active or _solved:
 		return
 	if overlay_scene != "":
-		SceneSwitcher.open_overlay_with_data(overlay_scene, {"malfunction": self}, true, false)
+		# freeze_scene = false: das Schiff laeuft hinter dem Raetsel weiter, damit
+		# Lebensleiste und Herzschlag mit dem echten (weiterlaufenden) Lebensverlust
+		# Schritt halten.
+		SceneSwitcher.open_overlay_with_data(overlay_scene, {"malfunction": self}, true, false, false, false)

@@ -6,6 +6,10 @@ var fade_node: Node = null
 var fade_animation: AnimationPlayer = null
 var _manual_was_visible := false
 var _last_freeze_manual := false
+## Ob das zuletzt geoeffnete Overlay die Szene eingefroren hat. Muss gemerkt
+## werden, damit close() nur auftaut, was open() auch eingefroren hat — sonst
+## bekommen Nodes ein PROCESS_MODE_INHERIT verpasst, das sie nie hatten.
+var _last_freeze_scene := true
 
 var current_scene: Node = null
 var overlay_scene: Node = null
@@ -69,24 +73,32 @@ func _deferred_switch_scene(res_path: String, fade_in := true, fade_out := true)
 # OVERLAY SCENES
 # ----------------------------
 
-func open_overlay_scene(res_path: String, fade_in := true, fade_out := true, freeze_manual := false) -> void:
+## freeze_scene = false laesst die Szene hinter dem Overlay weiterlaufen. Fuer
+## Raetsel gewollt: sie decken den Bildschirm nur teilweise ab, und HUD-Anzeigen
+## wie Lebensleiste und Herzschlag muessen weiterlaufen — Zeit und Lebensverlust
+## laufen in GameState (Autoload) ohnehin weiter und werden vom Freeze nie
+## erfasst. Das Pausenmenue friert weiterhin ein.
+func open_overlay_scene(res_path: String, fade_in := true, fade_out := true, freeze_manual := false, freeze_scene := true) -> void:
 	if is_switching or is_overlay_open:
 		return
-	call_deferred("_deferred_open_overlay_scene", res_path, fade_in, fade_out, freeze_manual)
+	call_deferred("_deferred_open_overlay_scene", res_path, fade_in, fade_out, freeze_manual, freeze_scene)
 
-func _deferred_open_overlay_scene(res_path: String, fade_in := true, fade_out := true, freeze_manual := false) -> void:
+func _deferred_open_overlay_scene(res_path: String, fade_in := true, fade_out := true, freeze_manual := false, freeze_scene := true) -> void:
 	is_switching = true
 
 	if fade_out:
 		await _fade_out_node(current_scene)
 
-	_set_scene_frozen(current_scene, true, freeze_manual)
+	if freeze_scene:
+		_set_scene_frozen(current_scene, true, freeze_manual)
 	_last_freeze_manual = freeze_manual
+	_last_freeze_scene = freeze_scene
 
 	var packed: PackedScene = load(res_path)
 	if packed == null:
 		push_error("Failed to load overlay scene: " + res_path)
-		_set_scene_frozen(current_scene, false)
+		if freeze_scene:
+			_set_scene_frozen(current_scene, false)
 		is_switching = false
 		return
 
@@ -118,24 +130,29 @@ func close_overlay_scene(fade_in := true, fade_out := true) -> void:
 ##       "require_full": true
 ##     }
 ##   )
-func open_overlay_with_data(res_path: String, data: Dictionary, fade_in := true, fade_out := true, freeze_manual := false) -> void:
+## freeze_scene siehe open_overlay_scene(). Raetsel und Tastenfeld oeffnen mit
+## false, damit das Schiff dahinter weiterlebt.
+func open_overlay_with_data(res_path: String, data: Dictionary, fade_in := true, fade_out := true, freeze_manual := false, freeze_scene := true) -> void:
 	if is_switching or is_overlay_open:
 		return
-	call_deferred("_deferred_open_overlay_with_data", res_path, data, fade_in, fade_out, freeze_manual)
+	call_deferred("_deferred_open_overlay_with_data", res_path, data, fade_in, fade_out, freeze_manual, freeze_scene)
 
-func _deferred_open_overlay_with_data(res_path: String, data: Dictionary, fade_in := true, fade_out := true, freeze_manual := false) -> void:
+func _deferred_open_overlay_with_data(res_path: String, data: Dictionary, fade_in := true, fade_out := true, freeze_manual := false, freeze_scene := true) -> void:
 	is_switching = true
 
 	if fade_out:
 		await _fade_out_node(current_scene)
 
-	_set_scene_frozen(current_scene, true, freeze_manual)
+	if freeze_scene:
+		_set_scene_frozen(current_scene, true, freeze_manual)
 	_last_freeze_manual = freeze_manual
+	_last_freeze_scene = freeze_scene
 
 	var packed: PackedScene = load(res_path)
 	if packed == null:
 		push_error("Failed to load overlay scene: " + res_path)
-		_set_scene_frozen(current_scene, false)
+		if freeze_scene:
+			_set_scene_frozen(current_scene, false)
 		is_switching = false
 		return
 
@@ -166,7 +183,8 @@ func _deferred_close_overlay_scene(fade_in := true, fade_out := true) -> void:
 		overlay_scene.queue_free()
 		overlay_scene = null
 
-	_set_scene_frozen(current_scene, false, _last_freeze_manual)
+	if _last_freeze_scene:
+		_set_scene_frozen(current_scene, false, _last_freeze_manual)
 	is_overlay_open = false
 
 	if fade_in:
@@ -258,7 +276,8 @@ func _deferred_close_overlay_and_switch_scene(res_path: String, fade_in := true,
 		overlay_scene.queue_free()
 		overlay_scene = null
 
-	_set_scene_frozen(current_scene, false, _last_freeze_manual)
+	if _last_freeze_scene:
+		_set_scene_frozen(current_scene, false, _last_freeze_manual)
 	is_overlay_open = false
 
 	if current_scene:

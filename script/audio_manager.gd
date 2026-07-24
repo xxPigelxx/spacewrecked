@@ -68,8 +68,6 @@ func play_music(path: String) -> void:
 	is_music_playing = true
 	music_player.play()
 
-	print("Music playing")
-
 
 func stop_music() -> void:
 	music_player.stop()
@@ -83,5 +81,3 @@ func replay_music() -> void:
 	music_player.stream = sfx_cache[curently_playing_song]
 	is_music_playing = true
 	music_player.play()
-
-	print("Music replayed")

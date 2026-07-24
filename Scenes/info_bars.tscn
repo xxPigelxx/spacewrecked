@@ -31,10 +31,12 @@ offset_right = 428.0
 offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 theme_override_constants/separation = 2
 
 [node name="ShipHealthBar" type="TextureProgressBar" parent="VBoxContainer" unique_id=1263452706]
 layout_mode = 2
+mouse_filter = 2
 value = 100.0
 texture_under = ExtResource("1_jiau2")
 texture_progress = ExtResource("2_jrbst")
@@ -63,6 +65,7 @@ stretch_mode = 5
 
 [node name="FlightProgressBar" type="TextureProgressBar" parent="VBoxContainer" unique_id=73876907]
 layout_mode = 2
+mouse_filter = 2
 texture_under = ExtResource("1_jiau2")
 texture_progress = ExtResource("2_jrbst")
 tint_under = Color(0.2520276, 0.25202766, 0.25202763, 1)

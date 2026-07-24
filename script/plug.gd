@@ -26,5 +26,4 @@ func try_connect() -> void:
 			socket.occupied = true
 			cable.add_socket(socket)
 			cable.update_cable()
-			print(name + " connected to " + socket.pair_id)
 			return

@@ -51,7 +51,6 @@ func _try_submit() -> void:
 	if solved:
 		return
 	if numpad_text.text == code or numpad_text.text == cheat_code:
-		print("Puzzle Solved")
 		solved = true
 		_on_win()
 		AudioManager.play_success()

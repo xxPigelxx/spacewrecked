@@ -181,7 +181,6 @@ func _on_win() -> void:
 	if completed: 
 		return
 	completed = true
-	print("WIN! Rezept stimmt!")
 	error_code.lamp_flash()
 	AudioManager.play_success()
 	await get_tree().create_timer(0.75).timeout

@@ -132,6 +132,8 @@ vertical_alignment = 1
 position = Vector2(913, 731)
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=1089851824]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=73643020]
 position = Vector2(407, 435.5)

@@ -13,6 +13,8 @@ size = Vector2(64, 106)
 radius = 54.037025
 
 [node name="Bottle" type="CharacterBody2D" unique_id=2017601924 groups=["Bottle"]]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_u3hbp")
 bottle_color = Color(0.7286924, 0.17109653, 0.42804545, 1)
 

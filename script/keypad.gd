@@ -12,5 +12,5 @@ func _action() -> void:
 	SceneSwitcher.open_overlay_with_data(
 		"res://Scenes/Number_pad.tscn",
 		{"door_id": door_id, "code": code, "max_length": code.length()},
-		true, false
+		true, false, false, false
 	)

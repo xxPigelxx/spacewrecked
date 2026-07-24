@@ -47,7 +47,7 @@ region_rect = Rect2(685, 1118, 48, 96)
 position = Vector2(-1.9999999, 61)
 scale = Vector2(0.29082564, 0.29082564)
 active_color = Color(0.44705883, 0.7607843, 0.30588236, 1)
-disabled_color = Color(1, 1, 1, 1)
+disabled_color = Color(0.95165557, 0.25301215, 0.4191982, 1)
 
 [node name="Bottom" type="StaticBody2D" parent="." unique_id=877071809]
 position = Vector2(0, 128)
@@ -66,7 +66,7 @@ region_rect = Rect2(685, 1118, 48, 96)
 position = Vector2(-3, -57)
 scale = Vector2(0.29082564, 0.29082564)
 active_color = Color(0.4460423, 0.7613163, 0.30623037, 1)
-disabled_color = Color(1, 1, 1, 1)
+disabled_color = Color(1, 0.13, 0.13, 1)
 
 [node name="DoorDetector" type="Area2D" parent="." unique_id=114808699]
 

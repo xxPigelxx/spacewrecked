@@ -170,7 +170,7 @@ position = Vector2(963, 714)
 category = 1
 spawn_time = 368.0
 astoroid = true
-overlay_scene = "uid://mx67lrqv2oom"
+overlay_scene = "res://Scenes/Puzzle/CablePuzzle/CableGame.tscn"
 
 [node name="MalfunctionIconsWiers" parent="Interactabels/JourneyMalfunctions/WiersJourney4" unique_id=320011022 instance=ExtResource("17_cmrup")]
 
@@ -307,7 +307,6 @@ color = Color(0.06, 0.06, 0.06, 1)
 script = ExtResource("16_ktwve")
 
 [node name="hud" type="CanvasLayer" parent="." unique_id=749700066]
-process_mode = 3
 layer = 2
 
 [node name="InfroBars" parent="hud" unique_id=1636553147 instance=ExtResource("24_him8o")]

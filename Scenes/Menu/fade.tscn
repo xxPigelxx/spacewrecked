@@ -55,6 +55,7 @@ _data = {
 }
 
 [node name="Fade" type="CanvasLayer" unique_id=1448562993]
+layer = 128
 
 [node name="Panel" type="Panel" parent="." unique_id=1897503660]
 modulate = Color(0, 0, 0, 1)

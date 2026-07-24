@@ -202,11 +202,12 @@ func _win() -> void:
 		malfunction.mark_solved()
 	error_code.lamp_flash()
 	AudioManager.play_success()
-	_play_win_animation()
 	return_bt.disabled = true
-	
+	_play_win_animation()
 
-## Linie pulsiert x Sekunden, wird dann grün, Start-Button erscheint.
+
+## Linie pulsiert x Sekunden, wird dann grün. Was danach passiert, hängt von der
+## Phase ab — siehe _on_win_animation_done().
 func _play_win_animation() -> void:
 	var tween := create_tween()
 	# Pulsieren: Alpha hin und her, so oft wie in pulse_duration passt
@@ -218,11 +219,18 @@ func _play_win_animation() -> void:
 	# Danach: voll sichtbar, grün einfärben und Button freischalten
 	tween.tween_property(line, "modulate:a", 1.0, 0.0)
 	tween.tween_property(line, "default_color", win_color, 0.4)
-	tween.tween_callback(_enable_start_button)
+	tween.tween_callback(_on_win_animation_done)
 
-func _enable_start_button() -> void:
-	start_button.visible = true
-	start_button.disabled = false
+## Nur im Tutorial gehört zu diesem Puzzle der Schiffsstart: dort ist es die
+## letzte Aufgabe und der Button löst die Journey aus. Während der Journey ist
+## die Navigation eine gewöhnliche Störung — dann schliesst sich das Overlay
+## von selbst, genau wie bei Kabel-, Misch- und Schild-Puzzle.
+func _on_win_animation_done() -> void:
+	if GameState.phase == GameState.Phase.SETUP:
+		start_button.visible = true
+		start_button.disabled = false
+	else:
+		SceneSwitcher.close_overlay_scene()
 
 func _on_return_pressed() -> void:
 	SceneSwitcher.close_overlay_scene()

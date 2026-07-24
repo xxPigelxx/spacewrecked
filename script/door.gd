@@ -14,6 +14,7 @@ var is_animating := false
 @export var code := "1234"
 
 @onready var keypad = $Keypad
+@onready var door_detector: Area2D = $DoorDetector
 
 var top_closed_pos: Vector2
 var bottom_closed_pos: Vector2
@@ -37,12 +38,22 @@ func _ready() -> void:
 	lamp_2.set_active(unlocked)
 	
 func _physics_process(delta: float) -> void:
-	unlocked = GameState.is_door_unlocked(door_id)	
+	unlocked = GameState.is_door_unlocked(door_id)
 	keypad.visible = !unlocked
 	keypad.monitoring = !unlocked
 	lamp.set_active(unlocked)
 	lamp_2.set_active(unlocked)
-	
+
+	# open_door() haengt sonst allein am body_entered-Signal. Wer vor der Tuer
+	# steht und ERST DANN den Code eingibt, loest kein neues Enter-Event mehr aus
+	# — die Tuer bliebe zu, bis er weg- und wieder hingeht. Also hier nachziehen,
+	# solange der Spieler im Bereich steht.
+	if unlocked and not door_open and not is_animating:
+		for body in door_detector.get_overlapping_bodies():
+			if body.is_in_group("player"):
+				open_door()
+				break
+
 func tween_door(top_target: Vector2, bottom_target: Vector2) -> void:
 	is_animating = true
 

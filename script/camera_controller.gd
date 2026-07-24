@@ -12,7 +12,10 @@ extends Camera2D
 var grid_pos: Vector2i = Vector2i(0, 0)
 var moving: bool = false
 func _process(delta):
-	if moving:
+	# Die Kamera liest WASD direkt, nicht ueber den Spieler. Bei offenem Overlay
+	# muss sie deshalb selbst stillhalten — sonst scrollt sie waehrend eines
+	# Raetsels vom Spieler weg und steht nach dem Schliessen woanders.
+	if moving or SceneSwitcher.is_overlay_open:
 		return
 
 	if Input.is_action_just_pressed("move_right"):

@@ -40,15 +40,13 @@ position = Vector2(-1, 40)
 scale = Vector2(1, 2)
 
 [node name="lamp2" parent="Door3/Top" parent_id_path=PackedInt32Array(1869837265, 418532235) index="2" unique_id=411957473]
-position = Vector2(-2, -10)
-scale = Vector2(0.4, 0.4)
+position = Vector2(-1.9999999, -11.999939)
 
 [node name="Door" parent="Door3/Bottom" parent_id_path=PackedInt32Array(1869837265, 877071809) index="1" unique_id=1813377952]
 position = Vector2(-1, -40)
 scale = Vector2(1, 2)
 
 [node name="lamp" parent="Door3/Bottom" parent_id_path=PackedInt32Array(1869837265, 877071809) index="2" unique_id=402077154]
-position = Vector2(-3, 10)
-scale = Vector2(0.4, 0.4)
+position = Vector2(-3, 16.000061)
 
 [editable path="Door3"]

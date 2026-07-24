@@ -35,6 +35,18 @@ func _on_strom_changed() -> void:
 	switch_lights(not GameState.is_system_broken("strom"))
 
 func _physics_process(delta: float) -> void:
+	# Bei offenem Overlay (Raetsel, Tastenfeld) laeuft die Schiffsszene bewusst
+	# weiter — nur der Spieler haelt an. Sonst wuerde er hinter dem Raetsel
+	# herumlaufen, waehrend die Maus dort zieht. Beim Pausenmenue kommen wir hier
+	# gar nicht an: das friert die Szene weiterhin komplett ein.
+	if SceneSwitcher.is_overlay_open:
+		velocity = Vector2.ZERO
+		player_sprite.play("default")
+		player_sprite.speed_scale = 1.0
+		puuftrail.emitting = false
+		_step_t = 0.0
+		return
+
 	var direction := Vector2.ZERO
 	var current_speed :=  speed
 
