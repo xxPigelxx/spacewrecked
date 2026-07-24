@@ -311,9 +311,7 @@ process_mode = 3
 layer = 2
 
 [node name="InfroBars" parent="hud" unique_id=1636553147 instance=ExtResource("24_him8o")]
-mouse_filter = 2
 
 [node name="MalfunctionCounter" parent="hud" unique_id=308412049 instance=ExtResource("25_malfc")]
 offset_right = 124.0
 offset_bottom = 110.0
-mouse_filter = 2

@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://slil33qjlmmi" path="res://question_checkboxees.gd" id="1_1nuy6"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_wuamt"]
-allow_unpress = true
 
 [node name="LikertBar" type="VBoxContainer" unique_id=1095676823]
 offset_right = 362.0
@@ -25,30 +24,13 @@ autowrap_mode = 3
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1727281946]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 100
+theme_override_constants/separation = 50
 
-[node name="0" type="CheckBox" parent="HBoxContainer" unique_id=60814400]
-visible = false
+[node name="EndLabelLinks" type="Label" parent="HBoxContainer" unique_id=1410021109]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_wuamt")
-clip_text = true
-vertical_icon_alignment = 0
-
-[node name="Label" type="Label" parent="HBoxContainer/0" unique_id=1781584676]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -5.0
-offset_top = 27.0
-offset_right = 5.0
-offset_bottom = 50.0
-grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 28
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "stimme gar nicht zu"
+horizontal_alignment = 2
 
 [node name="1" type="CheckBox" parent="HBoxContainer" unique_id=412958366]
 layout_mode = 2
@@ -151,6 +133,11 @@ theme_override_font_sizes/font_size = 28
 text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="EndLabelRechts" type="Label" parent="HBoxContainer" unique_id=358183973]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "stimme voll zu"
 
 [node name="Control" type="Control" parent="." unique_id=1396688337]
 custom_minimum_size = Vector2(0, 30)
