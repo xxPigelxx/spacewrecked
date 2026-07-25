@@ -15,6 +15,7 @@ radius = 122.85718
 size = Vector2(228.57138, 168.57153)
 
 [node name="Cable" type="Node2D" unique_id=1824421684]
+top_level = true
 script = ExtResource("1_jk2p3")
 
 [node name="Line" type="Line2D" parent="." unique_id=57579387]
@@ -27,8 +28,8 @@ antialiased = true
 [node name="PlugA" type="CharacterBody2D" parent="." unique_id=15604452]
 position = Vector2(-93.99999, 0)
 scale = Vector2(0.35, 0.35)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 14
+collision_mask = 14
 platform_on_leave = 2
 script = ExtResource("3_7jj1m")
 offset = 30.0
@@ -39,6 +40,8 @@ shape = SubResource("RectangleShape2D_twshv")
 
 [node name="Area2D" type="Area2D" parent="PlugA" unique_id=45801854]
 scale = Vector2(0.99999976, 0.99999976)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlugA/Area2D" unique_id=45946707]
 shape = SubResource("CircleShape2D_0xqxy")
@@ -70,6 +73,8 @@ shape = SubResource("RectangleShape2D_01rfx")
 
 [node name="Area2D" type="Area2D" parent="PlugB" unique_id=1756628255]
 scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlugB/Area2D" unique_id=1338921780]
 shape = SubResource("CircleShape2D_0xqxy")

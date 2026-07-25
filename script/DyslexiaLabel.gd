@@ -56,6 +56,12 @@ var _missing_mat: ShaderMaterial
 
 func _ready() -> void:
 	bbcode_enabled = true
+	# Reine Anzeige — darf niemals Klicks abfangen. Godot gibt der GUI Vorrang vor
+	# dem Physics-Picking: ein Label mit MOUSE_FILTER_STOP verschluckt den Klick,
+	# bevor die Area2D darunter ihr input_event bekommt. Zusammen mit fit_content
+	# waechst so ein Label unter Stress ueber die halbe Spalte und macht die
+	# Kabelstecker/Flaschen ungreifbar.
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	install_effect(RichTextRotate.new())
 	fit_content = true
 	scroll_active = false

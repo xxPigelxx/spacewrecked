@@ -128,9 +128,9 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 41.0
+offset_left = -148.0
 offset_top = -119.0
-offset_right = -21.0
+offset_right = 168.0
 offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -138,7 +138,6 @@ theme_override_constants/separation = 530
 alignment = 1
 
 [node name="winBt" type="Button" parent="Panel2/Button Array" unique_id=1708794599]
-visible = false
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("3_u1vo2")
@@ -181,9 +180,9 @@ region_enabled = true
 region_rect = Rect2(1828, 1768, 188, 236)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Container" unique_id=1621771806]
+position = Vector2(-2, 56)
 collision_layer = 2
 collision_mask = 2
-position = Vector2(-2, 56)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Container/StaticBody2D" unique_id=995079272]
 position = Vector2(-8, -11.5)

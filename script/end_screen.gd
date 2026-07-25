@@ -11,12 +11,15 @@ extends CanvasLayer
 @onready var time_label: Label = $main/Time
 @onready var completed_label: Label = $main/Compleated
 @onready var questionear: Control = $Questionear
+@onready var quit_bt: Button = $main/HBoxContainer/QuitBt
 
 func _ready() -> void:
 	questionear.visible = true
 	main.visible = true
 	credits.visible = false
 	_fill_results()
+	if OS.has_feature("web"):
+		quit_bt.visible = false
 
 func _fill_results() -> void:
 	var solved: int = GameState.malfunctions_solved

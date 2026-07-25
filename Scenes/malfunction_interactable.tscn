@@ -18,6 +18,7 @@ shape = SubResource("CircleShape2D_wyocf")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=477853358]
 visible = false
+mouse_filter = 2
 offset_left = -61.0
 offset_top = -97.0
 offset_right = 63.0

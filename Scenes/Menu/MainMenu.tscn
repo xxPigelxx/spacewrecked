@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="4_ghw46"]
 [ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="7_xim88"]
 [ext_resource type="PackedScene" uid="uid://bbv8il7ntgvnv" path="res://Scenes/Menu/OptionsPanel.tscn" id="8_ykvod"]
+[ext_resource type="Script" uid="uid://bmfjd1qukktml" path="res://Scenes/Menu/set_journeytime_slider.gd" id="10_0nor7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ykvod"]
 texture = ExtResource("3_8saeu")
@@ -29,7 +30,7 @@ theme = ExtResource("1_tjif3")
 script = ExtResource("1_853f1")
 
 [node name="MenuBackground" parent="." unique_id=146504196 instance=ExtResource("2_8um5k")]
-position = Vector2(-1303, -978)
+position = Vector2(-1280, -1007)
 path_speed = 50
 
 [node name="Logo" type="Sprite2D" parent="." unique_id=410146033]
@@ -95,6 +96,7 @@ text = "Schliessen"
 script = ExtResource("4_ghw46")
 
 [node name="credits" type="VBoxContainer" parent="." unique_id=1975557991]
+visible = false
 layout_mode = 0
 offset_left = -335.0
 offset_top = -56.0
@@ -142,6 +144,7 @@ text = "Back"
 script = ExtResource("4_ghw46")
 
 [node name="StartUpPopUp" type="MarginContainer" parent="." unique_id=403262516]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -237,6 +240,33 @@ disabled = true
 text = "Schliessen"
 script = ExtResource("4_ghw46")
 
+[node name="VSlider" type="VSlider" parent="." unique_id=65191068]
+layout_mode = 0
+offset_left = 509.0
+offset_top = -1.0
+offset_right = 550.0
+offset_bottom = 287.0
+max_value = 480.0
+script = ExtResource("10_0nor7")
+
+[node name="Label" type="Label" parent="VSlider" unique_id=2071321056]
+layout_mode = 0
+offset_left = -100.0
+offset_top = 308.0
+offset_right = 26.0
+offset_bottom = 336.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Journey Time:"
+
+[node name="Label2" type="Label" parent="VSlider" unique_id=101695960]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 308.0
+offset_right = 170.0
+offset_bottom = 336.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Value"
+
 [connection signal="pressed" from="main/StartBt" to="." method="_on_start_bt_pressed"]
 [connection signal="pressed" from="main/HBoxContainer/OptionsBt" to="." method="_on_options_bt_pressed"]
 [connection signal="pressed" from="main/HBoxContainer/CreditsBt" to="." method="_on_credit_bt_pressed"]
@@ -246,3 +276,4 @@ script = ExtResource("4_ghw46")
 [connection signal="pressed" from="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer/DysFrage/JaBt" to="." method="_on_ja_bt_pressed"]
 [connection signal="pressed" from="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer/DysFrage/NeinBt" to="." method="_on_nein_bt_pressed"]
 [connection signal="pressed" from="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer/ClosePopUpBt" to="." method="_on_close_pop_up_bt_pressed"]
+[connection signal="drag_ended" from="VSlider" to="VSlider" method="_on_drag_ended"]

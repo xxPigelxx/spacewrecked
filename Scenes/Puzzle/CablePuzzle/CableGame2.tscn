@@ -213,6 +213,7 @@ socket_color = Color(0.5686275, 0.11764706, 0.7058824, 1)
 pair_id = "1"
 
 [node name="Cabels" type="Node2D" parent="." unique_id=1846986884]
+z_index = 3
 
 [node name="ErrorCode" parent="." unique_id=1170533520 instance=ExtResource("5_16d70")]
 position = Vector2(923, 848)

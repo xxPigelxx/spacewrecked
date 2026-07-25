@@ -51,6 +51,7 @@ z_index = -1
 script = ExtResource("1_p8im8")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1520232719]
+mouse_filter = 2
 offset_left = -2880.0
 offset_top = -1620.0
 offset_right = 2880.0

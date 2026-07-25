@@ -7,8 +7,12 @@ extends Control
 
 @onready var v_box_container: VBoxContainer = $PanelContainer/MarginContainer/ScrollContainer/VBoxContainer
 @onready var submit_button: Button = $SubmitButton
+var skip := true
+
 
 func _physics_process(_delta: float) -> void:
+	if skip:
+		SceneSwitcher.switch_scene("res://Scenes/MainGame.tscn")
 	submit_button.disabled = not are_all_answered()
 
 func get_results() -> Array:

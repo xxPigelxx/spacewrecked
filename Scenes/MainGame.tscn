@@ -25,6 +25,10 @@
 [ext_resource type="PackedScene" uid="uid://paf2ndw45mpb" path="res://resources/assets/icons/malfunction_icons_shild.tscn" id="19_yy0n7"]
 [ext_resource type="PackedScene" uid="uid://djqajkjejcw4" path="res://Scenes/info_bars.tscn" id="24_him8o"]
 [ext_resource type="PackedScene" uid="uid://cm4lf0cnt0ui1" path="res://malfuntion_counter.tscn" id="25_malfc"]
+[ext_resource type="Texture2D" uid="uid://b8wiroky02d5g" path="res://resources/assets/pausebutton.tres" id="26_cmrup"]
+[ext_resource type="Script" uid="uid://dbwg06p3k3qk3" path="res://Scenes/my_texureButton.gd" id="27_cmrup"]
+[ext_resource type="Texture2D" uid="uid://bom4d15qjsfff" path="res://resources/assets/pausebutton_pressed.tres" id="27_yy0n7"]
+[ext_resource type="Texture2D" uid="uid://tcrfy82curmv" path="res://resources/assets/pausebutton_hover.tres" id="28_0wdc3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yr2pg"]
 radius = 71.0
@@ -143,7 +147,7 @@ position = Vector2(662, 773)
 category = 1
 spawn_time = 12.0
 astoroid = true
-overlay_scene = "uid://cvx8uf3sul6n8"
+overlay_scene = "uid://chmc3hxljorrv"
 
 [node name="MalfunctionIconsWiers" parent="Interactabels/JourneyMalfunctions/WiersJourney" unique_id=1050304997 instance=ExtResource("17_cmrup")]
 
@@ -314,3 +318,18 @@ layer = 2
 [node name="MalfunctionCounter" parent="hud" unique_id=308412049 instance=ExtResource("25_malfc")]
 offset_right = 124.0
 offset_bottom = 110.0
+
+[node name="TextureButton" type="TextureButton" parent="hud" unique_id=1666424543]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -151.0
+offset_top = 35.0
+offset_right = -63.0
+offset_bottom = 94.0
+grow_horizontal = 0
+mouse_filter = 1
+texture_normal = ExtResource("26_cmrup")
+texture_pressed = ExtResource("27_yy0n7")
+texture_hover = ExtResource("28_0wdc3")
+script = ExtResource("27_cmrup")

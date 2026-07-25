@@ -18,6 +18,22 @@ var spawned_cables := []
 
 func _ready() -> void:
 	sockets = get_tree().get_nodes_in_group("socket")
+	print("[CABLE] Puzzle offen: %s  phase=%s  stress=%s  sockets=%d" % [
+		scene_file_path, GameState.phase, DyslexiaManager.stress, sockets.size()])
+
+## TEMP DEBUG (Greif-Bug) — laeuft VOR GUI und Physics-Picking. Zeigt fuer jeden
+## Linksklick, ob ein Control im Weg ist und ob das Picking ueberhaupt lebt.
+## Zusammen mit den DBG-Bloecken in Draggable.gd wieder entfernen.
+func _input(event: InputEvent) -> void:
+	if not (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed):
+		return
+	var vp := get_viewport()
+	print("[CLICK] maus=%s hovered=%s picking=%s paused=%s kabel=%d" % [
+		vp.get_mouse_position(),
+		str(vp.gui_get_hovered_control()),
+		vp.physics_object_picking,
+		get_tree().paused,
+		spawned_cables.size()])
 
 func _physics_process(_delta: float) -> void:
 	if not win:
