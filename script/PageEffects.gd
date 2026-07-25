@@ -36,6 +36,8 @@ extends Control
 @export_range(0.0, 5.0, 0.1) var pulse_frequency: float = 0.0
 ## Buchstaben zufällig gedreht. 0 = nie, 100 = alle.
 @export_range(0, 100, 1, "suffix:%") var rotate_percent: float = 0.0
+## Jeder Buchstabe bekommt eine eigene zufällige Größe. 0 = aus, 100 = stark.
+@export_range(0, 100, 1, "suffix:%") var char_size_percent: float = 0.0
 ## Teile der Buchstaben fehlen (wie Dyslexia-Typeface von Daniel Britton). 0 = aus, 100 = stark.
 @export_range(0, 100, 1, "suffix:%") var missing_percent: float = 0.0
 ## Basis-Seed — jedes Label bekommt einen leicht anderen Seed.
@@ -57,7 +59,7 @@ func _apply() -> void:
 			mirror_percent, base_seed + i * 97,
 			scramble_percent, crowd_percent, transpose_percent,
 			shake_amplitude, tornado_radius, tornado_frequency, pulse_frequency,
-			rotate_percent, missing_percent
+			rotate_percent, missing_percent, char_size_percent
 		)
 
 func _get_all_dyslexia_labels(node: Node) -> Array:

@@ -2,7 +2,7 @@
 # Rotation nach dem Corballis-Paradigma: jeder Buchstabe wird um einen ZUFÄLLIGEN
 # Winkel innerhalb ±deg gedreht (deg = Orientierungsbereich θ der Studie).
 # Winkel und Auswahl sind deterministisch (Hash aus seed + Glyphen-Index) —
-# kein Flackern, obwohl der Effekt jeden Frame läuft.
+# kein Flackern, obwohl der Effekt jeden Frame läuft. Siehe TextEffectHelper.
 @tool
 class_name RichTextRotate
 extends RichTextEffect
@@ -12,26 +12,26 @@ var bbcode := "rot"
 var _ts: TextServer = TextServerManager.get_primary_interface()
 
 func _process_custom_fx(char_fx: CharFXTransform) -> bool:
-	var pct: float = float(char_fx.env.get("pct", 0.0))
+	var pct: float = TextEffectHelper.env_float(char_fx, "pct", 0.0)
 	if pct <= 0.0:
 		return true
-	var seed_val: int = int(char_fx.env.get("seed", 0))
-	if _hash01(seed_val, char_fx.relative_index) >= pct:
+	var seed_val: int = TextEffectHelper.env_int(char_fx, "seed", 0)
+	if TextEffectHelper.hash01(seed_val, char_fx.relative_index) >= pct:
 		return true
-	var theta: float = float(char_fx.env.get("deg", 180.0))
-	var angle: float = deg_to_rad((_hash01(seed_val + 7919, char_fx.relative_index) * 2.0 - 1.0) * theta)
+	var theta: float = TextEffectHelper.env_float(char_fx, "deg", 180.0)
+	# seed + 7919: zweiter Hash-Griff aus demselben seed, sonst waeren Auswahl
+	# und Winkel derselben Glyphe aneinander gekoppelt.
+	var angle: float = deg_to_rad(TextEffectHelper.hash_signed(seed_val + 7919, char_fx.relative_index) * theta)
 	# Um die Glyphenmitte drehen, damit die Buchstaben auf der Zeile bleiben:
 	# x aus der echten Glyphenbreite, y ≈ halbe x-Höhe über der Baseline.
-	var adv: Vector2 = _ts.font_get_glyph_advance(char_fx.font, 15, char_fx.glyph_index)
-	var pivot := Vector2(maxf(adv.x * 0.5, 2.0), -5.0)
+	# fs kommt aus dem Tag, weil CharFXTransform die Schriftgroesse nicht kennt —
+	# mit einer fest verdrahteten Groesse saesse der Drehpunkt neben der Mitte,
+	# sobald das Label in einer anderen Groesse rendert.
+	var fs: int = TextEffectHelper.env_int(char_fx, "fs", 16)
+	var adv: Vector2 = _ts.font_get_glyph_advance(char_fx.font, fs, char_fx.glyph_index)
+	var pivot := Vector2(maxf(adv.x * 0.5, 2.0), -float(fs) * 0.33)
 	char_fx.transform = char_fx.transform \
 		.translated_local(pivot) \
 		.rotated_local(angle) \
 		.translated_local(-pivot)
 	return true
-
-
-static func _hash01(s: int, i: int) -> float:
-	var x: int = (s * 73856093) ^ ((i + 1) * 19349663)
-	x = (x ^ (x >> 13)) * 1274126177
-	return float(absi(x) % 100000) / 100000.0

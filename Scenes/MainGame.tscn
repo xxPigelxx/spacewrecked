@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://gokpjx4gjg6h" path="res://resources/assets/animation/smoke/smoke.tscn" id="15_k6vqf"]
 [ext_resource type="PackedScene" uid="uid://cp1xf440pul8v" path="res://resources/assets/animation/smoke/smoke_ani.tscn" id="15_yc6xl"]
 [ext_resource type="Script" uid="uid://7yhscdoqwdut" path="res://script/ship_lights.gd" id="16_ktwve"]
-[ext_resource type="PackedScene" uid="uid://vs526fyd62fp" path="res://Scenes/DyslexiaDebugPanel.tscn" id="16_r5sjn"]
 [ext_resource type="PackedScene" uid="uid://cdbcc2ctfsiag" path="res://resources/assets/icons/malfunction_icons_wiers.tscn" id="17_cmrup"]
 [ext_resource type="PackedScene" uid="uid://dmp5si50jkk1f" path="res://Scenes/malfunction_interactable.tscn" id="17_wn26v"]
 [ext_resource type="PackedScene" uid="uid://dqxb5w7muq4js" path="res://resources/assets/icons/malfunction_icons_mix.tscn" id="18_im1vy"]
@@ -301,9 +300,6 @@ overlay_scene = "uid://c2pjmhdar3m1e"
 [node name="player" parent="." unique_id=1759760143 instance=ExtResource("3_321ql")]
 z_index = 1
 position = Vector2(1187, 530)
-
-[node name="DyslexiaDebugPanel" parent="." unique_id=341496359 instance=ExtResource("16_r5sjn")]
-visible = false
 
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=270877021]
 visible = false

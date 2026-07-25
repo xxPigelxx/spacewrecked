@@ -4,23 +4,12 @@ extends Node
 signal stress_changed(val: float)
 
 ## Stress 0–100: verstärkt alle per-Label eingestellten Effekte.
-## Beeinflusst NICHT das Verschwinden — das ist global_vanish.
 var stress: float = 0.0:
 	set(v):
 		var nv := clampf(v, 0.0, 100.0)
 		if nv == stress:
 			return  # kein Re-Render bei unveraendertem Wert (spart Neu-Parsen)
 		stress = nv
-		stress_changed.emit(stress)
-
-## Globales Verschwinden 0–100: lässt Wörter bei ALLEN Labels verschwinden.
-## Unabhängig von stress und den per-Label Einstellungen.
-var global_vanish: float = 0.0:
-	set(v):
-		var nv := clampf(v, 0.0, 100.0)
-		if nv == global_vanish:
-			return
-		global_vanish = nv
 		stress_changed.emit(stress)
 
 ## true = alle Effekte aus, reiner Text.
@@ -31,7 +20,6 @@ var accessibility: bool = false:
 		accessibility = v
 		stress_changed.emit(stress)
 
-var _labels: Array = []
 var _rng := RandomNumberGenerator.new()  # reuse — no GC pressure
 
 ## Farben der Effekte — frei einstellbar
@@ -45,6 +33,51 @@ var color_pulse      := Color("#ffffff88")
 ## Winkel innerhalb ±θ. Studienstufen: 20, 40, 60, 90, 120, 180.
 var rotate_deg: float = 60.0
 
+## true = gedrehte Buchstaben bekommen zusaetzlichen Vorschub, damit sie einander
+## nicht ueberlappen. Wichtig fuer die Studienvalidität: ohne den Platz misst man
+## nicht mehr den Orientierungsbereich θ, sondern die Überlappung (Crowding).
+var rotate_spacing: bool = true:
+	set(v):
+		if v == rotate_spacing:
+			return
+		rotate_spacing = v
+		stress_changed.emit(stress)
+
+## Maximaler Buchstaben-Versatz beim Crowding in Pixeln (bei crowd_percent = 100
+## und stress = 100). Der aeusserste Buchstabe eines Wortes wandert um bis zu
+## len/2 * diesen Wert nach innen — 1.5 staucht ein 8-Zeichen-Wort um ~12 px.
+var crowd_max_shift: float = 3.5
+
+## Pulsierendes Verschwinden (siehe RichTextVanishPulse.gd).
+## period: Laenge eines vollen Zyklus in Sekunden.
+## hide/fade: Anteil des Zyklus, in dem das Wort ganz weg ist bzw. blendet.
+## Default 6.0 / 0.18 / 0.12 → pro Zyklus ~1.1 s unsichtbar, ~1.4 s im Uebergang,
+## der Rest lesbar. Bewusst deutlich langsamer als der [pulse]-Effekt: das Wort
+## soll lange genug stehen, um es tatsaechlich lesen zu koennen.
+var vanish_period: float = 6.0
+var vanish_hide: float = 0.18
+var vanish_fade: float = 0.12
+
+## Bezugs-Schriftgroesse, falls ein Aufrufer keine eigene durchreicht.
+const DEFAULT_FONT_SIZE := 18
+## Kuerzeste Wortlaenge fuer Scramble/Transposition — darunter gibt es keine
+## Wortmitte, die sich mischen liesse.
+const MIN_SCRAMBLE_LEN := 4
+## Unterhalb dieser Staerke lohnt sich kein Animations-Tag: der Effekt waere
+## unsichtbar und wuerde den BBCode nur aufblaehen.
+const ANIM_THRESHOLD := 0.5
+## Pulse rechnet in Hz statt in Pixeln und braucht deshalb eine eigene Schwelle.
+const PULSE_THRESHOLD := 0.1
+## Phasenversatz pro Wort, damit die Welle nicht ueber die ganze Zeile synchron laeuft.
+const WAVE_PHASE_STEP := 0.41
+## Zittergeschwindigkeit des Shake-Tags.
+const SHAKE_RATE := 20
+## Grenzen der Groessen-Varianz.
+const SIZE_MIN := 8
+const SIZE_MAX := 40
+## Deckel fuer den Fehlende-Teile-Shader — bei 1.0 waere der Buchstabe ganz weg.
+const MISSING_MAX := 0.9
+
 const SWAP_PAIRS: Dictionary = {
 	"b": "d", "d": "b",
 	"p": "q", "q": "p",
@@ -54,23 +87,29 @@ const SWAP_PAIRS: Dictionary = {
 	"2": "5", "5": "2",
 }
 
-func register(lbl: RichTextLabel) -> void:
-	if lbl not in _labels:
-		_labels.append(lbl)
-
-func unregister(lbl: RichTextLabel) -> void:
-	_labels.erase(lbl)
-
+## Loest bei allen Labels ein Neu-Rendern aus. Die Labels haengen selbst am
+## stress_changed-Signal — es braucht deshalb keine Registry auf dieser Seite.
 func refresh_all() -> void:
 	stress_changed.emit(stress)
 
-## Verarbeitet Text mit den gegebenen Effekten.
+
+## Stress-Verstaerker: 0 % Stress = 1.0x, 100 % Stress = 2.0x.
+func _boost() -> float:
+	return 1.0 + (stress / 100.0)
+
+
+## Prozentwert (0–100) als stress-verstaerkte Wahrscheinlichkeit (0.0–1.0).
+func _pct(value: float, boost: float) -> float:
+	return clampf((value / 100.0) * boost, 0.0, 1.0)
+
+## Verarbeitet Text mit den gegebenen Effekten und liefert fertigen BBCode.
 ##
-## stress    → multipliziert swap, drift, size, river, mirror
-## global_vanish → wird ZUSÄTZLICH zu vanish_pct angewendet
+## stress verstaerkt alle Effekte, inklusive des Verschwindens.
 ##
-## vanish_pct: per-Label Einstellung (0–100)
-## swap_pct, drift_amp, etc.: per-Label Einstellungen, werden durch stress verstärkt
+## vanish_pct, swap_pct, drift_amp usw.: per-Label Einstellungen (0–100 bzw. Pixel)
+## base_font_size: Bezugsgroesse der Groessen-Varianz. Die Labels reichen ihre
+##   echte Theme-Schriftgroesse durch, damit die Varianz um die tatsaechliche
+##   Groesse streut statt um einen fest verdrahteten Wert.
 func process_text(
 	raw: String,
 	rng_seed: int,
@@ -88,16 +127,15 @@ func process_text(
 	tornado_radius: float = 0.0,
 	tornado_freq: float = 1.0,
 	pulse_freq: float = 0.0,
-	rotate_pct: float = 0.0
+	rotate_pct: float = 0.0,
+	char_size_pct: float = 0.0,
+	base_font_size: int = DEFAULT_FONT_SIZE
 ) -> String:
 	if accessibility or raw.is_empty():
 		return raw
 
-	# stress boost: 0% stress = 1.0x, 100% stress = 2.0x
-	var boost: float = 1.0 + (stress / 100.0)
-
-	var rng := _rng
-	rng.seed = rng_seed
+	var boost := _boost()
+	_rng.seed = rng_seed
 
 	# BBCode aus dem Rohtext entfernen damit generierte Tags nicht verschachteln
 	var clean_raw := _strip_bbcode(raw)
@@ -106,83 +144,120 @@ func process_text(
 
 	for i in words.size():
 		var w: String = words[i]
+		# Sichtbare Zeichenzahl. Keine der Zeichen-Operationen unten aendert sie:
+		# Spiegeln, Scramble und Transposition sind Permutationen, und Swap ersetzt
+		# ein Zeichen durch genau eines. Sie steht damit hier schon fest und muss
+		# spaeter nicht muehsam aus dem erzeugten BBCode zurueckgerechnet werden.
+		var glyph_count: int = w.length()
 
-		# Verschwinden = max(per-Label, global_vanish) — stress beeinflusst das NICHT
-		var v: float = clampf(maxf(vanish_pct, global_vanish) / 100.0, 0.0, 1.0)
-		if rng.randf() < v:
-			out.append("[color=#00000000]%s[/color]" % " ".repeat(w.length()))
-			continue
+		# Verschwinden — stress-verstaerkt: mehr Stress = mehr Woerter gleichzeitig weg.
+		#
+		# Hier wird NICHT ausgewuerfelt, WELCHE Woerter es trifft — nur der Anteil.
+		# Die Auswahl faellt pro Zyklus im Effekt (RichTextVanishPulse), damit nicht
+		# bis zum naechsten Re-Render immer dieselben Woerter blinken.
+		var v := _pct(vanish_pct, boost)
+
+		# ---- Zeichen-Ebene ----------------------------------------------------
+		# Diese Effekte spiegeln/mischen/zerschneiden den String zeichenweise und
+		# muessen deshalb auf REINEM Text laufen. Kaeme hier schon BBCode vor,
+		# wuerden sie die Tags selbst mitmischen und als Klartext sichtbar machen.
+		# Farbe wird gemerkt und erst unten als Wrapper gesetzt.
+		var word_color := Color(0, 0, 0, 0)
 
 		# Spiegeln — Satzzeichen am Ende bleiben stehen
-		var mp: float = clampf((mirror_pct / 100.0) * boost, 0.0, 1.0)
-		if rng.randf() < mp:
+		if _rng.randf() < _pct(mirror_pct, boost):
 			w = _mirror_word(w)
 
-		# Buchstaben tauschen — durch stress verstärkt
-		var sp: float = clampf((swap_pct / 100.0) * boost, 0.0, 1.0)
+		# Buchstaben-Scramble (Wortmitte mischen) — durch stress verstärkt
+		var sc := _pct(scramble_pct, boost)
+		if sc > 0.0 and glyph_count >= MIN_SCRAMBLE_LEN and _rng.randf() < sc:
+			w = _scramble_middle(w, _rng)
+			word_color = color_scramble
+
+		# Silben-Transposition — durch stress verstärkt
+		if _rng.randf() < _pct(transpose_pct, boost) and glyph_count >= MIN_SCRAMBLE_LEN:
+			w = _transpose_syllable(w, _rng)
+			word_color = color_transpose
+
+		# Buchstaben tauschen — durch stress verstärkt.
+		# LETZTE Zeichen-Operation: faerbt einzelne Buchstaben inline ein und
+		# hinterlaesst damit BBCode, an dem Scramble/Transposition scheitern wuerden.
+		var sp := _pct(swap_pct, boost)
 		if sp > 0.0:
-			w = _swap_letters(w, sp, rng)
+			w = _swap_letters(w, sp, _rng)
+
+		# ---- Ab hier nur noch umschliessende Tags ------------------------------
+		if word_color.a > 0.0:
+			w = "[color=%s]%s[/color]" % [word_color.to_html(), w]
 
 		# Größen-Variation — durch stress verstärkt
 		var sv: float = size_var * boost
-		if sv > 0.5:
-			var delta: int = int(rng.randf_range(-sv, sv))
-			var sz: int = clampi(15 + delta, 8, 40)
+		if sv > ANIM_THRESHOLD:
+			var delta: int = int(_rng.randf_range(-sv, sv))
+			var sz: int = clampi(base_font_size + delta, SIZE_MIN, SIZE_MAX)
 			w = "[font_size=%d]%s[/font_size]" % [sz, w]
 
-		# Buchstaben-Scramble (Wortmitte mischen) — durch stress verstärkt
-		var sc: float = clampf((scramble_pct / 100.0) * boost, 0.0, 1.0)
-		if sc > 0.0:
-			w = _scramble_middle(w, sc, rng)
-
-		# Silben-Transposition — durch stress verstärkt
-		var tp: float = clampf((transpose_pct / 100.0) * boost, 0.0, 1.0)
-		if rng.randf() < tp and w.length() >= 4:
-			w = _transpose_syllable(w, rng)
+		# Zufaellige Groesse pro Buchstabe — durch stress verstärkt. Anders als die
+		# Groessen-Variation darueber aendert das nur die Darstellung, nicht das
+		# Layout; welcher Buchstabe wie klein wird, entscheidet der Effekt
+		# deterministisch aus dem seed (siehe RichTextCharSizeVar.gd).
+		var cs := _pct(char_size_pct, boost)
+		if cs > 0.0:
+			w = "[charsize amt=%.2f fs=%d seed=%d]%s[/charsize]" % [cs, base_font_size, _rng.randi_range(0, 999999), w]
 
 		# Visuelles Crowding (Buchstaben zusammenrücken) — durch stress verstärkt
-		var cp: float = clampf((crowd_pct / 100.0) * boost, 0.0, 1.0)
+		var cp := _pct(crowd_pct, boost)
 		if cp > 0.0:
-			w = _apply_crowding(w, cp, rng)
+			w = _apply_crowding(w, cp, _rng, glyph_count)
 
 		# Buchstaben-Rotation — durch stress verstärkt.
 		# Welche Buchstaben sich drehen entscheidet der RichTextRotate-Effekt
-		# deterministisch aus dem seed (siehe RichTextRotate.gd).
-		var rp: float = clampf((rotate_pct / 100.0) * boost, 0.0, 1.0)
+		# deterministisch aus dem seed (siehe RichTextRotate.gd). fs reicht die
+		# Schriftgroesse durch, weil CharFXTransform sie selbst nicht kennt.
+		var rp := _pct(rotate_pct, boost)
 		if rp > 0.0:
-			w = "[rot pct=%.2f deg=%.0f seed=%d]%s[/rot]" % [rp, rotate_deg, rng.randi_range(0, 999999), w]
+			w = "[rot pct=%.2f deg=%.0f fs=%d seed=%d]%s[/rot]" % [rp, rotate_deg, base_font_size, _rng.randi_range(0, 999999), w]
 
 		# Drift / Welle — durch stress verstärkt
 		var da: float = drift_amp * boost
-		if da > 0.5:
-			var phase: float = fmod(float(i) * 0.41, 1.0)
+		if da > ANIM_THRESHOLD:
+			var phase: float = fmod(float(i) * WAVE_PHASE_STEP, 1.0)
 			w = "[wave amp=%.1f freq=%.2f]%s[/wave]" % [da, drift_freq + phase, w]
 
 		# Shake — durch stress verstärkt
 		var sa: float = shake_amp * boost
-		if sa > 0.5:
-			w = "[shake rate=20 level=%.1f]%s[/shake]" % [sa, w]
+		if sa > ANIM_THRESHOLD:
+			w = "[shake rate=%d level=%.1f]%s[/shake]" % [SHAKE_RATE, sa, w]
 
 		# Tornado — durch stress verstärkt
 		var torn_r: float = tornado_radius * boost
-		if torn_r > 0.5:
+		if torn_r > ANIM_THRESHOLD:
 			w = "[tornado radius=%.1f freq=%.2f]%s[/tornado]" % [torn_r, tornado_freq, w]
 
 		# Pulse — durch stress verstärkt
 		var pf: float = pulse_freq * boost
-		if pf > 0.1:
+		if pf > PULSE_THRESHOLD:
 			w = "[pulse freq=%.2f color=%s]%s[/pulse]" % [pf, color_pulse.to_html(), w]
+
+		# Pulsierendes Verschwinden ganz aussen, damit es die Deckkraft aller
+		# inneren Effekte moduliert. Der seed kommt deterministisch aus rng_seed +
+		# Wortindex statt aus _rng: so bleibt der erzeugte String ueber Re-Renders
+		# identisch und die laufende Animation springt nicht auf Phase 0 zurueck
+		# (siehe _set_rendered in DyslexiaLabel).
+		if v > 0.0:
+			w = "[vanish pct=%.2f period=%.2f hide=%.2f fade=%.2f seed=%d]%s[/vanish]" % [
+				v, vanish_period, vanish_hide, vanish_fade, rng_seed + i * 7919, w]
 
 		out.append(w)
 
 	# River Spacing — durch stress verstärkt
 	var rs: float = river_gap * boost
-	if rs > 0.5:
+	if rs > ANIM_THRESHOLD:
 		var parts: PackedStringArray = []
 		for i in out.size():
 			parts.append(out[i])
 			if i < out.size() - 1:
-				var extra: int = int(rng.randf() * rs)
+				var extra: int = int(_rng.randf() * rs)
 				if extra > 0:
 					parts.append(" ".repeat(extra))
 		return "".join(parts)
@@ -197,8 +272,32 @@ func process_text(
 func effective_missing(missing_pct: float) -> float:
 	if accessibility:
 		return 0.0
-	var boost: float = 1.0 + (stress / 100.0)
-	return clampf((missing_pct / 100.0) * boost, 0.0, 0.9)
+	# Kein _pct(): der Deckel liegt hier bei MISSING_MAX statt bei 1.0.
+	return clampf((missing_pct / 100.0) * _boost(), 0.0, MISSING_MAX)
+
+
+## Zusaetzlicher Vorschub pro Glyphe (in Pixeln), damit gedrehte Buchstaben
+## einander nicht ueberlappen. Kein BBCode — DyslexiaLabel setzt damit eine
+## FontVariation als Theme-Override, denn nur das Layout kann Platz schaffen;
+## ein RichTextEffect verschiebt Glyphen, ohne ihre Breite zu aendern.
+##
+## Der Wert haengt bewusst NUR an rotate_deg, nicht an rotate_pct: sobald ein
+## einziger Buchstabe gedreht werden kann, braucht er den vollen Platz. Und ein
+## gleichmaessiger Abstand haelt die Laufweite ueber alle Stufen konstant —
+## sonst wuerde der Abstand mit θ mitwandern und waere ein zweiter Störfaktor.
+func rotation_glyph_spacing(font: Font, font_size: int, rotate_pct: float) -> int:
+	if accessibility or not rotate_spacing or rotate_pct <= 0.0 or font == null:
+		return 0
+	var w: float = font.get_string_size("m", HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x
+	var h: float = font.get_ascent(font_size)
+	if w <= 0.0:
+		return 0
+	# Breite einer um t gedrehten Box: w*cos(t) + h*sin(t). Das Maximum liegt bei
+	# atan(h/w) — daraeber wird die Box wieder schmaler (bei 90° ist sie nur h breit).
+	var worst: float = atan2(h, w)
+	var t: float = minf(deg_to_rad(rotate_deg), worst)
+	var needed: float = w * cos(t) + h * sin(t)
+	return int(ceil(maxf(needed - w, 0.0)))
 
 
 func _swap_letters(word: String, chance: float, rng: RandomNumberGenerator) -> String:
@@ -234,9 +333,9 @@ func _mirror_word(word: String) -> String:
 
 
 ## Mitte des Wortes zufällig durchmischen, Anfang+Ende bleiben.
-func _scramble_middle(word: String, chance: float, rng: RandomNumberGenerator) -> String:
-	if word.length() < 4 or rng.randf() >= chance:
-		return word
+## Erwartet reinen Text und liefert reinen Text — die Einfaerbung setzt
+## process_text() als Wrapper, damit hier keine BBCode-Tags mitgemischt werden.
+func _scramble_middle(word: String, rng: RandomNumberGenerator) -> String:
 	var first := word[0]
 	var last  := word[word.length() - 1]
 	var middle_chars: Array = []
@@ -244,34 +343,38 @@ func _scramble_middle(word: String, chance: float, rng: RandomNumberGenerator) -
 		middle_chars.append(word[i])
 	for i in range(middle_chars.size() - 1, 0, -1):
 		var j: int = rng.randi_range(0, i)
-		var tmp = middle_chars[i]
+		var tmp: String = middle_chars[i]
 		middle_chars[i] = middle_chars[j]
 		middle_chars[j] = tmp
-	var scrambled := first + "".join(middle_chars) + last
-	return "[color=%s]%s[/color]" % [color_scramble.to_html(), scrambled]
+	return first + "".join(middle_chars) + last
 
 
 ## Verschiebt zwei Zeichenblöcke (Pseudo-Silben) im Wort.
+## Reiner Text rein, reiner Text raus — siehe _scramble_middle().
 func _transpose_syllable(word: String, rng: RandomNumberGenerator) -> String:
 	var n := word.length()
 	var cut: int = rng.randi_range(1, n - 2)
 	var part_a := word.substr(0, cut)
 	var part_b := word.substr(cut)
-	return "[color=%s]%s%s[/color]" % [color_transpose.to_html(), part_b, part_a]
+	return part_b + part_a
 
 
-## Visuelles Crowding: negativer Buchstabenabstand via font_spacing.
-func _apply_crowding(word: String, chance: float, rng: RandomNumberGenerator) -> String:
-	if rng.randf() >= chance * 0.6:
+## Visuelles Crowding: Buchstaben ruecken zur Wortmitte zusammen.
+## Wie stark verschoben wird entscheidet der RichTextCrowd-Effekt aus amt/len/seed
+## (siehe RichTextCrowd.gd) — hier wird nur ausgewuerfelt, WELCHE Woerter es trifft.
+##
+## glyph_count kommt von aussen: word enthaelt hier schon BBCode aus Swap/Size,
+## seine .length() waere also nicht die sichtbare Zeichenzahl.
+func _apply_crowding(word: String, chance: float, rng: RandomNumberGenerator, glyph_count: int) -> String:
+	if rng.randf() >= chance or glyph_count < 2:
 		return word
-	var spacing: int = rng.randi_range(-4, -1)
-	return "[font_size=15][outline_size=0]%s[/outline_size][/font_size]" % word if spacing == 0 else \
-		"[p spacing_character=%d]%s[/p]" % [spacing, word]
+	var amt: float = chance * crowd_max_shift
+	return "[crowd amt=%.2f len=%d seed=%d]%s[/crowd]" % [amt, glyph_count, rng.randi_range(0, 999999), word]
 
 
 ## Entfernt BBCode-Tags aus einem String.
 func _strip_bbcode(text: String) -> String:
-	var result := ""
+	var parts: PackedStringArray = []
 	var inside := false
 	for i in text.length():
 		var c := text[i]
@@ -280,5 +383,5 @@ func _strip_bbcode(text: String) -> String:
 		elif c == "]":
 			inside = false
 		elif not inside:
-			result += c
-	return result
+			parts.append(c)
+	return "".join(parts)
