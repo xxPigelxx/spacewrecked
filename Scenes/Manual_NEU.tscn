@@ -123,10 +123,11 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_q6b25")
 layout_mode = 2
 theme_override_constants/tab_separation = 22
 tab_alignment = 1
-current_tab = 0
+current_tab = 4
 clip_tabs = false
 
 [node name="Home" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=504548785]
+visible = false
 layout_mode = 2
 script = ExtResource("2_q6b25")
 metadata/_tab_index = 0
@@ -139,8 +140,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_q6b25")
-transpose_percent = 43.0
-shake_amplitude = 4.5
+crowd_percent = 66.0
+char_size_percent = 66.0
 
 [node name="Title2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Home/VBoxContainer" unique_id=261977650]
 layout_mode = 2
@@ -434,9 +435,8 @@ size_flags_horizontal = 3
 visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
-swap_percent = 50.0
-tornado_radius = 6.0
-tornado_frequency = 2.5
+river_spacing = 8.0
+missing_percent = 30.0
 metadata/_tab_index = 1
 
 [node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie" unique_id=1877905917]
@@ -872,9 +872,8 @@ script = ExtResource("2_puywe")
 visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
-drift_amplitude = 11.0
-drift_frequency = 3.0
-scramble_percent = 50.0
+vanish_percent = 42.0
+font_percent = 100.0
 metadata/_tab_index = 2
 
 [node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation" unique_id=1185844001]
@@ -1253,9 +1252,8 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
-drift_amplitude = 11.0
-drift_frequency = 3.0
-scramble_percent = 50.0
+transpose_percent = 66.0
+shake_amplitude = 6.5
 metadata/_tab_index = 3
 
 [node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff" unique_id=1283369308]
@@ -1392,12 +1390,10 @@ script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="Schild" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=1133952086]
-visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
-swap_percent = 25.0
-river_spacing = 12.0
-mirror_percent = 25.0
+rotate_percent = 60.0
+phonetic_percent = 100.0
 metadata/_tab_index = 4
 
 [node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Schild" unique_id=2042387216]
@@ -1408,7 +1404,7 @@ anchor_bottom = 1.0
 [node name="PageTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox" unique_id=685906067]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 38
-text = "Schild — Frequenz-Kalibrierung"
+text = "Schild Kalibrierung"
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
@@ -1604,9 +1600,9 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
-swap_percent = 43.0
-size_variation = 5.5
-shake_amplitude = 6.0
+swap_percent = 50.0
+tornado_radius = 9.5
+tornado_frequency = 3.1
 metadata/_tab_index = 5
 
 [node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Codes" unique_id=1241451950]

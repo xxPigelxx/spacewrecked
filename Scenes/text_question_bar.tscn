@@ -24,14 +24,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Edit" type="TextEdit" parent="." unique_id=1264294314]
+[node name="HSlider" type="HSlider" parent="." unique_id=1356801128]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 32
-placeholder_text = "Antwort     "
-wrap_mode = 1
-scroll_fit_content_height = true
-caret_type = 1
+max_value = 20.0
 
 [node name="Control" type="Control" parent="." unique_id=1490653378]
 custom_minimum_size = Vector2(0, 30)

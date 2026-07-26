@@ -104,7 +104,7 @@ const WAVE_PHASE_STEP := 0.41
 const SHAKE_RATE := 20
 ## Grenzen der Groessen-Varianz.
 const SIZE_MIN := 6
-const SIZE_MAX := 40
+const SIZE_MAX := 68
 ## Deckel fuer den Fehlende-Teile-Shader — bei 1.0 waere der Buchstabe ganz weg.
 const MISSING_MAX := 0.9
 

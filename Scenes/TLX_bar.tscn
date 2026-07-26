@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cxyoybao4uyt"]
+
+[ext_resource type="Script" uid="uid://i0ktk3rp1tip" path="res://Scenes/tlx_bar.gd" id="1_0mqmx"]
+
+[node name="TLXBar" type="VBoxContainer" unique_id=558521449]
+offset_right = 750.0
+offset_bottom = 167.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+alignment = 1
+script = ExtResource("1_0mqmx")
+
+[node name="Label" type="Label" parent="." unique_id=1581075435]
+custom_minimum_size = Vector2(750, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Frage"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=77927936]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=491002673]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "niedrig"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="HBoxContainer" unique_id=1228985250]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 20.0
+
+[node name="Label" type="Label" parent="HBoxContainer/HSlider" unique_id=1905380100]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 39.0
+offset_right = 20.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Label2" type="Label" parent="HBoxContainer" unique_id=2041291366]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "hoch"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="." unique_id=1490653378]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[connection signal="value_changed" from="HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
