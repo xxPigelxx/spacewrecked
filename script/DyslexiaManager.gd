@@ -20,13 +20,43 @@ var accessibility: bool = false:
 		accessibility = v
 		stress_changed.emit(stress)
 
+## true = manipulierte Woerter/Buchstaben werden farblich markiert (Swap,
+## Scramble, Transposition). false = dieselben Verzerrungen wirken unmarkiert im
+## Fliesstext. Schaltet NUR die Farbe, nicht WELCHE Zeichen getroffen werden —
+## der RNG-Verbrauch bleibt gleich, damit "mit" und "ohne" Farbe A/B-vergleichbar
+## sind. Test-Schalter fuer die Frage, ob die Markierung "zu eindeutig" macht.
+var mark_effects: bool = false:
+	set(v):	
+		if v == mark_effects:
+			return
+		mark_effects = v
+		stress_changed.emit(stress)
+
 var _rng := RandomNumberGenerator.new()  # reuse — no GC pressure
+var _font_rng := RandomNumberGenerator.new()  # eigener Strom fuer die Font-Wahl
 
 ## Farben der Effekte — frei einstellbar
 var color_swap       := Color("#8b0000")
 var color_scramble   := Color("#4a0e8f")
 var color_transpose  := Color("#005f5f")
 var color_pulse      := Color("#ffffff88")
+
+## Font-pro-Wort-Effekt (Anti-WCAG: Konsistenz / WCAG 3.2 "Predictable").
+## Simuliert Instabilitaet der Buchstaben-Identitaet (perzeptuelles Font-Tuning
+## wird staendig zurueckgeworfen). Die STAERKE ist per-Label (font_percent, wie
+## rotate_percent & Co.) — hier steht nur die gemeinsame Config:
+## FONT_POOL[0] = Anker (Theme-Font Share Tech) und wird nie als Wrapper gesetzt;
+## font_size_scale normalisiert die x-Hoehe pro Font (visuell in der Testszene
+## feinjustieren) — 1.0 = keine Skalierung.
+const FONT_POOL: Array[String] = [
+	"res://resources/fonts/Share_Tech/ShareTech-Regular.ttf",              # 0 Anker
+	"res://resources/fonts/Source_Sans_3/SourceSans3-VariableFont_wght.ttf",
+	"res://resources/fonts/Nunito/Nunito-VariableFont_wght.ttf",
+	"res://resources/fonts/PT_Serif/PTSerif-Regular.ttf",
+	"res://resources/fonts/Bitter/Bitter-VariableFont_wght.ttf",
+	"res://resources/fonts/Work_Sans/WorkSans-VariableFont_wght.ttf",
+]
+var font_size_scale: Array[float] = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
 
 ## Orientierungsbereich ±θ der Buchstaben-Rotation (Grad), wie im
 ## Corballis-Lesexperiment: jeder Buchstabe bekommt einen zufälligen
@@ -73,7 +103,7 @@ const WAVE_PHASE_STEP := 0.41
 ## Zittergeschwindigkeit des Shake-Tags.
 const SHAKE_RATE := 20
 ## Grenzen der Groessen-Varianz.
-const SIZE_MIN := 8
+const SIZE_MIN := 6
 const SIZE_MAX := 40
 ## Deckel fuer den Fehlende-Teile-Shader — bei 1.0 waere der Buchstabe ganz weg.
 const MISSING_MAX := 0.9
@@ -87,6 +117,19 @@ const SWAP_PAIRS: Dictionary = {
 	"2": "5", "5": "2",
 }
 
+## Regeln der lautbasierten Umschrift (_phoneticize). Reihenfolge zählt:
+## Mehrzeichen-/Digraphen zuerst, dann Doppelkonsonanten, dann Einzellaute.
+## Alle Regeln sind lauttreu (w=/v/, v=/f/, z=/ts/ …), damit das Wort durch
+## Vorsprechen recoverbar bleibt.
+const PHON_RULES: Array = [
+	["chs", "x"], ["ph", "f"], ["qu", "kw"], ["ck", "k"],
+	["äu", "oi"], ["eu", "oi"], ["ei", "ai"], ["ie", "i"],
+	["tz", "ts"], ["ß", "s"],
+	["mm", "m"], ["nn", "n"], ["ss", "s"], ["ll", "l"], ["tt", "t"],
+	["ff", "f"], ["pp", "p"], ["rr", "r"], ["dd", "d"], ["bb", "b"], ["gg", "g"],
+	["v", "f"], ["w", "v"], ["z", "ts"],
+]
+
 ## Loest bei allen Labels ein Neu-Rendern aus. Die Labels haengen selbst am
 ## stress_changed-Signal — es braucht deshalb keine Registry auf dieser Seite.
 func refresh_all() -> void:
@@ -96,6 +139,37 @@ func refresh_all() -> void:
 ## Stress-Verstaerker: 0 % Stress = 1.0x, 100 % Stress = 2.0x.
 func _boost() -> float:
 	return 1.0 + (stress / 100.0)
+
+
+## Deterministische Font-Wahl fuer ein Wort. Liefert den Pool-Index; 0 = Anker
+## (kein Wechsel). Eigener RNG-Seed pro Wort, unabhaengig von _rng.
+func _pick_font(fseed: int, chance: float) -> int:
+	_font_rng.seed = fseed
+	if _font_rng.randf() >= chance:
+		return 0
+	return _font_rng.randi_range(1, FONT_POOL.size() - 1)
+
+
+## Lautbasierte Umschrift eines Wortes (siehe PHON_RULES). Regelbasiert und damit
+## deterministisch: dasselbe Wort wird immer gleich umgeschrieben, innerhalb einer
+## Seite also konsistent (lesbar-lernbar). Grossschreibung des ersten Buchstabens
+## bleibt erhalten, Satzzeichen laufen unveraendert durch.
+func _phoneticize(word: String) -> String:
+	if word.strip_edges().is_empty():
+		return word
+	var first := word[0]
+	var had_upper := first != first.to_lower() and first == first.to_upper()
+	var s := word.to_lower()
+	# Wortanfang: st-/sp- werden gesprochen wie scht-/schp-.
+	if s.begins_with("st"):
+		s = "scht" + s.substr(2)
+	elif s.begins_with("sp"):
+		s = "schp" + s.substr(2)
+	for rule in PHON_RULES:
+		s = s.replace(rule[0], rule[1])
+	if had_upper:
+		s = s.substr(0, 1).to_upper() + s.substr(1)
+	return s
 
 
 ## Prozentwert (0–100) als stress-verstaerkte Wahrscheinlichkeit (0.0–1.0).
@@ -129,6 +203,8 @@ func process_text(
 	pulse_freq: float = 0.0,
 	rotate_pct: float = 0.0,
 	char_size_pct: float = 0.0,
+	font_pct: float = 0.0,
+	phonetic_pct: float = 0.0,
 	base_font_size: int = DEFAULT_FONT_SIZE
 ) -> String:
 	if accessibility or raw.is_empty():
@@ -144,6 +220,14 @@ func process_text(
 
 	for i in words.size():
 		var w: String = words[i]
+
+		# Lautbasierte Umschrift (phonologischer Effekt) — ganz am Anfang auf reinem
+		# Text. Blockiert die Ganzwort-Erkennung und zwingt den Leser auf die
+		# langsame, serielle Laut-für-Laut-Route: das Erleben des dyslektischen
+		# Dekodierens (Snowling/Hulme), NICHT dessen Mechanismus.
+		if phonetic_pct > 0.0 and _rng.randf() < _pct(phonetic_pct, boost):
+			w = _phoneticize(w)
+
 		# Sichtbare Zeichenzahl. Keine der Zeichen-Operationen unten aendert sie:
 		# Spiegeln, Scramble und Transposition sind Permutationen, und Swap ersetzt
 		# ein Zeichen durch genau eines. Sie steht damit hier schon fest und muss
@@ -172,12 +256,14 @@ func process_text(
 		var sc := _pct(scramble_pct, boost)
 		if sc > 0.0 and glyph_count >= MIN_SCRAMBLE_LEN and _rng.randf() < sc:
 			w = _scramble_middle(w, _rng)
-			word_color = color_scramble
+			if mark_effects:
+				word_color = color_scramble
 
 		# Silben-Transposition — durch stress verstärkt
 		if _rng.randf() < _pct(transpose_pct, boost) and glyph_count >= MIN_SCRAMBLE_LEN:
 			w = _transpose_syllable(w, _rng)
-			word_color = color_transpose
+			if mark_effects:
+				word_color = color_transpose
 
 		# Buchstaben tauschen — durch stress verstärkt.
 		# LETZTE Zeichen-Operation: faerbt einzelne Buchstaben inline ein und
@@ -189,6 +275,21 @@ func process_text(
 		# ---- Ab hier nur noch umschliessende Tags ------------------------------
 		if word_color.a > 0.0:
 			w = "[color=%s]%s[/color]" % [word_color.to_html(), w]
+
+		# Font-Wechsel pro Wort (Anti-WCAG: Konsistenz) — durch stress verstärkt.
+		# Waehlt deterministisch aus rng_seed + i einen Font aus dem Pool; Index 0
+		# (Share Tech) ist der Anker und bleibt ohne Wrapper. Eigener Seed statt
+		# _rng, damit das An/Aus-Schalten die RNG-Folge der anderen Effekte NICHT
+		# verschiebt — "mit" und "ohne" Font-Wechsel bleiben so vergleichbar.
+		if font_pct > 0.0:
+			var fi := _pick_font(rng_seed + i, _pct(font_pct, boost))
+			if fi > 0:
+				var scale: float = font_size_scale[fi]
+				if scale != 1.0:
+					w = "[font=%s][font_size=%d]%s[/font_size][/font]" % [
+						FONT_POOL[fi], int(round(base_font_size * scale)), w]
+				else:
+					w = "[font=%s]%s[/font]" % [FONT_POOL[fi], w]
 
 		# Größen-Variation — durch stress verstärkt
 		var sv: float = size_var * boost
@@ -309,7 +410,10 @@ func _swap_letters(word: String, chance: float, rng: RandomNumberGenerator) -> S
 			var swapped: String = SWAP_PAIRS[lo]
 			if ch == ch.to_upper() and ch != ch.to_lower():
 				swapped = swapped.to_upper()
-			result += "[color=%s]%s[/color]" % [color_swap.to_html(), swapped]
+			if mark_effects:
+				result += "[color=%s]%s[/color]" % [color_swap.to_html(), swapped]
+			else:
+				result += swapped
 		else:
 			result += ch
 	return result

@@ -14,7 +14,7 @@ const SAMPLE := "Die Bordkanone braucht Wartung und muss neu kalibriert werden."
 ## [Anzeigename, { DyslexiaLabel-Property: Wert }]
 const ROWS: Array = [
 	["Referenz (aus)",   {}],
-	["Vanish (pulsend)", {"vanish_percent": 40.0}],
+	["Vanish (pulsend)", {"vanish_percent": 50.0}],
 	["Swap (b/d, p/q)",  {"swap_percent": 70.0}],
 	["Mirror",           {"mirror_percent": 50.0}],
 	["Scramble",         {"scramble_percent": 70.0}],
@@ -28,7 +28,9 @@ const ROWS: Array = [
 	["Pulse",            {"pulse_frequency": 2.0}],
 	["Rotation",         {"rotate_percent": 60.0}],
 	["Zeichen-Groesse",  {"char_size_percent": 100.0}],
-	["Fehlende Teile",   {"missing_percent": 40.0}],
+	["Fehlende Teile",   {"missing_percent": 30.0}],
+	["Font-Wechsel",     {"font_percent": 60.0}],
+	["Phonetisch (Laut)",{"phonetic_percent": 100.0}],
 	["ALLES kombiniert", {
 		"vanish_percent": 10.0, "swap_percent": 25.0, "mirror_percent": 15.0,
 		"scramble_percent": 25.0, "transpose_percent": 15.0, "crowd_percent": 50.0,
@@ -36,6 +38,7 @@ const ROWS: Array = [
 		"drift_amplitude": 3.0, "drift_frequency": 1.2,
 		"shake_amplitude": 2.0, "pulse_frequency": 1.0,
 		"rotate_percent": 25.0, "missing_percent": 15.0, "char_size_percent": 40.0,
+		"font_percent": 40.0,
 	}],
 ]
 

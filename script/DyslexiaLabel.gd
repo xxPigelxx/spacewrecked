@@ -21,6 +21,10 @@ extends RichTextLabel
 @export_range(0, 100, 1, "suffix:%") var rotate_percent: float = 0.0
 @export_range(0, 100, 1, "suffix:%") var char_size_percent: float = 0.0
 @export_range(0, 100, 1, "suffix:%") var missing_percent: float = 0.0
+## Jedes Wort bekommt zufaellig einen anderen Font aus DyslexiaManager.FONT_POOL.
+@export_range(0, 100, 1, "suffix:%") var font_percent: float = 0.0
+## Lautbasierte Umschrift (phonologischer Effekt): erzwingt Laut-fuer-Laut-Lesen.
+@export_range(0, 100, 1, "suffix:%") var phonetic_percent: float = 0.0
 @export var rng_seed: int = 1000
 
 
@@ -51,6 +55,8 @@ var _pf: float = 0.0
 var _rp: float = 0.0
 var _cs: float = 0.0
 var _mi: float = 0.0
+var _fp: float = 0.0
+var _pp: float = 0.0
 var _s: int = 1000
 
 const MISSING_SHADER := preload("res://shader/glyph_missing.gdshader")
@@ -91,14 +97,14 @@ func _exit_tree() -> void:
 		DyslexiaManager.stress_changed.disconnect(_on_stress_changed)
 
 ## Von PageEffects aufgerufen — speichert Werte und rendert.
-func apply_effects(v: float, sw: float, da: float, df: float, sv: float, rs: float, mp: float, s: int, sc: float = 0.0, cp: float = 0.0, tp: float = 0.0, sa: float = 0.0, tr: float = 0.0, tf: float = 1.0, pf: float = 0.0, rp: float = 0.0, mi: float = 0.0, cs: float = 0.0) -> void:
+func apply_effects(v: float, sw: float, da: float, df: float, sv: float, rs: float, mp: float, s: int, sc: float = 0.0, cp: float = 0.0, tp: float = 0.0, sa: float = 0.0, tr: float = 0.0, tf: float = 1.0, pf: float = 0.0, rp: float = 0.0, mi: float = 0.0, cs: float = 0.0, fp: float = 0.0, pp: float = 0.0) -> void:
 	if override_page or not _ready_done:
 		return
 	if _source_text.is_empty():
 		_source_text = text
 	_v = v; _sw = sw; _da = da; _df = df; _sv = sv; _rs = rs; _mp = mp; _s = s
 	_sc = sc; _cp = cp; _tp = tp; _sa = sa; _tr = tr; _tf = tf; _pf = pf
-	_rp = rp; _mi = mi; _cs = cs
+	_rp = rp; _mi = mi; _cs = cs; _fp = fp; _pp = pp
 	_render()
 
 func refresh() -> void:
@@ -119,7 +125,7 @@ func set_source_text(new_text: String) -> void:
 func _render() -> void:
 	if _source_text.is_empty():
 		return
-	_set_rendered(DyslexiaManager.process_text(_source_text, _s, _v, _sw, _da, _df, _sv, _rs, _mp, _sc, _cp, _tp, _sa, _tr, _tf, _pf, _rp, _cs,
+	_set_rendered(DyslexiaManager.process_text(_source_text, _s, _v, _sw, _da, _df, _sv, _rs, _mp, _sc, _cp, _tp, _sa, _tr, _tf, _pf, _rp, _cs, _fp, _pp,
 		get_theme_font_size("normal_font_size")))
 	_update_rotation_spacing(_rp)
 	_update_missing_shader(_mi, _s)
@@ -132,7 +138,7 @@ func _render_own() -> void:
 		size_variation, river_spacing, mirror_percent,
 		scramble_percent, crowd_percent, transpose_percent,
 		shake_amplitude, tornado_radius, tornado_frequency, pulse_frequency,
-		rotate_percent, char_size_percent, get_theme_font_size("normal_font_size")))
+		rotate_percent, char_size_percent, font_percent, phonetic_percent, get_theme_font_size("normal_font_size")))
 	_update_rotation_spacing(rotate_percent)
 	_update_missing_shader(missing_percent, rng_seed)
 

@@ -40,6 +40,10 @@ extends Control
 @export_range(0, 100, 1, "suffix:%") var char_size_percent: float = 0.0
 ## Teile der Buchstaben fehlen (wie Dyslexia-Typeface von Daniel Britton). 0 = aus, 100 = stark.
 @export_range(0, 100, 1, "suffix:%") var missing_percent: float = 0.0
+## Jedes Wort bekommt zufällig einen anderen Font (Typografie-Inkonsistenz). 0 = aus, 100 = oft.
+@export_range(0, 100, 1, "suffix:%") var font_percent: float = 0.0
+## Lautbasierte Umschrift (phonologischer Effekt): erzwingt Laut-für-Laut-Lesen. 0 = aus.
+@export_range(0, 100, 1, "suffix:%") var phonetic_percent: float = 0.0
 ## Basis-Seed — jedes Label bekommt einen leicht anderen Seed.
 @export var base_seed: int = 1000
 
@@ -59,7 +63,7 @@ func _apply() -> void:
 			mirror_percent, base_seed + i * 97,
 			scramble_percent, crowd_percent, transpose_percent,
 			shake_amplitude, tornado_radius, tornado_frequency, pulse_frequency,
-			rotate_percent, missing_percent, char_size_percent
+			rotate_percent, missing_percent, char_size_percent, font_percent, phonetic_percent
 		)
 
 func _get_all_dyslexia_labels(node: Node) -> Array:
