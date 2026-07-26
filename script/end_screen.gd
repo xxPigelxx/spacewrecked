@@ -17,6 +17,7 @@ func _ready() -> void:
 	questionear.visible = true
 	main.visible = true
 	credits.visible = false
+	title_label.visible = false
 	_fill_results()
 	if OS.has_feature("web"):
 		quit_bt.visible = false

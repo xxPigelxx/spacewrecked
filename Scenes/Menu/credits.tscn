@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://c5h05cb6ejf4m"]
+
+[ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="1_2ey4j"]
+[ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="2_sml11"]
+[ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="3_faj7g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8um5k"]
+
+[node name="credits" type="VBoxContainer" unique_id=1516615289]
+offset_left = 639.0
+offset_top = 416.0
+offset_right = 1281.0
+offset_bottom = 968.0
+theme = ExtResource("1_2ey4j")
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=125134024]
+layout_mode = 2
+size_flags_vertical = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="HBoxContainer" unique_id=1533598214]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_sml11")
+theme_override_font_sizes/font_size = 40
+text = "Creator:"
+
+[node name="Seperator" type="VSeparator" parent="HBoxContainer" unique_id=1569266405]
+layout_mode = 2
+theme_override_constants/separation = 98
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8um5k")
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=902606745]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_sml11")
+theme_override_font_sizes/font_size = 40
+text = "Nikolai  Boshe"
+
+[node name="BackBt" type="Button" parent="." unique_id=1357636953]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 75
+text = "Zurueck"
+script = ExtResource("3_faj7g")

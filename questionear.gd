@@ -1,6 +1,7 @@
 extends Control
 @onready var v_box_container: VBoxContainer = $PanelContainer/MarginContainer/ScrollContainer/VBoxContainer
 @onready var submit_button: Button = $SubmitButton  # Pfad anpassen
+@onready var label: Label = $"../Label"
 
 ## Waehrend ein Upload laeuft, bleibt der Button gesperrt und das Panel offen —
 ## geschlossen wird erst, wenn ResultsExporter den Empfang bestaetigt hat.
@@ -44,4 +45,5 @@ func _on_submit_button_pressed() -> void:
 			submit_button.text = "Nochmal senden"
 			submit_button.disabled = false
 		_sending = false
+		label.visible = true
 		return

@@ -6,11 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://c54ta61o55dvj" path="res://Scenes/star.tscn" id="5_iapu6"]
 [ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="6_sc664"]
 [ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="7_jvhs5"]
+[ext_resource type="PackedScene" uid="uid://c5h05cb6ejf4m" path="res://Scenes/Menu/credits.tscn" id="7_m1sp3"]
 [ext_resource type="PackedScene" uid="uid://cygx85tabr6bj" path="res://questionear.tscn" id="7_w6fsh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uuef0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8um5k"]
 
 [node name="EndMenu" type="CanvasLayer" unique_id=1189384809]
 layer = 11
@@ -34,7 +33,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("4_02pe6")
 theme_override_font_sizes/font_size = 250
-text = "Thanks!"
+text = "Danke !"
 horizontal_alignment = 1
 
 [node name="Star" parent="Label" unique_id=768714016 instance=ExtResource("5_iapu6")]
@@ -54,10 +53,17 @@ rotation = -2.6032145
 scale = Vector2(1, 1)
 
 [node name="main" type="VBoxContainer" parent="." unique_id=2083465148]
-offset_left = 630.0
-offset_top = 400.0
-offset_right = 1290.0
-offset_bottom = 1010.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -378.0
+offset_top = -711.0
+offset_right = 379.0
+offset_bottom = -101.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 4
 theme = ExtResource("6_sc664")
 alignment = 1
@@ -66,22 +72,22 @@ alignment = 1
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "[u]Results"
+text = "[u]Ergebnisse:"
 fit_content = true
 
 [node name="Tasks" type="Label" parent="main" unique_id=1074262482]
 layout_mode = 2
-text = "Tasks:"
+text = "Reparaturen:"
 horizontal_alignment = 1
 
 [node name="Time" type="Label" parent="main" unique_id=2061761585]
 layout_mode = 2
-text = "Time: "
+text = "Zeit:"
 horizontal_alignment = 1
 
 [node name="Compleated" type="Label" parent="main" unique_id=1571289832]
 layout_mode = 2
-text = "Compleated: "
+text = "Dyslexie-Modus:"
 horizontal_alignment = 1
 
 [node name="VSeparator" type="HSeparator" parent="main" unique_id=1546499059]
@@ -99,7 +105,7 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 75
-text = "Credits"
+text = " Credits "
 script = ExtResource("7_jvhs5")
 
 [node name="QuitBt" type="Button" parent="main/HBoxContainer" unique_id=1968774762]
@@ -107,60 +113,30 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 75
-text = "   Exit   "
+text = "Verlassen"
 script = ExtResource("7_jvhs5")
 
 [node name="MainMenuBt" type="Button" parent="main" unique_id=1620654601]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 6
 theme = ExtResource("6_sc664")
 theme_override_font_sizes/font_size = 75
-text = "Main  Menu"
+text = "Haupt Menu"
 script = ExtResource("7_jvhs5")
 
-[node name="credits" type="VBoxContainer" parent="." unique_id=1975557991]
+[node name="credits" parent="." unique_id=1516615289 instance=ExtResource("7_m1sp3")]
 visible = false
-offset_left = 639.0
-offset_top = 416.0
-offset_right = 1281.0
-offset_bottom = 968.0
-theme = ExtResource("6_sc664")
-alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="credits" unique_id=1825849461]
-layout_mode = 2
-size_flags_vertical = 2
-alignment = 1
-
-[node name="Label2" type="Label" parent="credits/HBoxContainer" unique_id=1338627768]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_02pe6")
-theme_override_font_sizes/font_size = 40
-text = "Creator:"
-
-[node name="Seperator" type="VSeparator" parent="credits/HBoxContainer" unique_id=1107209945]
-layout_mode = 2
-theme_override_constants/separation = 98
-theme_override_styles/separator = SubResource("StyleBoxEmpty_8um5k")
-
-[node name="Label" type="Label" parent="credits/HBoxContainer" unique_id=1638922837]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_02pe6")
-theme_override_font_sizes/font_size = 40
-text = "Nikolai  Boshe"
-
-[node name="BackBt" type="Button" parent="credits" unique_id=1858407186]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 75
-text = "Back"
-script = ExtResource("7_jvhs5")
+offset_left = 585.0
+offset_top = 390.0
+offset_right = 1335.0
+offset_bottom = 1073.0
 
 [node name="Questionear" parent="." unique_id=663815784 instance=ExtResource("7_w6fsh")]
+visible = false
 
 [connection signal="pressed" from="main/HBoxContainer/CreditsBt" to="." method="_on_credit_bt_pressed"]
 [connection signal="pressed" from="main/HBoxContainer/QuitBt" to="." method="_on_return_bt_pressed"]
 [connection signal="pressed" from="main/MainMenuBt" to="." method="_on_main_menu_bt_pressed"]
 [connection signal="pressed" from="credits/BackBt" to="." method="_on_credit_bt_pressed"]
+
+[editable path="credits"]

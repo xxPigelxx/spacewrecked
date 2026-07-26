@@ -1752,7 +1752,7 @@ size_flags_vertical = 8
 alignment = 1
 
 [node name="PrevButton" type="Button" parent="ManualRoot/Footer" unique_id=507224186]
-custom_minimum_size = Vector2(120, 50)
+custom_minimum_size = Vector2(225, 50)
 layout_mode = 2
 theme = ExtResource("6_7jiqe")
 text = "Zurueck"
@@ -1761,10 +1761,11 @@ script = ExtResource("7_n500u")
 [node name="VSeparator2" type="VSeparator" parent="ManualRoot/Footer" unique_id=1467544893]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 137
 theme_override_styles/separator = SubResource("StyleBoxEmpty_n500u")
 
 [node name="NextButton" type="Button" parent="ManualRoot/Footer" unique_id=352047162]
-custom_minimum_size = Vector2(120, 50)
+custom_minimum_size = Vector2(225, 50)
 layout_mode = 2
 theme = ExtResource("6_7jiqe")
 text = "Weiter"

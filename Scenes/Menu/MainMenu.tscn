@@ -7,8 +7,8 @@
 [ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="3_df05h"]
 [ext_resource type="PackedScene" uid="uid://c54ta61o55dvj" path="res://Scenes/star.tscn" id="4_8um5k"]
 [ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="4_ghw46"]
-[ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="7_xim88"]
 [ext_resource type="PackedScene" uid="uid://bbv8il7ntgvnv" path="res://Scenes/Menu/OptionsPanel.tscn" id="8_ykvod"]
+[ext_resource type="PackedScene" uid="uid://c5h05cb6ejf4m" path="res://Scenes/Menu/credits.tscn" id="9_0nor7"]
 [ext_resource type="Script" uid="uid://bmfjd1qukktml" path="res://Scenes/Menu/set_journeytime_slider.gd" id="10_0nor7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ykvod"]
@@ -67,7 +67,7 @@ layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("3_df05h")
 theme_override_font_sizes/font_size = 75
-text = "Start"
+text = "Reise Starten"
 script = ExtResource("4_ghw46")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="main" unique_id=1175908641]
@@ -92,35 +92,20 @@ script = ExtResource("4_ghw46")
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 75
-text = "Schliessen"
+text = "Verlassen"
 script = ExtResource("4_ghw46")
 
-[node name="credits" type="VBoxContainer" parent="." unique_id=1975557991]
+[node name="credits" parent="." unique_id=1516615289 instance=ExtResource("9_0nor7")]
 visible = false
-layout_mode = 0
-offset_left = -335.0
-offset_top = -56.0
-offset_right = 337.0
-offset_bottom = 496.0
-theme = ExtResource("3_df05h")
-theme_override_constants/separation = 231
-alignment = 1
-
-[node name="Label" type="Label" parent="credits" unique_id=1638922837]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_xim88")
-theme_override_font_sizes/font_size = 80
-text = "Nikolai  Bohse"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="BackBt" type="Button" parent="credits" unique_id=1858407186]
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 75
-text = "Zurueck"
-script = ExtResource("4_ghw46")
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -321.0
+offset_top = 53.0
+offset_right = 321.0
+offset_bottom = 373.0
+grow_horizontal = 2
 
 [node name="Options" type="VBoxContainer" parent="." unique_id=475429602]
 visible = false
@@ -140,11 +125,10 @@ size_flags_horizontal = 4
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 75
-text = "Back"
+text = "Zurueck"
 script = ExtResource("4_ghw46")
 
 [node name="StartUpPopUp" type="MarginContainer" parent="." unique_id=403262516]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -237,10 +221,11 @@ size_flags_vertical = 6
 theme = ExtResource("3_df05h")
 theme_override_font_sizes/font_size = 60
 disabled = true
-text = "Schliessen"
+text = "Weiter"
 script = ExtResource("4_ghw46")
 
 [node name="VSlider" type="VSlider" parent="." unique_id=65191068]
+visible = false
 layout_mode = 0
 offset_left = 509.0
 offset_top = -1.0
@@ -271,7 +256,6 @@ text = "Value"
 [connection signal="pressed" from="main/HBoxContainer/OptionsBt" to="." method="_on_options_bt_pressed"]
 [connection signal="pressed" from="main/HBoxContainer/CreditsBt" to="." method="_on_credit_bt_pressed"]
 [connection signal="pressed" from="main/ExitBt" to="." method="_on_exit_bt_pressed"]
-[connection signal="pressed" from="credits/BackBt" to="." method="_on_credit_bt_pressed"]
 [connection signal="pressed" from="Options/BackBt" to="." method="_on_options_bt_pressed"]
 [connection signal="pressed" from="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer/DysFrage/JaBt" to="." method="_on_ja_bt_pressed"]
 [connection signal="pressed" from="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer/DysFrage/NeinBt" to="." method="_on_nein_bt_pressed"]
