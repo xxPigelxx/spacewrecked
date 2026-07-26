@@ -256,8 +256,11 @@ text = "Value"
 [connection signal="pressed" from="main/HBoxContainer/OptionsBt" to="." method="_on_options_bt_pressed"]
 [connection signal="pressed" from="main/HBoxContainer/CreditsBt" to="." method="_on_credit_bt_pressed"]
 [connection signal="pressed" from="main/ExitBt" to="." method="_on_exit_bt_pressed"]
+[connection signal="pressed" from="credits/BackBt" to="." method="_on_credit_bt_pressed"]
 [connection signal="pressed" from="Options/BackBt" to="." method="_on_options_bt_pressed"]
 [connection signal="pressed" from="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer/DysFrage/JaBt" to="." method="_on_ja_bt_pressed"]
 [connection signal="pressed" from="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer/DysFrage/NeinBt" to="." method="_on_nein_bt_pressed"]
 [connection signal="pressed" from="StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer/ClosePopUpBt" to="." method="_on_close_pop_up_bt_pressed"]
 [connection signal="drag_ended" from="VSlider" to="VSlider" method="_on_drag_ended"]
+
+[editable path="credits"]
