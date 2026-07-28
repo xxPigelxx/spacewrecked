@@ -4,8 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://cq18f4cl84tt7" path="res://Scenes/manual_sperator.tscn" id="1_l2d0k"]
 [ext_resource type="Script" uid="uid://dmii2fren2un4" path="res://questionear.gd" id="1_v3451"]
 [ext_resource type="PackedScene" uid="uid://cmbencs8cn0j1" path="res://Scenes/text_question_bar.tscn" id="5_bkink"]
-[ext_resource type="Theme" uid="uid://dvs0r83gvhd2k" path="res://resources/themes/small_Bt.tres" id="6_bkink"]
-[ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="7_da6x5"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="8_sprit"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wnqk4"]
@@ -138,24 +136,3 @@ layout_mode = 2
 [node name="Q10" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1468303680 instance=ExtResource("5_bkink")]
 layout_mode = 2
 question_text = "Hat sich deine Vorstellung von Dyslexie durch das Spiel verändert? Wenn ja, wie?"
-
-[node name="SubmitButton" type="Button" parent="." unique_id=1215507431]
-custom_minimum_size = Vector2(120, 50)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -137.0
-offset_top = -164.0
-offset_right = 138.0
-offset_bottom = -96.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("6_bkink")
-disabled = true
-text = "Abschicken"
-script = ExtResource("7_da6x5")
-
-[connection signal="pressed" from="SubmitButton" to="." method="_on_submit_button_pressed"]

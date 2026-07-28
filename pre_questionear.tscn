@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cq18f4cl84tt7" path="res://Scenes/manual_sperator.tscn" id="1_sep"]
 [ext_resource type="PackedScene" uid="uid://bcot68oel2ml3" path="res://Scenes/menu_background.tscn" id="2_opxtd"]
 [ext_resource type="PackedScene" uid="uid://6vlh4fls1osw" path="res://Scenes/multiple_choice.tscn" id="5_mc"]
-[ext_resource type="Theme" uid="uid://dvs0r83gvhd2k" path="res://resources/themes/small_Bt.tres" id="6_theme"]
+[ext_resource type="Theme" uid="uid://boiwhelh1kt2w" path="res://resources/themes/flatbuttontheam.tres" id="7_8betp"]
 [ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="7_btn"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="8_sprit"]
 
@@ -144,12 +144,12 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -137.0
-offset_top = -195.0
+offset_top = -189.0
 offset_right = 138.0
-offset_bottom = -127.0
+offset_bottom = -136.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = ExtResource("6_theme")
+theme = ExtResource("7_8betp")
 disabled = true
 text = "Weiter"
 script = ExtResource("7_btn")

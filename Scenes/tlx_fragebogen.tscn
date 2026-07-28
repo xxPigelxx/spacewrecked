@@ -3,8 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cxyoybao4uyt" path="res://Scenes/TLX_bar.tscn" id="1_n2muu"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="1_p8jeb"]
 [ext_resource type="Script" uid="uid://cq7dvoqx5b7c1" path="res://Scenes/tlx_fragebogen.gd" id="2_eenye"]
-[ext_resource type="Theme" uid="uid://dvs0r83gvhd2k" path="res://resources/themes/small_Bt.tres" id="3_4b8g6"]
-[ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="4_eenye"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_041f8"]
 texture = ExtResource("1_p8jeb")
@@ -19,7 +17,6 @@ color = Color(0.51718444, 0.5171845, 0.51718444, 1)
 thickness = 4
 
 [node name="TLXFragebogen" type="PanelContainer" unique_id=829286174]
-anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -129,15 +126,6 @@ question_text = "Frustration"
 layout_mode = 2
 theme_override_constants/separation = 24
 theme_override_styles/separator = SubResource("StyleBoxLine_p8jeb")
-
-[node name="SubmitButton" type="Button" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=362068600]
-custom_minimum_size = Vector2(200, 64)
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("3_4b8g6")
-disabled = true
-text = "Abschicken"
-script = ExtResource("4_eenye")
 
 [node name="Control" type="Control" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=945128839]
 custom_minimum_size = Vector2(0, 200)

@@ -1,0 +1,47 @@
+[gd_resource type="Theme" format=3 uid="uid://boiwhelh1kt2w"]
+
+[ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="1_rcsw0"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yavbc"]
+load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rcsw0"]
+texture = SubResource("CompressedTexture2D_yavbc")
+region_rect = Rect2(1849, 770, 138, 69)
+modulate_color = Color(0.16, 0.16, 0.16, 0.6392157)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xk8tl"]
+load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tssbr"]
+texture = SubResource("CompressedTexture2D_xk8tl")
+region_rect = Rect2(1849, 770, 138, 69)
+modulate_color = Color(0.78352344, 0.7835234, 0.7835234, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tssbr"]
+load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oy4du"]
+texture = SubResource("CompressedTexture2D_tssbr")
+region_rect = Rect2(1849, 770, 138, 69)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oy4du"]
+load_path = "res://.godot/imported/Procreate_Sprites.png-a7055fe6268bcd9f161441f87115189b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qugqe"]
+texture = SubResource("CompressedTexture2D_oy4du")
+region_rect = Rect2(1849, 770, 138, 69)
+modulate_color = Color(0.25565878, 0.25565878, 0.25565878, 1)
+
+[resource]
+Button/colors/font_color = Color(0.27387235, 0.27387294, 0.27387252, 1)
+Button/font_sizes/font_size = 38
+Button/fonts/font = ExtResource("1_rcsw0")
+Button/styles/disabled = SubResource("StyleBoxTexture_rcsw0")
+Button/styles/hover = SubResource("StyleBoxTexture_tssbr")
+Button/styles/normal = SubResource("StyleBoxTexture_oy4du")
+Button/styles/pressed = SubResource("StyleBoxTexture_qugqe")
+Label/font_sizes/font_size = 45
+Label/fonts/font = ExtResource("1_rcsw0")
+RichTextLabel/font_sizes/normal_font_size = 76
+RichTextLabel/fonts/normal_font = ExtResource("1_rcsw0")

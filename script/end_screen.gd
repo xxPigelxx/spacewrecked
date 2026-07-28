@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-## Endscreen. Wird nach _finish_run() vom GameState angesteuert
-## (SceneSwitcher.switch_scene). Liest die Run-Ergebnisse direkt aus GameState.
+## Endscreen. Kommt nach dem End-Fragebogen (post_flow), der den Durchlauf
+## bereits abgeschickt hat. Liest die Run-Ergebnisse direkt aus GameState.
 
 @onready var main: VBoxContainer = $main
 @onready var credits: VBoxContainer = $credits
@@ -10,14 +10,12 @@ extends CanvasLayer
 @onready var tasks_label: Label = $main/Tasks
 @onready var time_label: Label = $main/Time
 @onready var completed_label: Label = $main/Compleated
-@onready var questionear: Control = $Questionear
 @onready var quit_bt: Button = $main/HBoxContainer/QuitBt
 
 func _ready() -> void:
-	questionear.visible = true
 	main.visible = true
 	credits.visible = false
-	title_label.visible = false
+	title_label.visible = true
 	_fill_results()
 	if OS.has_feature("web"):
 		quit_bt.visible = false

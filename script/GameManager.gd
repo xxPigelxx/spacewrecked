@@ -95,10 +95,10 @@ var participant_id := ""
 ## exportiert, damit dyslexia_enabled=false eindeutig interpretierbar bleibt
 ## (Kontrollgruppe vs. betroffene Person). Absichtlich NICHT in reset_game().
 var participant_has_dyslexia := false
-## Antworten des Vor-dem-Spiel-Fragebogens (pre_questionear.tscn). Werden nach
-## "Start" gesammelt, hier zwischengelagert und erst am Ende zusammen mit dem
-## End-Fragebogen gesendet — so profitieren sie von dessen Bestaetigungs-/Retry-
-## Logik. In reset_game() geleert (fuellt sich danach ueber den Pre-Fragebogen).
+## Wanduhr ueber den gesamten Spielteil: laeuft ab dem Betreten von MainGame
+## (Tutorial) bis zum Ende der Journey. Enthaelt also Tutorial und Pausenzeit —
+## anders als time_used, das nur das Messfenster zaehlt und bei Pause stehen bleibt.
+var _play_start_ms := 0
 var _run_index := 0                            ## Laufnummer innerhalb dieser Sitzung
 var _run_id := ""                              ## eindeutig pro Lauf, verknuepft runs.csv & tasks.csv
 
@@ -187,7 +187,7 @@ func _ready() -> void:
 func reset_game() -> void:
 	set_process(false)
 	phase = Phase.SETUP
-	ResultsExporter.mark_play_start()
+	ResultsExporter.reset()
 	# Kategorie-Zaehler
 	broken_strom = 0
 	broken_treibstoff = 0
@@ -215,6 +215,13 @@ func reset_game() -> void:
 	DyslexiaManager.accessibility = not dyslexia_enabled
 
 	broken_systems_changed.emit()
+
+## Startet die Spielzeit-Uhr. Wird beim Uebergang vom Pre-Fragebogen ins
+## MainGame aufgerufen — nicht in reset_game(), sonst liefen die Minuten im
+## Fragebogen mit.
+func start_setup() -> void:
+	_play_start_ms = Time.get_ticks_msec()
+
 
 func start_journey() -> void:
 	phase = Phase.JOURNEY
@@ -267,9 +274,6 @@ func _process(delta: float) -> void:
 		_finish_run()
 	ship_lights = is_system_broken("strom")
 
-## Sendet Pre- und End-Fragebogen gemeinsam als eine Zeile: der Pre-Fragebogen
-## wurde nach "Start" nur zwischengespeichert und faehrt hier vorne mit, damit
-## alles ueber die Upload-Bestaetigung/Retry des End-Fragebogens abgesichert ist.
 func get_current_run_id() -> String:
 	return _run_id	
 
@@ -332,6 +336,14 @@ func resume_run() -> void:
 	if phase == Phase.JOURNEY:
 		set_process(true)
 
+## Sekunden seit start_setup(). 0.0, falls die Uhr nie gestartet wurde
+## (z. B. beim direkten Starten von MainGame aus dem Editor).
+func _play_time() -> float:
+	if _play_start_ms == 0:
+		return 0.0
+	return (Time.get_ticks_msec() - _play_start_ms) / 1000.0
+
+
 func _finish_run() -> void:
 	set_process(false)
 	phase = Phase.RESULTS
@@ -345,8 +357,9 @@ func _finish_run() -> void:
 		"timestamp": Time.get_datetime_string_from_system(),
 		"malfunctions_solved": malfunctions_solved,
 		"died_early": died_early,
-		"run_duration": run_duration,
-		"time_used": run_duration - time_left,
+		"journey_limit": run_duration,                 # worauf der Lauf eingestellt war
+		"journey_time": run_duration - time_left,      # davon ueberlebt
+		"total_play_time": _play_time(),               # inkl. Tutorial und Pausen
 		"dyslexia_enabled": dyslexia_enabled,
 		"stress_from_health": stress_from_health,
 		"has_dyslexia": participant_has_dyslexia,
@@ -354,7 +367,7 @@ func _finish_run() -> void:
 	}
 	# ResultsExporter (Autoload) lauscht auf run_finished und schreibt die CSVs.
 	run_finished.emit(results)
-	# Zum Endscreen wechseln (liest Werte selbst aus GameState). force_, weil der
-	# Lauf auch mitten in einem offenen Raetsel enden kann — switch_scene() wuerde
-	# dann kommentarlos nichts tun.
-	SceneSwitcher.force_switch_scene("res://Scenes/Menu/EndSceen.tscn")
+	# Erst der End-Fragebogen, der schickt den Durchlauf ab und geht danach zum
+	# Endscreen weiter. force_, weil der Lauf auch mitten in einem offenen
+	# Raetsel enden kann — switch_scene() wuerde dann kommentarlos nichts tun.
+	SceneSwitcher.force_switch_scene("res://Scenes/Menu/post_flow.tscn")

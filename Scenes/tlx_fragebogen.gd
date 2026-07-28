@@ -1,33 +1,29 @@
 extends PanelContainer
-
-@onready var submit_button: Button = $MarginContainer/ScrollContainer/VBoxContainer/SubmitButton
-@onready var question_container: VBoxContainer = $MarginContainer/ScrollContainer/QuestionContianer
-
-## "pre" oder "post" — in der Post-Szene im Inspector umstellen.
-@export var block: String = "pre"
+## NASA-TLX-Schritt. Gleiche Aufgabe wie questionear.gd — eigene Datei, weil
+## die Wurzel hier ein PanelContainer ist.
 
 
-func _process(_delta: float) -> void:
-	submit_button.disabled = not _all_answered()
+## Alle Question-Nodes darunter, egal wie tief verschachtelt. In eine Question
+## selbst wird nicht abgestiegen — deren Kinder sind ihre Bedienelemente.
+func _questions(node: Node = self, into: Array = []) -> Array:
+	for child in node.get_children():
+		if child is Question:
+			into.append(child)
+		else:
+			_questions(child, into)
+	return into
 
 
-func _all_answered() -> bool:
-	for question in question_container.get_children():
-		if question is Question and not question.is_answered():
+## Darf der Ablauf weiterschalten?
+func is_complete() -> bool:
+	for question in _questions():
+		if not question.is_answered():
 			return false
 	return true
 
 
-func _get_answers() -> Array:
-	var results: Array = []
-	for question in question_container.get_children():
-		if question is Question:
-			results.append({
-				"name": question.name,
-				"selected": question.get_selected(),
-			})
-	return results
-
-
-func _on_submit_button_pressed() -> void:
-	ResultsExporter.store_answers(block, _get_answers())
+func collect(block: String) -> void:
+	var answers: Array = []
+	for question in _questions():
+		answers.append({"name": question.name, "selected": question.get_selected()})
+	ResultsExporter.store_answers(block, answers)

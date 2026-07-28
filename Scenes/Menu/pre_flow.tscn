@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://d18mdr67sr8wv"]
+
+[ext_resource type="Script" uid="uid://dps8axckfqa15" path="res://Scenes/Menu/questionnaire_flow.gd" id="1_hnaoj"]
+[ext_resource type="PackedScene" uid="uid://bcot68oel2ml3" path="res://Scenes/menu_background.tscn" id="1_x3bmk"]
+[ext_resource type="PackedScene" uid="uid://cygx85tabr6bj" path="res://questionear.tscn" id="2_xdnoy"]
+[ext_resource type="PackedScene" uid="uid://s3k6q4dkavbg" path="res://Scenes/tlx_fragebogen.tscn" id="4_0fgwl"]
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="5_0fgwl"]
+[ext_resource type="Theme" uid="uid://xm5urjrf4aua" path="res://resources/themes/main_theme.tres" id="5_hnaoj"]
+[ext_resource type="Script" uid="uid://do6128cyartyo" path="res://script/PageEffects.gd" id="7_2xspt"]
+[ext_resource type="Script" uid="uid://bkybbx23khwrk" path="res://Scenes/Menu/intro_panel.gd" id="7_lsliw"]
+[ext_resource type="Theme" uid="uid://boiwhelh1kt2w" path="res://resources/themes/flatbuttontheam.tres" id="9_lsliw"]
+[ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="10_dnqhh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_if1wb"]
+texture = ExtResource("5_0fgwl")
+texture_margin_left = 60.90915
+texture_margin_top = 79.02109
+texture_margin_right = 57.895527
+texture_margin_bottom = 112.50263
+region_rect = Rect2(782, 1429, 484, 594)
+
+[node name="PreFlow" type="Control" unique_id=263531684 node_paths=PackedStringArray("steps")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hnaoj")
+next_scene = "res://Scenes/MainGame.tscn"
+steps = [NodePath("StoryIntro"), NodePath("TLXFragebogen"), NodePath("Questionear")]
+
+[node name="MenuBackground" parent="." unique_id=146504196 instance=ExtResource("1_x3bmk")]
+position = Vector2(29, -19)
+
+[node name="Questionear" parent="." unique_id=663815784 instance=ExtResource("2_xdnoy")]
+visible = false
+layout_mode = 1
+
+[node name="TLXFragebogen" parent="." unique_id=829286174 instance=ExtResource("4_0fgwl")]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -1073.0
+offset_bottom = -90.0
+grow_vertical = 0
+
+[node name="StoryIntro" type="PanelContainer" parent="." unique_id=1351417057]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -365.0
+offset_top = -1067.0
+offset_right = 365.0
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_hnaoj")
+theme_override_styles/panel = SubResource("StyleBoxTexture_if1wb")
+script = ExtResource("7_lsliw")
+
+[node name="MarginContainer" type="MarginContainer" parent="StoryIntro" unique_id=1747049251]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StoryIntro/MarginContainer" unique_id=1438310632]
+layout_mode = 2
+script = ExtResource("7_2xspt")
+crowd_percent = 66.0
+char_size_percent = 66.0
+
+[node name="Title2" type="RichTextLabel" parent="StoryIntro/MarginContainer/VBoxContainer" unique_id=1526115279]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "Willkommen an Bord der AstroExplora"
+fit_content = true
+
+[node name="Title" type="RichTextLabel" parent="StoryIntro/MarginContainer/VBoxContainer" unique_id=2063828750]
+layout_mode = 2
+theme_override_constants/line_separation = 2
+theme_override_constants/paragraph_separation = -2
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "Dieses Handbuch ist dein Begleiter an Bord. Es wird dein wichtigster Freund auf deiner weiten Reise durchs Weltall.
+
+Es führt dich durch alle Systeme des Schiffs. Wähle oben den passenden Tab – dort findest du Erklärungen, Warnhinweise und Schritt-für-Schritt-Anleitungen. Während deiner Reise kannst du hier den aktuellen Status des Schiffes nachschauen. Achte auf ein rotes Licht am Handbuch. Leuchtet es, weißt du, dass etwas kaputt ist.
+
+Wichtig! Fällt die Energie aus, drücke (F), um die Taschenlampe ein- oder auszuschalten, und versuche, die Energie wiederherzustellen.
+
+Hast du es eilig, halte die Umschalttaste (Shift) gedrückt, um zu sprinten."
+fit_content = true
+
+[node name="NextButton" type="Button" parent="." unique_id=1208619313]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -116.0
+offset_top = -162.0
+offset_right = 93.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("9_lsliw")
+theme_override_font_sizes/font_size = 60
+text = "Weiter"
+script = ExtResource("10_dnqhh")

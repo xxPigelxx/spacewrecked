@@ -15,8 +15,9 @@ func _ready() -> void:
 
 func _on_start_bt_pressed() -> void:
 	GameState.reset_game()
-	# Erst der Vor-dem-Spiel-Fragebogen; dieser wechselt nach "Weiter" ins MainGame.
-	SceneSwitcher.switch_scene("res://pre_questionear.tscn")
+	# Erst der Vor-dem-Spiel-Block (Intro, TLX, Fragebogen); der wechselt am
+	# Ende selbst ins MainGame.
+	SceneSwitcher.switch_scene("res://Scenes/Menu/pre_flow.tscn")
 
 func _on_options_bt_pressed() -> void:
 	main.visible = !main.visible

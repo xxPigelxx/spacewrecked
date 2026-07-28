@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cqf7gd2hpoxkl"]
+
+[ext_resource type="Script" uid="uid://dps8axckfqa15" path="res://Scenes/Menu/questionnaire_flow.gd" id="1_1ygak"]
+[ext_resource type="PackedScene" uid="uid://bcot68oel2ml3" path="res://Scenes/menu_background.tscn" id="1_dxhnq"]
+[ext_resource type="PackedScene" uid="uid://cygx85tabr6bj" path="res://questionear.tscn" id="2_1lwnx"]
+[ext_resource type="PackedScene" uid="uid://s3k6q4dkavbg" path="res://Scenes/tlx_fragebogen.tscn" id="4_rtklo"]
+[ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="5_1ygak"]
+[ext_resource type="Theme" uid="uid://boiwhelh1kt2w" path="res://resources/themes/flatbuttontheam.tres" id="5_b3njh"]
+
+[node name="PostFlow" type="Control" unique_id=263531684 node_paths=PackedStringArray("steps")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1ygak")
+block = "post"
+next_scene = "res://Scenes/Menu/EndSceen.tscn"
+steps = [NodePath("TLXFragebogen"), NodePath("Questionear")]
+
+[node name="MenuBackground" parent="." unique_id=146504196 instance=ExtResource("1_dxhnq")]
+
+[node name="Questionear" parent="." unique_id=663815784 instance=ExtResource("2_1lwnx")]
+layout_mode = 1
+
+[node name="TLXFragebogen" parent="." unique_id=829286174 instance=ExtResource("4_rtklo")]
+layout_mode = 1
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -1073.0
+offset_bottom = -90.0
+grow_vertical = 0
+
+[node name="NextButton" type="Button" parent="." unique_id=727317669]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -116.0
+offset_top = -162.0
+offset_right = 93.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_b3njh")
+theme_override_font_sizes/font_size = 60
+text = "Weiter"
+script = ExtResource("5_1ygak")
+
+[node name="StatusLabel" type="Label" parent="NextButton" unique_id=1218934973]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -286.5
+offset_top = -459.0
+offset_right = 313.5
+offset_bottom = -399.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Wird gesendet..."
+horizontal_alignment = 1

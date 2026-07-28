@@ -9,10 +9,16 @@ extends Node
 
 const SHEET_URL := "https://script.google.com/macros/s/AKfycbxcDLo86UI7y4sMGBlWF7Yi14kRsgg0IvaS9zZYo0vtrKvRathwdnkuXtjmQmZGs7zuMg/exec"
 
-## Die Zeile, die am Ende ins Sheet geht. Wird ueber den ganzen Durchlauf gefuellt.
+## Die Zeile, die am Ende ins Blatt "Runs" geht. Wird ueber den ganzen
+## Durchlauf gefuellt.
 var _row: Dictionary = {}
+## Zweite Zeile, Blatt "ManualTimes": die Lesezeiten pro Handbuch-Tab. Getrennt,
+## weil sonst jeder Tab eine eigene Spalte in der ohnehin breiten Run-Zeile waere.
+var _manual: Dictionary = {}
 var _uploading := false
 var _quitting := false
+## Ist die Run-Zeile schon durch? Verhindert Dubletten beim zweiten Sendeversuch.
+var _row_sent := false
 
 
 func _ready() -> void:
@@ -27,11 +33,13 @@ func _notification(what: int) -> void:
 		_quit_when_upload_done()
 
 
-## Setzt die Zeile zurueck. Beim Start und vor einem neuen Durchlauf aufrufen.
+## Setzt beide Zeilen zurueck. Beim Start und vor einem neuen Durchlauf aufrufen.
 func reset() -> void:
 	_row = {"type": "run"}
 	_row["timestamp_start"] = Time.get_datetime_string_from_system(true)
+	_manual = {"type": "manual"}
 	_uploading = false
+	_row_sent = false
 
 
 # --------------------------------------------------------------------------
@@ -54,7 +62,7 @@ func store_answers(block: String, answers: Array) -> void:
 ## Lesezeiten pro Handbuch-Tab. Kommt aus ManualPage.gd.
 func deliver_manual_times(page_times: Dictionary) -> void:
 	for tab_name in page_times:
-		_row["manual_time_%s_s" % tab_name] = _round2(page_times[tab_name])
+		_manual["manual_time_%s_s" % tab_name] = _round2(page_times[tab_name])
 
 
 ## Spielende: Kennzahlen des Durchlaufs uebernehmen.
@@ -62,8 +70,13 @@ func _on_run_finished(results: Dictionary) -> void:
 	_row["run_id"] = results.get("run_id", "")
 	_row["participant_id"] = results.get("participant_id", "")
 	_row["dyslexia_enabled"] = results.get("dyslexia_enabled", false)
+	# Ohne diese Spalte ist dyslexia_enabled=false nicht deutbar: Kontrollgruppe
+	# oder betroffene Person, bei der die Simulation abgeschaltet wurde?
+	_row["has_dyslexia"] = results.get("has_dyslexia", false)
 	_row["stress_from_health"] = results.get("stress_from_health", false)
-	_row["run_duration_s"] = _round2(results.get("run_duration", 0.0))
+	_row["journey_limit_s"] = _round2(results.get("journey_limit", 0.0))
+	_row["journey_time_s"] = _round2(results.get("journey_time", 0.0))
+	_row["total_play_time_s"] = _round2(results.get("total_play_time", 0.0))
 	_row["malfunctions_solved"] = results.get("malfunctions_solved", 0)
 	_row["died_early"] = results.get("died_early", false)
 
@@ -72,14 +85,37 @@ func _on_run_finished(results: Dictionary) -> void:
 #  Abschicken
 # --------------------------------------------------------------------------
 
-## Schickt die gesammelte Zeile ans Sheet und wartet auf die Antwort.
-## Gibt true zurueck, wenn sie angekommen ist.
+## Schickt den Durchlauf ans Sheet: die Run-Zeile und, falls das Handbuch
+## geoeffnet wurde, die Lesezeiten als zweite Zeile. Wartet auf beide Antworten
+## und gibt true zurueck, wenn alles angekommen ist.
 func submit() -> bool:
 	if _uploading:
 		return false
 	_uploading = true
 	_row["timestamp_end"] = Time.get_datetime_string_from_system(true)
 
+	# Nach einem Fehlschlag darf der Nochmal-senden-Button nur nachholen, was
+	# fehlt — sonst steht der Lauf zweimal im Blatt.
+	if not _row_sent:
+		_row_sent = await _send(_row)
+	var ok := _row_sent
+
+	# Verknuepfung zum Lauf. Erst hier gesetzt, damit die Reihenfolge egal ist,
+	# in der Exporter und ManualPage auf run_finished reagieren.
+	if ok and _manual.size() > 1:
+		_manual["run_id"] = _row.get("run_id", "")
+		_manual["participant_id"] = _row.get("participant_id", "")
+		ok = await _send(_manual)
+
+	_uploading = false
+	if ok:
+		print("=== Durchlauf %s gesendet (%d Spalten) ===" % [
+			_row.get("run_id", "?"), _row.size()])
+	return ok
+
+
+## Schickt ein Dictionary als eine Zeile ans Sheet und wartet auf die Antwort.
+func _send(data: Dictionary) -> bool:
 	var http := HTTPRequest.new()
 	# Apps Script antwortet auf einen erfolgreichen POST mit einem 302-Redirect.
 	# Godot wuerde dem Redirect wieder als POST folgen -> Google lehnt mit 400 ab.
@@ -96,25 +132,20 @@ func submit() -> bool:
 		SHEET_URL,
 		["Content-Type: text/plain"],
 		HTTPClient.METHOD_POST,
-		JSON.stringify(_row)
+		JSON.stringify(data)
 	)
 	if err != OK:
 		push_error("Upload konnte nicht gestartet werden: " + str(err))
 		http.queue_free()
-		_uploading = false
 		return false
 
 	var response: Array = await http.request_completed
 	var code: int = response[1]
 	var body: String = (response[3] as PackedByteArray).get_string_from_utf8()
 	http.queue_free()
-	_uploading = false
 
 	var ok := code == 302 or (code == 200 and body.begins_with("OK"))
-	if ok:
-		print("=== Durchlauf %s gesendet (%d Spalten) ===" % [
-			_row.get("run_id", "?"), _row.size()])
-	else:
+	if not ok:
 		push_warning("Upload fehlgeschlagen (HTTP %d): %s" % [code, body])
 	return ok
 

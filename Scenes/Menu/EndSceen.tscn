@@ -7,7 +7,6 @@
 [ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="6_sc664"]
 [ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="7_jvhs5"]
 [ext_resource type="PackedScene" uid="uid://c5h05cb6ejf4m" path="res://Scenes/Menu/credits.tscn" id="7_m1sp3"]
-[ext_resource type="PackedScene" uid="uid://cygx85tabr6bj" path="res://questionear.tscn" id="7_w6fsh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uuef0"]
 
@@ -130,9 +129,6 @@ offset_left = 585.0
 offset_top = 390.0
 offset_right = 1335.0
 offset_bottom = 1073.0
-
-[node name="Questionear" parent="." unique_id=663815784 instance=ExtResource("7_w6fsh")]
-visible = false
 
 [connection signal="pressed" from="main/HBoxContainer/CreditsBt" to="." method="_on_credit_bt_pressed"]
 [connection signal="pressed" from="main/HBoxContainer/QuitBt" to="." method="_on_return_bt_pressed"]
