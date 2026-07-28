@@ -5,8 +5,6 @@ extends Control
 @onready var next_btn     : Button        = $Footer/NextButton
 
 var _open := false
-var _page_times: Dictionary = {}
-var _current_tab_start_ms: int = -1
 
 func _ready() -> void:
 	side_button.toggled.connect(_on_side_toggled)
@@ -70,25 +68,33 @@ func _on_side_toggled(on: bool) -> void:
 
 # ---- Zeit-Tracking ----
 
+var _page_times: Dictionary = {}
+var _current_tab_start_ms: int = -1
+var _timed_tab: int = -1       
+
 func _start_tab_timer() -> void:
 	_current_tab_start_ms = Time.get_ticks_msec()
+	_timed_tab = tab_container.current_tab
 
 func _stop_tab_timer() -> void:
-	if _current_tab_start_ms == -1:
+	if _current_tab_start_ms == -1 or _timed_tab == -1:
 		return
 	var elapsed := (Time.get_ticks_msec() - _current_tab_start_ms) / 1000.0
-	var tab_name := tab_container.get_tab_title(tab_container.current_tab)
+	var tab_name := tab_container.get_tab_title(_timed_tab)
 	_page_times[tab_name] = _page_times.get(tab_name, 0.0) + elapsed
 	_current_tab_start_ms = -1
+	_timed_tab = -1
 
 func reset_page_times() -> void:
 	_page_times.clear()
+	_current_tab_start_ms = -1
+	_timed_tab = -1
 	if _open:
 		_start_tab_timer()
 
-## Run ist vorbei — Manual evtl. noch offen, letzten Timer sauber abschliessen,
-## dann eigenen Sheet-Eintrag verschicken (verknuepft ueber run_id).
+## Run ist vorbei — Manual evtl. noch offen, letzten Timer sauber abschliessen
+## und die Lesezeiten an den Exporter uebergeben (gesendet wird erst am Ende).
 func _on_run_finished(_results: Dictionary) -> void:
 	if _open:
 		_stop_tab_timer()
-	ResultsExporter.deliver_manual_times(GameState.get_current_run_id(), _page_times.duplicate())
+	ResultsExporter.deliver_manual_times(_page_times.duplicate())

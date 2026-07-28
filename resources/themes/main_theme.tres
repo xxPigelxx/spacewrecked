@@ -3,8 +3,6 @@
 [ext_resource type="FontFile" uid="uid://dld0grsdcans2" path="res://resources/fonts/Share_Tech/ShareTech-Regular.ttf" id="1_x2ak3"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="2_sprit"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x2ak3"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yjg5f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i4ejt"]
@@ -48,7 +46,6 @@ modulate_color = Color(0.3553137, 0.3553135, 0.35531366, 1)
 default_font = ExtResource("1_x2ak3")
 Button/colors/font_color = Color(0, 0, 0, 1)
 CheckButton/styles/focus = null
-HSeparator/styles/separator = SubResource("StyleBoxEmpty_x2ak3")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0)

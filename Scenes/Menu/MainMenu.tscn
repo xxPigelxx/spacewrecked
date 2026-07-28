@@ -177,8 +177,7 @@ vertical_alignment = 1
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 24
-text = "Spacewrecked ist Teil einer Bachelorarbeit, die untersucht, wie Dyslexie für nicht betroffene Personen erfahrbar gemacht werden kann. Das Spiel ist keine realistische Simulation der Wahrnehmung von Menschen mit Dyslexie. Es soll vielmehr die kognitive Belastung und die Herausforderungen beim Lesen spürbar machen und meine persönliche Erfahrung ansatzweise vermitteln.
-Manche Effekte wirken dabei wie „tanzender Text“. Das entspricht nicht in jedem Fall der tatsächlichen Wahrnehmung von Betroffenen.
+text = "Spacewrecked ist Teil einer Bachelorarbeit. 
 Ich würde mich sehr freuen, wenn Sie nach dem Spielen einen kurzen Fragebogen zu Ihrer Erfahrung ausfüllen. Vielen Dank fürs Spielen!"
 fit_content = true
 horizontal_alignment = 1

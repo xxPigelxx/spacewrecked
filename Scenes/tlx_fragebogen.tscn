@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://s3k6q4dkavbg"]
+
+[ext_resource type="PackedScene" uid="uid://cxyoybao4uyt" path="res://Scenes/TLX_bar.tscn" id="1_n2muu"]
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="1_p8jeb"]
+[ext_resource type="Script" uid="uid://cq7dvoqx5b7c1" path="res://Scenes/tlx_fragebogen.gd" id="2_eenye"]
+[ext_resource type="Theme" uid="uid://dvs0r83gvhd2k" path="res://resources/themes/small_Bt.tres" id="3_4b8g6"]
+[ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="4_eenye"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_041f8"]
+texture = ExtResource("1_p8jeb")
+texture_margin_left = 60.90915
+texture_margin_top = 89.0
+texture_margin_right = 57.895527
+texture_margin_bottom = 93.0
+region_rect = Rect2(782, 1429, 484, 594)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_p8jeb"]
+color = Color(0.51718444, 0.5171845, 0.51718444, 1)
+thickness = 4
+
+[node name="TLXFragebogen" type="PanelContainer" unique_id=829286174]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -717.0
+offset_top = -448.5
+offset_right = 717.0
+offset_bottom = 448.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_041f8")
+script = ExtResource("2_eenye")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=707495819]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=2038663597]
+layout_mode = 2
+theme_override_constants/scrollbar_h_separation = 10
+
+[node name="QuestionContianer" type="VBoxContainer" parent="MarginContainer/ScrollContainer" unique_id=160130703]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=583754761]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 42
+text = "Belastungs Einschätzung"
+horizontal_alignment = 1
+
+[node name="InstructionLabel" type="Label" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=1000000001]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Klicken Sie in jeder Skala auf den Punkt, der Ihre Erfahrung im Hinblick auf das Lesen des Textes am besten verdeutlicht."
+horizontal_alignment = 1
+
+[node name="HSeparator7" type="HSeparator" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=1349101791]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_p8jeb")
+
+[node name="TLXBar" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=558521449 instance=ExtResource("1_n2muu")]
+layout_mode = 2
+"erklärung" = "Wie viel geistige Anforderung war bei der Informationsaufnahme und bei der Informationsverarbeitung erforderlich (z.B. Denken, Entscheiden, Rechnen, Erinnern, Hinsehen, Suchen ...)? War die Aufgabe leicht oder anspruchsvoll, einfach oder komplex, erfordert sie hohe Genauigkeit oder ist sie fehlertolerant?"
+question_text = "Geistige Anforderung"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=1949958933]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_p8jeb")
+
+[node name="TLXBar2" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=908825848 instance=ExtResource("1_n2muu")]
+layout_mode = 2
+"erklärung" = "Wie viel körperliche Aktivität war erforderlich (z.B. ziehen, drücken, drehen, steuern, aktivieren ...)? War die Aufgabe leicht oder schwer, einfach oder anstrengend, erholsam oder mühselig?"
+question_text = "Körperliche Anforderung"
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=783466854]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_p8jeb")
+
+[node name="TLXBar3" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=632560456 instance=ExtResource("1_n2muu")]
+layout_mode = 2
+"erklärung" = "Wie viel Zeitdruck empfanden Sie hinsichtlich der Häufigkeit oder dem Takt mit dem die Aufgaben oder Aufgabenelemente auftraten? War die Aufgabe langsam und geruhsam oder schnell und hektisch?"
+question_text = "Zeitliche Anforderung"
+
+[node name="HSeparator4" type="HSeparator" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=724602606]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_p8jeb")
+
+[node name="TLXBar4" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=237171675 instance=ExtResource("1_n2muu")]
+layout_mode = 2
+"erklärung" = "Wie erfolgreich haben Sie Ihrer Meinung nach die vom Versuchsleiter (oder Ihnen selbst) gesetzten Ziele erreicht? Wie zufrieden waren Sie mit Ihrer Leistung bei der Verfolgung dieser Ziele?"
+question_text = "Leistung"
+
+[node name="Label" parent="MarginContainer/ScrollContainer/QuestionContianer/TLXBar4/HBoxContainer" parent_id_path=PackedInt32Array(237171675, 77927936) index="0" unique_id=491002673]
+text = "Gut"
+
+[node name="Label2" parent="MarginContainer/ScrollContainer/QuestionContianer/TLXBar4/HBoxContainer" parent_id_path=PackedInt32Array(237171675, 77927936) index="2" unique_id=2041291366]
+text = "Schlecht"
+
+[node name="HSeparator5" type="HSeparator" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=1891131580]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_p8jeb")
+
+[node name="TLXBar5" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=1436699208 instance=ExtResource("1_n2muu")]
+layout_mode = 2
+"erklärung" = "Wie hart mussten Sie arbeiten, um Ihren Grad an Aufgabenerfüllung zu erreichen?"
+question_text = "Anstrengung"
+
+[node name="HSeparator6" type="HSeparator" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=2012785489]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_p8jeb")
+
+[node name="TLXBar6" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=540343107 instance=ExtResource("1_n2muu")]
+layout_mode = 2
+"erklärung" = "Wie unsicher, entmutigt, irritiert, gestresst und verärgert (versus sicher, bestätigt, zufrieden, entspannt und zufrieden mit sich selbst) fühlten Sie sich während der Aufgabe?"
+question_text = "Frustration"
+
+[node name="HSeparator8" type="HSeparator" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=2050785404]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxLine_p8jeb")
+
+[node name="SubmitButton" type="Button" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=362068600]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_4b8g6")
+disabled = true
+text = "Abschicken"
+script = ExtResource("4_eenye")
+
+[node name="Control" type="Control" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=945128839]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[editable path="MarginContainer/ScrollContainer/QuestionContianer/TLXBar4"]

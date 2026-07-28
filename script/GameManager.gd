@@ -12,7 +12,6 @@ signal time_changed(seconds_left: float)
 signal malfunctions_solved_changed(count: int)
 signal broken_systems_changed()
 signal run_finished(results: Dictionary)
-signal questionnaire_submitted(answers: Array)
 
 enum Phase { SETUP, JOURNEY, RESULTS }
 
@@ -100,7 +99,6 @@ var participant_has_dyslexia := false
 ## "Start" gesammelt, hier zwischengelagert und erst am Ende zusammen mit dem
 ## End-Fragebogen gesendet — so profitieren sie von dessen Bestaetigungs-/Retry-
 ## Logik. In reset_game() geleert (fuellt sich danach ueber den Pre-Fragebogen).
-var pre_questionnaire_answers: Array = []
 var _run_index := 0                            ## Laufnummer innerhalb dieser Sitzung
 var _run_id := ""                              ## eindeutig pro Lauf, verknuepft runs.csv & tasks.csv
 
@@ -189,7 +187,7 @@ func _ready() -> void:
 func reset_game() -> void:
 	set_process(false)
 	phase = Phase.SETUP
-
+	ResultsExporter.mark_play_start()
 	# Kategorie-Zaehler
 	broken_strom = 0
 	broken_treibstoff = 0
@@ -211,7 +209,6 @@ func reset_game() -> void:
 	died_early = false
 	_malfunctions.clear()
 	_run_log.clear()
-	pre_questionnaire_answers.clear()
 
 	# Dyslexie: kein Stress, Effekte je nach Einstellung
 	DyslexiaManager.stress = 0.0
@@ -273,11 +270,6 @@ func _process(delta: float) -> void:
 ## Sendet Pre- und End-Fragebogen gemeinsam als eine Zeile: der Pre-Fragebogen
 ## wurde nach "Start" nur zwischengespeichert und faehrt hier vorne mit, damit
 ## alles ueber die Upload-Bestaetigung/Retry des End-Fragebogens abgesichert ist.
-func submit_questionnaire(answers: Array) -> void:
-	var all_answers: Array = pre_questionnaire_answers.duplicate()
-	all_answers.append_array(answers)
-	questionnaire_submitted.emit(all_answers)
-
 func get_current_run_id() -> String:
 	return _run_id	
 
