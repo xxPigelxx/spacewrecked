@@ -1,3 +1,4 @@
+@tool
 extends Question
 
 enum ScaleType { AGREEMENT, QUALITY, FREQUENCY }

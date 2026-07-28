@@ -1,8 +1,9 @@
+@tool
 extends Question
 
 @onready var h_slider: HSlider = $HBoxContainer/HSlider
 @onready var label: Label = $HBoxContainer/HSlider/Label
-@onready var erklärung_label: Label = $HBoxContainer/Control/Explain
+@onready var erklärung_label: Label = $Explain
 
 @export var erklärung: String = ""
 

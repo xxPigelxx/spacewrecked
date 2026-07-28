@@ -23,6 +23,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="Explain" type="Label" parent="." unique_id=1706389314]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Wie viel geistige Anforderung war bei dem Patienten erforderlich (z.B. bei der Anamneseerhebung, der Interaktion)?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=77927936]
 layout_mode = 2
 theme_override_constants/separation = 15
@@ -30,7 +40,7 @@ theme_override_constants/separation = 15
 [node name="Label" type="Label" parent="HBoxContainer" unique_id=491002673]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Gering"
+text = "sehr gering"
 horizontal_alignment = 1
 
 [node name="HSlider" type="HSlider" parent="HBoxContainer" unique_id=1228985250]
@@ -65,10 +75,11 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 [node name="Label2" type="Label" parent="HBoxContainer" unique_id=2041291366]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Hoch"
+text = " sehr hoch"
 horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="HBoxContainer" unique_id=1689163216]
+visible = false
 layout_mode = 2
 
 [node name="Explain" type="Label" parent="HBoxContainer/Control" unique_id=764434095]

@@ -1,3 +1,4 @@
+@tool
 extends Question
 
 ## Optionale, pro Instanz gesetzte Antwortmoeglichkeiten. Ist das Array leer,
