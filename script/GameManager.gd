@@ -90,10 +90,10 @@ var _run_log: Array[Dictionary] = []
 ## jeden Teilnehmer wird das Spiel neu gestartet). Kann vor dem Lauf manuell
 ## ueberschrieben werden (z. B. spaeter ueber ein Eingabefeld).
 var participant_id := ""
-## Antwort aus dem Startup-Popup ("Wurde bei Ihnen eine Lese-Rechtschreib-Schwaeche
-## festgestellt?"). Wird pro App-Start einmal gesetzt und mit jeder Run-Zeile
-## exportiert, damit dyslexia_enabled=false eindeutig interpretierbar bleibt
-## (Kontrollgruppe vs. betroffene Person). Absichtlich NICHT in reset_game().
+## Wird nur noch vom Startup-Popup gesetzt und nirgends ausgewertet: alle
+## Teilnehmer spielen mit eingeschalteter Simulation, die Betroffenheit kommt
+## als Fragebogen-Item ins Sheet. Kann weg, sobald die Ja/Nein-Buttons im
+## Popup geloescht sind.
 var participant_has_dyslexia := false
 ## Wanduhr ueber den gesamten Spielteil: laeuft ab dem Betreten von MainGame
 ## (Tutorial) bis zum Ende der Journey. Enthaelt also Tutorial und Pausenzeit —
@@ -362,7 +362,6 @@ func _finish_run() -> void:
 		"total_play_time": _play_time(),               # inkl. Tutorial und Pausen
 		"dyslexia_enabled": dyslexia_enabled,
 		"stress_from_health": stress_from_health,
-		"has_dyslexia": participant_has_dyslexia,
 		"log": _run_log.duplicate(),
 	}
 	# ResultsExporter (Autoload) lauscht auf run_finished und schreibt die CSVs.

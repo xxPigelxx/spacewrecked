@@ -36,15 +36,12 @@ func _on_close_pop_up_bt_pressed() -> void:
 	main.visible = true
 
 
-## Pflichtfrage im Startup-Popup: erst nach Ja/Nein laesst sich das Popup schliessen.
-## "Ja" (Dyslexie vorhanden) schaltet die Simulation ab; die Antwort selbst wird
-## in GameState gespeichert und landet als eigene Spalte in der Run-Zeile im Sheet.
+## Nur noch Selbstauskunft, ohne Wirkung auf die Simulation: alle Teilnehmer
+## spielen mit dyslexia_enabled = true (Absprache mit dem Betreuer). Die
+## Antwort wird aktuell nirgends mehr ausgewertet — die Betroffenheit wird
+## stattdessen als Fragebogen-Item erhoben.
 func _on_ja_bt_pressed() -> void:
 	GameState.participant_has_dyslexia = true
-	GameState.dyslexia_enabled = false
-	close_pop_up_bt.disabled = false
 
 func _on_nein_bt_pressed() -> void:
 	GameState.participant_has_dyslexia = false
-	GameState.dyslexia_enabled = true
-	close_pop_up_bt.disabled = false

@@ -7,7 +7,7 @@ extends Node
 ## Reihenfolge egal — Fragebogen, Spielende und Manual-Zeiten koennen in
 ## beliebiger Folge eintreffen, sie landen alle im selben Dictionary.
 
-const SHEET_URL := "https://script.google.com/macros/s/AKfycbxcDLo86UI7y4sMGBlWF7Yi14kRsgg0IvaS9zZYo0vtrKvRathwdnkuXtjmQmZGs7zuMg/exec"
+const SHEET_URL := "https://script.google.com/macros/s/AKfycbzAkg4-aENjv09MvPG6mVtXkgS3fcXzBi3987t44fCml5sF8muivzmDLoeB3114uLp7hA/exec"
 
 ## Die Zeile, die am Ende ins Blatt "Runs" geht. Wird ueber den ganzen
 ## Durchlauf gefuellt.
@@ -70,9 +70,6 @@ func _on_run_finished(results: Dictionary) -> void:
 	_row["run_id"] = results.get("run_id", "")
 	_row["participant_id"] = results.get("participant_id", "")
 	_row["dyslexia_enabled"] = results.get("dyslexia_enabled", false)
-	# Ohne diese Spalte ist dyslexia_enabled=false nicht deutbar: Kontrollgruppe
-	# oder betroffene Person, bei der die Simulation abgeschaltet wurde?
-	_row["has_dyslexia"] = results.get("has_dyslexia", false)
 	_row["stress_from_health"] = results.get("stress_from_health", false)
 	_row["journey_limit_s"] = _round2(results.get("journey_limit", 0.0))
 	_row["journey_time_s"] = _round2(results.get("journey_time", 0.0))

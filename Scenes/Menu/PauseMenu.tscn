@@ -72,7 +72,7 @@ layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("5_bnh8h")
 theme_override_font_sizes/font_size = 75
-text = "Main  Menu"
+text = "Hauptmenu"
 script = ExtResource("6_bf0oi")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="main" unique_id=1175908641]
@@ -83,7 +83,7 @@ theme_override_constants/separation = 32
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 75
-text = "Options"
+text = "Optionen"
 script = ExtResource("6_bf0oi")
 
 [node name="CreditsBt" type="Button" parent="main/HBoxContainer" unique_id=2064194056]
@@ -97,13 +97,13 @@ script = ExtResource("6_bf0oi")
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 75
-text = "Return"
+text = "Zurueck"
 script = ExtResource("6_bf0oi")
 
 [node name="credits" type="VBoxContainer" parent="." unique_id=1975557991]
 offset_left = 639.0
 offset_top = 416.0
-offset_right = 1281.0
+offset_right = 1312.0
 offset_bottom = 968.0
 theme = ExtResource("5_bnh8h")
 alignment = 1
@@ -134,13 +134,13 @@ text = "Nikolai  Boshe"
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 75
-text = "Back"
+text = "Zurueck"
 script = ExtResource("6_bf0oi")
 
 [node name="Options" type="VBoxContainer" parent="." unique_id=194881256]
 offset_left = 639.0
 offset_top = 412.0
-offset_right = 1281.0
+offset_right = 1315.0
 offset_bottom = 964.0
 theme = ExtResource("5_bnh8h")
 alignment = 1
@@ -153,7 +153,7 @@ size_flags_horizontal = 4
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 75
-text = "Back"
+text = "Zurueck"
 script = ExtResource("6_bf0oi")
 
 [connection signal="pressed" from="main/MainMenuBt" to="." method="_on_main_menu_bt_pressed"]
