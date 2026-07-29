@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c1co3bh3mf2hg" path="res://resources/assets/small_ship.png" id="5_ox17v"]
 [ext_resource type="PackedScene" uid="uid://j4peei1eub8m" path="res://Scenes/fier_sfx.tscn" id="6_3cjuw"]
 [ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="6_bfdlc"]
-[ext_resource type="AudioStream" uid="uid://d3mc4qe8y2ojk" path="res://resources/assets/sfx/Explosions - Sound Effects/Explosions - Sound Effects/Small_Explosion_3.wav" id="8_hv2aa"]
+[ext_resource type="AudioStream" uid="uid://bpop3jxfkcw21" path="res://resources/assets/sfx/impact/Small_Explosion_3.wav" id="8_1bcf8"]
 [ext_resource type="AudioStream" uid="uid://cpb58qi7rh1y6" path="res://resources/assets/sfx/Interface_Bleeps_Wav/Complete_02.wav" id="9_1bcf8"]
 
 [sub_resource type="Animation" id="Animation_hv2aa"]
@@ -637,7 +637,7 @@ color = Color(1, 0.4257876, 0.35708547, 1)
 libraries/ = SubResource("AnimationLibrary_hv2aa")
 
 [node name="Explosion" type="AudioStreamPlayer" parent="." unique_id=1360959637]
-stream = ExtResource("8_hv2aa")
+stream = ExtResource("8_1bcf8")
 volume_db = -5.0
 bus = &"sfx"
 
