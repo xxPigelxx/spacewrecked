@@ -105,8 +105,10 @@ const SHAKE_RATE := 20
 ## Grenzen der Groessen-Varianz.
 const SIZE_MIN := 6
 const SIZE_MAX := 68
-## Deckel fuer den Fehlende-Teile-Shader — bei 1.0 waere der Buchstabe ganz weg.
-const MISSING_MAX := 0.9
+## Deckel fuer den Fehlende-Teile-Shader: mehr als dieser Anteil der Tinte darf
+## nie fehlen, egal wie hoch der Stress steigt. Darueber kippt ein Wort von
+## muehsam nach unlesbar — und muehsam ist das, was gezeigt werden soll.
+const MISSING_MAX := 0.5
 
 const SWAP_PAIRS: Dictionary = {
 	"b": "d", "d": "b",
@@ -368,8 +370,7 @@ func process_text(
 
 ## Effektive Stärke (0–1) des Fehlende-Teile-Shaders (glyph_missing.gdshader).
 ## Kein BBCode-Effekt — DyslexiaLabel setzt damit sein ShaderMaterial.
-## Stress-verstärkt wie die anderen Effekte, gedeckelt bei 0.9 damit
-## Buchstaben nie komplett verschwinden.
+## Stress-verstärkt wie die anderen Effekte, gedeckelt bei MISSING_MAX.
 func effective_missing(missing_pct: float) -> float:
 	if accessibility:
 		return 0.0
