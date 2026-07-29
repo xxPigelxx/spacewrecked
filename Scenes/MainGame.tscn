@@ -146,7 +146,7 @@ position = Vector2(662, 773)
 category = 1
 spawn_time = 12.0
 astoroid = true
-overlay_scene = "uid://chmc3hxljorrv"
+overlay_scene = "uid://cvx8uf3sul6n8"
 
 [node name="MalfunctionIconsWiers" parent="Interactabels/JourneyMalfunctions/WiersJourney" unique_id=1050304997 instance=ExtResource("17_cmrup")]
 

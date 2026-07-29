@@ -7,6 +7,7 @@ offset_right = 750.0
 offset_bottom = 138.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_constants/separation = 15
 script = ExtResource("1_tbxu7")
 
 [node name="Label" type="Label" parent="." unique_id=1581075435]
@@ -15,11 +16,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
-text = "Frage"
+text = "Frageasd fasd fsdaf asdf asdf asdf sdfa sdfa sdaf dsfa dfsa adfsa dsfa sdf a"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-text_overrun_behavior = 6
 
 [node name="Edit" type="TextEdit" parent="." unique_id=627141620]
 custom_minimum_size = Vector2(800, 0)

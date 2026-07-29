@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://niyjg0ofpoa0" path="res://Scenes/multiple_choice.gd" id="1_jibj3"]
 
 [node name="MultipleChoice" type="VBoxContainer" unique_id=1823932599]
-offset_right = 362.0
-offset_bottom = 45.0
-theme_override_constants/separation = 32
+offset_right = 750.0
+offset_bottom = 96.0
+theme_override_constants/separation = 15
 script = ExtResource("1_jibj3")
+options = PackedStringArray()
 
 [node name="Label" type="Label" parent="." unique_id=1128385026]
 custom_minimum_size = Vector2(750, 50)
@@ -34,5 +35,6 @@ popup/item_4/text = "Codes"
 popup/item_4/id = 4
 
 [node name="Control" type="Control" parent="." unique_id=1670727870]
+visible = false
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2

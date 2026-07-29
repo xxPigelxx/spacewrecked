@@ -28,10 +28,10 @@ func _fill_results() -> void:
 	# Ergebnis-Ueberschrift je nach Ausgang.
 	if died:
 		title_label.text = "Schiff zerstoert"
-		results_label.text = "[center][u]Ergebnis: Schiff zerstoert"
+		results_label.text = "[center]Ergebnis: Schiff zerstoert"
 	else:
 		title_label.text = "Geschafft!"
-		results_label.text = "[center][u]Ergebnis: Zeit ueberstanden"
+		results_label.text = "[center]Ergebnis: Zeit ueberstanden"
 
 	# Genutzte Zeit: bei died_early < run_duration, sonst volle Dauer.
 	var time_used: float = run_duration - max(0.0, GameState.time_left)

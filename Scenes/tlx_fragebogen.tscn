@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cxyoybao4uyt" path="res://Scenes/TLX_bar.tscn" id="1_n2muu"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="1_p8jeb"]
 [ext_resource type="Script" uid="uid://cq7dvoqx5b7c1" path="res://Scenes/tlx_fragebogen.gd" id="2_eenye"]
+[ext_resource type="StyleBox" uid="uid://tqdpvbowwi4c" path="res://QuestionearTheam.tres" id="3_4b8g6"]
+[ext_resource type="Theme" uid="uid://bgvgj63dcsix4" path="res://resources/themes/Hbar_theme.tres" id="3_eenye"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_041f8"]
 texture = ExtResource("1_p8jeb")
@@ -11,10 +13,6 @@ texture_margin_top = 89.0
 texture_margin_right = 57.895527
 texture_margin_bottom = 93.0
 region_rect = Rect2(782, 1429, 484, 594)
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_p8jeb"]
-color = Color(0.51718444, 0.5171845, 0.51718444, 1)
-thickness = 4
 
 [node name="TLXFragebogen" type="PanelContainer" unique_id=829286174]
 anchors_preset = 8
@@ -62,8 +60,7 @@ horizontal_alignment = 1
 
 [node name="HSeparator7" type="HSeparator" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=1349101791]
 layout_mode = 2
-theme_override_constants/separation = 24
-theme_override_styles/separator = SubResource("StyleBoxLine_p8jeb")
+theme = ExtResource("3_eenye")
 
 [node name="TLXBar" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=558521449 instance=ExtResource("1_n2muu")]
 layout_mode = 2
@@ -73,7 +70,7 @@ question_text = "Geistige Anforderung"
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=1949958933]
 layout_mode = 2
 theme_override_constants/separation = 24
-theme_override_styles/separator = SubResource("StyleBoxLine_p8jeb")
+theme_override_styles/separator = ExtResource("3_4b8g6")
 
 [node name="TLXBar2" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=908825848 instance=ExtResource("1_n2muu")]
 layout_mode = 2
@@ -83,7 +80,7 @@ question_text = "Körperliche Anforderung"
 [node name="HSeparator3" type="HSeparator" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=783466854]
 layout_mode = 2
 theme_override_constants/separation = 24
-theme_override_styles/separator = SubResource("StyleBoxLine_p8jeb")
+theme_override_styles/separator = ExtResource("3_4b8g6")
 
 [node name="TLXBar3" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=632560456 instance=ExtResource("1_n2muu")]
 layout_mode = 2
@@ -93,15 +90,27 @@ question_text = "Zeitliche Anforderung"
 [node name="HSeparator4" type="HSeparator" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=724602606]
 layout_mode = 2
 theme_override_constants/separation = 24
-theme_override_styles/separator = SubResource("StyleBoxLine_p8jeb")
+theme_override_styles/separator = ExtResource("3_4b8g6")
 
 [node name="TLXBar4" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=237171675 instance=ExtResource("1_n2muu")]
 layout_mode = 2
 "erklärung" = "Wie erfolgreich haben Sie Ihrer Meinung nach die vom Versuchsleiter (oder Ihnen selbst) gesetzten Ziele erreicht? Wie zufrieden waren Sie mit Ihrer Leistung bei der Verfolgung dieser Ziele?"
 question_text = "Leistung"
 
+[node name="Label" parent="MarginContainer/ScrollContainer/QuestionContianer/TLXBar4" index="0" unique_id=1581075435]
+text = "Leistung"
+
+[node name="Explain" parent="MarginContainer/ScrollContainer/QuestionContianer/TLXBar4" index="1" unique_id=1706389314]
+text = "Wie erfolgreich haben Sie Ihrer Meinung nach die vom Versuchsleiter (oder Ihnen selbst) gesetzten Ziele erreicht? Wie zufrieden waren Sie mit Ihrer Leistung bei der Verfolgung dieser Ziele?"
+
 [node name="Label" parent="MarginContainer/ScrollContainer/QuestionContianer/TLXBar4/HBoxContainer" parent_id_path=PackedInt32Array(237171675, 77927936) index="0" unique_id=491002673]
 text = "Gut"
+
+[node name="HSlider" parent="MarginContainer/ScrollContainer/QuestionContianer/TLXBar4/HBoxContainer" parent_id_path=PackedInt32Array(237171675, 77927936) index="1" unique_id=1228985250]
+modulate = Color(1, 1, 1, 0.5)
+
+[node name="Label" parent="MarginContainer/ScrollContainer/QuestionContianer/TLXBar4/HBoxContainer/HSlider" index="0" unique_id=1905380100]
+text = "?"
 
 [node name="Label2" parent="MarginContainer/ScrollContainer/QuestionContianer/TLXBar4/HBoxContainer" parent_id_path=PackedInt32Array(237171675, 77927936) index="2" unique_id=2041291366]
 text = "Schlecht"
@@ -109,7 +118,7 @@ text = "Schlecht"
 [node name="HSeparator5" type="HSeparator" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=1891131580]
 layout_mode = 2
 theme_override_constants/separation = 24
-theme_override_styles/separator = SubResource("StyleBoxLine_p8jeb")
+theme_override_styles/separator = ExtResource("3_4b8g6")
 
 [node name="TLXBar5" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=1436699208 instance=ExtResource("1_n2muu")]
 layout_mode = 2
@@ -119,7 +128,7 @@ question_text = "Anstrengung"
 [node name="HSeparator6" type="HSeparator" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=2012785489]
 layout_mode = 2
 theme_override_constants/separation = 24
-theme_override_styles/separator = SubResource("StyleBoxLine_p8jeb")
+theme_override_styles/separator = ExtResource("3_4b8g6")
 
 [node name="TLXBar6" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=540343107 instance=ExtResource("1_n2muu")]
 layout_mode = 2
@@ -129,7 +138,7 @@ question_text = "Frustration"
 [node name="HSeparator8" type="HSeparator" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=2050785404]
 layout_mode = 2
 theme_override_constants/separation = 24
-theme_override_styles/separator = SubResource("StyleBoxLine_p8jeb")
+theme_override_styles/separator = ExtResource("3_4b8g6")
 
 [node name="Control" type="Control" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=945128839]
 custom_minimum_size = Vector2(0, 200)

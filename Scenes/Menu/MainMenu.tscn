@@ -180,7 +180,7 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 24
 text = "Spacewrecked ist Teil einer Bachelorarbeit an der HAW Hamburg.
 
-Vor und nach dem Spielen bitte ich Sie jeweils um einen kurzen Fragebogen. Ihre Antworten werden anonym gespeichert und nur für diese Arbeit ausgewertet.
+Vor und nach dem Spielen bitte ich Sie jeweils einen kurzen Fragebogen auszufühlen. Ihre Antworten werden anonym gespeichert und nur für diese Arbeit ausgewertet.
 
 Vielen Dank fürs Mitmachen!"
 fit_content = true
@@ -229,6 +229,7 @@ text = "Weiter"
 script = ExtResource("4_ghw46")
 
 [node name="VSlider" type="VSlider" parent="." unique_id=65191068]
+visible = false
 layout_mode = 0
 offset_left = 509.0
 offset_top = -1.0
