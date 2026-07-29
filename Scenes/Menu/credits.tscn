@@ -8,13 +8,15 @@
 
 [node name="credits" type="VBoxContainer" unique_id=1516615289]
 offset_left = 639.0
-offset_top = 416.0
+offset_top = 342.0
 offset_right = 1281.0
 offset_bottom = 968.0
 theme = ExtResource("1_2ey4j")
+theme_override_constants/separation = 25
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=125134024]
+visible = false
 layout_mode = 2
 size_flags_vertical = 2
 alignment = 1
@@ -36,11 +38,63 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_sml11")
 theme_override_font_sizes/font_size = 40
-text = "Nikolai  Boshe"
+text = "Nikolai  Bohse"
+
+[node name="Scroll" type="ScrollContainer" parent="." unique_id=1026041183]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Text" type="RichTextLabel" parent="Scroll" unique_id=795572148]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 22
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[font_size=34]Space Wrecked[/font_size]
+Bachelorarbeit, HAW Hamburg, Media Systems
+
+[font_size=28]Entwicklung, Grafik, Spieldesign[/font_size]
+Nikolai Bohse
+
+[font_size=28]Engine[/font_size]
+Godot Engine, MIT-Lizenz
+Copyright (c) 2014-present Godot Engine contributors
+Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur
+godotengine.org
+
+[font_size=28]Musik[/font_size]
+\"Abandoned Station (5) (Loop)\"
+AlkaKrab
+
+[font_size=28]Soundeffekte[/font_size]
+Interface-Toene - Bleeoop
+bleeoop.itch.io/interface-bleeps
+
+Explosion - Nicola Fabro
+nicola-fabro.itch.io
+
+Schritte - MGW Sound Design
+mgw-sound-design.itch.io
+
+Herzschlag - universfield, via Pixabay
+
+[font_size=28]Schriften[/font_size]
+Alle unter der SIL Open Font License 1.1
+Bitter - Copyright 2011 The Bitter Project Authors
+Nunito - Copyright 2014 The Nunito Project Authors
+PT Serif - Copyright (c) 2010 ParaType Ltd.
+Share Tech - Copyright 2012 The Share Tech Project Authors
+Source Sans 3 - Copyright 2010-2020 Adobe
+Work Sans - Copyright 2019 The Work Sans Project Authors
+"
+fit_content = true
 
 [node name="BackBt" type="Button" parent="." unique_id=1357636953]
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 4
 theme_override_font_sizes/font_size = 75
 text = "Zurueck"
 script = ExtResource("3_faj7g")
