@@ -6,6 +6,11 @@
 [ext_resource type="Script" uid="uid://dgelda1t2b50h" path="res://script/ship_flight_bar.gd" id="4_6jhrp"]
 [ext_resource type="Texture2D" uid="uid://pv7plt15jljw" path="res://resources/assets/ship_icon.tres" id="4_ldltn"]
 [ext_resource type="Texture2D" uid="uid://d0orecowgayfv" path="res://resources/assets/heart_icon.tres" id="4_yhjai"]
+[ext_resource type="Script" uid="uid://cuhjopf80uuuh" path="res://script/debug_health_slider.gd" id="5_d55ng"]
+
+[sub_resource type="Curve" id="Curve_d55ng"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2479784, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.79516804), 0.05447532, 0.0, 0, 0]
+point_count = 3
 
 [node name="InfoBars" type="Control" unique_id=1636553147]
 layout_mode = 3
@@ -43,6 +48,9 @@ texture_progress = ExtResource("2_jrbst")
 tint_under = Color(0.2520276, 0.25202766, 0.25202763, 1)
 tint_progress = Color(0.7019608, 0.20392157, 0.26666668, 1)
 script = ExtResource("3_ldltn")
+beat_rate_curve = SubResource("Curve_d55ng")
+play_sound = false
+start_volume_db = -10.0
 
 [node name="HeartBeatPlayer" type="AudioStreamPlayer" parent="VBoxContainer/ShipHealthBar" unique_id=1377830887]
 bus = &"sfx"
@@ -62,6 +70,9 @@ mouse_filter = 2
 texture = ExtResource("4_yhjai")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Node" type="Node" parent="VBoxContainer/ShipHealthBar" unique_id=809557749]
+script = ExtResource("5_d55ng")
 
 [node name="FlightProgressBar" type="TextureProgressBar" parent="VBoxContainer" unique_id=73876907]
 layout_mode = 2
