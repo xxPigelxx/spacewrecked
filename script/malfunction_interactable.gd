@@ -19,7 +19,7 @@ enum Phase { TUTORIAL, JOURNEY }
 ## Sekunden VOR dem Anflug abgespielt, damit der Spieler den Einschlag kommen hoert.
 ## warning_sound ist bewusst als Pfad exportiert, damit der Sound spaeter leicht
 ## gegen einen echten Alarm/Sirene getauscht werden kann.
-@export var warning_sound: String = "res://resources/assets/sfx/Interface_Bleeps_Wav/Denied_01.wav"
+@export var warning_sound: String = "res://resources/assets/sfx/Interface_Bleeps_Wav/Bleep_06.wav"
 @export var warning_beeps: int = 3       ## wie oft der Alarm-Sound in der Vorlaufzeit ertoent
 @export var warning_lead_time: float = 1.0  ## Sekunden Alarm vor dem Anflug (+1.5 s Flug = Gesamtwarnung)
 

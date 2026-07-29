@@ -139,6 +139,37 @@ question_text = "Kennst du persönlich jemanden mit Dyslexie?"
 [node name="HSeparator1" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=485024600 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
 
+[node name="AngabenZurGeschichte" type="Label" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=604118955]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Kurze Kontrollfrage zur Geschichte:"
+
+[node name="HSeparator17" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=237568951 instance=ExtResource("5_w7tf1")]
+layout_mode = 2
+
+[node name="MultipleChoice6" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=2013937483 instance=ExtResource("5_x0xal")]
+layout_mode = 2
+options = PackedStringArray("Veridium", "Stratium", "Astralit", "Weiß ich nicht mehr")
+question_text = "Wie heißt das Material, das du geborgen hast?"
+
+[node name="HSeparator18" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=588410901 instance=ExtResource("5_w7tf1")]
+layout_mode = 2
+
+[node name="MultipleChoice7" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1011041561 instance=ExtResource("5_x0xal")]
+layout_mode = 2
+options = PackedStringArray("Kaldris IV", "Veridian VII", "Erebus-3", "Weiß ich nicht mehr")
+question_text = "Auf welchem Planeten hast du es gefunden?"
+
+[node name="HSeparator19" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=69220696 instance=ExtResource("5_w7tf1")]
+layout_mode = 2
+
+[node name="MultipleChoice8" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1944433793 instance=ExtResource("5_x0xal")]
+layout_mode = 2
+options = PackedStringArray("Der Antrieb", "Der Frachtraum", "Der Bordcomputer", "Weiß ich nicht mehr")
+question_text = "Welches System ist beim Meteoritenschauer ausgefallen?"
+
 [node name="DyslexieFragen" type="Label" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1504592690]
 layout_mode = 2
 size_flags_vertical = 0
@@ -230,33 +261,84 @@ script = ExtResource("7_lsliw")
 
 [node name="MarginContainer" type="MarginContainer" parent="StoryIntro" unique_id=1747049251]
 layout_mode = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="StoryIntro/MarginContainer" unique_id=1438310632]
+[node name="ScrollContainer" type="ScrollContainer" parent="StoryIntro/MarginContainer" unique_id=2098022637]
 layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StoryIntro/MarginContainer/ScrollContainer" unique_id=1438310632]
+layout_mode = 2
+size_flags_horizontal = 3
 script = ExtResource("7_2xspt")
 crowd_percent = 66.0
 char_size_percent = 66.0
 
-[node name="Title2" type="RichTextLabel" parent="StoryIntro/MarginContainer/VBoxContainer" unique_id=1526115279]
+[node name="Title2" type="RichTextLabel" parent="StoryIntro/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1526115279]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
-text = "Willkommen an Bord der AstroExplora"
+text = "Bordhandbuch"
 fit_content = true
 
-[node name="Title" type="RichTextLabel" parent="StoryIntro/MarginContainer/VBoxContainer" unique_id=2063828750]
+[node name="Title5" type="RichTextLabel" parent="StoryIntro/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1419061524]
 layout_mode = 2
 theme_override_constants/line_separation = 2
 theme_override_constants/paragraph_separation = -2
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
-text = "Dieses Handbuch ist dein Begleiter an Bord. Es wird dein wichtigster Freund auf deiner weiten Reise durchs Weltall.
+text = "Abschnitt 0: Notfallprotokoll bei Rumpfschaden"
+fit_content = true
 
-Es führt dich durch alle Systeme des Schiffs. Wähle oben den passenden Tab – dort findest du Erklärungen, Warnhinweise und Schritt-für-Schritt-Anleitungen. Während deiner Reise kannst du hier den aktuellen Status des Schiffes nachschauen. Achte auf ein rotes Licht am Handbuch. Leuchtet es, weißt du, dass etwas kaputt ist.
+[node name="HSeparator2" parent="StoryIntro/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1572266204 instance=ExtResource("5_w7tf1")]
+layout_mode = 2
 
-Wichtig! Fällt die Energie aus, drücke (F), um die Taschenlampe ein- oder auszuschalten, und versuche, die Energie wiederherzustellen.
+[node name="Title4" type="RichTextLabel" parent="StoryIntro/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1833784649]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "Ausgangslage:"
+fit_content = true
 
-Hast du es eilig, halte die Umschalttaste (Shift) gedrückt, um zu sprinten."
+[node name="Title" type="RichTextLabel" parent="StoryIntro/MarginContainer/ScrollContainer/VBoxContainer" unique_id=2063828750]
+layout_mode = 2
+theme_override_constants/line_separation = 2
+theme_override_constants/paragraph_separation = -2
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "Die Ozonschicht deiner Heimatwelt ist aufgerissen. Über Jahrzehnte ist sie dünner geworden, bis das Licht der Sonne keine Wärme mehr brachte, sondern Gefahr. Die Städte zogen unter die Erde, die Felder verdorrten. Geblieben ist eine einzige Hoffnung: Stratium, das einzige bekannte Material, das die Schicht wieder aufbauen kann.
+
+Es existiert nur auf Veridian VII.
+
+Also bist du geflogen. Monate durch die Leere, allein an Bord der AstroExplora. Dann noch einmal Monate auf einer fremden Oberfläche. Bohrung um Bohrung, Sektor um Sektor, bis die Analyse endlich anschlug.
+
+Das Stratium liegt im Frachtraum. Der Kurs steht auf Heimat.
+
+Dann der Meteoritenschauer. Die Einschläge kamen zu schnell, um auszuweichen. Metall riss, die Beleuchtung flackerte und erlosch. Als es wieder still wurde, war der Bordcomputer ausgefallen.
+
+Geblieben ist dieses Handbuch.
+
+Sobald alle Systeme wieder verfügbar sind: Kurs durch das Asteroidenfeld setzen.
+"
+fit_content = true
+
+[node name="WarningBox" type="PanelContainer" parent="StoryIntro/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1664729323]
+layout_mode = 2
+
+[node name="WarnLabel" type="RichTextLabel" parent="StoryIntro/MarginContainer/ScrollContainer/VBoxContainer/WarningBox" unique_id=753315658]
+layout_mode = 2
+text = "Hinweis: Die Schäden am Schiff sind nicht stabil. Mit jeder Sekunde ohne Reparatur steigt die Belastung der verbleibenden Systeme. Repariere die Systeme und halte dich an die Angaben im Handbuch. Das bringt dich zurück nach Hause."
+fit_content = true
+scroll_active = false
+
+[node name="Title3" type="RichTextLabel" parent="StoryIntro/MarginContainer/ScrollContainer/VBoxContainer" unique_id=947812170]
+layout_mode = 2
+theme_override_constants/line_separation = 2
+theme_override_constants/paragraph_separation = -2
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "
+Viel Erfolg Astro"
 fit_content = true
 
 [node name="NextButton" type="Button" parent="." unique_id=1208619313]

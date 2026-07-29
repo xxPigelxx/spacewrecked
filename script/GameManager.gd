@@ -366,7 +366,9 @@ func _finish_run() -> void:
 	}
 	# ResultsExporter (Autoload) lauscht auf run_finished und schreibt die CSVs.
 	run_finished.emit(results)
-	# Erst der End-Fragebogen, der schickt den Durchlauf ab und geht danach zum
-	# Endscreen weiter. force_, weil der Lauf auch mitten in einem offenen
-	# Raetsel enden kann — switch_scene() wuerde dann kommentarlos nichts tun.
-	SceneSwitcher.force_switch_scene("res://Scenes/Menu/post_flow.tscn")
+	# Erst die Abschluss-Animation (Heimkehr oder Einschlag, je nach died_early),
+	# die schaltet danach selbst zum End-Fragebogen weiter. Der schickt den
+	# Durchlauf ab und geht zum Endscreen. force_, weil der Lauf auch mitten in
+	# einem offenen Raetsel enden kann — switch_scene() wuerde dann kommentarlos
+	# nichts tun.
+	SceneSwitcher.force_switch_scene("res://Scenes/ending.tscn")
