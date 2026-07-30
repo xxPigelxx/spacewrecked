@@ -1203,7 +1203,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="AquaronText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=102741919]
 layout_mode = 2
-text = "Ein blau-oranger Planet mit einem Hablmond auf der Oberfläche — wie eine Welle, die sich ausbreitet, nachdem jemand einen Stein in einen Ozean aus Licht geworfen hat."
+text = "Ein blau-oranger Planet mit einem Halbmond auf der Oberfläche — wie eine Welle, die sich ausbreitet, nachdem jemand einen Stein in einen Ozean aus Licht geworfen hat."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"

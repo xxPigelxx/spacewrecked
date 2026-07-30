@@ -595,8 +595,8 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_bfdlc")
 theme_override_font_sizes/font_size = 96
-text = "Geschaft
-Zu Hause Angekommen!!!"
+text = "Geschafft
+Zu Hause angekommen!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -618,8 +618,8 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_bfdlc")
 theme_override_font_sizes/font_size = 96
-text = "Leider Nicht
-Zu Hause Angekommen!!!"
+text = "Leider nicht
+Zu Hause angekommen!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 

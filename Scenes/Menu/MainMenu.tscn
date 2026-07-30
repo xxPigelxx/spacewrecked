@@ -67,7 +67,7 @@ layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("3_df05h")
 theme_override_font_sizes/font_size = 75
-text = "Reise Starten"
+text = "Reise starten"
 script = ExtResource("4_ghw46")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="main" unique_id=1175908641]

@@ -39,7 +39,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("4_02pe6")
 theme_override_font_sizes/font_size = 250
-text = "Danke !"
+text = "Danke!"
 horizontal_alignment = 1
 
 [node name="Star" parent="Label" unique_id=768714016 instance=ExtResource("5_iapu6")]
@@ -111,7 +111,7 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 75
-text = " Credits "
+text = "Credits"
 script = ExtResource("7_jvhs5")
 
 [node name="QuitBt" type="Button" parent="main/HBoxContainer" unique_id=1968774762]
@@ -127,7 +127,7 @@ layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("6_sc664")
 theme_override_font_sizes/font_size = 75
-text = "Haupt Menu"
+text = "Hauptmenu"
 script = ExtResource("7_jvhs5")
 
 [node name="credits" parent="." unique_id=1516615289 instance=ExtResource("7_m1sp3")]

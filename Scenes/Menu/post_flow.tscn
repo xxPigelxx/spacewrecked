@@ -34,7 +34,7 @@ offset_bottom = -90.0
 grow_vertical = 0
 
 [node name="InstructionLabel" parent="TLXFragebogen/MarginContainer/ScrollContainer/QuestionContianer" parent_id_path=PackedInt32Array(829286174, 160130703) index="1" unique_id=769381291]
-text = "Klicken Sie in jeder Skala auf den Punkt, der Ihre Erfahrung im Hinblick auf das [b]Lesen des Handbuchestextes[/b] am besten verdeutlicht."
+text = "Klicken Sie in jeder Skala auf den Punkt, der Ihre Erfahrung im Hinblick auf das [b]Lesen des Handbuchtextes[/b] am besten verdeutlicht."
 
 [node name="NextButton" type="Button" parent="." unique_id=727317669]
 layout_mode = 1

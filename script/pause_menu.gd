@@ -10,7 +10,7 @@ func _ready() -> void:
 	_update_label()
 	GameState.pause_run()
 
-## Laeuft bei jedem Weg aus dem Menue (Zuruck, Esc, Hauptmenue), weil das
+## Laeuft bei jedem Weg aus dem Menue (Zurueck, Esc, Hauptmenue), weil das
 ## Overlay dabei freigegeben wird.
 func _exit_tree() -> void:
 	GameState.resume_run()

@@ -86,7 +86,7 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 64
-text = "Frage Bogen"
+text = "Fragebogen"
 horizontal_alignment = 1
 
 [node name="HSeparator12" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1849054439 instance=ExtResource("5_w7tf1")]
@@ -113,7 +113,7 @@ layout_mode = 2
 
 [node name="demo_geschlecht" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1940756879 instance=ExtResource("5_x0xal")]
 layout_mode = 2
-options = PackedStringArray("Weiblich", "Mänlich", "Divers", "Keine Angabe")
+options = PackedStringArray("Weiblich", "Männlich", "Divers", "Keine Angabe")
 question_text = "Geschlecht"
 
 [node name="HSeparator15" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1807194272 instance=ExtResource("5_w7tf1")]
@@ -129,7 +129,7 @@ layout_mode = 2
 
 [node name="demo_dyslexie_selbst" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=29795970 instance=ExtResource("5_x0xal")]
 layout_mode = 2
-options = PackedStringArray("Ja, diagnostiziert ", "Ja, vermute ich", "Nein", "Keine Angabe")
+options = PackedStringArray("Ja, diagnostiziert", "Ja, vermute ich", "Nein", "Keine Angabe")
 question_text = "Hast du selbst Legasthenie?"
 
 [node name="HSeparator16" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1397529289 instance=ExtResource("5_w7tf1")]
@@ -137,7 +137,7 @@ layout_mode = 2
 
 [node name="demo_dyslexie_umfeld" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1614445558 instance=ExtResource("5_x0xal")]
 layout_mode = 2
-options = PackedStringArray("Ja", "Nein", "Weiß Nicht", "Keine Angabe")
+options = PackedStringArray("Ja", "Nein", "Weiß nicht", "Keine Angabe")
 question_text = "Kennst du persönlich jemanden mit Dyslexie?"
 
 [node name="HSeparator1" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=485024600 instance=ExtResource("5_w7tf1")]
@@ -148,7 +148,7 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 42
-text = "Kurze Kontrollfrage zur Geschichte:"
+text = "Kurze Kontrollfragen zur Geschichte:"
 horizontal_alignment = 1
 
 [node name="HSeparator17" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=237568951 instance=ExtResource("5_w7tf1")]
@@ -180,7 +180,7 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 42
-text = "Angaben zu ihrern einschätzungen:"
+text = "Angaben zu deinen Einschätzungen:"
 horizontal_alignment = 1
 
 [node name="HSeparator10" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=27157330 instance=ExtResource("5_w7tf1")]
@@ -211,10 +211,10 @@ question_text = "Mit genug Übung wäre Lesen bei Legasthenie kein Problem mehr.
 [node name="HSeparator4" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1404225783 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
 
-[node name="Q4q04_kraft" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1563779915 instance=ExtResource("6_x0xal")]
+[node name="q04_kraft" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1563779915 instance=ExtResource("6_x0xal")]
 layout_mode = 2
 size_flags_vertical = 3
-question_text = "Lesen kostet Menschen mit Legasthnie mehr Kraft als mich."
+question_text = "Lesen kostet Menschen mit Legasthenie mehr Kraft als mich."
 
 [node name="HSeparator5" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=404703809 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
@@ -230,7 +230,7 @@ layout_mode = 2
 [node name="q06_zeit_verstaendnis" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=127296055 instance=ExtResource("6_x0xal")]
 layout_mode = 2
 size_flags_vertical = 3
-question_text = "Wenn jemand mit Legasthenie für ein Text länger braucht, kann ich nachvollziehen, warum."
+question_text = "Wenn jemand mit Legasthenie für einen Text länger braucht, kann ich nachvollziehen, warum."
 
 [node name="HSeparator7" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1320070000 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
@@ -343,7 +343,7 @@ theme_override_constants/paragraph_separation = -2
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "
-Viel Erfolg Astro"
+Viel Erfolg, Astro"
 fit_content = true
 
 [node name="NextButton" type="Button" parent="." unique_id=1208619313]

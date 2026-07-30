@@ -109,7 +109,7 @@ text = "Kabel"
 layout_mode = 2
 theme = ExtResource("3_baqv7")
 theme_override_font_sizes/font_size = 50
-text = "Zuruck"
+text = "Zurueck"
 
 [node name="Label" type="Label" parent="Panel" unique_id=1315807482]
 layout_mode = 1

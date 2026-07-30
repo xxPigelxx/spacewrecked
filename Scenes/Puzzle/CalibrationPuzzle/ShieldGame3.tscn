@@ -62,7 +62,7 @@ theme_override_constants/separation = 14
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_7jpeq")
 theme_override_font_sizes/font_size = 50
-text = "Frequenzen Kalibriren"
+text = "Frequenzen kalibrieren"
 horizontal_alignment = 1
 
 [node name="Sub" type="Label" parent="Center/Panel/Margin/VBox" unique_id=1792289029]
