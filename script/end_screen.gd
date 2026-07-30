@@ -11,9 +11,11 @@ extends CanvasLayer
 @onready var time_label: Label = $main/Time
 @onready var completed_label: Label = $main/Compleated
 @onready var quit_bt: Button = $main/HBoxContainer/QuitBt
+@onready var pop_up: MarginContainer = $PopUp
 
 func _ready() -> void:
-	main.visible = true
+	pop_up.visible = true
+	main.visible = false
 	credits.visible = false
 	title_label.visible = true
 	_fill_results()
@@ -49,3 +51,8 @@ func _on_main_menu_bt_pressed() -> void:
 func _on_return_bt_pressed() -> void:
 	await ResultsExporter.await_pending_uploads()
 	get_tree().quit()
+
+
+func _on_close_pop_up_bt_pressed() -> void:
+	pop_up.visible = false
+	main.visible = true
