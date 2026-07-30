@@ -229,6 +229,7 @@ text = "Weiter"
 script = ExtResource("4_ghw46")
 
 [node name="VSlider" type="VSlider" parent="." unique_id=65191068]
+visible = false
 layout_mode = 0
 offset_left = 509.0
 offset_top = -1.0
