@@ -36,18 +36,6 @@ grow_vertical = 0
 [node name="InstructionLabel" parent="TLXFragebogen/MarginContainer/ScrollContainer/QuestionContianer" parent_id_path=PackedInt32Array(829286174, 160130703) index="1" unique_id=769381291]
 text = "Klicken Sie in jeder Skala auf den Punkt, der Ihre Erfahrung im Hinblick auf das [b]Lesen des Handbuchestextes[/b] am besten verdeutlicht."
 
-[node name="Label" parent="TLXFragebogen/MarginContainer/ScrollContainer/QuestionContianer/TLXBar4" parent_id_path=PackedInt32Array(829286174, 237171675) index="0" unique_id=1581075435]
-text = "Leistung"
-
-[node name="Explain" parent="TLXFragebogen/MarginContainer/ScrollContainer/QuestionContianer/TLXBar4" parent_id_path=PackedInt32Array(829286174, 237171675) index="1" unique_id=1706389314]
-text = "Wie erfolgreich haben Sie Ihrer Meinung nach die vom Versuchsleiter (oder Ihnen selbst) gesetzten Ziele erreicht? Wie zufrieden waren Sie mit Ihrer Leistung bei der Verfolgung dieser Ziele?"
-
-[node name="HSlider" parent="TLXFragebogen/MarginContainer/ScrollContainer/QuestionContianer/TLXBar4/HBoxContainer" parent_id_path=PackedInt32Array(829286174, 237171675, 77927936) index="1" unique_id=1228985250]
-modulate = Color(1, 1, 1, 0.5)
-
-[node name="Label" parent="TLXFragebogen/MarginContainer/ScrollContainer/QuestionContianer/TLXBar4/HBoxContainer/HSlider" index="0" unique_id=1905380100]
-text = "?"
-
 [node name="NextButton" type="Button" parent="." unique_id=727317669]
 layout_mode = 1
 anchors_preset = 7
@@ -83,4 +71,4 @@ text = "Wird gesendet..."
 horizontal_alignment = 1
 
 [editable path="TLXFragebogen"]
-[editable path="TLXFragebogen/MarginContainer/ScrollContainer/QuestionContianer/TLXBar4"]
+[editable path="TLXFragebogen/MarginContainer/ScrollContainer/QuestionContianer/tlx_leistung"]

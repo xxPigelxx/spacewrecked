@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cq18f4cl84tt7" path="res://Scenes/manual_sperator.tscn" id="5_w7tf1"]
 [ext_resource type="PackedScene" uid="uid://6vlh4fls1osw" path="res://Scenes/multiple_choice.tscn" id="5_x0xal"]
 [ext_resource type="PackedScene" uid="uid://bx3ycj02l1xc4" path="res://Scenes/Likert_bar.tscn" id="6_x0xal"]
-[ext_resource type="Script" uid="uid://do6128cyartyo" path="res://script/PageEffects.gd" id="7_2xspt"]
 [ext_resource type="Script" uid="uid://bkybbx23khwrk" path="res://Scenes/Menu/intro_panel.gd" id="7_lsliw"]
 [ext_resource type="Theme" uid="uid://boiwhelh1kt2w" path="res://resources/themes/flatbuttontheam.tres" id="9_lsliw"]
 [ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="10_dnqhh"]
@@ -104,7 +103,7 @@ horizontal_alignment = 1
 [node name="HSeparator9" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=995590366 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
 
-[node name="MultipleChoice" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1823932599 instance=ExtResource("5_x0xal")]
+[node name="demo_alter" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1823932599 instance=ExtResource("5_x0xal")]
 layout_mode = 2
 options = PackedStringArray("unter 18", "18 - 24", "25 - 34", "35 - 49", "über 50")
 question_text = "Alter"
@@ -112,7 +111,7 @@ question_text = "Alter"
 [node name="HSeparator13" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=955095382 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
 
-[node name="MultipleChoice3" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1940756879 instance=ExtResource("5_x0xal")]
+[node name="demo_geschlecht" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1940756879 instance=ExtResource("5_x0xal")]
 layout_mode = 2
 options = PackedStringArray("Weiblich", "Mänlich", "Divers", "Keine Angabe")
 question_text = "Geschlecht"
@@ -120,7 +119,7 @@ question_text = "Geschlecht"
 [node name="HSeparator15" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1807194272 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
 
-[node name="MultipleChoice2" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=845275091 instance=ExtResource("5_x0xal")]
+[node name="demo_deutsch_l1" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=845275091 instance=ExtResource("5_x0xal")]
 layout_mode = 2
 options = PackedStringArray("Ja", "Nein")
 question_text = "Ist Deutsch deine Muttersprache?"
@@ -128,7 +127,7 @@ question_text = "Ist Deutsch deine Muttersprache?"
 [node name="HSeparator14" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1772379989 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
 
-[node name="MultipleChoice4" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=29795970 instance=ExtResource("5_x0xal")]
+[node name="demo_dyslexie_selbst" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=29795970 instance=ExtResource("5_x0xal")]
 layout_mode = 2
 options = PackedStringArray("Ja, diagnostiziert ", "Ja, vermute ich", "Nein", "Keine Angabe")
 question_text = "Hast du selbst Legasthenie?"
@@ -136,7 +135,7 @@ question_text = "Hast du selbst Legasthenie?"
 [node name="HSeparator16" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1397529289 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
 
-[node name="MultipleChoice5" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1614445558 instance=ExtResource("5_x0xal")]
+[node name="demo_dyslexie_umfeld" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1614445558 instance=ExtResource("5_x0xal")]
 layout_mode = 2
 options = PackedStringArray("Ja", "Nein", "Weiß Nicht", "Keine Angabe")
 question_text = "Kennst du persönlich jemanden mit Dyslexie?"
@@ -155,7 +154,7 @@ horizontal_alignment = 1
 [node name="HSeparator17" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=237568951 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
 
-[node name="MultipleChoice6" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=2013937483 instance=ExtResource("5_x0xal")]
+[node name="story_material" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=2013937483 instance=ExtResource("5_x0xal")]
 layout_mode = 2
 options = PackedStringArray("Veridium", "Stratium", "Astralit", "Weiß ich nicht mehr")
 question_text = "Wie heißt das Material, das du geborgen hast?"
@@ -163,7 +162,7 @@ question_text = "Wie heißt das Material, das du geborgen hast?"
 [node name="HSeparator18" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=588410901 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
 
-[node name="MultipleChoice7" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1011041561 instance=ExtResource("5_x0xal")]
+[node name="story_planet" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1011041561 instance=ExtResource("5_x0xal")]
 layout_mode = 2
 options = PackedStringArray("Kaldris IV", "Veridian VII", "Erebus-3", "Weiß ich nicht mehr")
 question_text = "Auf welchem Planeten hast du es gefunden?"
@@ -171,7 +170,7 @@ question_text = "Auf welchem Planeten hast du es gefunden?"
 [node name="HSeparator19" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=69220696 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
 
-[node name="MultipleChoice8" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1944433793 instance=ExtResource("5_x0xal")]
+[node name="story_ausfall" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1944433793 instance=ExtResource("5_x0xal")]
 layout_mode = 2
 options = PackedStringArray("Der Antrieb", "Der Frachtraum", "Der Bordcomputer", "Weiß ich nicht mehr")
 question_text = "Welches System ist beim Meteoritenschauer ausgefallen?"
@@ -187,56 +186,56 @@ horizontal_alignment = 1
 [node name="HSeparator10" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=27157330 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
 
-[node name="Q1" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1095676823 instance=ExtResource("6_x0xal")]
+[node name="q01_verdreht" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1095676823 instance=ExtResource("6_x0xal")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Menschen mit Legasthenie sehen Buchstaben verdreht."
 
-[node name="HSeparator2" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=882187234 instance=ExtResource("5_w7tf1")]
+[node name="HSeparator2" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1605734983 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
 
-[node name="Q2" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=825763255 instance=ExtResource("6_x0xal")]
+[node name="q02_augen" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1161146899 instance=ExtResource("6_x0xal")]
 layout_mode = 2
 size_flags_vertical = 3
 scale_type = 1
 question_text = "Legasthenie ist vor allem ein Problem der Augen."
 
-[node name="HSeparator3" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1965075143 instance=ExtResource("5_w7tf1")]
+[node name="HSeparator3" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=519390307 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
 
-[node name="Q3" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=2056780343 instance=ExtResource("6_x0xal")]
+[node name="q03_uebung" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=2064154180 instance=ExtResource("6_x0xal")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Mit genug Übung wäre Lesen bei Legasthenie kein Problem mehr."
 
-[node name="HSeparator4" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=878197874 instance=ExtResource("5_w7tf1")]
+[node name="HSeparator4" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1404225783 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
 
-[node name="Q4" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=49069473 instance=ExtResource("6_x0xal")]
+[node name="Q4q04_kraft" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1563779915 instance=ExtResource("6_x0xal")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Lesen kostet Menschen mit Legasthnie mehr Kraft als mich."
 
-[node name="HSeparator5" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1514724787 instance=ExtResource("5_w7tf1")]
+[node name="HSeparator5" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=404703809 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
 
-[node name="Q5" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1083810277 instance=ExtResource("6_x0xal")]
+[node name="q05_kopf_frei" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1865865206 instance=ExtResource("6_x0xal")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Wer mit Legasthenie liest, hat weniger Kopf frei für den Inhalt."
 
-[node name="HSeparator6" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1830909906 instance=ExtResource("5_w7tf1")]
+[node name="HSeparator6" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1513598469 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
 
-[node name="Q6" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=266566013 instance=ExtResource("6_x0xal")]
+[node name="q06_zeit_verstaendnis" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=127296055 instance=ExtResource("6_x0xal")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Wenn jemand mit Legasthenie für ein Text länger braucht, kann ich nachvollziehen, warum."
 
-[node name="HSeparator7" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=2060170916 instance=ExtResource("5_w7tf1")]
+[node name="HSeparator7" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1320070000 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
 
-[node name="Q7" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1929383140 instance=ExtResource("6_x0xal")]
+[node name="q07_vorlesen_verstaendnis" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=2037427901 instance=ExtResource("6_x0xal")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Wenn jemand in einer Gruppe nicht laut vorlesen möchte, kann ich die Gründe nachvollziehen."
@@ -279,9 +278,6 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="StoryIntro/MarginContainer/ScrollContainer" unique_id=1438310632]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("7_2xspt")
-crowd_percent = 66.0
-char_size_percent = 66.0
 
 [node name="Title2" type="RichTextLabel" parent="StoryIntro/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1526115279]
 layout_mode = 2
