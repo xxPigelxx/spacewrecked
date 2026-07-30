@@ -117,7 +117,7 @@ func _on_confirm() -> void:
 	else:
 		var word := "Kanal" if off == 1 else "Kanaele"
 		_status.add_theme_color_override("font_color", COL_RED)
-		_status.text = "Frequenzen nicht synchron — %d %s falsch eingestellt." % [off, word]
+		_status.text = "Frequenzen nicht synchron"
 
 func _win() -> void:
 	if _solved:
@@ -130,7 +130,7 @@ func _win() -> void:
 	for k in _knobs:
 		k.set_process(false)
 	_status.add_theme_color_override("font_color", COL_GREEN)
-	_status.text = "SCHILD STABIL — Reparatur abgeschlossen!"
+	_status.text = "SCHILD STABIL"
 	error_code.lamp_flash()
 	AudioManager.play_success()
 	await get_tree().create_timer(0.75).timeout

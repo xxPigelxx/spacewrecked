@@ -46,6 +46,7 @@ steps = [NodePath("StoryIntro"), NodePath("TLXFragebogen"), NodePath("Questionea
 position = Vector2(29, -19)
 
 [node name="Questionear" type="Control" parent="." unique_id=663815784]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -96,8 +97,12 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 42
 text = "Angaben zu deiner Person:"
+horizontal_alignment = 1
+
+[node name="HSeparator9" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=995590366 instance=ExtResource("5_w7tf1")]
+layout_mode = 2
 
 [node name="MultipleChoice" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1823932599 instance=ExtResource("5_x0xal")]
 layout_mode = 2
@@ -143,8 +148,9 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 42
 text = "Kurze Kontrollfrage zur Geschichte:"
+horizontal_alignment = 1
 
 [node name="HSeparator17" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=237568951 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
@@ -174,8 +180,12 @@ question_text = "Welches System ist beim Meteoritenschauer ausgefallen?"
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 42
 text = "Angaben zu ihrern einschätzungen:"
+horizontal_alignment = 1
+
+[node name="HSeparator10" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=27157330 instance=ExtResource("5_w7tf1")]
+layout_mode = 2
 
 [node name="Q1" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1095676823 instance=ExtResource("6_x0xal")]
 layout_mode = 2
@@ -242,7 +252,6 @@ offset_bottom = -90.0
 grow_vertical = 0
 
 [node name="StoryIntro" type="PanelContainer" parent="." unique_id=1351417057]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -306,7 +315,7 @@ theme_override_constants/line_separation = 2
 theme_override_constants/paragraph_separation = -2
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
-text = "Die Ozonschicht deiner Heimatwelt ist aufgerissen. Über Jahrzehnte ist sie dünner geworden, bis das Licht der Sonne keine Wärme mehr brachte, sondern Gefahr. Die Städte zogen unter die Erde, die Felder verdorrten. Geblieben ist eine einzige Hoffnung: Stratium, das einzige bekannte Material, das die Schicht wieder aufbauen kann.
+text = "Die Ozonschicht deiner Heimatwelt Terra ist aufgerissen. Über Jahrzehnte ist sie dünner geworden, bis das Licht der Sonne keine Wärme mehr brachte, sondern Gefahr. Die Städte zogen unter die Erde, die Felder verdorrten. Geblieben ist eine einzige Hoffnung: Stratium, das einzige bekannte Material, das die Schicht wieder aufbauen kann.
 
 Es existiert nur auf Veridian VII.
 

@@ -73,6 +73,7 @@ stretch_mode = 5
 
 [node name="Node" type="Node" parent="VBoxContainer/ShipHealthBar" unique_id=809557749]
 script = ExtResource("5_d55ng")
+enabled = false
 
 [node name="FlightProgressBar" type="TextureProgressBar" parent="VBoxContainer" unique_id=73876907]
 layout_mode = 2

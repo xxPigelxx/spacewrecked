@@ -27,7 +27,7 @@ modulate_color = Color(0.57700837, 0.5770084, 0.57700837, 1)
 
 [node name="ShieldGame" type="CanvasLayer" unique_id=325781525]
 script = ExtResource("1_cb77n")
-targets = Array[int]([28, 49, 96])
+targets = Array[int]([28, 49, 76])
 
 [node name="Dim" type="ColorRect" parent="." unique_id=189453360]
 anchors_preset = 15
@@ -69,7 +69,6 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_y4a5u")
 theme_override_font_sizes/font_size = 18
-text = "Sollwerte stehen im Handbuch  ▸  Tab „Schild“."
 horizontal_alignment = 1
 
 [node name="HSep" type="HSeparator" parent="Center/Panel/Margin/VBox" unique_id=1415760866]

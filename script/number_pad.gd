@@ -14,6 +14,7 @@ extends Node
 @onready var manual: CanvasLayer = $Manual
 
 var _text_start_position: Vector2
+var cheat_on := false
 var cheat_code := "666666"
 var lamp_scale
 var solved := false
@@ -50,7 +51,7 @@ func _on_button_pressed(button: Button) -> void:
 func _try_submit() -> void:
 	if solved:
 		return
-	if numpad_text.text == code or numpad_text.text == cheat_code:
+	if numpad_text.text == code  or (numpad_text.text == cheat_code and cheat_on):
 		solved = true
 		_on_win()
 		AudioManager.play_success()

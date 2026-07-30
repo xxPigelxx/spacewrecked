@@ -1,7 +1,7 @@
 extends Draggable
 
 @export var bottle_color: Color = Color.WHITE
-@export var pour_rate: float = 20.0
+@export var pour_rate: float = 15.0
 @export var bottle_name: = "Bottle"
 @export var bottle_texture: Texture2D = preload("uid://chm0cx66fx8kh")
 @export var pour_rotation: = -120 

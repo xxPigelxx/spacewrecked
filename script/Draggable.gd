@@ -24,13 +24,8 @@ func _ready() -> void:
 	_set_up()
 
 
-## TEMP DEBUG (Greif-Bug Kabelspiel) — zusammen mit den DBG-Bloecken wieder raus.
-const DBG := true
-
 func _on_area_input_event(_viewport, event, _shape_idx) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if DBG:
-			print("[PICK ] %s pressed=%s  <- Area2D hat den Klick bekommen" % [name, event.pressed])
 		if event.pressed:
 			dragging = true
 			_on_drag_started()
@@ -47,15 +42,7 @@ func _input(event: InputEvent) -> void:
 		_on_drag_ended()
 		drag_ended.emit()
 
-var _dbg_t := 0.0
-
 func _physics_process(delta: float) -> void:
-	if DBG and dragging:
-		_dbg_t -= delta
-		if _dbg_t <= 0.0:
-			_dbg_t = 0.4
-			print("[DRAG ] %s pos=%s maus=%s can_process=%s" % [
-				name, global_position, get_global_mouse_position(), can_process()])
 	if dragging:
 		var target := get_global_mouse_position()
 		var desired_velocity := (target - global_position) * dragging_speed

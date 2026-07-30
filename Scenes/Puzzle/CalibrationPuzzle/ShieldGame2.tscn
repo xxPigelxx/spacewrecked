@@ -69,7 +69,6 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_htunj")
 theme_override_font_sizes/font_size = 18
-text = "Sollwerte stehen im Handbuch  ▸  Tab „Schild“."
 horizontal_alignment = 1
 
 [node name="HSep" type="HSeparator" parent="Center/Panel/Margin/VBox" unique_id=1415760866]

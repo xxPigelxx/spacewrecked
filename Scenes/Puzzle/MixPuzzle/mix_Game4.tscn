@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://wof4yw2g8cy4" path="res://resources/assets/Items/Bottles/RoundBottle.tres" id="13_nkans"]
 [ext_resource type="Script" uid="uid://clg63em8vrbc0" path="res://script/DyslexiaLabel.gd" id="14_31sdn"]
 [ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="15_lxxbj"]
+[ext_resource type="PackedScene" uid="uid://dob8m8k1h72mn" path="res://Scenes/Manual_NEU.tscn" id="17_7f5km"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p5xu6"]
 texture = ExtResource("2_avrga")
@@ -194,9 +195,9 @@ region_enabled = true
 region_rect = Rect2(1828, 1768, 188, 236)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Container" unique_id=1621771806]
+position = Vector2(-2, 56)
 collision_layer = 2
 collision_mask = 2
-position = Vector2(-2, 56)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Container/StaticBody2D" unique_id=995079272]
 position = Vector2(-8, -11.5)
@@ -301,6 +302,8 @@ position = Vector2(90, 0.5)
 [node name="RichLabel" parent="ErrorCode" index="3" unique_id=1304442458]
 offset_left = -69.0
 offset_right = 68.0
+
+[node name="Manual" parent="." unique_id=1520689515 instance=ExtResource("17_7f5km")]
 
 [connection signal="pressed" from="Panel2/Button Array/winBt" to="." method="_on_win"]
 [connection signal="pressed" from="Panel2/Button Array/resetBt" to="." method="_on_reset_bt_pressed"]
