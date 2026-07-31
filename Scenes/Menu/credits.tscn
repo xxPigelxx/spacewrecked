@@ -53,8 +53,7 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 22
 theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
-text = "[font_size=34]Space Wrecked[/font_size]
-Bachelorarbeit, HAW Hamburg, Media Systems
+text = "Bachelorarbeit, HAW Hamburg, Media Systems
 
 [font_size=28]Entwicklung, Grafik, Spieldesign[/font_size]
 Nikolai Bohse

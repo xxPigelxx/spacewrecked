@@ -72,7 +72,7 @@ layout_mode = 2
 theme_override_constants/separation = 24
 theme_override_styles/separator = ExtResource("3_4b8g6")
 
-[node name="tlx_geistig2" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=908825848 instance=ExtResource("1_n2muu")]
+[node name="tlx_koerperlich" parent="MarginContainer/ScrollContainer/QuestionContianer" unique_id=908825848 instance=ExtResource("1_n2muu")]
 layout_mode = 2
 "erklärung" = "Wie viel körperliche Aktivität war erforderlich (z.B. ziehen, drücken, drehen, steuern, aktivieren ...)? War die Aufgabe leicht oder schwer, einfach oder anstrengend, erholsam oder mühselig?"
 question_text = "Körperliche Anforderung"

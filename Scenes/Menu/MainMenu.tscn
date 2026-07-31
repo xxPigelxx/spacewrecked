@@ -96,16 +96,18 @@ text = "Verlassen"
 script = ExtResource("4_ghw46")
 
 [node name="credits" parent="." unique_id=1516615289 instance=ExtResource("9_0nor7")]
-visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -321.0
-offset_top = 53.0
-offset_right = 321.0
-offset_bottom = 373.0
+offset_left = -335.0
+offset_top = -68.0
+offset_right = 337.0
+offset_bottom = 428.0
 grow_horizontal = 2
+
+[node name="Text" parent="credits/Scroll" parent_id_path=PackedInt32Array(1516615289, 1026041183) index="0" unique_id=795572148]
+horizontal_alignment = 1
 
 [node name="Options" type="VBoxContainer" parent="." unique_id=475429602]
 visible = false

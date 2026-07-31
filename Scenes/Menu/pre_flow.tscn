@@ -138,7 +138,7 @@ layout_mode = 2
 [node name="demo_dyslexie_umfeld" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1614445558 instance=ExtResource("5_x0xal")]
 layout_mode = 2
 options = PackedStringArray("Ja", "Nein", "Weiß nicht", "Keine Angabe")
-question_text = "Kennst du persönlich jemanden mit Dyslexie?"
+question_text = "Kennst du persönlich jemanden mit Legasthenie?"
 
 [node name="HSeparator1" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=485024600 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
@@ -197,7 +197,6 @@ layout_mode = 2
 [node name="q02_augen" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1161146899 instance=ExtResource("6_x0xal")]
 layout_mode = 2
 size_flags_vertical = 3
-scale_type = 1
 question_text = "Legasthenie ist vor allem ein Problem der Augen."
 
 [node name="HSeparator3" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=519390307 instance=ExtResource("5_w7tf1")]
@@ -206,7 +205,7 @@ layout_mode = 2
 [node name="q03_uebung" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=2064154180 instance=ExtResource("6_x0xal")]
 layout_mode = 2
 size_flags_vertical = 3
-question_text = "Mit genug Übung wäre Lesen bei Legasthenie kein Problem mehr."
+question_text = "Mit genug Übung wäre Lesen mit Legasthenie kein Problem mehr."
 
 [node name="HSeparator4" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1404225783 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
@@ -231,6 +230,14 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Wenn jemand mit Legasthenie für einen Text länger braucht, kann ich nachvollziehen, warum."
+
+[node name="HSeparator11" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1717444530 instance=ExtResource("5_w7tf1")]
+layout_mode = 2
+
+[node name="q11_vorstellen" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1270754129 instance=ExtResource("6_x0xal")]
+layout_mode = 2
+size_flags_vertical = 3
+question_text = "Ich kann mir vorstellen, wie es ist, mit Legasthenie zu lesen."
 
 [node name="HSeparator7" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1320070000 instance=ExtResource("5_w7tf1")]
 layout_mode = 2

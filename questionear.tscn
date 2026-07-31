@@ -71,7 +71,6 @@ layout_mode = 2
 [node name="q02_augen" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=926106328 instance=ExtResource("1_ai5ut")]
 layout_mode = 2
 size_flags_vertical = 3
-scale_type = 1
 question_text = "Legasthenie ist vor allem ein Problem der Augen."
 
 [node name="HSeparator3" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1143170300 instance=ExtResource("1_l2d0k")]
@@ -80,7 +79,7 @@ layout_mode = 2
 [node name="q03_uebung" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=27587041 instance=ExtResource("1_ai5ut")]
 layout_mode = 2
 size_flags_vertical = 3
-question_text = "Mit genug Übung wäre Lesen bei Legasthenie kein Problem mehr."
+question_text = "Mit genug Übung wäre Lesen mit Legasthenie kein Problem mehr."
 
 [node name="HSeparator4" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1306325643 instance=ExtResource("1_l2d0k")]
 layout_mode = 2
@@ -109,12 +108,36 @@ question_text = "Wenn jemand mit Legasthenie für einen Text länger braucht, ka
 [node name="HSeparator7" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000002 instance=ExtResource("1_l2d0k")]
 layout_mode = 2
 
+[node name="q11_vorstellen" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1534347912 instance=ExtResource("1_ai5ut")]
+layout_mode = 2
+size_flags_vertical = 3
+question_text = "Ich kann mir vorstellen, wie es ist, mit Legasthenie zu lesen."
+
+[node name="HSeparator9" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1711702212 instance=ExtResource("1_l2d0k")]
+layout_mode = 2
+
 [node name="q07_vorlesen_verstaendnis" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000003 instance=ExtResource("1_ai5ut")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Wenn jemand in einer Gruppe nicht laut vorlesen möchte, kann ich die Gründe nachvollziehen."
 
 [node name="HSeparator8" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000004 instance=ExtResource("1_l2d0k")]
+layout_mode = 2
+
+[node name="retro_nachvollziehen" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=110031421 instance=ExtResource("1_ai5ut")]
+layout_mode = 2
+size_flags_vertical = 3
+question_text = "Durch das Spiel kann ich besser nachvollziehen, warum jemand mit Legasthenie für einen Text laenger braucht."
+
+[node name="HSeparator14" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=836175472 instance=ExtResource("1_l2d0k")]
+layout_mode = 2
+
+[node name="retro_kraft" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1237037451 instance=ExtResource("1_ai5ut")]
+layout_mode = 2
+size_flags_vertical = 3
+question_text = "Durch das Spiel ist mir klarer geworden, wie viel Kraft das Lesen mit Legasthenie kosten kann."
+
+[node name="HSeparator15" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1119882599 instance=ExtResource("1_l2d0k")]
 layout_mode = 2
 
 [node name="q08_spass" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000005 instance=ExtResource("1_ai5ut")]
@@ -146,6 +169,13 @@ layout_mode = 2
 question_text = "Was hat sich beim Lesen des Handbuchs am schwierigsten angefühlt?"
 
 [node name="HSeparator10" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000006 instance=ExtResource("1_l2d0k")]
+layout_mode = 2
+
+[node name="text_beeinflusst" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=403735605 instance=ExtResource("5_bkink")]
+layout_mode = 2
+question_text = "Haben die Veränderungen im Handbuch dein Lesen beeinflusst? wenn Ja wie?"
+
+[node name="HSeparator16" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=2132815406 instance=ExtResource("1_l2d0k")]
 layout_mode = 2
 
 [node name="text_veraenderung" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1468303680 instance=ExtResource("5_bkink")]
