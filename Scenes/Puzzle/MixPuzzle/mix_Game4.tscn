@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bcrjbuv5p0yew"]
+[gd_scene format=3 uid="uid://bvhmc4pe3tidq"]
 
 [ext_resource type="Script" uid="uid://5fx0xgbsgc3n" path="res://script/mix_game.gd" id="1_d4i36"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="2_avrga"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://wof4yw2g8cy4" path="res://resources/assets/Items/Bottles/RoundBottle.tres" id="13_nkans"]
 [ext_resource type="Script" uid="uid://clg63em8vrbc0" path="res://script/DyslexiaLabel.gd" id="14_31sdn"]
 [ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://Scenes/error_code.tscn" id="15_lxxbj"]
-[ext_resource type="PackedScene" uid="uid://dob8m8k1h72mn" path="res://Scenes/Manual_NEU.tscn" id="17_7f5km"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p5xu6"]
 texture = ExtResource("2_avrga")
@@ -302,8 +301,6 @@ position = Vector2(90, 0.5)
 [node name="RichLabel" parent="ErrorCode" index="3" unique_id=1304442458]
 offset_left = -69.0
 offset_right = 68.0
-
-[node name="Manual" parent="." unique_id=1520689515 instance=ExtResource("17_7f5km")]
 
 [connection signal="pressed" from="Panel2/Button Array/winBt" to="." method="_on_win"]
 [connection signal="pressed" from="Panel2/Button Array/resetBt" to="." method="_on_reset_bt_pressed"]
