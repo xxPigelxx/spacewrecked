@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://7u720v4croox" path="res://resources/assets/Items/Bottles/WatterinngCan.tres" id="12_24kij"]
 [ext_resource type="Texture2D" uid="uid://wof4yw2g8cy4" path="res://resources/assets/Items/Bottles/RoundBottle.tres" id="13_nkans"]
 [ext_resource type="Script" uid="uid://clg63em8vrbc0" path="res://script/DyslexiaLabel.gd" id="14_31sdn"]
-[ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="15_lxxbj"]
+[ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://Scenes/error_code.tscn" id="15_lxxbj"]
 [ext_resource type="PackedScene" uid="uid://dob8m8k1h72mn" path="res://Scenes/Manual_NEU.tscn" id="17_7f5km"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p5xu6"]

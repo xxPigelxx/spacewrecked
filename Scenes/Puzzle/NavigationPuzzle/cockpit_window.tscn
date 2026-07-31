@@ -13,10 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://bdmxe45utame4" path="res://resources/assets/over.tres" id="7_es3id"]
 [ext_resource type="Script" uid="uid://iqf6kfhsygp6" path="res://script/nav_puzzle.gd" id="12_c6vri"]
 [ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="12_m2n8x"]
-[ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="13_0q44l"]
+[ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://Scenes/error_code.tscn" id="13_0q44l"]
 [ext_resource type="Script" uid="uid://clg63em8vrbc0" path="res://script/DyslexiaLabel.gd" id="13_qf566"]
 [ext_resource type="PackedScene" uid="uid://djqajkjejcw4" path="res://Scenes/info_bars.tscn" id="16_qf566"]
-[ext_resource type="PackedScene" uid="uid://cm4lf0cnt0ui1" path="res://malfuntion_counter.tscn" id="17_tnem7"]
+[ext_resource type="PackedScene" uid="uid://cm4lf0cnt0ui1" path="res://Scenes/malfuntion_counter.tscn" id="17_tnem7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbavm"]
 size = Vector2(1934, 1065)

@@ -123,7 +123,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_q6b25")
 layout_mode = 2
 theme_override_constants/tab_separation = 22
 tab_alignment = 1
-current_tab = 4
+current_tab = 5
 clip_tabs = false
 
 [node name="Home" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=504548785]
@@ -905,7 +905,7 @@ layout_mode = 2
 
 [node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/WarningBox" unique_id=570961848]
 layout_mode = 2
-text = "Navigation erst aktivieren, wenn Energie UND Treibstoff grün sind."
+text = "ACHTUNG: Navigation erst aktivieren, wenn Energie UND Treibstoff grün sind."
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -1285,7 +1285,7 @@ layout_mode = 2
 
 [node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff/VBox/WarningBox" unique_id=1635859299]
 layout_mode = 2
-text = "KRITISCH: Die Mischverhältnisse dürfen nur wenig vom Rezept abweichen!"
+text = "ACHTUNG:  Die Mischverhältnisse dürfen nur wenig vom Rezept abweichen!"
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -1390,6 +1390,7 @@ script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="Schild" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=1133952086]
+visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
 rotate_percent = 60.0
@@ -1424,7 +1425,7 @@ layout_mode = 2
 
 [node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/WarningBox" unique_id=486265831]
 layout_mode = 2
-text = "Schon eine falsch eingestellte Frequenz hält das Schild offline."
+text = "ACHTUNG: Schon eine falsch eingestellte Frequenz hält das Schild offline."
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")
@@ -1519,6 +1520,7 @@ theme_override_constants/separation = 24
 theme_override_styles/separator = SubResource("StyleBoxLine_164it")
 
 [node name="StepList3" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer" unique_id=494576490]
+visible = false
 layout_mode = 2
 
 [node name="ListTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=370807768]
@@ -1548,7 +1550,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=1731824380]
 layout_mode = 2
-text = "Kanal C:	Einundachtzig"
+text = "Kanal C: 	Einundachtzig"
 fit_content = true
 horizontal_alignment = 1
 script = ExtResource("2_puywe")
@@ -1590,14 +1592,13 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="S5" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1665582200]
 layout_mode = 2
-text = "Kanal C:	Sechsundsiebzig"
+text = "Kanal C:		Sechsundsiebzig"
 fit_content = true
 horizontal_alignment = 1
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="Codes" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=1981724562]
-visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
 crowd_percent = 80.0
@@ -1626,8 +1627,19 @@ layout_mode = 2
 
 [node name="Body" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Codes/VBox" unique_id=27833686]
 layout_mode = 2
-text = "Die folgenden Codes wurden bei der letzten Wartung vergeben. Bewahre dieses Handbuch sicher auf — die Codes dürfen nicht in falsche Hände geraten."
+text = "Die folgenden Codes wurden bei der letzten Wartung vergeben. Ohne sie lässt sich keine Tür im Schiff öffnen. Nutze das Eingabegerät an der Tür und gib den passenden Code ein. Einen anderen Weg gibt es nicht. Bewahre dieses Handbuch sicher auf, die Codes dürfen nicht in falsche Hände geraten."
 fit_content = true
+script = ExtResource("2_puywe")
+
+[node name="WarningBox" type="PanelContainer" parent="ManualRoot/PanelContainer/TabContainer/Codes/VBox" unique_id=364953223]
+layout_mode = 2
+
+[node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Codes/VBox/WarningBox" unique_id=644089534]
+layout_mode = 2
+text = "ACHTUNG: Alle Türen sind nach Flugrichtung benannt!"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
 script = ExtResource("2_puywe")
 
 [node name="HSeparator2" type="HSeparator" parent="ManualRoot/PanelContainer/TabContainer/Codes/VBox" unique_id=1829390263]

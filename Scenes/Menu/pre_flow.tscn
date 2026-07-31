@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://d18mdr67sr8wv"]
 
-[ext_resource type="Script" uid="uid://dps8axckfqa15" path="res://Scenes/Menu/questionnaire_flow.gd" id="1_hnaoj"]
+[ext_resource type="Script" uid="uid://dps8axckfqa15" path="res://script/questionnaire_flow.gd" id="1_hnaoj"]
 [ext_resource type="PackedScene" uid="uid://bcot68oel2ml3" path="res://Scenes/menu_background.tscn" id="1_x3bmk"]
-[ext_resource type="Script" uid="uid://dmii2fren2un4" path="res://questionear.gd" id="3_eonk3"]
+[ext_resource type="Script" uid="uid://dmii2fren2un4" path="res://script/questionear.gd" id="3_eonk3"]
 [ext_resource type="PackedScene" uid="uid://s3k6q4dkavbg" path="res://Scenes/tlx_fragebogen.tscn" id="4_0fgwl"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="5_0fgwl"]
 [ext_resource type="Theme" uid="uid://xm5urjrf4aua" path="res://resources/themes/main_theme.tres" id="5_hnaoj"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cq18f4cl84tt7" path="res://Scenes/manual_sperator.tscn" id="5_w7tf1"]
 [ext_resource type="PackedScene" uid="uid://6vlh4fls1osw" path="res://Scenes/multiple_choice.tscn" id="5_x0xal"]
 [ext_resource type="PackedScene" uid="uid://bx3ycj02l1xc4" path="res://Scenes/Likert_bar.tscn" id="6_x0xal"]
-[ext_resource type="Script" uid="uid://bkybbx23khwrk" path="res://Scenes/Menu/intro_panel.gd" id="7_lsliw"]
+[ext_resource type="Script" uid="uid://bkybbx23khwrk" path="res://script/intro_panel.gd" id="7_lsliw"]
 [ext_resource type="Theme" uid="uid://boiwhelh1kt2w" path="res://resources/themes/flatbuttontheam.tres" id="9_lsliw"]
 [ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="10_dnqhh"]
 
@@ -234,7 +234,7 @@ question_text = "Wenn jemand mit Legasthenie für einen Text länger braucht, ka
 [node name="HSeparator11" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1717444530 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
 
-[node name="q11_vorstellen" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1270754129 instance=ExtResource("6_x0xal")]
+[node name="q07_vorstellen" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1270754129 instance=ExtResource("6_x0xal")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Ich kann mir vorstellen, wie es ist, mit Legasthenie zu lesen."
@@ -242,7 +242,7 @@ question_text = "Ich kann mir vorstellen, wie es ist, mit Legasthenie zu lesen."
 [node name="HSeparator7" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1320070000 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
 
-[node name="q07_vorlesen_verstaendnis" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=2037427901 instance=ExtResource("6_x0xal")]
+[node name="q08_vorlesen_verstaendnis" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=2037427901 instance=ExtResource("6_x0xal")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Wenn jemand in einer Gruppe nicht laut vorlesen möchte, kann ich die Gründe nachvollziehen."

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cqf7gd2hpoxkl"]
 
-[ext_resource type="Script" uid="uid://dps8axckfqa15" path="res://Scenes/Menu/questionnaire_flow.gd" id="1_1ygak"]
+[ext_resource type="Script" uid="uid://dps8axckfqa15" path="res://script/questionnaire_flow.gd" id="1_1ygak"]
 [ext_resource type="PackedScene" uid="uid://bcot68oel2ml3" path="res://Scenes/menu_background.tscn" id="1_dxhnq"]
-[ext_resource type="PackedScene" uid="uid://cygx85tabr6bj" path="res://questionear.tscn" id="2_1lwnx"]
+[ext_resource type="PackedScene" uid="uid://cygx85tabr6bj" path="res://Scenes/questionear.tscn" id="2_1lwnx"]
 [ext_resource type="PackedScene" uid="uid://s3k6q4dkavbg" path="res://Scenes/tlx_fragebogen.tscn" id="4_rtklo"]
 [ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="5_1ygak"]
 [ext_resource type="Theme" uid="uid://boiwhelh1kt2w" path="res://resources/themes/flatbuttontheam.tres" id="5_b3njh"]

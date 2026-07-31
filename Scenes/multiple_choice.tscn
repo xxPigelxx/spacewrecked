@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://6vlh4fls1osw"]
 
-[ext_resource type="Script" uid="uid://niyjg0ofpoa0" path="res://Scenes/multiple_choice.gd" id="1_jibj3"]
+[ext_resource type="Script" uid="uid://niyjg0ofpoa0" path="res://script/multiple_choice.gd" id="1_jibj3"]
 
 [node name="MultipleChoice" type="VBoxContainer" unique_id=1823932599]
 offset_right = 750.0

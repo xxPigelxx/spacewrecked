@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="4_ghw46"]
 [ext_resource type="PackedScene" uid="uid://bbv8il7ntgvnv" path="res://Scenes/Menu/OptionsPanel.tscn" id="8_ykvod"]
 [ext_resource type="PackedScene" uid="uid://c5h05cb6ejf4m" path="res://Scenes/Menu/credits.tscn" id="9_0nor7"]
-[ext_resource type="Script" uid="uid://bmfjd1qukktml" path="res://Scenes/Menu/set_journeytime_slider.gd" id="10_0nor7"]
+[ext_resource type="Script" uid="uid://bmfjd1qukktml" path="res://script/set_journeytime_slider.gd" id="10_0nor7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ykvod"]
 texture = ExtResource("3_8saeu")

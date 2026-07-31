@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="4_y4a5u"]
 [ext_resource type="PackedScene" uid="uid://b4av7s35soom4" path="res://Scenes/CalibrationKnob.tscn" id="5_opcmf"]
 [ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="6_dg18v"]
-[ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="7_4gtua"]
+[ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://Scenes/error_code.tscn" id="7_4gtua"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tdh0k"]
 texture = ExtResource("3_rvb0e")

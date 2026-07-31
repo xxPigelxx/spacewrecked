@@ -3,6 +3,14 @@
 [ext_resource type="Script" uid="uid://bbdxcp21cl5yt" path="res://script/options_panel.gd" id="1_0o44g"]
 [ext_resource type="Theme" uid="uid://xm5urjrf4aua" path="res://resources/themes/main_theme.tres" id="2_4bd31"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a5otr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vvucw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y4gi1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w1p3a"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4bd31"]
 
 [node name="OptionsPanel" type="VBoxContainer" unique_id=369735057]
@@ -73,6 +81,25 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
+[node name="FullScreen" type="HBoxContainer" parent="." unique_id=1665966554]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="FullScreen" unique_id=251914518]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "Fullscreen"
+vertical_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="FullScreen" unique_id=1416535474]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_a5otr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vvucw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_y4gi1")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_w1p3a")
+
 [node name="Dyslexie" type="HBoxContainer" parent="." unique_id=1057104469]
 visible = false
 layout_mode = 2
@@ -108,3 +135,5 @@ vertical_alignment = 1
 layout_mode = 2
 theme = ExtResource("2_4bd31")
 theme_override_font_sizes/font_size = 30
+
+[connection signal="toggled" from="FullScreen/CheckButton" to="." method="_on_check_button_toggled"]

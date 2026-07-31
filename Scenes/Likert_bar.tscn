@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bx3ycj02l1xc4"]
 
-[ext_resource type="Script" uid="uid://slil33qjlmmi" path="res://question_checkboxees.gd" id="1_1nuy6"]
+[ext_resource type="Script" uid="uid://slil33qjlmmi" path="res://script/question_checkboxees.gd" id="1_1nuy6"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_wuamt"]
 

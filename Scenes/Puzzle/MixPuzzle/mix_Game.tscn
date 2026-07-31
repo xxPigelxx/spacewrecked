@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://7u720v4croox" path="res://resources/assets/Items/Bottles/WatterinngCan.tres" id="12_nnrny"]
 [ext_resource type="Texture2D" uid="uid://wof4yw2g8cy4" path="res://resources/assets/Items/Bottles/RoundBottle.tres" id="13_l5cbl"]
 [ext_resource type="Script" uid="uid://clg63em8vrbc0" path="res://script/DyslexiaLabel.gd" id="14_p17pu"]
-[ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="15_unfht"]
+[ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://Scenes/error_code.tscn" id="15_unfht"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p5xu6"]
 texture = ExtResource("2_30gtw")

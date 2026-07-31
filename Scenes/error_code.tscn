@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bgboxpp7u4ock"]
 
-[ext_resource type="Script" uid="uid://b36umvyqpvqe1" path="res://error_code.gd" id="1_0tvpd"]
+[ext_resource type="Script" uid="uid://b36umvyqpvqe1" path="res://script/error_code.gd" id="1_0tvpd"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="1_vcj2s"]
 [ext_resource type="PackedScene" uid="uid://b8b7l3jlaxb3c" path="res://Scenes/lamp.tscn" id="2_lx3e1"]
 [ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="3_lx3e1"]

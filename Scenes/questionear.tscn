@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bx3ycj02l1xc4" path="res://Scenes/Likert_bar.tscn" id="1_ai5ut"]
 [ext_resource type="PackedScene" uid="uid://cq18f4cl84tt7" path="res://Scenes/manual_sperator.tscn" id="1_l2d0k"]
-[ext_resource type="Script" uid="uid://dmii2fren2un4" path="res://questionear.gd" id="1_v3451"]
+[ext_resource type="Script" uid="uid://dmii2fren2un4" path="res://script/questionear.gd" id="1_v3451"]
 [ext_resource type="PackedScene" uid="uid://cmbencs8cn0j1" path="res://Scenes/text_question_bar.tscn" id="5_bkink"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="8_sprit"]
 
@@ -108,7 +108,7 @@ question_text = "Wenn jemand mit Legasthenie für einen Text länger braucht, ka
 [node name="HSeparator7" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000002 instance=ExtResource("1_l2d0k")]
 layout_mode = 2
 
-[node name="q11_vorstellen" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1534347912 instance=ExtResource("1_ai5ut")]
+[node name="q07_vorstellen" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1534347912 instance=ExtResource("1_ai5ut")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Ich kann mir vorstellen, wie es ist, mit Legasthenie zu lesen."
@@ -116,7 +116,7 @@ question_text = "Ich kann mir vorstellen, wie es ist, mit Legasthenie zu lesen."
 [node name="HSeparator9" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1711702212 instance=ExtResource("1_l2d0k")]
 layout_mode = 2
 
-[node name="q07_vorlesen_verstaendnis" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000003 instance=ExtResource("1_ai5ut")]
+[node name="q08_vorlesen_verstaendnis" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000003 instance=ExtResource("1_ai5ut")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Wenn jemand in einer Gruppe nicht laut vorlesen möchte, kann ich die Gründe nachvollziehen."
@@ -140,7 +140,7 @@ question_text = "Durch das Spiel ist mir klarer geworden, wie viel Kraft das Les
 [node name="HSeparator15" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1119882599 instance=ExtResource("1_l2d0k")]
 layout_mode = 2
 
-[node name="q08_spass" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000005 instance=ExtResource("1_ai5ut")]
+[node name="game_spass" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000005 instance=ExtResource("1_ai5ut")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Das Spiel hat mir Spaß gemacht."
@@ -148,7 +148,7 @@ question_text = "Das Spiel hat mir Spaß gemacht."
 [node name="HSeparator11" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1989415535 instance=ExtResource("1_l2d0k")]
 layout_mode = 2
 
-[node name="q09_frust" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1699174631 instance=ExtResource("1_ai5ut")]
+[node name="game_frust" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1699174631 instance=ExtResource("1_ai5ut")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Das Spiel hat mich frustriert."
@@ -156,7 +156,7 @@ question_text = "Das Spiel hat mich frustriert."
 [node name="HSeparator12" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1650394149 instance=ExtResource("1_l2d0k")]
 layout_mode = 2
 
-[node name="q10_handbuch" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=522247 instance=ExtResource("1_ai5ut")]
+[node name="game_handbuch" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=522247 instance=ExtResource("1_ai5ut")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Das Lesen des Handbuchs hat mich überfordert."

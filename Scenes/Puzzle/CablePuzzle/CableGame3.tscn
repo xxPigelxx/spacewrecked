@@ -5,7 +5,7 @@
 [ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="3_o7rrp"]
 [ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="4_1oqcd"]
 [ext_resource type="PackedScene" uid="uid://dlocelh4wsyel" path="res://Scenes/socket.tscn" id="4_6p5jn"]
-[ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="5_uybbp"]
+[ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://Scenes/error_code.tscn" id="5_uybbp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_heo7m"]
 texture = ExtResource("2_m0l3k")

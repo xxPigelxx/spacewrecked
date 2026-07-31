@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cm4lf0cnt0ui1"]
 
-[ext_resource type="Script" uid="uid://c7qcc7se63gn6" path="res://malfuntion_counter.gd" id="1_mc"]
+[ext_resource type="Script" uid="uid://c7qcc7se63gn6" path="res://script/malfuntion_counter.gd" id="1_mc"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="1_rjo06"]
 [ext_resource type="Texture2D" uid="uid://ra8uu0h037qi" path="res://resources/assets/MalfunctionSolvedIcon.tres" id="2_m3s8a"]
 [ext_resource type="Texture2D" uid="uid://duxc6cspbcl3a" path="res://resources/assets/MalfunctionWarninngIcon.tres" id="2_warn"]

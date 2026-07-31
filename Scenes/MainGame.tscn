@@ -23,9 +23,9 @@
 [ext_resource type="Script" uid="uid://6nusq4blrso6" path="res://script/malfunction_interactable.gd" id="19_k6vqf"]
 [ext_resource type="PackedScene" uid="uid://paf2ndw45mpb" path="res://resources/assets/icons/malfunction_icons_shild.tscn" id="19_yy0n7"]
 [ext_resource type="PackedScene" uid="uid://djqajkjejcw4" path="res://Scenes/info_bars.tscn" id="24_him8o"]
-[ext_resource type="PackedScene" uid="uid://cm4lf0cnt0ui1" path="res://malfuntion_counter.tscn" id="25_malfc"]
+[ext_resource type="PackedScene" uid="uid://cm4lf0cnt0ui1" path="res://Scenes/malfuntion_counter.tscn" id="25_malfc"]
 [ext_resource type="Texture2D" uid="uid://b8wiroky02d5g" path="res://resources/assets/pausebutton.tres" id="26_cmrup"]
-[ext_resource type="Script" uid="uid://dbwg06p3k3qk3" path="res://Scenes/my_texureButton.gd" id="27_cmrup"]
+[ext_resource type="Script" uid="uid://dbwg06p3k3qk3" path="res://script/my_texureButton.gd" id="27_cmrup"]
 [ext_resource type="Texture2D" uid="uid://bom4d15qjsfff" path="res://resources/assets/pausebutton_pressed.tres" id="27_yy0n7"]
 [ext_resource type="Texture2D" uid="uid://tcrfy82curmv" path="res://resources/assets/pausebutton_hover.tres" id="28_0wdc3"]
 

@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cxyoybao4uyt" path="res://Scenes/TLX_bar.tscn" id="1_n2muu"]
 [ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="1_p8jeb"]
-[ext_resource type="Script" uid="uid://cq7dvoqx5b7c1" path="res://Scenes/tlx_fragebogen.gd" id="2_eenye"]
-[ext_resource type="StyleBox" uid="uid://tqdpvbowwi4c" path="res://QuestionearTheam.tres" id="3_4b8g6"]
+[ext_resource type="Script" uid="uid://cq7dvoqx5b7c1" path="res://script/tlx_fragebogen.gd" id="2_eenye"]
+[ext_resource type="StyleBox" uid="uid://tqdpvbowwi4c" path="res://resources/themes/QuestionearTheam.tres" id="3_4b8g6"]
 [ext_resource type="Theme" uid="uid://bgvgj63dcsix4" path="res://resources/themes/Hbar_theme.tres" id="3_eenye"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_041f8"]

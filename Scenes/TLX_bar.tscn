@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxyoybao4uyt"]
 
-[ext_resource type="Script" uid="uid://i0ktk3rp1tip" path="res://Scenes/tlx_bar.gd" id="1_0mqmx"]
+[ext_resource type="Script" uid="uid://i0ktk3rp1tip" path="res://script/tlx_bar.gd" id="1_0mqmx"]
 [ext_resource type="Texture2D" uid="uid://4ckysjg7h5wc" path="res://resources/assets/tick.png" id="2_4okjc"]
 
 [node name="TLXBar" type="VBoxContainer" unique_id=558521449]

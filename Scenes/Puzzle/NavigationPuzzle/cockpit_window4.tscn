@@ -14,9 +14,9 @@
 [ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="12_0imb7"]
 [ext_resource type="Script" uid="uid://clg63em8vrbc0" path="res://script/DyslexiaLabel.gd" id="13_akff4"]
 [ext_resource type="Theme" uid="uid://bklgnj0j64yhy" path="res://resources/themes/buttontheam.tres" id="14_3ttlo"]
-[ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://error_code.tscn" id="15_nfw6w"]
+[ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://Scenes/error_code.tscn" id="15_nfw6w"]
 [ext_resource type="PackedScene" uid="uid://djqajkjejcw4" path="res://Scenes/info_bars.tscn" id="16_gpkiv"]
-[ext_resource type="PackedScene" uid="uid://cm4lf0cnt0ui1" path="res://malfuntion_counter.tscn" id="17_cc6cj"]
+[ext_resource type="PackedScene" uid="uid://cm4lf0cnt0ui1" path="res://Scenes/malfuntion_counter.tscn" id="17_cc6cj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbavm"]
 size = Vector2(1934, 1065)
