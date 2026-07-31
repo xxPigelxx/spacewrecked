@@ -74,6 +74,10 @@ func _on_run_finished(results: Dictionary) -> void:
 	_row["journey_limit_s"] = _round2(results.get("journey_limit", 0.0))
 	_row["journey_time_s"] = _round2(results.get("journey_time", 0.0))
 	_row["total_play_time_s"] = _round2(results.get("total_play_time", 0.0))
+	# Huelle in Prozent — daraus die tatsaechlich erlebte Effektstaerke:
+	# stress = 100 - health_pct. min zeigt den staerksten Moment, end den Ausgang.
+	_row["health_end_pct"] = _round2(results.get("health_end_pct", 0.0))
+	_row["health_min_pct"] = _round2(results.get("health_min_pct", 0.0))
 	_row["malfunctions_solved"] = results.get("malfunctions_solved", 0)
 	_row["died_early"] = results.get("died_early", false)
 

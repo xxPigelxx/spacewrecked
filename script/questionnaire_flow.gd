@@ -26,6 +26,8 @@ extends Control
 @onready var status_label: Label = $NextButton/StatusLabel
 
 var _index := -1
+## Zeitpunkt, an dem der aktuelle Schritt sichtbar wurde.
+var _step_shown_at := 0.0
 
 
 func _ready() -> void:
@@ -59,11 +61,13 @@ func _on_next_pressed() -> void:
 
 func _next_step() -> void:
 	if _index >= 0:
+		_store_step_time()
 		steps[_index].visible = false
 	_index += 1
 
 	if _index < steps.size():
 		steps[_index].visible = true
+		_step_shown_at = Time.get_ticks_msec() / 1000.0
 		# Beim letzten Schritt des Post-Blocks geht es nicht weiter, sondern raus.
 		var is_last := _index == steps.size() - 1
 		next_button.text = "Absenden" if is_last and block == "post" else "Weiter"
@@ -75,6 +79,19 @@ func _next_step() -> void:
 		# Ab hier laeuft das Spiel — die Fragebogen-Minuten davor zaehlen nicht mit.
 		GameState.start_setup()
 		SceneSwitcher.switch_scene(next_scene)
+
+
+## Lesezeit auf dem Einleitungstext. Nur dieser eine Schritt wird gemessen: Er
+## ist die unveraenderte Lesegrundlage, auf die sich der Prae-TLX bezieht, und
+## damit die Bezugsgroesse, an der sich die Handbuchzeiten normieren lassen —
+## sonst sieht ein von Haus aus langsamer Leser aus wie jemand, den die Effekte
+## stark treffen. Wie lange jemand zum Ausfuellen der Fragebogen braucht,
+## beantwortet dagegen keine Frage der Studie.
+func _store_step_time() -> void:
+	if steps[_index].name != "StoryIntro":
+		return
+	var elapsed := Time.get_ticks_msec() / 1000.0 - _step_shown_at
+	ResultsExporter.store("intro_time_s", snappedf(elapsed, 0.01))
 
 
 ## Schickt den gesamten Durchlauf ab — der einzige Sende-Punkt der Studie.

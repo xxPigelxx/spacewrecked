@@ -79,6 +79,10 @@ var stress_from_health := true                 ## wenig Leben -> mehr Stress
 # ---- Laufzeit-Zustand ----
 var phase: int = Phase.SETUP
 var health: float = 0.0
+## Tiefster Huellenwert der Journey. Daraus die staerksten Effekte, die der
+## Teilnehmer gesehen hat — der Endwert allein unterschlaegt einen Einbruch,
+## von dem sich jemand wieder erholt hat.
+var health_min: float = 0.0
 var time_left: float = 0.0
 var malfunctions_solved: int = 0
 var died_early := false
@@ -226,6 +230,7 @@ func start_setup() -> void:
 func start_journey() -> void:
 	phase = Phase.JOURNEY
 	health = max_health
+	health_min = max_health
 	time_left = run_duration
 	malfunctions_solved = 0
 	died_early = false
@@ -304,6 +309,10 @@ func report_tutorial_repair() -> void:
 
 func _set_health(value: float) -> void:
 	health = clampf(value, 0.0, max_health)
+	# Nur in der Journey: im Tutorial steigt die Huelle von 0 hoch, das waere
+	# sonst immer das Minimum.
+	if phase == Phase.JOURNEY:
+		health_min = minf(health_min, health)
 	health_changed.emit(health)
 	_apply_stress_from_health()
 
@@ -360,6 +369,10 @@ func _finish_run() -> void:
 		"journey_limit": run_duration,                 # worauf der Lauf eingestellt war
 		"journey_time": run_duration - time_left,      # davon ueberlebt
 		"total_play_time": _play_time(),               # inkl. Tutorial und Pausen
+		# In Prozent, damit sich der Stresswert direkt ablesen laesst:
+		# stress = 100 - health_pct (vor der 5er-Quantisierung).
+		"health_end_pct": health / max_health * 100.0,
+		"health_min_pct": health_min / max_health * 100.0,
 		"dyslexia_enabled": dyslexia_enabled,
 		"stress_from_health": stress_from_health,
 		"log": _run_log.duplicate(),
