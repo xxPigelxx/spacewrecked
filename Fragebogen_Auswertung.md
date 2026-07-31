@@ -259,13 +259,9 @@ Bei einem BA-typischen N von etwa 20–40:
 
 ## 11. Offene Punkte
 
-1. **`q06_zeit_verstaendnis` ist noch nicht Prae/Post-identisch.**
-   `pre_flow.tscn`: „Wenn jemand **mit Legasthenie** fuer einen Text laenger
-   braucht ...", `questionear.tscn`: „Wenn jemand fuer einen Text laenger
-   braucht ...". Das ist der letzte offene Punkt aus der Item-Durchsicht —
-   ohne Angleichung ist das Item als Prae-Post-Vergleich nicht verwertbar und
-   faellt aus dem Index Perspektivuebernahme heraus.
-2. **Begriff in `text_veraenderung`:** sagt „Dyslexie", der uebrige Fragebogen
+Gesamtstand aller Punkte: [Offene_Punkte.md](Offene_Punkte.md).
+
+1. **Begriff in `text_veraenderung`:** sagt „Dyslexie", der uebrige Fragebogen
    sagt durchgaengig „Legasthenie".
 3. **Tippfehler in `retro_nachvollziehen`:** „laenger" statt „länger" — steht
    so im Teilnehmertext.

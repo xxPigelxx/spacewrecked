@@ -124,12 +124,27 @@ const SWAP_PAIRS: Dictionary = {
 ## Alle Regeln sind lauttreu (w=/v/, v=/f/, z=/ts/ …), damit das Wort durch
 ## Vorsprechen recoverbar bleibt.
 const PHON_RULES: Array = [
+	["x", "ks"],
 	["chs", "x"], ["ph", "f"], ["qu", "kw"], ["ck", "k"],
 	["äu", "oi"], ["eu", "oi"], ["ei", "ai"], ["ie", "i"],
-	["tz", "ts"], ["ß", "s"],
+	["aa", "a"], ["ee", "e"], ["oo", "o"],
+	["ah", "a"], ["eh", "e"], ["ih", "i"], ["oh", "o"], ["uh", "u"],
+	["tz", "ts"], ["ß", "s"], ["y", "ü"],
 	["mm", "m"], ["nn", "n"], ["ss", "s"], ["ll", "l"], ["tt", "t"],
 	["ff", "f"], ["pp", "p"], ["rr", "r"], ["dd", "d"], ["bb", "b"], ["gg", "g"],
 	["v", "f"], ["w", "v"], ["z", "ts"],
+]
+
+## Regeln, die NUR am Wortende gelten — Auslautverhaertung. Pauschal angewendet
+## waeren sie falsch: "Hand" wird [hant] gesprochen, "Dose" aber nicht [to:zə].
+## Ein d→t ueber das ganze Wort waere damit nicht mehr lauttreu, und die
+## Umschrift liesse sich nicht mehr durch Vorsprechen aufloesen.
+##
+## Es greift immer nur die ERSTE passende Regel. Sonst wuerde "wichtig" ueber
+## die ig-Regel zu "wichtich" und dann ueber die g-Regel weiterlaufen.
+const PHON_END_RULES: Array = [
+	["ig", "ich"], ["er", "a"],
+	["d", "t"], ["b", "p"], ["g", "k"],
 ]
 
 ## Loest bei allen Labels ein Neu-Rendern aus. Die Labels haengen selbst am
@@ -157,21 +172,39 @@ func _pick_font(fseed: int, chance: float) -> int:
 ## Seite also konsistent (lesbar-lernbar). Grossschreibung des ersten Buchstabens
 ## bleibt erhalten, Satzzeichen laufen unveraendert durch.
 func _phoneticize(word: String) -> String:
+	const PUNCT := ".,-!?:;…„“"
 	if word.strip_edges().is_empty():
 		return word
 	var first := word[0]
 	var had_upper := first != first.to_lower() and first == first.to_upper()
 	var s := word.to_lower()
+
+	# Satzzeichen am Ende abtrennen, damit die Auslautregeln unten den letzten
+	# BUCHSTABEN sehen und nicht den Punkt dahinter.
+	var tail := ""
+	while s.length() > 0 and PUNCT.contains(s[s.length() - 1]):
+		tail = s[s.length() - 1] + tail
+		s = s.substr(0, s.length() - 1)
+	if s.is_empty():
+		return word
+
 	# Wortanfang: st-/sp- werden gesprochen wie scht-/schp-.
 	if s.begins_with("st"):
 		s = "scht" + s.substr(2)
 	elif s.begins_with("sp"):
 		s = "schp" + s.substr(2)
+
 	for rule in PHON_RULES:
 		s = s.replace(rule[0], rule[1])
+
+	for rule in PHON_END_RULES:
+		if s.ends_with(rule[0]):
+			s = s.substr(0, s.length() - rule[0].length()) + rule[1]
+			break
+
 	if had_upper:
 		s = s.substr(0, 1).to_upper() + s.substr(1)
-	return s
+	return s + tail
 
 
 ## Prozentwert (0–100) als stress-verstaerkte Wahrscheinlichkeit (0.0–1.0).

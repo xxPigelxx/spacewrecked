@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://cygx85tabr6bj"]
 
-[ext_resource type="PackedScene" uid="uid://bx3ycj02l1xc4" path="res://Scenes/Likert_bar.tscn" id="1_ai5ut"]
-[ext_resource type="PackedScene" uid="uid://cq18f4cl84tt7" path="res://Scenes/manual_sperator.tscn" id="1_l2d0k"]
-[ext_resource type="Script" uid="uid://dmii2fren2un4" path="res://script/questionear.gd" id="1_v3451"]
-[ext_resource type="PackedScene" uid="uid://cmbencs8cn0j1" path="res://Scenes/text_question_bar.tscn" id="5_bkink"]
-[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="8_sprit"]
+[ext_resource type="Script" uid="uid://dmii2fren2un4" path="res://script/questionear.gd" id="1_rnnm6"]
+[ext_resource type="Texture2D" uid="uid://1q66y115y7eb" path="res://resources/assets/Procreate_Sprites.png" id="2_cy32o"]
+[ext_resource type="PackedScene" uid="uid://cq18f4cl84tt7" path="res://Scenes/manual_sperator.tscn" id="3_6pyuf"]
+[ext_resource type="PackedScene" uid="uid://bx3ycj02l1xc4" path="res://Scenes/Likert_bar.tscn" id="4_qvke2"]
+[ext_resource type="PackedScene" uid="uid://cmbencs8cn0j1" path="res://Scenes/text_question_bar.tscn" id="5_coyto"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wnqk4"]
-texture = ExtResource("8_sprit")
+texture = ExtResource("2_cy32o")
 texture_margin_left = 60.90915
 texture_margin_top = 89.0
 texture_margin_right = 57.895527
@@ -21,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_v3451")
+script = ExtResource("1_rnnm6")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1279946846]
 layout_mode = 1
@@ -57,128 +57,128 @@ theme_override_font_sizes/font_size = 64
 text = "Fragebogen"
 horizontal_alignment = 1
 
-[node name="HSeparator1" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1849054439 instance=ExtResource("1_l2d0k")]
+[node name="HSeparator1" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1849054439 instance=ExtResource("3_6pyuf")]
 layout_mode = 2
 
-[node name="q01_verdreht" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1095676823 instance=ExtResource("1_ai5ut")]
+[node name="q01_verdreht" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1095676823 instance=ExtResource("4_qvke2")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Menschen mit Legasthenie sehen Buchstaben verdreht."
 
-[node name="HSeparator2" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1582892850 instance=ExtResource("1_l2d0k")]
+[node name="HSeparator2" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1582892850 instance=ExtResource("3_6pyuf")]
 layout_mode = 2
 
-[node name="q02_augen" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=926106328 instance=ExtResource("1_ai5ut")]
+[node name="q02_augen" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=926106328 instance=ExtResource("4_qvke2")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Legasthenie ist vor allem ein Problem der Augen."
 
-[node name="HSeparator3" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1143170300 instance=ExtResource("1_l2d0k")]
+[node name="HSeparator3" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1143170300 instance=ExtResource("3_6pyuf")]
 layout_mode = 2
 
-[node name="q03_uebung" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=27587041 instance=ExtResource("1_ai5ut")]
+[node name="q03_uebung" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=27587041 instance=ExtResource("4_qvke2")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Mit genug Übung wäre Lesen mit Legasthenie kein Problem mehr."
 
-[node name="HSeparator4" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1306325643 instance=ExtResource("1_l2d0k")]
+[node name="HSeparator4" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1306325643 instance=ExtResource("3_6pyuf")]
 layout_mode = 2
 
-[node name="q04_kraft" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1538070335 instance=ExtResource("1_ai5ut")]
+[node name="q04_kraft" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1538070335 instance=ExtResource("4_qvke2")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Lesen kostet Menschen mit Legasthenie mehr Kraft als mich."
 
-[node name="HSeparator5" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1044202651 instance=ExtResource("1_l2d0k")]
+[node name="HSeparator5" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1044202651 instance=ExtResource("3_6pyuf")]
 layout_mode = 2
 
-[node name="q05_kopf_frei" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=24423758 instance=ExtResource("1_ai5ut")]
+[node name="q05_kopf_frei" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=24423758 instance=ExtResource("4_qvke2")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Wer mit Legasthenie liest, hat weniger Kopf frei für den Inhalt."
 
-[node name="HSeparator6" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1381260668 instance=ExtResource("1_l2d0k")]
+[node name="HSeparator6" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1381260668 instance=ExtResource("3_6pyuf")]
 layout_mode = 2
 
-[node name="q06_zeit_verstaendnis" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000001 instance=ExtResource("1_ai5ut")]
+[node name="q06_zeit_verstaendnis" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000001 instance=ExtResource("4_qvke2")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Wenn jemand mit Legasthenie für einen Text länger braucht, kann ich nachvollziehen, warum."
 
-[node name="HSeparator7" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000002 instance=ExtResource("1_l2d0k")]
+[node name="HSeparator7" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000002 instance=ExtResource("3_6pyuf")]
 layout_mode = 2
 
-[node name="q07_vorstellen" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1534347912 instance=ExtResource("1_ai5ut")]
+[node name="q07_vorstellen" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1534347912 instance=ExtResource("4_qvke2")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Ich kann mir vorstellen, wie es ist, mit Legasthenie zu lesen."
 
-[node name="HSeparator9" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1711702212 instance=ExtResource("1_l2d0k")]
+[node name="HSeparator9" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1711702212 instance=ExtResource("3_6pyuf")]
 layout_mode = 2
 
-[node name="q08_vorlesen_verstaendnis" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000003 instance=ExtResource("1_ai5ut")]
+[node name="q08_vorlesen_verstaendnis" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000003 instance=ExtResource("4_qvke2")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Wenn jemand in einer Gruppe nicht laut vorlesen möchte, kann ich die Gründe nachvollziehen."
 
-[node name="HSeparator8" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000004 instance=ExtResource("1_l2d0k")]
+[node name="HSeparator8" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000004 instance=ExtResource("3_6pyuf")]
 layout_mode = 2
 
-[node name="retro_nachvollziehen" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=110031421 instance=ExtResource("1_ai5ut")]
+[node name="retro_nachvollziehen" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=110031421 instance=ExtResource("4_qvke2")]
 layout_mode = 2
 size_flags_vertical = 3
-question_text = "Durch das Spiel kann ich besser nachvollziehen, warum jemand mit Legasthenie für einen Text laenger braucht."
+question_text = "Durch das Spiel kann ich besser nachvollziehen, warum jemand mit Legasthenie für einen Text länger braucht."
 
-[node name="HSeparator14" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=836175472 instance=ExtResource("1_l2d0k")]
+[node name="HSeparator14" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=836175472 instance=ExtResource("3_6pyuf")]
 layout_mode = 2
 
-[node name="retro_kraft" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1237037451 instance=ExtResource("1_ai5ut")]
+[node name="retro_kraft" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1237037451 instance=ExtResource("4_qvke2")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Durch das Spiel ist mir klarer geworden, wie viel Kraft das Lesen mit Legasthenie kosten kann."
 
-[node name="HSeparator15" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1119882599 instance=ExtResource("1_l2d0k")]
+[node name="HSeparator15" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1119882599 instance=ExtResource("3_6pyuf")]
 layout_mode = 2
 
-[node name="game_spass" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000005 instance=ExtResource("1_ai5ut")]
+[node name="game_spass" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000005 instance=ExtResource("4_qvke2")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Das Spiel hat mir Spaß gemacht."
 
-[node name="HSeparator11" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1989415535 instance=ExtResource("1_l2d0k")]
+[node name="HSeparator11" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1989415535 instance=ExtResource("3_6pyuf")]
 layout_mode = 2
 
-[node name="game_frust" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1699174631 instance=ExtResource("1_ai5ut")]
+[node name="game_frust" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1699174631 instance=ExtResource("4_qvke2")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Das Spiel hat mich frustriert."
 
-[node name="HSeparator12" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1650394149 instance=ExtResource("1_l2d0k")]
+[node name="HSeparator12" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1650394149 instance=ExtResource("3_6pyuf")]
 layout_mode = 2
 
-[node name="game_handbuch" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=522247 instance=ExtResource("1_ai5ut")]
+[node name="game_handbuch" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=522247 instance=ExtResource("4_qvke2")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Das Lesen des Handbuchs hat mich überfordert."
 
-[node name="HSeparator13" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=696281899 instance=ExtResource("1_l2d0k")]
+[node name="HSeparator13" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=696281899 instance=ExtResource("3_6pyuf")]
 layout_mode = 2
 
-[node name="text_schwierigstes" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=558521449 instance=ExtResource("5_bkink")]
+[node name="text_schwierigstes" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=558521449 instance=ExtResource("5_coyto")]
 layout_mode = 2
 question_text = "Was hat sich beim Lesen des Handbuchs am schwierigsten angefühlt?"
 
-[node name="HSeparator10" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000006 instance=ExtResource("1_l2d0k")]
+[node name="HSeparator10" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=900000006 instance=ExtResource("3_6pyuf")]
 layout_mode = 2
 
-[node name="text_beeinflusst" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=403735605 instance=ExtResource("5_bkink")]
+[node name="text_beeinflusst" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=403735605 instance=ExtResource("5_coyto")]
 layout_mode = 2
 question_text = "Haben die Veränderungen im Handbuch dein Lesen beeinflusst? wenn Ja wie?"
 
-[node name="HSeparator16" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=2132815406 instance=ExtResource("1_l2d0k")]
+[node name="HSeparator16" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=2132815406 instance=ExtResource("3_6pyuf")]
 layout_mode = 2
 
-[node name="text_veraenderung" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1468303680 instance=ExtResource("5_bkink")]
+[node name="text_veraenderung" parent="PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1468303680 instance=ExtResource("5_coyto")]
 layout_mode = 2
 musst_anwnser = false
-question_text = "Hat sich deine Vorstellung von Dyslexie durch das Spiel verändert? Wenn ja, wie?"
+question_text = "Hat sich deine Vorstellung von Legasthenie durch das Spiel verändert? Wenn ja, wie?"

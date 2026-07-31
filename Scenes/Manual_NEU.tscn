@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://mnpplgcph5f7" path="res://resources/assets/spacemap_rounded.png" id="11_cw3p6"]
 [ext_resource type="PackedScene" uid="uid://cq18f4cl84tt7" path="res://Scenes/manual_sperator.tscn" id="11_rrxqo"]
 [ext_resource type="Theme" uid="uid://boiwhelh1kt2w" path="res://resources/themes/flatbuttontheam.tres" id="13_rrxqo"]
+[ext_resource type="Script" uid="uid://cgdm07ufq6bsl" path="res://script/debug_stress_slider.gd" id="14_msjf8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7jiqe"]
 texture = ExtResource("2_byvqj")
@@ -123,7 +124,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_q6b25")
 layout_mode = 2
 theme_override_constants/tab_separation = 22
 tab_alignment = 1
-current_tab = 5
+current_tab = 1
 clip_tabs = false
 
 [node name="Home" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=504548785]
@@ -140,8 +141,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_q6b25")
-crowd_percent = 66.0
-char_size_percent = 66.0
+tornado_radius = 5.0
+tornado_frequency = 2.0
+char_size_percent = 40.0
+phonetic_percent = 42.0
 
 [node name="Title2" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Home/VBoxContainer" unique_id=261977650]
 layout_mode = 2
@@ -432,11 +435,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Energie" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=880822609]
-visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
-river_spacing = 8.0
-missing_percent = 30.0
+shake_amplitude = 3.0
+missing_percent = 25.0
+phonetic_percent = 42.0
 metadata/_tab_index = 1
 
 [node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie" unique_id=1877905917]
@@ -507,6 +510,10 @@ bbcode_enabled = true
 text = "Fehlercode: 1281"
 fit_content = true
 script = ExtResource("2_puywe")
+override_page = true
+shake_amplitude = 3.0
+missing_percent = 10.0
+phonetic_percent = 40.0
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList" unique_id=1210151258]
@@ -601,6 +608,11 @@ bbcode_enabled = true
 text = "Fehlercode: 3854"
 fit_content = true
 script = ExtResource("2_puywe")
+override_page = true
+shake_amplitude = 3.0
+missing_percent = 10.0
+phonetic_percent = 42.0
+rng_seed = 1003
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList2" unique_id=209707154]
@@ -695,6 +707,11 @@ bbcode_enabled = true
 text = "Fehlercode: 9418"
 fit_content = true
 script = ExtResource("2_puywe")
+override_page = true
+shake_amplitude = 3.0
+missing_percent = 10.0
+phonetic_percent = 42.0
+rng_seed = 1002
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=2091968455]
@@ -789,6 +806,11 @@ bbcode_enabled = true
 text = "Fehlercode: 2458"
 fit_content = true
 script = ExtResource("2_puywe")
+override_page = true
+shake_amplitude = 3.0
+missing_percent = 10.0
+phonetic_percent = 42.0
+rng_seed = 1001
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Energie/VBox/ScrollContainer/VBoxContainer/StepList4" unique_id=1778062955]
@@ -872,8 +894,10 @@ script = ExtResource("2_puywe")
 visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
-vanish_percent = 42.0
-font_percent = 100.0
+vanish_percent = 25.0
+crowd_percent = 40.0
+font_percent = 60.0
+phonetic_percent = 42.0
 metadata/_tab_index = 2
 
 [node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Navigation" unique_id=1185844001]
@@ -1252,8 +1276,9 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
-transpose_percent = 66.0
-shake_amplitude = 6.5
+river_spacing = 6.0
+shake_amplitude = 4.0
+phonetic_percent = 42.0
 metadata/_tab_index = 3
 
 [node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Treibstoff" unique_id=1283369308]
@@ -1393,8 +1418,9 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
-rotate_percent = 60.0
-phonetic_percent = 100.0
+vanish_percent = 25.0
+rotate_percent = 35.0
+phonetic_percent = 42.0
 metadata/_tab_index = 4
 
 [node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Schild" unique_id=2042387216]
@@ -1520,7 +1546,6 @@ theme_override_constants/separation = 24
 theme_override_styles/separator = SubResource("StyleBoxLine_164it")
 
 [node name="StepList3" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer" unique_id=494576490]
-visible = false
 layout_mode = 2
 
 [node name="ListTitle" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Schild/VBox/ScrollContainer/VBoxContainer/StepList3" unique_id=370807768]
@@ -1599,11 +1624,14 @@ script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="Codes" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=1981724562]
+visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
-crowd_percent = 80.0
-tornado_radius = 9.5
-tornado_frequency = 3.1
+crowd_percent = 66.0
+tornado_radius = 5.0
+tornado_frequency = 2.0
+font_percent = 60.0
+phonetic_percent = 42.0
 metadata/_tab_index = 5
 
 [node name="VBox" type="VBoxContainer" parent="ManualRoot/PanelContainer/TabContainer/Codes" unique_id=1241451950]
@@ -1778,3 +1806,7 @@ layout_mode = 2
 theme = ExtResource("13_rrxqo")
 text = "Weiter"
 script = ExtResource("7_n500u")
+
+[node name="Node" type="Node" parent="." unique_id=1452822749]
+script = ExtResource("14_msjf8")
+enabled = false

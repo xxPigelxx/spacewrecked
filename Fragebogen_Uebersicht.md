@@ -97,12 +97,11 @@ unterscheidet sich.
 | 3 | Mit genug Uebung waere Lesen mit Legasthenie kein Problem mehr. | `q03_uebung` |
 | 4 | Lesen kostet Menschen mit Legasthenie mehr Kraft als mich. | `q04_kraft` |
 | 5 | Wer mit Legasthenie liest, hat weniger Kopf frei fuer den Inhalt. | `q05_kopf_frei` |
-| 6 | Wenn jemand fuer einen Text laenger braucht, kann ich nachvollziehen, warum. ⚠️ | `q06_zeit_verstaendnis` |
+| 6 | Wenn jemand **mit Legasthenie** fuer einen Text laenger braucht, kann ich nachvollziehen, warum. | `q06_zeit_verstaendnis` |
 | 7 | Ich kann mir vorstellen, wie es ist, mit Legasthenie zu lesen. | `q11_vorstellen` |
 | 8 | Wenn jemand in einer Gruppe nicht laut vorlesen moechte, kann ich die Gruende nachvollziehen. | `q07_vorlesen_verstaendnis` |
 
-⚠️ Einziges Item, das noch nicht wortgleich zum Pre-Block ist — im Pre steht
-„mit Legasthenie".
+Alle acht Items sind wortgleich zum Pre-Block.
 
 ### 2.3 Retrospektive Items (Likert 5, nur Post)
 
@@ -142,11 +141,9 @@ Plus 1 Ja/Nein im Startup-Popup (wird nicht gesendet).
 
 ## Offene Punkte
 
-1. **`q06_zeit_verstaendnis` ist Pre und Post unterschiedlich formuliert**
-   (Pre mit, Post ohne „mit Legasthenie"). Der letzte offene Punkt aus der
-   Item-Durchsicht — ohne Angleichung ist das Item als Pre/Post-Vergleich
-   nicht verwertbar.
-2. **`text_veraenderung` sagt „Dyslexie"**, der uebrige Fragebogen sagt
+Gesamtstand aller Punkte: [Offene_Punkte.md](Offene_Punkte.md).
+
+1. **`text_veraenderung` sagt „Dyslexie"**, der uebrige Fragebogen sagt
    durchgaengig „Legasthenie".
 3. **Tippfehler in `retro_nachvollziehen`:** „laenger" statt „länger", steht so
    im Teilnehmertext.
