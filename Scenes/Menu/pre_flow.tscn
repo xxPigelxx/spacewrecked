@@ -127,6 +127,15 @@ question_text = "Ist Deutsch deine Muttersprache?"
 [node name="HSeparator14" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1772379989 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
 
+[node name="demo_game_erfahrung" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1095676823 instance=ExtResource("6_x0xal")]
+layout_mode = 2
+size_flags_vertical = 3
+scale_type = 2
+question_text = "Wie viel Erfahrung hast du mit Video Spielen?"
+
+[node name="HSeparator20" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=165155000 instance=ExtResource("5_w7tf1")]
+layout_mode = 2
+
 [node name="demo_dyslexie_selbst" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=29795970 instance=ExtResource("5_x0xal")]
 layout_mode = 2
 options = PackedStringArray("Ja, diagnostiziert", "Ja, vermute ich", "Nein", "Keine Angabe")
@@ -186,7 +195,7 @@ horizontal_alignment = 1
 [node name="HSeparator10" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=27157330 instance=ExtResource("5_w7tf1")]
 layout_mode = 2
 
-[node name="q01_verdreht" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1095676823 instance=ExtResource("6_x0xal")]
+[node name="q01_verdreht" parent="Questionear/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer" unique_id=108865112 instance=ExtResource("6_x0xal")]
 layout_mode = 2
 size_flags_vertical = 3
 question_text = "Menschen mit Legasthenie sehen Buchstaben verdreht."

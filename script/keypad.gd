@@ -4,6 +4,7 @@ extends Interactable
 @export var code: String = "1234"
 @onready var rich_text_label: RichTextLabel = $RichTextLabel
 
+
 func _setup() -> void:
 	rich_text_label.rotation = -get_parent().rotation
 

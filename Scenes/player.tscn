@@ -108,6 +108,9 @@ stream_2/stream = ExtResource("9_ukyrk")
 stream_3/stream = ExtResource("10_7dp3o")
 stream_4/stream = ExtResource("11_h4iuc")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pu2lt"]
+light_mode = 1
+
 [node name="player" type="CharacterBody2D" unique_id=1759760143 groups=["player"]]
 script = ExtResource("1_onrkg")
 speed = 350.0
@@ -160,23 +163,23 @@ stream = SubResource("AudioStreamRandomizer_fd4e3")
 bus = &"sfx"
 
 [node name="Label" type="RichTextLabel" parent="." unique_id=1007172423]
+material = SubResource("CanvasItemMaterial_pu2lt")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -111.0
-offset_right = 60.0
-offset_bottom = -48.0
+offset_left = -97.0
+offset_top = -121.0
+offset_right = 93.0
+offset_bottom = -53.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("11_pu2lt")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "Press E to Interact"
+text = "Druecke [E] zum Interagieren"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -185,9 +188,8 @@ text_color = Color(1, 1, 1, 1)
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="LabelBacklight" type="PointLight2D" parent="Label" unique_id=2056320006]
-visible = false
-position = Vector2(62, 31.5)
-scale = Vector2(1.2, 1.2)
-color = Color(0.98, 0.87857, 0.71540004, 0.6745098)
-energy = 0.4
+position = Vector2(94.99999, 38.5)
+scale = Vector2(2.359375, 1.2)
+enabled = false
+color = Color(1, 1, 1, 0)
 texture = ExtResource("3_6t5aa")

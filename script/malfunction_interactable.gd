@@ -27,7 +27,6 @@ enum Phase { TUTORIAL, JOURNEY }
 
 const ASTROID = preload("uid://bdb3yq2bckj6b")
 
-var _active := false
 var _solved := false
 var _counted := false        ## ob diese Stoerung aktuell im Kategorie-Zaehler steckt
 var _spawned := false        ## ob try_spawn sie in dieser Journey schon aktiviert hat
@@ -36,7 +35,7 @@ var _release_time := -1.0    ## elapsed-Zeitpunkt, ab dem nach dem Freiwerden ge
 
 
 func _setup() -> void:
-	_active = false
+	active = false
 	visible = false
 	if label:
 		label.visible = false
@@ -55,7 +54,7 @@ func _exit_tree() -> void:
 ## Ist die Kategorie belegt, wird gewartet, bis die andere geloest ist, plus ein
 ## kleiner Zufalls-Offset (10–20 s), damit nicht sofort die naechste losgeht.
 func try_spawn(elapsed: float) -> void:
-	if _spawned or _active or _solved:
+	if _spawned or active or _solved:
 		return
 	if elapsed < spawn_time:
 		return
@@ -103,9 +102,9 @@ func _category_name() -> String:
 
 ## Stoerung sichtbar + interagierbar machen. System faellt aus (Zaehler +1).
 func activate() -> void:
-	if _active:
+	if active:
 		return
-	_active = true
+	active = true
 	_solved = false
 	if astoroid:
 		# Erst den Alarm (Vorwarnung), dann den Anflug — Spieler hoert den Meteor kommen.
@@ -149,7 +148,7 @@ func _play_meteor_warning() -> void:
 ## Falls die Stoerung noch gezaehlt war (aber nicht geloest), Zaehler bereinigen,
 ## damit _counted konsistent bleibt (z.B. bei Reset/begin oder clear_all).
 func deactivate() -> void:
-	_active = false
+	active = false
 	visible = false
 	player_near = false
 	set_deferred("monitoring", false)
@@ -163,7 +162,7 @@ func deactivate() -> void:
 		partical.emitting = false
 ## Wird vom Spawner fuer die Lebens-/Kurven-Logik abgefragt.
 func is_active_unsolved() -> bool:
-	return _active and not _solved
+	return active and not _solved
 
 ## Vom Spawner aufgerufen, wenn dieses Puzzle geloest wurde. System wieder aktiv (Zaehler -1).
 func mark_solved() -> void:
@@ -181,7 +180,7 @@ func mark_solved() -> void:
 
 ## Nur reagieren, wenn aktiv. Meldet sich als "in Bearbeitung" beim Spawner.
 func _action() -> void:
-	if not _active or _solved:
+	if not active or _solved:
 		return
 	if overlay_scene != "":
 		# freeze_scene = false: das Schiff laeuft hinter dem Raetsel weiter, damit

@@ -1,7 +1,7 @@
 extends Area2D
 class_name Interactable
 
-@export var prompt_text := "Press E to interact"
+@export var prompt_text := "Druecke [E] zum Interagieren"
 
 ## Optional: scene to open as overlay when interacted with.
 @export_file("*.tscn") var overlay_scene: String = ""
@@ -14,6 +14,7 @@ class_name Interactable
 
 @onready var label: RichTextLabel = get_node_or_null("RichTextLabel")
 
+var active := true
 var player_near := false
 
 func _ready() -> void:
@@ -44,7 +45,7 @@ func _action() -> void:
 		SceneSwitcher.open_overlay_with_data(overlay_scene, overlay_data, true, false, false, false)
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and active:
 		body.set_text(prompt_text)
 		player_near = true
 

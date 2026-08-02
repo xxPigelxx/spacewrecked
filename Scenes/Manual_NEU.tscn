@@ -124,7 +124,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_q6b25")
 layout_mode = 2
 theme_override_constants/tab_separation = 22
 tab_alignment = 1
-current_tab = 1
+current_tab = 2
 clip_tabs = false
 
 [node name="Home" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=504548785]
@@ -435,6 +435,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Energie" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=880822609]
+visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
 shake_amplitude = 3.0
@@ -891,7 +892,6 @@ horizontal_alignment = 1
 script = ExtResource("2_puywe")
 
 [node name="Navigation" type="Control" parent="ManualRoot/PanelContainer/TabContainer" unique_id=529697749]
-visible = false
 layout_mode = 2
 script = ExtResource("3_q6b25")
 vanish_percent = 25.0
@@ -929,7 +929,7 @@ layout_mode = 2
 
 [node name="WarnLabel" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/WarningBox" unique_id=570961848]
 layout_mode = 2
-text = "ACHTUNG: Navigation erst aktivieren, wenn Energie UND Treibstoff grün sind."
+text = "ACHTUNG: Navigation erst aktivieren, wenn Energie UND Treibstoff Online sind."
 fit_content = true
 scroll_active = false
 script = ExtResource("2_puywe")

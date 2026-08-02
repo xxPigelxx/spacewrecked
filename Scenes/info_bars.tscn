@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://6q5gw8ommti" path="res://resources/assets/progressHealthbar.tres" id="2_jrbst"]
 [ext_resource type="Script" uid="uid://bja6tafov3g2l" path="res://script/ship_health_bar.gd" id="3_ldltn"]
 [ext_resource type="Script" uid="uid://dgelda1t2b50h" path="res://script/ship_flight_bar.gd" id="4_6jhrp"]
-[ext_resource type="Texture2D" uid="uid://pv7plt15jljw" path="res://resources/assets/ship_icon.tres" id="4_ldltn"]
 [ext_resource type="Texture2D" uid="uid://d0orecowgayfv" path="res://resources/assets/heart_icon.tres" id="4_yhjai"]
 [ext_resource type="Script" uid="uid://cuhjopf80uuuh" path="res://script/debug_health_slider.gd" id="5_d55ng"]
+[ext_resource type="Texture2D" uid="uid://c1co3bh3mf2hg" path="res://resources/assets/small_ship.png" id="7_d55ng"]
 
 [sub_resource type="Curve" id="Curve_d55ng"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2479784, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.79516804), 0.05447532, 0.0, 0, 0]
@@ -96,6 +96,6 @@ offset_right = 57.0
 offset_bottom = 32.0
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("4_ldltn")
+texture = ExtResource("7_d55ng")
 expand_mode = 1
 stretch_mode = 5

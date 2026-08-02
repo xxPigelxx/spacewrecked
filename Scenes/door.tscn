@@ -47,7 +47,7 @@ region_rect = Rect2(685, 1118, 48, 96)
 position = Vector2(-1.9999999, 61)
 scale = Vector2(0.29082564, 0.29082564)
 active_color = Color(0.44705883, 0.7607843, 0.30588236, 1)
-disabled_color = Color(0.95165557, 0.25301215, 0.4191982, 1)
+disabled_color = Color(1, 0.12941177, 0.12941177, 1)
 
 [node name="Bottom" type="StaticBody2D" parent="." unique_id=877071809]
 position = Vector2(0, 128)
@@ -81,11 +81,11 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_kj2pw")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Keypad" unique_id=2059799109]
-mouse_filter = 2
 offset_left = -64.0
 offset_top = -83.0
 offset_right = 60.0
 offset_bottom = -20.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("5_burcv")
 theme_override_font_sizes/normal_font_size = 28

@@ -100,7 +100,7 @@ func switch_lights(val: bool) -> void:
 	ship_lights_on = val
 	player_light.visible = not ship_lights_on
 	label_backlight.visible = not ship_lights_on
-
+	label.add_theme_color_override("default_color", Color.BLACK if val else Color.WHITE)
 	if ship_lights_on:
 		flashlights.visible = false
 

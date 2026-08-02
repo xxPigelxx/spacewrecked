@@ -86,7 +86,6 @@ overlay_scene = "uid://dhaqf5a5qa6di"
 [node name="ManualItemPickup" type="Area2D" parent="Interactabels/SetupMalfunctions" unique_id=612487883]
 position = Vector2(987, 542)
 script = ExtResource("11_q8sds")
-prompt_text = "Press E to Pickup"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/SetupMalfunctions/ManualItemPickup" unique_id=691600370]
 shape = SubResource("CircleShape2D_yr2pg")
@@ -182,7 +181,7 @@ position = Vector2(-77, 94)
 category = 2
 spawn_time = 128.0
 astoroid = true
-overlay_scene = "uid://bcrjbuv5p0yew"
+overlay_scene = "uid://bvhmc4pe3tidq"
 
 [node name="MalfunctionIconsMix" parent="Interactabels/JourneyMalfunctions/MixJourney" unique_id=2029534547 instance=ExtResource("18_im1vy")]
 

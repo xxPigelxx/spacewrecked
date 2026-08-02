@@ -13,6 +13,9 @@ extends Control
 @onready var _health_lbl:= $VBoxContainer/HBoxContainer5/L4
 @onready var _solved_lbl:= $VBoxContainer/HBoxContainer7/L4
 
+const activeted_color := Color.SEA_GREEN
+const deactivated_color := Color.RED
+
 func _ready() -> void:
 	_show_journey_display(false)
 	GameState.ship_lights_changed.connect(func(_v): refresh())
@@ -71,7 +74,7 @@ func _show_journey_display(val = true) -> void:
 func _set_status(lbl, ok: bool, yes: String, no: String) -> void:
 	_set_label_text(lbl, yes if ok else no)
 	lbl.modulate = Color.WHITE
-	lbl.add_theme_color_override("font_color", Color.GREEN if ok else Color.RED)
+	lbl.add_theme_color_override("default_color", activeted_color if ok else deactivated_color)
 
 ## Setzt Text korrekt — bei DyslexiaLabel über set_source_text, sonst .text.
 func _set_label_text(lbl, value: String) -> void:
