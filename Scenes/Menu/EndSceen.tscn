@@ -92,6 +92,7 @@ text = "Zeit:"
 horizontal_alignment = 1
 
 [node name="Compleated" type="Label" parent="main" unique_id=1571289832]
+visible = false
 layout_mode = 2
 text = "Dyslexie-Modus:"
 horizontal_alignment = 1
