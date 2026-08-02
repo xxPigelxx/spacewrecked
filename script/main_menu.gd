@@ -4,9 +4,12 @@ extends Control
 @onready var options: VBoxContainer = $Options
 @onready var start_up_pop_up: MarginContainer = $StartUpPopUp
 @onready var close_pop_up_bt: Button = $StartUpPopUp/PanelContainer/MarginContainer/VBoxContainer/ClosePopUpBt
+@onready var exit_bt: Button = $main/ExitBt
 
 
 func _ready() -> void:
+	if OS.has_feature("web"):
+		exit_bt.disabled = true
 	start_up_pop_up.visible = true
 	main.visible = false
 	credits.visible = false

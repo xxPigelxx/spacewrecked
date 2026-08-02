@@ -1267,7 +1267,7 @@ metadata/_custom_type_script = "uid://clg63em8vrbc0"
 
 [node name="VerdantisText" type="RichTextLabel" parent="ManualRoot/PanelContainer/TabContainer/Navigation/VBox/ScrollContainer/VBoxContainer" unique_id=1708965545]
 layout_mode = 2
-text = "Achtung, kein Planet: ein kleines grünes, tintenfischartiges Wesen, das an dieser Position durchs All treibt. Warum es dort schwebt, kann niemand sagen. Bitte nicht anfunken."
+text = "Kein runder Planet, sondern deutlich eiförmig. Die Oberfläche leuchtet in kräftigem Grün. Auffällig sind mehrere violette Lichtbänder, die den Planeten in weiten Schleifen umkreisen und sich vor ihm kreuzen."
 fit_content = true
 script = ExtResource("2_puywe")
 metadata/_custom_type_script = "uid://clg63em8vrbc0"
