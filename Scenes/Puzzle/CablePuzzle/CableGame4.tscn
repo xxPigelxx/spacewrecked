@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dlocelh4wsyel" path="res://Scenes/socket.tscn" id="4_22kpn"]
 [ext_resource type="FontFile" uid="uid://co5jd8hfs2m01" path="res://resources/fonts/Space-Regular.ttf" id="4_oxt5x"]
 [ext_resource type="PackedScene" uid="uid://bgboxpp7u4ock" path="res://Scenes/error_code.tscn" id="5_4m8ly"]
-[ext_resource type="PackedScene" uid="uid://dob8m8k1h72mn" path="res://Scenes/Manual_NEU.tscn" id="7_ldmso"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_heo7m"]
 texture = ExtResource("2_mq2c6")
@@ -218,8 +217,6 @@ pair_id = "4"
 [node name="ErrorCode" parent="." unique_id=1170533520 instance=ExtResource("5_4m8ly")]
 position = Vector2(923, 848)
 error_code = "2458"
-
-[node name="Manual" parent="." unique_id=1520689515 instance=ExtResource("7_ldmso")]
 
 [connection signal="pressed" from="Panel/HBoxContainer/Win" to="." method="_on_win"]
 [connection signal="pressed" from="Panel/HBoxContainer/SpawnCableBt" to="." method="_on_button_pressed"]
