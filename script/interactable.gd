@@ -1,7 +1,7 @@
 extends Area2D
 class_name Interactable
 
-@export var prompt_text := "Druecke [E] zum Interagieren"
+@export var prompt_text := "Druecke E zum Interagieren"
 
 ## Optional: scene to open as overlay when interacted with.
 @export_file("*.tscn") var overlay_scene: String = ""
