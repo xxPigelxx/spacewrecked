@@ -33,7 +33,7 @@ code = "562823"
 position = Vector2(-517, -2.0000305)
 scale = Vector2(1, 0.5)
 door_id = "storage_door"
-code = "182182"
+code = "161161"
 
 [node name="Door" parent="Door3/Top" parent_id_path=PackedInt32Array(1869837265, 418532235) index="1" unique_id=1294124922]
 position = Vector2(-1, 40)

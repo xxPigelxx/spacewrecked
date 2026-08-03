@@ -18,6 +18,11 @@ extends CharacterBody2D
 var ship_lights_on := false
 var has_manual := false
 var _step_t := 0.0
+## Alle Interaktions-Bereiche, in denen der Spieler gerade steht. Die Bereiche
+## ueberlappen sich (Tuer und Handbuch liegen z.B. nur 5 px auseinander, der
+## Spieler ist 33 px breit). Ohne diese Liste loescht der zuerst verlassene
+## Bereich den Prompt eines Bereichs, in dem der Spieler noch drin steht.
+var _nearby: Array[Interactable] = []
 
 func _ready() -> void:
 	ship_lights_on = not GameState.is_system_broken("strom")
@@ -30,6 +35,11 @@ func _ready() -> void:
 	
 	label.visible = false
 	flashlights.visible = false
+
+	# Der Prompt wird bei jedem Betreten neu gesetzt. Ohne leeren Quelltext haelt
+	# DyslexiaLabel den Text aus der Szene fest und schreibt ihn bei jeder
+	# Stress-Aenderung wieder ueber den gerade angezeigten Prompt.
+	label.set_source_text("")
 	
 func _on_strom_changed() -> void:
 	switch_lights(not GameState.is_system_broken("strom"))
@@ -122,9 +132,33 @@ func _on_manual_changed(acquired: bool) -> void:
 func set_text(val: String):
 	label.text = "[wave amp=20 freq=4]%s[/wave]" % val
 	label.visible = true
+## Bereich betreten: sein Prompt wird angezeigt, der zuletzt betretene gewinnt.
+func show_prompt(source: Interactable) -> void:
+	if not _nearby.has(source):
+		_nearby.append(source)
+	_refresh_prompt()
 
+<<<<<<< Updated upstream
 func set_text_visable():
 	label.visible = true
 	
 func disable_text():
+=======
+## Bereich verlassen. Steht der Spieler noch in einem anderen, uebernimmt dessen
+## Prompt — erst wenn keiner mehr uebrig ist, verschwindet die Anzeige.
+func hide_prompt(source: Interactable) -> void:
+	_nearby.erase(source)
+	_refresh_prompt()
+
+func _refresh_prompt() -> void:
+	while not _nearby.is_empty():
+		var top: Interactable = _nearby.back()
+		if is_instance_valid(top):
+			label.text = "[wave amp=20 freq=4]%s[/wave]" % top.prompt_text
+			label.visible = true
+			return
+		# Bereich wurde freigegeben (Handbuch aufgesammelt) — naechsten pruefen.
+		_nearby.pop_back()
+	label.text = ""
+>>>>>>> Stashed changes
 	label.visible = false

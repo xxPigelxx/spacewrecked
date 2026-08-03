@@ -42,6 +42,11 @@ func _setup() -> void:
 	if phase == Phase.TUTORIAL:
 		activate()              # Tutorial: sofort sichtbar, self-managed
 	else:
+		# Unsichtbar heisst auch: nicht mithoeren. Journey-Stoerungen liegen exakt
+		# auf den Tutorial-Stoerungen; ihr body_exited wuerde sonst den Prompt der
+		# sichtbaren Stoerung darunter loeschen.
+		set_deferred("monitoring", false)
+		set_deferred("monitorable", false)
 		GameState.register_malfunction(self)  # Journey: wartet auf spawn_time
 
 ## Beim Verlassen der Szene austragen, damit GameState keine toten Referenzen behaelt.

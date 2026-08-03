@@ -131,7 +131,7 @@ offset = Vector2(6, 3)
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=68990338]
 modulate = Color(0.46666667, 0.69411767, 0.90588236, 1)
-position = Vector2(1, 5)
+position = Vector2(1, 4)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_olqyp")
 frame_progress = 0.032736223

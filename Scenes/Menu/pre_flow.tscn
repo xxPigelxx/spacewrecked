@@ -359,7 +359,7 @@ theme_override_constants/paragraph_separation = -2
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "
-Viel Erfolg, Astro"
+Viel Erfolg"
 fit_content = true
 
 [node name="NextButton" type="Button" parent="." unique_id=1208619313]

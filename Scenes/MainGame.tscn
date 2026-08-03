@@ -28,9 +28,22 @@
 [ext_resource type="Script" uid="uid://dbwg06p3k3qk3" path="res://script/my_texureButton.gd" id="27_cmrup"]
 [ext_resource type="Texture2D" uid="uid://bom4d15qjsfff" path="res://resources/assets/pausebutton_pressed.tres" id="27_yy0n7"]
 [ext_resource type="Texture2D" uid="uid://tcrfy82curmv" path="res://resources/assets/pausebutton_hover.tres" id="28_0wdc3"]
+[ext_resource type="Script" uid="uid://cl21i82nbwugo" path="res://Scenes/start_up_pop_up.gd" id="30_si6xw"]
+[ext_resource type="Theme" uid="uid://boiwhelh1kt2w" path="res://resources/themes/flatbuttontheam.tres" id="30_w42fa"]
+[ext_resource type="Script" uid="uid://66kdblp1pv87" path="res://script/button.gd" id="31_si6xw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yr2pg"]
 radius = 71.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w42fa"]
+light_mode = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o6tew"]
+texture = ExtResource("12_yr2pg")
+region_rect = Rect2(782, 1429, 484, 594)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_upseh"]
+light_mode = 1
 
 [node name="MainGame" type="Node2D" unique_id=819575177]
 
@@ -84,7 +97,7 @@ overlay_scene = "uid://dhaqf5a5qa6di"
 [node name="MalfunctionIconsSignal" parent="Interactabels/SetupMalfunctions/NavStart" unique_id=72393084 instance=ExtResource("13_wn26v")]
 
 [node name="ManualItemPickup" type="Area2D" parent="Interactabels/SetupMalfunctions" unique_id=612487883]
-position = Vector2(987, 542)
+position = Vector2(1013, 542)
 script = ExtResource("11_q8sds")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactabels/SetupMalfunctions/ManualItemPickup" unique_id=691600370]
@@ -331,5 +344,60 @@ texture_normal = ExtResource("26_cmrup")
 texture_pressed = ExtResource("27_yy0n7")
 texture_hover = ExtResource("28_0wdc3")
 script = ExtResource("27_cmrup")
+
+[node name="ContorlPopUp" type="PanelContainer" parent="hud" unique_id=434838679]
+z_index = 121
+material = SubResource("CanvasItemMaterial_w42fa")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -460.0
+offset_top = -337.5
+offset_right = 460.0
+offset_bottom = 337.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_o6tew")
+script = ExtResource("30_si6xw")
+
+[node name="MarginContainer" type="MarginContainer" parent="hud/ContorlPopUp" unique_id=1179568182]
+layout_mode = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = -116
+
+[node name="VBoxContainer" type="VBoxContainer" parent="hud/ContorlPopUp/MarginContainer" unique_id=1344640978]
+layout_mode = 2
+theme_override_constants/separation = 109
+
+[node name="Label" type="Label" parent="hud/ContorlPopUp/MarginContainer/VBoxContainer" unique_id=776423372]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "Steuerung"
+horizontal_alignment = 1
+
+[node name="Body" type="RichTextLabel" parent="hud/ContorlPopUp/MarginContainer/VBoxContainer" unique_id=1317575642]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 36
+text = "Bewege Astro mit WASD"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="ClosePopUpBt" type="Button" parent="hud/ContorlPopUp/MarginContainer/VBoxContainer" unique_id=661640926]
+material = SubResource("CanvasItemMaterial_upseh")
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("30_w42fa")
+theme_override_font_sizes/font_size = 60
+text = "  Weiter  "
+script = ExtResource("31_si6xw")
+
+[connection signal="pressed" from="hud/ContorlPopUp/MarginContainer/VBoxContainer/ClosePopUpBt" to="hud/ContorlPopUp" method="_on_close_pop_up_bt_pressed"]
 
 [editable path="hud/InfroBars"]
