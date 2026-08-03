@@ -129,9 +129,6 @@ func _on_manual_changed(acquired: bool) -> void:
 	if not has_manual:
 		flashlights.visible = false
 
-func set_text(val: String):
-	label.text = "[wave amp=20 freq=4]%s[/wave]" % val
-	label.visible = true
 ## Bereich betreten: sein Prompt wird angezeigt, der zuletzt betretene gewinnt.
 func show_prompt(source: Interactable) -> void:
 	if not _nearby.has(source):
