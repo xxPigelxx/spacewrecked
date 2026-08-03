@@ -135,12 +135,9 @@ func show_prompt(source: Interactable) -> void:
 		_nearby.append(source)
 	_refresh_prompt()
 
-<<<<<<< Updated upstream
 func set_text_visable():
 	label.visible = true
-	
-func disable_text():
-=======
+
 ## Bereich verlassen. Steht der Spieler noch in einem anderen, uebernimmt dessen
 ## Prompt — erst wenn keiner mehr uebrig ist, verschwindet die Anzeige.
 func hide_prompt(source: Interactable) -> void:
@@ -157,5 +154,3 @@ func _refresh_prompt() -> void:
 		# Bereich wurde freigegeben (Handbuch aufgesammelt) — naechsten pruefen.
 		_nearby.pop_back()
 	label.text = ""
->>>>>>> Stashed changes
-	label.visible = false

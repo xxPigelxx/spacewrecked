@@ -46,11 +46,7 @@ func _action() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and active:
-<<<<<<< Updated upstream
-		body.set_text_visable()
-=======
 		body.show_prompt(self)
->>>>>>> Stashed changes
 		player_near = true
 
 func _on_body_exited(body: Node2D) -> void:

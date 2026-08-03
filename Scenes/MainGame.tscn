@@ -35,6 +35,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_yr2pg"]
 radius = 71.0
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_si6xw"]
+light_mode = 1
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w42fa"]
 light_mode = 1
 
@@ -122,6 +125,7 @@ texture = ExtResource("13_wyocf")
 offset = Vector2(6, 3)
 
 [node name="Sprite2D" type="Sprite2D" parent="Interactabels/SetupMalfunctions/ManualItemPickup" unique_id=415291239]
+material = SubResource("CanvasItemMaterial_si6xw")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("12_yr2pg")
 region_enabled = true
