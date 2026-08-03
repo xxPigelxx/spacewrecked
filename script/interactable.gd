@@ -46,7 +46,7 @@ func _action() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and active:
-		body.set_text(prompt_text)
+		body.set_text_visable()
 		player_near = true
 
 func _on_body_exited(body: Node2D) -> void:

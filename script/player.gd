@@ -123,6 +123,8 @@ func set_text(val: String):
 	label.text = "[wave amp=20 freq=4]%s[/wave]" % val
 	label.visible = true
 
+func set_text_visable():
+	label.visible = true
+	
 func disable_text():
-	label.text = ""
 	label.visible = false

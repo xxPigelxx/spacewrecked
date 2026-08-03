@@ -6,6 +6,7 @@ extends Interactable
 
 
 func _setup() -> void:
+	active = true
 	rich_text_label.rotation = -get_parent().rotation
 
 ## Build overlay_data fresh at action time so door.gd's _ready() values are used.
