@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://6q5gw8ommti" path="res://resources/assets/progressHealthbar.tres" id="2_jrbst"]
 [ext_resource type="Script" uid="uid://bja6tafov3g2l" path="res://script/ship_health_bar.gd" id="3_ldltn"]
 [ext_resource type="Script" uid="uid://dgelda1t2b50h" path="res://script/ship_flight_bar.gd" id="4_6jhrp"]
+[ext_resource type="AudioStream" uid="uid://blgqto85d23s0" path="res://resources/assets/sfx/universfield-heartbeat-single-383748.mp3" id="4_upr2x"]
 [ext_resource type="Texture2D" uid="uid://d0orecowgayfv" path="res://resources/assets/heart_icon.tres" id="4_yhjai"]
 [ext_resource type="Script" uid="uid://cuhjopf80uuuh" path="res://script/debug_health_slider.gd" id="5_d55ng"]
 [ext_resource type="Texture2D" uid="uid://c1co3bh3mf2hg" path="res://resources/assets/small_ship.png" id="7_d55ng"]
@@ -53,6 +54,7 @@ play_sound = false
 start_volume_db = -10.0
 
 [node name="HeartBeatPlayer" type="AudioStreamPlayer" parent="VBoxContainer/ShipHealthBar" unique_id=1377830887]
+stream = ExtResource("4_upr2x")
 bus = &"sfx"
 
 [node name="ShipHealthMarker" type="TextureRect" parent="VBoxContainer/ShipHealthBar" unique_id=641676872]
