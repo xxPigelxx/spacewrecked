@@ -75,7 +75,7 @@ func try_spawn(elapsed: float) -> void:
 	# Offset nach dem Freiwerden abwarten (einmalig setzen, dann herunterzaehlen).
 	if _was_blocked:
 		if _release_time < 0.0:
-			_release_time = elapsed + randf_range(10.0, 20.0)
+			_release_time = elapsed + randf_range(10.0, 30.0)
 			return
 		if elapsed < _release_time:
 			return

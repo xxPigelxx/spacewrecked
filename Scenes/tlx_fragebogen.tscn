@@ -54,7 +54,7 @@ layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 text = "Klicken Sie in jeder Skala auf den Punkt, 
-der Ihre Erfahrung im Hinblick auf das [b] Lesen des Einleitungstextes [/b] am besten verdeutlicht."
+der Ihre Erfahrung im Hinblick auf das [color=red][b][u]Lesen des Einleitungstextes[/u][/b][/color] am besten verdeutlicht."
 fit_content = true
 horizontal_alignment = 1
 
