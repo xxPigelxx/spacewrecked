@@ -24,9 +24,11 @@ The game does **not** claim to show how people with dyslexia actually see text. 
 - **Built-in study**: after the game, players fill out a questionnaire (NASA-TLX plus custom questions)
 - **Telemetry**: task times, manual reading times and questionnaire answers are sent anonymously to a Google Sheet via Google Apps Script
 
-## Demo
+## Demovideo
 
-<!-- Drag & drop a gameplay video here in GitHub's editor -->
+<a href="https://youtu.be/8DfruPnB4s8">
+  <img src="https://youtu.be/8DfruPnB4s8.jpg" width="600" alt="Gameplay video">
+</a>
 
 ## Screenshots
 
