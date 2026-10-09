@@ -26,7 +26,17 @@ The game does **not** claim to show how people with dyslexia actually see text. 
 
 ## Demovideo
 
-[![Watch the video](https://img.youtube.com/vi/8DfruPnB4s8/maxresdefault.jpg)](https://www.youtube.com/watch?v=8DfruPnB4s8)
+Ein kurzer Gameplay-Durchlauf. Klick auf das Bild, um das Video auf YouTube zu öffnen.
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=8DfruPnB4s8">
+    <img src="https://img.youtube.com/vi/8DfruPnB4s8/maxresdefault.jpg" alt="Demovideo auf YouTube ansehen" width="720">
+  </a>
+  <br>
+  <a href="https://www.youtube.com/watch?v=8DfruPnB4s8"><b>▶ Video auf YouTube ansehen</b></a>
+</p>
+
+---
 
 ## Screenshots
 
