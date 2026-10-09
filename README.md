@@ -26,14 +26,48 @@ The game does **not** claim to show how people with dyslexia actually see text. 
 
 ## Demovideo
 
-<a href="https://youtu.be/8DfruPnB4s8">
-  <img src="https://youtu.be/8DfruPnB4s8.jpg" width="600" alt="Gameplay video">
-</a>
+[![Watch the video](https://img.youtube.com/vi/8DfruPnB4s8/maxresdefault.jpg)](https://www.youtube.com/watch?v=8DfruPnB4s8)
 
 ## Screenshots
 
-<!-- Add screenshots here -->
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/7a8f03e7-fc0b-4e27-ab50-fcfdb6d53da3" alt="Treibstoff" width="100%"><br>
+      <sub><b>Treibstoff</b></sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/34fc5c13-7199-4978-a6ec-5fe375df91e8" alt="Schild" width="100%"><br>
+      <sub><b>Schild</b></sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/8fcbf435-7497-4455-a94b-b157460e4cb9" alt="UI in der Reisephase" width="100%"><br>
+      <sub><b>Reisephase</b></sub>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/2e2359e3-172e-4ca2-bdab-eaaa319cdfc7" alt="Gameplay" width="100%"><br>
+      <sub><b>Gameplay</b></sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/604f1a4b-ddc6-4daa-99bc-4f2cbf8ef0a3" alt="Sicherungskasten" width="100%"><br>
+      <sub><b>Sicherungskasten</b></sub>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/213b3414-c111-43bd-a309-862ecc21e0f6" alt="Navigation" width="100%"><br>
+      <sub><b>Navigation</b></sub>
+    </td>
+  </tr>
+</table>
 
+### Effekte
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f4b9708e-8828-4699-bd85-941f7d2f278a" alt="Übersicht der Effekte" width="600">
+</p>
 ## Tech stack
 
 | Part      | Tech |
